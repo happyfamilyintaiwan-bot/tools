@@ -1,0 +1,436 @@
+{
+ "_說明": "新增或修改工具只要改這個檔案（圖示在 build.py 的 ICONS），然後執行 python3 build.py。cats 用一個分類：travel／learn／life／social／money／work。url 是工具頁網址；ui 是工具頁內可切換的介面語言；alt 是其他語言的獨立網址；hot=true 會放進「人氣」大卡（最多 3 個）。id 要和《工具｜GA4 統一追蹤規範》的 tool_id 一致。",
+ "tools": [
+  {
+   "id": "jr_pass",
+   "cats": [
+    "travel"
+   ],
+   "hot": true,
+   "url": "https://knittinghiyori.com/tools/jr-pass-calculator/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "JR Pass 試算器",
+    "輸入行程，比較周遊券和單買車票"
+   ],
+   "en": [
+    "JR Pass Calculator",
+    "Enter your route and compare a rail pass with single tickets"
+   ],
+   "ja": [
+    "JRパス損得計算機",
+    "行程を入れて、JRパスと普通きっぷを比較"
+   ]
+  },
+  {
+   "id": "esim",
+   "cats": [
+    "travel"
+   ],
+   "url": "https://knittinghiyori.com/tools/esim-plan-picker/",
+   "ui": [
+    "zh"
+   ],
+   "alt": {
+    "en": "https://knittinghiyori.com/tools/esim-plan-picker-en/"
+   },
+   "zh": [
+    "eSIM 比價工具",
+    "10 國 Saily、Airalo、Yesim 價格一次比"
+   ],
+   "en": [
+    "eSIM Price Comparison",
+    "Saily, Airalo and Yesim compared across 10 countries"
+   ],
+   "ja": [
+    "eSIM料金比較",
+    "10か国のSaily・Airalo・Yesimの料金をまとめて比較"
+   ]
+  },
+  {
+   "id": "packing_list",
+   "cats": [
+    "travel"
+   ],
+   "url": "https://knittinghiyori.com/tools/packing-list-generator/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "出國行李清單產生器",
+    "依目的地、季節、天數一鍵產生，可存圖分享"
+   ],
+   "en": [
+    "Packing List Generator",
+    "A list built from destination, season and trip length; save it as an image"
+   ],
+   "ja": [
+    "海外旅行の持ち物リスト",
+    "行き先・季節・日数から自動作成、画像で保存もOK"
+   ]
+  },
+  {
+   "id": "travel_split",
+   "cats": [
+    "travel"
+   ],
+   "hot": true,
+   "url": "https://knittinghiyori.com/tools/travel-split-calculator/",
+   "ui": [
+    "zh",
+    "en",
+    "ja"
+   ],
+   "zh": [
+    "旅費分帳計算機",
+    "出國多幣別記帳，自動算出誰該轉給誰"
+   ],
+   "en": [
+    "Trip Expense Splitter",
+    "Log costs in any currency and see exactly who pays whom"
+   ],
+   "ja": [
+    "旅行の割り勘計算機",
+    "多通貨で記録、誰が誰にいくら払うか自動で計算"
+   ]
+  },
+  {
+   "id": "bill_split",
+   "cats": [
+    "travel"
+   ],
+   "url": "https://knittinghiyori.com/tools/bill-split-calculator/",
+   "ui": [
+    "zh",
+    "en",
+    "ja"
+   ],
+   "zh": [
+    "聚餐分帳計算機",
+    "拍帳單逐項分，服務費、折扣按比例分攤"
+   ],
+   "en": [
+    "Restaurant Bill Splitter",
+    "Split by dish, with service charge and discounts shared fairly"
+   ],
+   "ja": [
+    "飲み会・食事の割り勘計算機",
+    "注文ごとに分けて、サービス料や割引は比例配分"
+   ]
+  },
+  {
+   "id": "knitting_needles",
+   "cats": [
+    "travel"
+   ],
+   "url": "https://knittinghiyori.com/knitting-needles-carry-on-rules/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "織女出國安檢查詢",
+    "棒針、鉤針、剪刀能不能帶上飛機？依出發地一次查"
+   ],
+   "en": [
+    "Knitting Needles Carry-On Checker",
+    "Can needles, hooks and scissors go in your carry-on? Check by departure country"
+   ],
+   "ja": [
+    "編み針の機内持ち込みチェック",
+    "編み針・かぎ針・はさみは機内に持ち込める？出発地ごとに確認"
+   ]
+  },
+  {
+   "id": "cube_miles",
+   "cats": [
+    "travel"
+   ],
+   "url": "https://knittinghiyori.com/cube-tree-points-to-airline-miles-guide/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "小樹點換哩程試算器",
+    "輸入點數，算出長榮、華航、亞洲萬里通等可換多少哩程"
+   ],
+   "en": [
+    "CUBE Points to Miles Calculator",
+    "Enter your Cathay CUBE points and see the miles on EVA Air, China Airlines, Asia Miles and more"
+   ],
+   "ja": [
+    "CUBEポイント→マイル換算",
+    "國泰CUBEカードのポイントがEVA航空・チャイナエアライン・アジア・マイルで何マイルになるか試算"
+   ]
+  },
+  {
+   "id": "travel_deals",
+   "cats": [
+    "travel"
+   ],
+   "url": "https://knittinghiyori.com/tools/travel-deals/",
+   "ui": [
+    "zh"
+   ],
+   "alt": {
+    "en": "https://knittinghiyori.com/en/en-tools/en-travel-deals-hub/"
+   },
+   "zh": [
+    "旅遊優惠總整理",
+    "訂房、票券、eSIM 折扣一頁查"
+   ],
+   "en": [
+    "Travel Deals Hub",
+    "Hotel, ticket and eSIM discounts on one page"
+   ],
+   "ja": [
+    "旅行割引まとめ",
+    "ホテル・チケット・eSIMの割引を1ページで"
+   ]
+  },
+  {
+   "id": "japanese_quest",
+   "cats": [
+    "learn"
+   ],
+   "url": "https://knittinghiyori.com/tools/japanese-quest/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "日文學習資源＋30 天闖關",
+    "從看懂漫畫到開口說，每天打卡"
+   ],
+   "en": [
+    "30-Day Japanese Quest",
+    "Curated resources and daily check-ins, from reading manga to speaking"
+   ],
+   "ja": [
+    "日本語学習30日チャレンジ",
+    "中国語話者向け：漫画を読む→話すまでの教材と毎日のミッション"
+   ]
+  },
+  {
+   "id": "youtube_transcript",
+   "cats": [
+    "learn"
+   ],
+   "url": "https://knittinghiyori.com/tools/youtube-transcript/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "YouTube 逐字稿產生器",
+    "影片、錄音檔免費轉文字，中日英都支援"
+   ],
+   "en": [
+    "YouTube Transcript Generator",
+    "Turn videos and audio into text for free, in Chinese, Japanese or English"
+   ],
+   "ja": [
+    "YouTube文字起こしツール",
+    "動画・音声を無料でテキスト化、日本語・中国語・英語に対応"
+   ]
+  },
+  {
+   "id": "instant_camera",
+   "cats": [
+    "life"
+   ],
+   "url": "https://knittinghiyori.com/instant-camera-guide/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "拍立得選擇工具",
+    "回答三個問題，從 18 款機型找到適合你的拍立得"
+   ],
+   "en": [
+    "Instant Camera Picker",
+    "Answer three questions and find your match among 18 instax and Polaroid models"
+   ],
+   "ja": [
+    "チェキ・インスタントカメラ診断",
+    "3つの質問で、18機種から自分に合う1台が見つかる"
+   ]
+  },
+  {
+   "id": "kaomoji",
+   "cats": [
+    "social"
+   ],
+   "hot": true,
+   "url": "https://knittinghiyori.com/tools/kaomoji-symbols/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "大型顏文字產生器",
+    "兔兔顏文字、表情組合器、特殊符號，一鍵複製"
+   ],
+   "en": [
+    "Kaomoji & Symbol Generator",
+    "Bunny kaomoji, a face builder and special symbols, tap to copy"
+   ],
+   "ja": [
+    "顔文字ジェネレーター",
+    "うさぎ顔文字・顔パーツの組み合わせ・特殊記号をワンタップでコピー"
+   ]
+  },
+  {
+   "id": "ig_symbols",
+   "cats": [
+    "social"
+   ],
+   "url": "https://knittinghiyori.com/tools/ig-symbols/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "IG 特殊符號",
+    "自介排版、分隔線、限動裝飾一鍵複製"
+   ],
+   "en": [
+    "Instagram Symbols",
+    "Bio layouts, dividers and story decorations, ready to copy"
+   ],
+   "ja": [
+    "インスタ特殊記号",
+    "プロフィールの装飾・区切り線・ストーリー用の記号をコピー"
+   ]
+  },
+  {
+   "id": "post_formatter",
+   "cats": [
+    "social"
+   ],
+   "url": "https://knittinghiyori.com/tools/social-post-formatter/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "貼文排版小工具",
+    "發文前先整理換行與空行，貼上不跑版"
+   ],
+   "en": [
+    "Social Post Formatter",
+    "Tidy line breaks and spacing before you post"
+   ],
+   "ja": [
+    "SNS投稿の整形ツール",
+    "改行や空白を整えてから投稿、レイアウト崩れを防ぐ"
+   ]
+  },
+  {
+   "id": "japan_stock",
+   "cats": [
+    "money"
+   ],
+   "url": "https://knittinghiyori.com/tools/japan-stock-ticker/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "日股代號查詢",
+    "143 檔日本旅遊常見品牌的股票代號對照"
+   ],
+   "en": [
+    "Japanese Stock Ticker Lookup",
+    "Ticker codes for 143 brands you see on a trip to Japan"
+   ],
+   "ja": [
+    "日本株 銘柄コード検索",
+    "旅行でよく見る143ブランドの証券コード一覧"
+   ]
+  },
+  {
+   "id": "dca",
+   "cats": [
+    "money"
+   ],
+   "url": "https://knittinghiyori.com/tools/dca-calculator/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "投資定期定額計算機",
+    "試算每月投入、報酬率與複利成長"
+   ],
+   "en": [
+    "DCA Investment Calculator",
+    "Monthly contributions, returns and compound growth"
+   ],
+   "ja": [
+    "積立投資シミュレーター",
+    "毎月の積立額・利回り・複利の伸びを試算"
+   ]
+  },
+  {
+   "id": "utm_builder",
+   "cats": [
+    "work"
+   ],
+   "url": "https://knittinghiyori.com/tools/utm-link-builder-wordpress/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "UTM 快速生產工具",
+    "快速組出追蹤網址，看清楚流量從哪來"
+   ],
+   "en": [
+    "UTM Link Builder",
+    "Build tracked campaign links in seconds"
+   ],
+   "ja": [
+    "UTMリンク作成",
+    "流入元を計測するURLをすばやく作成"
+   ]
+  },
+  {
+   "id": "qr_code",
+   "cats": [
+    "work"
+   ],
+   "url": "https://knittinghiyori.com/tools/qr-code-generator/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "QR Code 產生器",
+    "貼上網址一鍵產生，永久有效、無浮水印"
+   ],
+   "en": [
+    "Free QR Code Generator",
+    "Paste a link and get a QR code that never expires, no watermark"
+   ],
+   "ja": [
+    "無料QRコード作成",
+    "URLを貼るだけ、有効期限なし・透かしなし"
+   ]
+  },
+  {
+   "id": "business_card_qr",
+   "cats": [
+    "work"
+   ],
+   "url": "https://knittinghiyori.com/tools/business-card-qr-code/",
+   "ui": [
+    "zh"
+   ],
+   "zh": [
+    "名片 QR Code 產生器",
+    "上傳名片，自動加上可追蹤的 QR Code"
+   ],
+   "en": [
+    "Business Card QR Maker",
+    "Upload your card and add a trackable QR code"
+   ],
+   "ja": [
+    "名刺QRコード作成",
+    "名刺の画像に計測できるQRコードを追加"
+   ]
+  }
+ ]
+}
