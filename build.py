@@ -42,6 +42,7 @@ ICONS = {
   'post_formatter': '<path d="M3.6 5.6h16.8M3.6 10h10.4M3.6 14.4h6.4"/><path d="M13.2 20.8l.8-3.2 5.4-5.4a1.6 1.6 0 0 1 2.3 2.3l-5.4 5.4z"/>',
 }
 ICONS.update({
+  'parking_timer': '<rect x="3.5" y="3.5" width="17" height="17" rx="4"/><path d="M9.5 17V7.5h3.2a2.9 2.9 0 0 1 0 5.8H9.5"/>',
   'knitting_needles': '<circle cx="9" cy="15" r="5.8"/><path d="M4.4 12.2c2.8 1.3 6.2 1.3 9 0M3.6 16.4c3.2 1.4 7 1.4 10.4-.2"/><path d="M13 10.6 20.8 2.8M15.6 13.6l5.8-5.8"/>',
   'cube_miles': '<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',
   'instant_camera': '<rect x="3" y="3.6" width="18" height="16.8" rx="3"/><circle cx="12" cy="11" r="3.8"/><path d="M3 16.6h18M6.4 7h2.2M16.6 7h.01"/>',
@@ -155,6 +156,8 @@ def tags_for(t, lang, L, with_hot=True):
     tags = []
     if with_hot and t.get('hot'):
         tags.append(f'<span class="tag hot">{L["hot"]}</span>')
+    if t.get('new'):
+        tags.append('<span class="tag hot">NEW</span>')
     if lang != 'zh':
         native = lang in t.get('ui', []) or lang in (t.get('alt') or {})
         tags.append(f'<span class="tag ok">{L["ui_ok"]}</span>' if native else f'<span class="tag">{L["ui_zh"]}</span>')
@@ -448,6 +451,10 @@ def main():
     urls = url_group({l: LANGS[l]['path'] for l in ORDER}, '/')
     for g in groups:
         urls += url_group(g['paths'], g['paths']['zh'])
+    # 只有中文版、直接放進 repo 的工具頁（tools.json 有 "page"）
+    for t in DATA:
+        if t.get('page'):
+            urls += f'<url><loc>{SITE}/{t["page"]}/</loc><lastmod>{today}</lastmod></url>'
     (ROOT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
         'xmlns:xhtml="http://www.w3.org/1999/xhtml">' + urls + '</urlset>\n', encoding='utf-8')

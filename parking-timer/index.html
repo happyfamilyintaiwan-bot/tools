@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<!-- 1. Travelpayouts Drive（tools 專屬，放第一個） -->
+<script data-cfasync="false" data-cmp-ab="2">(function(){var s=document.createElement("script");s.async=1;s.setAttribute("data-cmp-ab","2");s.src="https://emrld.ltd/NTc5OTI2.js?t=579926";document.head.appendChild(s)})();</script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>停車計時卡｜算停車費與限停倒數的免費線上工具</title>
+<meta name="description" content="輸入停車時間與費率，立刻算出目前累積的停車費，並倒數限時停車格的到期時間。可把到期提醒加進手機行事曆，常用停車場設定一鍵套用。免安裝、免註冊。">
+<link rel="canonical" href="https://tools.knittinghiyori.com/parking-timer/">
+<meta property="og:title" content="停車計時卡｜算停車費與限停倒數">
+<meta property="og:description" content="倒數限時停車格的到期時間，同時算出目前累積的停車費，可把提醒加進手機行事曆。">
+<meta property="og:url" content="https://tools.knittinghiyori.com/parking-timer/">
+<meta property="og:image" content="https://tools.knittinghiyori.com/parking-timer/og.png">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="https://games.knittinghiyori.com/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="https://games.knittinghiyori.com/icons/apple-touch-icon.png">
+<!-- 字體：內文走系統字；英文數字 Display 用 Instrument Serif；標籤與數字用 IBM Plex Mono；中文標題用 Noto Serif TC 子集 -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&text=停車計時卡怎麼用計費是算的注意事項常見問題同類工具延伸閱讀收藏分享給朋友這個目前狀態與設定紀錄場不景&display=swap">
+<script>document.documentElement.classList.add('js')</script>
+<!-- 2. AdSense 載入碼：不帶 ?client= -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+<!-- 3. GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQZHTYTRMQ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());
+gtag("set",{content_group:"tool",tool_id:"parking_timer",page_lang:"zh-Hant",page_title:"工具|停車計時卡|算停車費與限停倒數"});
+gtag("config","G-ZQZHTYTRMQ");</script>
+<!-- 4. JSON-LD -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"停車計時卡","url":"https://tools.knittinghiyori.com/parking-timer/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"zh-Hant-TW","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"featureList":["限時停車格到期倒數","依計費單位累計停車費","到期提醒加入行事曆","常用停車場設定儲存","停車紀錄保存"],"author":{"@type":"Organization","name":"編織日和","url":"https://knittinghiyori.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"小工具","item":"https://tools.knittinghiyori.com/"},{"@type":"ListItem","position":2,"name":"旅行與出國","item":"https://tools.knittinghiyori.com/"},{"@type":"ListItem","position":3,"name":"停車計時卡","item":"https://tools.knittinghiyori.com/parking-timer/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"怎麼用停車計時卡","inLanguage":"zh-Hant-TW","step":[{"@type":"HowToStep","name":"填停車地點","text":"輸入地點名稱，室內停車場再填柱號或車位編號，例如 B3-27。"},{"@type":"HowToStep","name":"設定限停時間與費率","text":"照現場告示填入限停幾分鐘、每多少分鐘收多少錢，以及前幾分鐘免費。"},{"@type":"HowToStep","name":"按開始計時","text":"開始後畫面會倒數到期時間，同時顯示目前累積的停車費與下一次跳表的時刻。"},{"@type":"HowToStep","name":"把提醒加進行事曆","text":"按加入行事曆，提醒會存進手機的日曆應用程式，關掉網頁之後仍然會響。"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-Hant-TW","mainEntity":[
+{"@type":"Question","name":"關掉網頁之後還會提醒我嗎？","acceptedAnswer":{"@type":"Answer","text":"不會。瀏覽器沒有背景推播，分頁關掉之後這個頁面就停止運作了。所以請按加入行事曆，把到期時間存進手機的日曆應用程式，那個提醒關掉網頁也會響。分頁通知只有在這個分頁保持開啟時才有效。"}},
+{"@type":"Question","name":"為什麼預設是不足一單位以一單位計？","acceptedAnswer":{"@type":"Answer","text":"因為多數路邊停車格與停車場都是這樣收費，停 31 分鐘會被當成兩個半小時計算。如果你停的場地是按實際分鐘數計費，把那個選項取消勾選即可。"}},
+{"@type":"Question","name":"前幾分鐘免費要怎麼填？","acceptedAnswer":{"@type":"Answer","text":"看現場告示牌怎麼寫就怎麼填。有些路段與停車場會給一段免費時間，超過之後從停車那一刻開始重新計算全額，本工具就是照這個方式算的。如果沒有免費時段，填 0。"}},
+{"@type":"Question","name":"我的紀錄會存到哪裡？","acceptedAnswer":{"@type":"Answer","text":"全部存在你這台裝置的瀏覽器裡，不會上傳。換一支手機、換一個瀏覽器，或是清除瀏覽資料，資料就會不見。這也表示別人看不到你停在哪裡。"}},
+{"@type":"Question","name":"算出來的金額就是我要付的錢嗎？","acceptedAnswer":{"@type":"Answer","text":"不是，這是依你填入的費率推算的參考值。實際金額以現場告示、收費單或停車場系統為準。費率與計費方式各縣市、各場地都不一樣，也會調整。"}},
+{"@type":"Question","name":"沒有網路可以用嗎？","acceptedAnswer":{"@type":"Answer","text":"頁面載入之後，計時與計費都在你的裝置上執行，進到地下停車場收不到訊號也會繼續倒數。但第一次打開頁面需要網路。"}}
+]}
+</script>
+<style>
+/* 版型概念：印刷品的收費單 —— 細線分隔、等寬字標籤、編號 No.，單一套印紅 */
+:root{
+  --paper:#ffffff;
+  --ink:#16120f;
+  --ink-2:#5a524e;
+  --label:#6f6764;
+  --accent:#c8341e;
+  --accent-bg:#fbebe7;
+  --ok:#1d6b45;
+  --ok-bg:#e8f3ec;
+  --block:#f7f4f2;
+  --rule:#e4deda;
+  --rule-2:#cfc6c1;
+  --serif:"Noto Serif TC","Instrument Serif",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --body:"PingFang TC","Hiragino Sans","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{font-family:var(--body);font-size:16px;line-height:1.75;-webkit-text-size-adjust:100%}
+img{max-width:100%}
+[hidden]{display:none!important}
+.k-wrap{max-width:1240px;margin:0 auto;padding-inline:20px}
+.k-col{max-width:720px;margin:0 auto}
+@media(min-width:900px){.k-wrap{padding-inline:40px}}
+a{color:var(--accent);text-underline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.3;text-wrap:balance;margin:0}
+h1{font-size:30px}
+h2{font-size:23px;margin-top:8px}
+h3{font-size:17px;font-family:var(--body);font-weight:700}
+p{margin:0}
+.k-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--label);text-transform:uppercase}
+.k-no{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent)}
+section{padding-block:34px;border-top:1px solid var(--rule)}
+section>.k-col>*+*{margin-top:14px}
+ul,ol{margin:0;padding-left:1.2em}
+li+li{margin-top:6px}
+
+/* 頁首與麵包屑 */
+.k-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px;font-size:13px}
+.k-head .brand{font-family:var(--serif);font-size:17px;color:var(--ink);text-decoration:none}
+.k-crumb{font-family:var(--mono);font-size:11px;color:var(--label);padding-bottom:18px}
+.k-crumb a{color:var(--label)}
+.k-hero{padding-bottom:26px}
+.k-lede{color:var(--ink-2);margin-top:10px;font-size:17px}
+.k-steps{display:flex;flex-wrap:wrap;gap:6px 16px;list-style:none;padding:0;margin-top:14px;font-size:13px;color:var(--ink-2);counter-reset:s}
+.k-steps li{counter-increment:s}
+.k-steps li::before{content:"0" counter(s);font-family:var(--mono);font-size:10px;color:var(--accent);margin-right:6px;letter-spacing:.1em}
+
+/* 計時卡 */
+.card{border:1px solid var(--rule-2);border-radius:14px;overflow:hidden}
+.card-top{background:var(--ink);color:#fff;padding:11px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.card-top .place{font-size:15px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card-top .spot{font-family:var(--mono);font-size:12px;opacity:.85;white-space:nowrap}
+.card.warn{border-color:var(--accent)}
+.card.warn .card-top,.card.over .card-top{background:var(--accent)}
+.card.over{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-bg)}
+.card-body{padding:22px 16px 18px;display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+.cd{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(42px,13vw,60px);line-height:1;font-weight:500;letter-spacing:-.02em}
+.cd.idle{color:#948a86}
+.card.warn .cd,.card.over .cd{color:var(--accent)}
+.meta{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 18px;font-size:13px;color:var(--ink-2)}
+.meta b{font-family:var(--mono);font-weight:500;color:var(--ink)}
+.fee-row{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:4px 10px;border-top:1px solid var(--rule);padding-top:16px;width:100%}
+.fee{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:31px;font-weight:500}
+.fee-note{font-size:12px;color:var(--label)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;width:100%}
+button{font-family:inherit;font-size:15px;font-weight:500;min-height:44px;padding:11px 16px;border-radius:999px;border:1px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer;flex:1 1 130px}
+button.primary{min-height:52px;background:var(--ink);color:#fff}
+button.primary:hover{background:var(--accent);border-color:var(--accent)}
+button:hover{background:var(--block)}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.ghost{font-size:13px;min-height:44px;border-color:var(--rule-2);color:var(--ink-2)}
+button[disabled]{opacity:.45;cursor:not-allowed}
+button[disabled]:hover{background:var(--paper)}
+.remind{width:100%;background:var(--block);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:9px;text-align:left}
+.remind .k-label{display:block}
+.rm-note{font-size:13px;color:var(--ink-2)}
+
+/* 設定 */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:13px;color:var(--ink-2)}
+input,select{font-family:inherit;font-size:16px;min-height:44px;padding:10px 12px;border:1px solid var(--rule-2);border-radius:10px;background:var(--paper);color:var(--ink);width:100%;min-width:0}
+input[type=number],input[type=time]{font-family:var(--mono)}
+input:focus,select:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.inline{display:flex;gap:8px;align-items:center}
+.check{display:flex;gap:8px;align-items:flex-start;grid-column:1/-1;font-size:14px}
+.check input{width:20px;height:20px;min-height:0;flex:0 0 auto;margin-top:3px}
+@media(max-width:430px){.grid{grid-template-columns:1fr}}
+
+/* 常用停車場與紀錄 */
+.presets{display:flex;flex-direction:column;gap:8px}
+.preset{display:flex;align-items:center;gap:10px;border:1px solid var(--rule);border-radius:12px;padding:10px 12px;min-width:0}
+.preset .info{flex:1 1 auto;min-width:0}
+.preset .nm{font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.preset .sub{font-size:12px;color:var(--label);font-family:var(--mono)}
+.preset button{flex:0 0 auto;padding:8px 12px;min-height:40px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;background:var(--block);color:var(--label);padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:2px}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 6px;border-bottom:1px solid var(--rule)}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--label);font-weight:400}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.empty{font-size:14px;color:var(--label)}
+
+/* 內容區 */
+.note{background:var(--block);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--ink-2)}
+.ex{border:1px solid var(--rule);border-radius:12px;padding:14px 16px;font-size:14px}
+.ex dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:10px 0 0;font-family:var(--mono);font-size:13px}
+.ex dt{color:var(--label)}
+.ex dd{margin:0}
+details{border-bottom:1px solid var(--rule);padding-block:12px}
+details summary{cursor:pointer;font-weight:700;list-style:none;display:flex;gap:10px;align-items:flex-start}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+";font-family:var(--mono);color:var(--accent);flex:0 0 auto}
+details[open] summary::before{content:"–"}
+details p{margin-top:8px;color:var(--ink-2);font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.lcard{display:block;border:1px solid var(--rule);border-radius:14px;padding:14px;text-decoration:none;color:var(--ink)}
+.lcard:hover{border-color:var(--accent)}
+.lcard .t{font-weight:700;font-size:15px}
+.lcard .d{font-size:13px;color:var(--ink-2);margin-top:3px}
+.bigcards{display:grid;grid-template-columns:1fr;gap:10px}
+@media(min-width:620px){.bigcards{grid-template-columns:1fr 1fr}}
+.bigcard{display:block;border-radius:16px;padding:20px;text-decoration:none;background:var(--ink);color:#fff}
+.bigcard.alt{background:var(--block);color:var(--ink)}
+.bigcard .t{font-family:var(--serif);font-size:19px}
+.bigcard .d{font-size:13px;opacity:.85;margin-top:4px}
+
+/* 廣告 */
+.kh-ad{width:100%;max-width:728px;margin:0 auto;min-height:120px}
+.kh-ad-l{font:500 11px/1 "IBM Plex Mono",monospace;letter-spacing:.14em;color:#6f6764;text-align:center;margin:0 0 8px}
+.kh-ad ins.adsbygoogle[data-ad-status="unfilled"]{display:none!important}
+.kh-ad-wrap:has(ins[data-ad-status="unfilled"]){display:none}
+
+/* 頁尾 */
+.k-foot{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:14px}
+.k-foot nav{display:flex;flex-wrap:wrap;gap:8px 18px}
+.kh-legal{font-size:12px;line-height:1.6;color:#6f6764;margin-top:12px}
+.kh-legal a{margin-left:4px;text-decoration:underline;text-underline-offset:2px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:#fff;font-size:14px;padding:11px 18px;border-radius:999px;z-index:9;max-width:90vw}
+.aff{border:1px solid var(--rule);border-radius:14px;padding:16px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="k-wrap">
+
+  <header class="k-head">
+    <a class="brand" href="https://tools.knittinghiyori.com/" data-cta="header_hub" data-cta-type="tool" data-google-vignette="false">編織日和・小工具</a>
+    <span class="k-label">No.20 · 旅行與出國</span>
+  </header>
+
+  <nav class="k-crumb" aria-label="麵包屑">
+    <a href="https://tools.knittinghiyori.com/" data-cta="back_hub" data-cta-type="tool" data-google-vignette="false">小工具</a> / 旅行與出國 / 停車計時卡
+  </nav>
+
+  <div class="k-col k-hero">
+    <h1>停車計時卡</h1>
+    <p class="k-lede">輸入停車時間與費率，立刻算出目前累積的停車費，並倒數限時停車格的到期時間；提醒可以加進手機行事曆，關掉網頁也會響。免安裝、免註冊，資料只留在你的裝置上。</p>
+    <ol class="k-steps"><li>填地點與費率</li><li>按開始計時</li><li>把到期時間加進行事曆</li></ol>
+  </div>
+
+  <!-- 工具操作區 -->
+  <div class="k-col" id="tool">
+    <div class="card" id="card">
+      <div class="card-top">
+        <span class="place" id="cPlace">尚未開始計時</span>
+        <span class="spot" id="cSpot"></span>
+      </div>
+      <div class="card-body">
+        <div>
+          <span class="k-label" id="cdLabel">距離限停到期</span>
+          <div class="cd idle" id="cd">--:--:--</div>
+        </div>
+        <div class="meta">
+          <span>開始 <b id="mStart">--:--</b></span>
+          <span>到期 <b id="mEnd">--:--</b></span>
+          <span>已停 <b id="mDur">0 分</b></span>
+        </div>
+        <div class="fee-row">
+          <span class="fee" id="fee">NT$0</span>
+          <span class="fee-note" id="feeNote">開始後顯示累計金額</span>
+        </div>
+        <div class="btns">
+          <button class="primary" id="btnStart">開始計時</button>
+          <button id="btnEnd" hidden>結束並記錄</button>
+          <button id="btnCopy">複製停車資訊</button>
+        </div>
+        <div class="remind">
+          <span class="k-label">到期提醒</span>
+          <p class="rm-note" id="rmNote">分頁關掉後網頁就不會提醒。把到期時間加進行事曆或鬧鐘，才是真的會響。</p>
+          <div class="btns">
+            <button class="ghost" id="btnGcal">加入 Google 日曆</button>
+            <button class="ghost" id="btnIcs">下載行事曆檔</button>
+            <button class="ghost" id="btnNotify">開啟分頁通知</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 01</span>
+      <h2>目前狀態與設定</h2>
+      <div class="grid">
+        <div class="field full">
+          <label for="fPlace">地點</label>
+          <input id="fPlace" type="text" placeholder="例如：市府路路邊格" value="市府路 路邊停車格">
+        </div>
+        <div class="field">
+          <label for="fSpot">車位／柱號</label>
+          <input id="fSpot" type="text" placeholder="例如 B3-27">
+        </div>
+        <div class="field">
+          <label for="fStart">開始時間</label>
+          <div class="inline">
+            <input id="fStart" type="time">
+            <button class="ghost" id="btnNow" type="button" style="flex:0 0 auto">現在</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fLimit">限停時間</label>
+          <select id="fLimit">
+            <option value="0">不限時</option>
+            <option value="30">30 分鐘</option>
+            <option value="60" selected>60 分鐘</option>
+            <option value="90">90 分鐘</option>
+            <option value="120">2 小時</option>
+            <option value="180">3 小時</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fWarn">提前提醒</label>
+          <select id="fWarn">
+            <option value="0">不提醒</option>
+            <option value="5">到期前 5 分鐘</option>
+            <option value="10" selected>到期前 10 分鐘</option>
+            <option value="15">到期前 15 分鐘</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fRate">費率（元）</label>
+          <input id="fRate" type="number" min="0" step="1" inputmode="numeric" value="20">
+        </div>
+        <div class="field">
+          <label for="fUnit">計費單位</label>
+          <select id="fUnit">
+            <option value="15">每 15 分鐘</option>
+            <option value="30" selected>每 30 分鐘</option>
+            <option value="60">每 1 小時</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fFree">前幾分鐘免費</label>
+          <input id="fFree" type="number" min="0" step="1" inputmode="numeric" value="15">
+        </div>
+        <div class="field">
+          <label for="fCap">單日上限（0 為無）</label>
+          <input id="fCap" type="number" min="0" step="1" inputmode="numeric" value="0">
+        </div>
+        <div class="check">
+          <input id="fRound" type="checkbox" checked>
+          <label for="fRound">不足一單位以一單位計（多數路邊格與停車場都是這樣）</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 02</span>
+      <h2>常用停車場</h2>
+      <p class="rm-note">常去的地方存起來，下次一鍵套用費率與限停設定。</p>
+      <div class="presets" id="presets"></div>
+      <div class="btns"><button id="btnSave">把目前設定存成常用</button></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 03</span>
+      <h2>停車紀錄</h2>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>日期</th><th>地點</th><th class="num">時長</th><th class="num">費用</th></tr></thead>
+          <tbody id="log"></tbody>
+        </table>
+      </div>
+      <div class="btns"><button class="ghost" id="btnClear" style="flex:0 0 auto">清除紀錄</button></div>
+    </div>
+  </section>
+
+  <!-- 聯盟推薦（連結未設定時整塊隱藏） -->
+  <section id="affSec" hidden>
+    <div class="k-col">
+      <div class="aff">
+        <span class="k-label">自駕出遊</span>
+        <h3 style="margin-top:6px">要開車旅行的話</h3>
+        <p class="rm-note" id="affList"></p>
+        <p class="kh-legal">以上連結為旅遊聯盟連結，透過連結完成預訂，本站會獲得回饋，你的價格不會因此變貴。本站與這些平台沒有內容審閱或稿費關係，價格與優惠以平台當下顯示為準。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 04</span>
+      <h2>怎麼用</h2>
+      <ol>
+        <li><strong>填停車地點。</strong>路邊停車填路名即可；室內停車場建議把柱號或車位編號一起填進去，例如 B3-27。地下室收不到定位訊號，手寫柱號比任何定位功能都可靠。</li>
+        <li><strong>照現場告示設定限停與費率。</strong>限停時間看告示牌上的「限時停車」字樣；費率填「每多少分鐘收多少錢」。沒有限時規定就選不限時，這時倒數會改成顯示已停多久。</li>
+        <li><strong>按開始計時。</strong>如果你是停好一陣子才打開這個頁面，可以把開始時間往回調，系統會依實際停車時刻計算。</li>
+        <li><strong>把提醒加進行事曆。</strong>這是整個流程裡最重要的一步，原因見下面的注意事項。</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 05</span>
+      <h2>計費是怎麼算的</h2>
+      <p>停車費看起來只是時間乘以費率，實際上有三個會讓人算錯的地方，這個工具都處理了。</p>
+
+      <h3>一、不足一單位，通常以一單位計</h3>
+      <p>多數場地的計費單位是 30 分鐘或 1 小時，停 31 分鐘會被當成兩個單位。這就是為什麼「再逛五分鐘」常常不是多五分鐘的錢，而是多一整段。工具裡的「下一次跳表」就是在告訴你，再過多久金額會跳一段，看到時間快到了，就知道該走還是乾脆慢慢來。</p>
+
+      <h3>二、免費時段多半是「超過就全額計算」</h3>
+      <p>有些路段與停車場會給一段免費時間。常見的規則不是「總時數扣掉免費時數」，而是「只要超過就從停車那一刻起全額計算」。本工具採用後者，因為那是比較常見也比較保守的算法；如果你的場地是前者，把免費分鐘填 0，再自行扣除。</p>
+
+      <h3>三、單日上限</h3>
+      <p>長時間停放時，上限金額比費率重要。填了單日上限之後，金額到達上限就不會再往上跳。要注意上限的計算週期各家不同，有的是當日 24 點重新計算，有的是以進場起算 24 小時，長時間停放前值得先看清楚。</p>
+
+      <div class="ex">
+        <span class="k-label">試算範例</span>
+        <p style="margin-top:6px">每 30 分鐘 20 元、前 15 分鐘免費、不足一單位以一單位計：</p>
+        <dl>
+          <dt>停 12 分鐘</dt><dd>0 元（在免費時段內）</dd>
+          <dt>停 20 分鐘</dt><dd>20 元（超過免費時段，算一個單位）</dd>
+          <dt>停 31 分鐘</dt><dd>40 元（進到第二個單位）</dd>
+          <dt>停 90 分鐘</dt><dd>60 元（三個單位）</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 06</span>
+      <h2>不同停車場景怎麼設定</h2>
+      <p>同樣是停車，收費邏輯差很多。下面四種是最常遇到的情況，以及在這個工具裡該怎麼填。實際數字一律以現場告示為準，這裡只說明填法。</p>
+
+      <h3>路邊停車格</h3>
+      <p>最需要這個工具的場景。路邊格通常有兩件事要同時盯：費用在跳，以及有沒有限時。</p>
+      <ul>
+        <li><strong>限時時間</strong>照告示牌填。告示上寫「限時停車 1 小時」就填 60 分鐘，倒數到期時換你移車。</li>
+        <li><strong>計費單位</strong>常見是每 30 分鐘或每小時一段，而且不足一段多半以一段計，所以填費率時要連單位一起看，只記得「一小時多少錢」很容易算錯。</li>
+        <li><strong>免費分鐘</strong>部分路段有短時間免費的規定，填進去之後工具會自動在超過時才開始計費。</li>
+        <li>路邊停車的費用通常不是當場繳，而是事後收到繳費單，所以你當下其實看不到金額。這也是為什麼自己記一筆有意義：收到單子時可以核對停了多久。</li>
+      </ul>
+
+      <h3>百貨、商場與影城停車場</h3>
+      <p>這類場地的特色是有消費折抵，實際付的錢往往比計時金額低。</p>
+      <ul>
+        <li>先用原始費率設定，看清楚「不折抵的話要多少」，再決定要不要為了湊折抵多買東西。很多人是反過來的，為了省停車費花掉更多錢。</li>
+        <li>多數採整點計費且不足一小時以一小時計，所以離場時間很關鍵。注意看工具上的「跳下一段」時刻，差幾分鐘就是一整段的錢。</li>
+        <li>停在地下樓層一定要填車位或柱號。地下室沒有定位訊號，手機地圖幫不上忙，寫下 B3-27 這種編號才是真的找得到車。</li>
+        <li>有些場地的計費從進場閘門開始算，不是從你停好車開始。如果繞了很久才找到位子，開始時間要往前調。</li>
+      </ul>
+
+      <h3>機場與長期停車</h3>
+      <p>停好幾天的情況，單日上限比費率重要得多，整段費用幾乎由上限決定。</p>
+      <ul>
+        <li><strong>一定要填單日上限</strong>，否則工具會一路往上累加，算出一個不會發生的金額。</li>
+        <li>上限的計算週期各家不同：有的是每天午夜重新計算，有的是以進場時間起算每 24 小時。差一種算法，停三天的總價可能差一整天。出發前先看清楚。</li>
+        <li>長期停車不需要限時倒數，限停時間選不限時即可，這時畫面會改成顯示已經停了多久。</li>
+        <li>把停車場名稱與車位編號存成常用停車場，回國領車時打開就看得到，比翻照片快。</li>
+      </ul>
+
+      <h3>社區訪客車位、免費但限時的車位</h3>
+      <p>這類車位不用錢，但限時規定通常更嚴格，超時的代價可能是被通知挪車或取消訪客資格。</p>
+      <ul>
+        <li>費率填 0，工具會顯示免費車位，不再計算金額，專心做倒數。</li>
+        <li>限時時間照管委會或告示規定填，提前提醒建議設長一點，例如 15 分鐘，因為這種場合臨時移車比較麻煩。</li>
+        <li>這是最該用行事曆提醒的場景。免費車位沒有金額壓力，人很容易忘記時間。</li>
+      </ul>
+
+      <div class="scroll">
+        <table>
+          <thead><tr><th>場景</th><th>限停時間</th><th>單日上限</th><th>不足一單位</th><th>最該用的功能</th></tr></thead>
+          <tbody>
+            <tr><td>路邊停車格</td><td>照告示填</td><td>通常不填</td><td>以一單位計</td><td>到期倒數</td></tr>
+            <tr><td>百貨停車場</td><td>不限時</td><td>看場地</td><td>以一單位計</td><td>跳下一段的時刻</td></tr>
+            <tr><td>機場長期停車</td><td>不限時</td><td>一定要填</td><td>以一單位計</td><td>車位編號與紀錄</td></tr>
+            <tr><td>訪客車位</td><td>照規定填</td><td>不適用</td><td>不適用</td><td>行事曆提醒</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="rm-note">設定好之後按「把目前設定存成常用」，下次到同一個地方一鍵套用，不用再想一次費率怎麼填。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 07</span>
+      <h2>注意事項</h2>
+      <div class="note">
+        <p><strong>網頁關掉就不會提醒你。</strong>瀏覽器沒有背景推播能力，分頁一關，這個頁面就停止運作。所以請務必按「加入 Google 日曆」或「下載行事曆檔」，把提醒交給手機的日曆應用程式，那個才會在你離開網頁之後照樣響。「開啟分頁通知」只有在這個分頁保持開啟時有效，適合把手機放在支架上或桌機掛著的情況。</p>
+      </div>
+      <ul>
+        <li><strong>金額是參考值，以現場告示為準。</strong>各縣市、各場地的費率與計費方式不同，也會調整。這個工具只是照你填的數字推算，不是官方計費系統。</li>
+        <li><strong>限時停車格與紅黃線是兩回事。</strong>限時格超時通常是停車費的問題，紅線與黃線的違規停車則是另一套規定。看到告示牌寫限時幾分鐘，先確認那是「限時停車格」還是「禁止停車時段」。</li>
+        <li><strong>資料存在你的瀏覽器裡。</strong>常用停車場與紀錄不會上傳，換裝置或清除瀏覽資料就會消失。這也表示沒有人知道你停在哪裡。</li>
+        <li><strong>離線也能計時。</strong>頁面載入之後，計時與計費都在裝置上執行，進地下室收不到訊號也會繼續跑。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 廣告：教學後、FAQ 前（工具頁 1 個） -->
+  <section>
+    <aside class="kh-ad-wrap" aria-label="廣告"><div class="kh-ad">
+      <p class="kh-ad-l">廣告</p>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2022028565680247" data-ad-slot="3114811513" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+    </div></aside>
+  </section>
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 08</span>
+      <h2>常見問題</h2>
+      <details data-faq="q_notify"><summary>關掉網頁之後還會提醒我嗎？</summary><p>不會。瀏覽器沒有背景推播，分頁關掉之後這個頁面就停止運作了。所以請按加入行事曆，把到期時間存進手機的日曆應用程式，那個提醒關掉網頁也會響。分頁通知只有在這個分頁保持開啟時才有效。</p></details>
+      <details data-faq="q_round_up"><summary>為什麼預設是不足一單位以一單位計？</summary><p>因為多數路邊停車格與停車場都是這樣收費，停 31 分鐘會被當成兩個半小時計算。如果你停的場地是按實際分鐘數計費，把那個選項取消勾選即可。</p></details>
+      <details data-faq="q_free_min"><summary>前幾分鐘免費要怎麼填？</summary><p>看現場告示牌怎麼寫就怎麼填。有些路段與停車場會給一段免費時間，超過之後從停車那一刻開始重新計算全額，本工具就是照這個方式算的。如果沒有免費時段，填 0。</p></details>
+      <details data-faq="q_data"><summary>我的紀錄會存到哪裡？</summary><p>全部存在你這台裝置的瀏覽器裡，不會上傳。換一支手機、換一個瀏覽器，或是清除瀏覽資料，資料就會不見。這也表示別人看不到你停在哪裡。</p></details>
+      <details data-faq="q_accuracy"><summary>算出來的金額就是我要付的錢嗎？</summary><p>不是，這是依你填入的費率推算的參考值。實際金額以現場告示、收費單或停車場系統為準。費率與計費方式各縣市、各場地都不一樣，也會調整。</p></details>
+      <details data-faq="q_offline"><summary>沒有網路可以用嗎？</summary><p>頁面載入之後，計時與計費都在你的裝置上執行，進到地下停車場收不到訊號也會繼續倒數。但第一次打開頁面需要網路。</p></details>
+    </div>
+  </section>
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 09</span>
+      <h2>同類工具</h2>
+      <div class="cards">
+        <a class="lcard" href="https://tools.knittinghiyori.com/travel-split-calculator/" data-cta="related" data-cta-type="tool" data-google-vignette="false"><span class="t">旅費分帳計算機</span><span class="d">出國多幣別分帳，算誰該付誰多少</span></a>
+        <a class="lcard" href="https://knittinghiyori.com/tools/jr-pass-calculator/" data-cta="related" data-cta-type="tool" data-google-vignette="false"><span class="t">JR Pass 試算器</span><span class="d">算買周遊券划不划算</span></a>
+        <a class="lcard" href="https://knittinghiyori.com/tools/packing-list-generator/" data-cta="related" data-cta-type="tool" data-google-vignette="false"><span class="t">出國行李清單產生器</span><span class="d">依天數與季節產生清單</span></a>
+        <a class="lcard" href="https://knittinghiyori.com/tools/bill-split-calculator/" data-cta="related" data-cta-type="tool" data-google-vignette="false"><span class="t">聚餐分帳計算機</span><span class="d">一桌人吃飯的錢怎麼拆</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 10</span>
+      <h2>延伸閱讀</h2>
+      <p class="rm-note">停車與自駕主題的文章還在寫，先到部落格看看其他內容。</p>
+      <!-- 待補：站上目前沒有自駕或停車主題的文章，寫了之後在這裡加 3 張 lcard，data-cta="blog_read" data-cta-type="article" -->
+      <p><a href="https://knittinghiyori.com/" data-cta="blog_home" data-cta-type="article" data-google-vignette="false">到編織日和部落格看更多</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="k-col bigcards">
+      <a class="bigcard" href="https://tools.knittinghiyori.com/" data-cta="footer_tools" data-cta-type="tool" data-google-vignette="false"><span class="t">看全部小工具</span><span class="d">旅行、學習、理財、排版，全部免費</span></a>
+      <a class="bigcard alt" href="https://games.knittinghiyori.com/" data-cta="games_hub" data-cta-type="game" data-google-vignette="false"><span class="t">去玩小遊戲</span><span class="d">日文與程式的互動練習</span></a>
+    </div>
+  </section>
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 11</span>
+      <h2>收藏這個工具</h2>
+      <p class="rm-note">停車是臨時發生的事，等要用的時候才找得到才有意義。建議直接加到手機主畫面，開啟速度跟 App 一樣。</p>
+      <div id="howAdd"></div>
+      <div class="btns" style="margin-top:12px">
+        <button class="ghost" id="btnShareLine">傳到 LINE</button>
+        <button class="ghost" id="btnShareNative">分享給朋友</button>
+        <button class="ghost" id="btnCopyUrl">複製網址</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="k-foot">
+    <div class="k-col">
+      <nav>
+        <a href="https://tools.knittinghiyori.com/" data-cta="footer_tools" data-cta-type="tool" data-google-vignette="false">工具總覽</a>
+        <a href="https://knittinghiyori.com/" data-cta="footer_blog" data-cta-type="article" data-google-vignette="false">編織日和部落格</a>
+        <a href="https://games.knittinghiyori.com/" data-cta="footer_games" data-cta-type="game" data-google-vignette="false">小遊戲</a>
+        <a href="https://knittinghiyori.com/privacy-policy/" data-google-vignette="false">隱私權政策</a>
+      </nav>
+      <p class="kh-legal">本站使用 Cookie 進行流量分析（Google Analytics）與顯示廣告（Google AdSense），部分連結為旅遊聯盟連結。<a href="https://knittinghiyori.com/privacy-policy/" data-google-vignette="false">隱私權政策</a></p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+/* 停車計時卡 hyTool ・ tool_id: parking_timer ・ 事件前綴 park_ */
+(function(){
+  "use strict";
+  var TOOL="parking_timer";
+  var AMP=String.fromCharCode(38); /* 追蹤碼與網址組字不出現和號字元 */
+  var DEBUG=location.search.indexOf("hy_debug=1")>-1;
+  var K={act:"pk_active",pre:"pk_presets",log:"pk_log"};
+  var $=function(id){return document.getElementById(id)};
+  var active=null,lastPhase="",audioCtx=null,toastT=null,notifyT=[],started=false,resulted=false;
+
+  /* 聯盟連結集中設定；留空時整塊不顯示 */
+  window.PK_AFF=window.PK_AFF||[];
+
+  function track(name,params){
+    try{
+      var p=params||{};
+      p.tool_id=TOOL;
+      if(DEBUG){p.debug_mode=true;if(window.console)console.log("[hy-tool]",name,p)}
+      if(typeof window.gtag==="function"){window.gtag("event",name,p);return}
+      window.dataLayer=window.dataLayer||[];
+      window.dataLayer.push({event:name,params:p});
+    }catch(e){}
+  }
+  function entryPoint(){
+    try{
+      if(document.referrer){ if(document.referrer.indexOf(location.host)===-1) return "shared" }
+      if(window.matchMedia("(display-mode: standalone)").matches) return "saved";
+    }catch(e){}
+    return "direct";
+  }
+  function firstTouch(){ if(started)return; started=true; track("tool_start",{entry_point:entryPoint()}) }
+
+  function load(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+  function save(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+
+  var presets=load(K.pre,null);
+  if(!presets){presets=[
+    {demo:1,name:"市府路 路邊停車格",spot:"",limit:60,warn:10,rate:20,unit:30,free:15,cap:0,round:true},
+    {demo:1,name:"百貨地下停車場",spot:"B3-27",limit:0,warn:0,rate:40,unit:60,free:0,cap:300,round:true},
+    {demo:1,name:"社區訪客車位",spot:"",limit:120,warn:15,rate:0,unit:60,free:0,cap:0,round:false}
+  ];}
+  var log=load(K.log,null);
+  if(!log){log=[
+    {demo:1,t:Date.now()-86400000,name:"市府路 路邊停車格",mins:52,fee:40},
+    {demo:1,t:Date.now()-259200000,name:"百貨地下停車場",mins:143,fee:120}
+  ];}
+
+  function calcFee(mins,c){
+    if(c.rate<=0) return 0;
+    if(mins<=c.free) return 0;
+    var u=mins/c.unit;
+    u=c.round?Math.ceil(u):Math.floor(u);
+    var f=u*c.rate;
+    if(c.cap>0){ if(f>c.cap) f=c.cap }
+    return f;
+  }
+  function nextJumpMin(mins,c){
+    if(c.rate<=0) return null;
+    if(mins<c.free) return c.free;
+    var u=mins/c.unit;
+    var n=c.round?Math.ceil(u)*c.unit:(Math.floor(u)+1)*c.unit;
+    if(n<=mins) n=mins+c.unit;
+    return n;
+  }
+  function hhmm(ms){var d=new Date(ms);return String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")}
+  function clock(sec){
+    var s=Math.abs(Math.floor(sec)),h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;
+    return (h>0?h+":":"")+String(m).padStart(2,"0")+":"+String(x).padStart(2,"0");
+  }
+  function dur(mins){var h=Math.floor(mins/60),m=mins%60;return h>0?h+" 小時 "+m+" 分":m+" 分"}
+  function limitCode(n){return n>0?("lim_"+n):"lim_none"}
+
+  function readForm(){
+    return{
+      name:$("fPlace").value.trim()||"未命名地點",
+      spot:$("fSpot").value.trim(),
+      limit:+$("fLimit").value,
+      warn:+$("fWarn").value,
+      rate:Math.max(0,+$("fRate").value||0),
+      unit:+$("fUnit").value,
+      free:Math.max(0,+$("fFree").value||0),
+      cap:Math.max(0,+$("fCap").value||0),
+      round:$("fRound").checked
+    };
+  }
+  function fillForm(p){
+    $("fPlace").value=p.name;$("fSpot").value=p.spot||"";
+    $("fLimit").value=String(p.limit);$("fWarn").value=String(p.warn);
+    $("fRate").value=p.rate;$("fUnit").value=String(p.unit);
+    $("fFree").value=p.free;$("fCap").value=p.cap||0;$("fRound").checked=!!p.round;
+  }
+  function setNow(){var d=new Date();$("fStart").value=String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")}
+  function startMs(){
+    var v=$("fStart").value;
+    if(!v) return Date.now();
+    var p=v.split(":"),d=new Date();
+    d.setHours(+p[0],+p[1],0,0);
+    if(d.getTime()>Date.now()+60000) d.setDate(d.getDate()-1);
+    return d.getTime();
+  }
+
+  function render(){
+    var card=$("card");
+    if(!active){
+      card.className="card";
+      $("cPlace").textContent="尚未開始計時";$("cSpot").textContent="";
+      $("cdLabel").textContent="距離限停到期";
+      $("cd").textContent="--:--:--";$("cd").className="cd idle";
+      $("mStart").textContent="--:--";$("mEnd").textContent="--:--";$("mDur").textContent="0 分";
+      $("fee").textContent="NT$0";$("feeNote").textContent="開始後顯示累計金額";
+      $("btnStart").hidden=false;$("btnEnd").hidden=true;
+      updateRemind();
+      return;
+    }
+    var c=active.cfg,mins=Math.floor((Date.now()-active.start)/60000),phase="ok";
+    $("cPlace").textContent=c.name;
+    $("cSpot").textContent=c.spot?"車位 "+c.spot:"";
+    $("mStart").textContent=hhmm(active.start);
+    $("mDur").textContent=dur(mins);
+    if(c.limit>0){
+      var endMs=active.start+c.limit*60000,left=(endMs-Date.now())/1000;
+      $("mEnd").textContent=hhmm(endMs);
+      if(left<0){phase="over";$("cdLabel").textContent="已超過限停時間"}
+      else if(c.warn>0?(left<=c.warn*60):false){phase="warn";$("cdLabel").textContent="快到期了，準備移車"}
+      else $("cdLabel").textContent="距離限停到期";
+      $("cd").textContent=(left<0?"+":"")+clock(left);
+    }else{
+      $("mEnd").textContent="不限時";
+      $("cdLabel").textContent="已停時間";
+      $("cd").textContent=clock((Date.now()-active.start)/1000);
+    }
+    $("cd").className="cd";
+    card.className="card"+(phase==="ok"?"":" "+phase);
+    var fee=calcFee(mins,c),nj=nextJumpMin(mins,c);
+    $("fee").textContent="NT$"+fee;
+    $("feeNote").textContent=c.rate<=0?"免費車位":(nj!==null?hhmm(active.start+nj*60000)+" 跳下一段":"");
+    $("btnStart").hidden=true;$("btnEnd").hidden=false;
+    if(phase!==lastPhase){
+      if(phase==="warn"||phase==="over") beep(phase==="over"?3:1);
+      updateRemind();
+    }
+    lastPhase=phase;
+  }
+
+  function beep(n){
+    try{
+      if(!audioCtx) audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+      for(var i=0;i<n;i++){
+        var o=audioCtx.createOscillator(),g=audioCtx.createGain(),t=audioCtx.currentTime+i*0.32;
+        o.frequency.value=880;o.connect(g);g.connect(audioCtx.destination);
+        g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.25,t+0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001,t+0.25);
+        o.start(t);o.stop(t+0.26);
+      }
+    }catch(e){}
+  }
+  function toast(msg){
+    try{
+      var el=document.createElement("div");el.className="toast";el.textContent=msg;
+      document.body.appendChild(el);clearTimeout(toastT);
+      toastT=setTimeout(function(){el.remove()},2200);
+    }catch(e){}
+  }
+  function copyText(txt,done){
+    try{
+      if(navigator.clipboard){
+        if(navigator.clipboard.writeText){
+          navigator.clipboard.writeText(txt).then(done,function(){fb()});return;
+        }
+      }
+    }catch(e){}
+    fb();
+    function fb(){
+      try{
+        var ta=document.createElement("textarea");ta.value=txt;ta.style.position="fixed";ta.style.opacity="0";
+        document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();done();
+      }catch(err){toast("複製失敗，請手動選取")}
+    }
+  }
+
+  function renderPresets(){
+    try{
+      var box=$("presets");box.innerHTML="";
+      if(!presets.length){box.innerHTML='<p class="empty">還沒有常用地點。設定好費率後按下面的按鈕存起來。</p>';return}
+      presets.forEach(function(p,i){
+        var row=document.createElement("div");row.className="preset";
+        var sub=(p.rate>0?("每"+p.unit+"分 "+p.rate+"元"):"免費")+(p.limit>0?" / 限停"+p.limit+"分":" / 不限時")+(p.free>0?" / 前"+p.free+"分免費":"");
+        row.innerHTML='<div class="info"><div class="nm"></div><div class="sub"></div></div>';
+        row.querySelector(".nm").textContent=p.name;
+        if(p.demo){var t=document.createElement("span");t.className="tag";t.textContent="範例";row.querySelector(".nm").appendChild(t)}
+        row.querySelector(".sub").textContent=sub;
+        var use=document.createElement("button");use.className="ghost";use.textContent="套用";
+        use.onclick=function(){firstTouch();fillForm(p);setNow();$("tool").scrollIntoView({behavior:"smooth",block:"start"});toast("已套用 "+p.name);track("park_preset_use",{option:p.demo?"demo":"own"})};
+        var del=document.createElement("button");del.className="ghost";del.textContent="刪除";
+        del.onclick=function(){presets.splice(i,1);save(K.pre,presets);renderPresets()};
+        row.appendChild(use);row.appendChild(del);box.appendChild(row);
+      });
+    }catch(e){}
+  }
+  function renderLog(){
+    try{
+      var tb=$("log");tb.innerHTML="";
+      if(!log.length){tb.innerHTML='<tr><td colspan="4" class="empty" style="padding:14px 6px">還沒有紀錄。</td></tr>';return}
+      log.slice(0,20).forEach(function(r){
+        var tr=document.createElement("tr"),d=new Date(r.t);
+        var c1=document.createElement("td");c1.textContent=(d.getMonth()+1)+"/"+d.getDate();
+        var c2=document.createElement("td");c2.textContent=r.name;
+        if(r.demo){var t=document.createElement("span");t.className="tag";t.textContent="範例";c2.appendChild(t)}
+        var c3=document.createElement("td");c3.className="num";c3.textContent=dur(r.mins);
+        var c4=document.createElement("td");c4.className="num";c4.textContent="NT$"+r.fee;
+        tr.appendChild(c1);tr.appendChild(c2);tr.appendChild(c3);tr.appendChild(c4);tb.appendChild(tr);
+      });
+    }catch(e){}
+  }
+
+  /* 到期提醒 */
+  function expiryMs(){ if(!active) return null; if(!active.cfg.limit) return null; return active.start+active.cfg.limit*60000 }
+  function evTitle(){var c=active.cfg;return "移車提醒："+c.name+(c.spot?"（"+c.spot+"）":"")}
+  function utc(ms){return new Date(ms).toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"")}
+  function updateRemind(){
+    try{
+      var on=!!expiryMs();
+      ["btnGcal","btnIcs","btnNotify"].forEach(function(id){$(id).disabled=!on});
+      if(!active) $("rmNote").textContent="分頁關掉後網頁就不會提醒。把到期時間加進行事曆或鬧鐘，才是真的會響。";
+      else if(!on) $("rmNote").textContent="這次設定為不限時，沒有到期時間可以提醒。";
+      else $("rmNote").textContent="提醒會設在 "+hhmm(expiryMs()-(active.cfg.warn||0)*60000)+"。行事曆關掉網頁也會響，分頁通知則要留著這個分頁。";
+    }catch(e){}
+  }
+  $("btnGcal").onclick=function(){
+    try{
+      var end=expiryMs();if(!end)return;
+      var q=["action=TEMPLATE","text="+encodeURIComponent(evTitle()),
+        "dates="+utc(end-5*60000)+"/"+utc(end),
+        "details="+encodeURIComponent("停車開始 "+hhmm(active.start)+"，限停 "+active.cfg.limit+" 分鐘。")].join(AMP);
+      window.open("https://calendar.google.com/calendar/render?"+q,"_blank","noopener");
+      track("park_remind",{option:"gcal",result:limitCode(active.cfg.limit)});
+    }catch(e){}
+  };
+  $("btnIcs").onclick=function(){
+    try{
+      var end=expiryMs();if(!end)return;
+      var warn=active.cfg.warn||10;
+      var ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//knittinghiyori//parking-timer//ZH-TW","CALSCALE:GREGORIAN","BEGIN:VEVENT",
+        "UID:park-"+active.start+"@knittinghiyori","DTSTAMP:"+utc(Date.now()),
+        "DTSTART:"+utc(end-5*60000),"DTEND:"+utc(end),"SUMMARY:"+evTitle(),
+        "DESCRIPTION:停車開始 "+hhmm(active.start)+"，限停 "+active.cfg.limit+" 分鐘。",
+        "BEGIN:VALARM","TRIGGER:-PT"+warn+"M","ACTION:DISPLAY","DESCRIPTION:停車快到期了","END:VALARM",
+        "END:VEVENT","END:VCALENDAR"].join("\r\n");
+      var blob=new Blob([ics],{type:"text/calendar;charset=utf-8"});
+      var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="parking-reminder.ics";
+      a.setAttribute("data-google-vignette","false");
+      document.body.appendChild(a);a.click();
+      setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},1000);
+      toast("已產生行事曆檔，開啟後存進日曆");
+      track("park_remind",{option:"ics",result:limitCode(active.cfg.limit)});
+    }catch(e){}
+  };
+  $("btnNotify").onclick=function(){
+    try{
+      if(!("Notification" in window)){toast("這個瀏覽器不支援通知");return}
+      Notification.requestPermission().then(function(p){
+        if(p==="granted"){scheduleNotices();toast("已開啟，請保持這個分頁開著");track("park_remind",{option:"notify",result:"granted"})}
+        else{toast("通知被拒絕了，可改用行事曆提醒");track("park_remind",{option:"notify",result:"denied"})}
+      });
+    }catch(e){}
+  };
+  function scheduleNotices(){
+    try{
+      notifyT.forEach(clearTimeout);notifyT=[];
+      var end=expiryMs();
+      if(!end||!("Notification" in window)||Notification.permission!=="granted")return;
+      var warn=(active.cfg.warn||0)*60000,now=Date.now();
+      function at(ms,title,body){if(ms>now)notifyT.push(setTimeout(function(){try{new Notification(title,{body:body})}catch(e){}},ms-now))}
+      if(warn>0) at(end-warn,"停車快到期",active.cfg.name+" 還有 "+active.cfg.warn+" 分鐘");
+      at(end,"停車已到期",active.cfg.name+" 該移車了");
+    }catch(e){}
+  }
+
+  /* 動作 */
+  $("btnNow").onclick=function(){firstTouch();setNow()};
+  $("btnStart").onclick=function(){
+    try{
+      firstTouch();
+      var cfg=readForm();
+      active={cfg:cfg,start:startMs()};
+      lastPhase="";save(K.act,active);render();scheduleNotices();
+      try{if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}
+      if(!resulted){resulted=true;track("tool_result",{option:limitCode(cfg.limit),result:cfg.rate>0?"paid":"free"})}
+      track("park_start",{option:limitCode(cfg.limit),item_count:cfg.unit});
+    }catch(e){}
+  };
+  $("btnEnd").onclick=function(){
+    try{
+      var mins=Math.floor((Date.now()-active.start)/60000),fee=calcFee(mins,active.cfg);
+      log.unshift({t:active.start,name:active.cfg.name,mins:mins,fee:fee});
+      log=log.slice(0,50);save(K.log,log);
+      var over=active.cfg.limit?(mins>active.cfg.limit):false;
+      track("park_end",{duration_sec:mins*60,result:over?"over":"within"});
+      active=null;try{localStorage.removeItem(K.act)}catch(e){}
+      notifyT.forEach(clearTimeout);notifyT=[];
+      renderLog();render();toast("已記錄這次停車");
+    }catch(e){}
+  };
+  $("btnCopy").onclick=function(){
+    try{
+      firstTouch();
+      var c=active?active.cfg:readForm(),st=active?active.start:startMs();
+      var mins=Math.floor((Date.now()-st)/60000),lines=["停車位置："+c.name];
+      if(c.spot) lines.push("車位："+c.spot);
+      lines.push("停車時間："+hhmm(st));
+      if(c.limit>0) lines.push("限停 "+c.limit+" 分，"+hhmm(st+c.limit*60000)+" 前要移車");
+      if(active) lines.push("目前已停 "+dur(mins)+"，估計 NT$"+calcFee(mins,c));
+      copyText(lines.join("\n"),function(){toast("已複製，可以貼給同車的人");track("export",{method:"copy_text",content_type:"result"})});
+    }catch(e){}
+  };
+  $("btnSave").onclick=function(){
+    try{
+      firstTouch();
+      var p=readForm(),i=-1;
+      presets.forEach(function(x,n){ if(x.demo) return; if(x.name===p.name) i=n });
+      if(i>=0) presets[i]=p; else presets.unshift(p);
+      presets=presets.slice(0,12);save(K.pre,presets);renderPresets();
+      toast("已存成常用停車場");track("park_preset_save",{item_count:presets.length});
+    }catch(e){}
+  };
+  $("btnClear").onclick=function(){log=[];save(K.log,log);renderLog()};
+
+  /* 收藏與分享 */
+  var PAGE="https://tools.knittinghiyori.com/parking-timer/";
+  $("btnShareLine").onclick=function(){
+    try{
+      var u="https://social-plugins.line.me/lineit/share?url="+encodeURIComponent(PAGE);
+      window.open(u,"_blank","noopener");track("share",{method:"line",content_type:"tool"});
+    }catch(e){}
+  };
+  $("btnShareNative").onclick=function(){
+    try{
+      if(navigator.share){
+        navigator.share({title:"停車計時卡",url:PAGE}).then(function(){track("share",{method:"native",content_type:"tool"})},
+          function(){track("share_cancel",{method:"native",content_type:"tool"})});
+      }else copyText(PAGE,function(){toast("已複製網址");track("share",{method:"copy_link",content_type:"tool"})});
+    }catch(e){}
+  };
+  $("btnCopyUrl").onclick=function(){
+    copyText(PAGE,function(){toast("已複製網址");track("share",{method:"copy_link",content_type:"tool"})});
+  };
+  (function howToAdd(){
+    try{
+      var ua=navigator.userAgent,ios=/iPad|iPhone|iPod/.test(ua);
+      var mac=/Macintosh/.test(ua)?("ontouchend" in document):false;
+      var t=(ios||mac)?"iPhone／iPad：點網址列下方的「分享」圖示，往下選「加入主畫面」。"
+        :/Android/.test(ua)?"Android：點瀏覽器右上角的選單，選「加到主畫面」或「安裝應用程式」。"
+        :"電腦：按 Ctrl 加 D（Mac 為 Command 加 D）加入書籤，或把網址列左邊的圖示拖到書籤列。";
+      $("howAdd").innerHTML='<p class="note"></p>';
+      $("howAdd").querySelector("p").textContent=t;
+    }catch(e){}
+  })();
+
+  /* 聯盟推薦區 */
+  (function aff(){
+    try{
+      var list=window.PK_AFF;
+      if(!list||!list.length)return;
+      var box=$("affList");box.innerHTML="";
+      list.forEach(function(it){
+        var a=document.createElement("a");
+        a.href=it.url;a.textContent=it.text;a.target="_blank";
+        a.rel="sponsored nofollow noopener";
+        a.setAttribute("data-cta","rec_card");a.setAttribute("data-cta-type",it.platform);
+        a.setAttribute("data-google-vignette","false");
+        box.appendChild(a);box.appendChild(document.createTextNode(" "));
+      });
+      $("affSec").hidden=false;
+    }catch(e){}
+  })();
+
+  /* CTA 委派：所有 data-cta 連結自動送 cta_click */
+  document.addEventListener("click",function(ev){
+    try{
+      var a=ev.target.closest("[data-cta]");
+      if(!a)return;
+      track("cta_click",{cta_id:a.getAttribute("data-cta"),cta_type:a.getAttribute("data-cta-type")||"other",link_url:a.href||""});
+    }catch(e){}
+  },true);
+
+  /* FAQ */
+  Array.prototype.forEach.call(document.querySelectorAll("details[data-faq]"),function(d){
+    d.addEventListener("toggle",function(){ if(d.open) track("faq_open",{option:d.getAttribute("data-faq")}) });
+  });
+
+  /* 第一次碰工具區就算 tool_start */
+  ["fPlace","fSpot","fStart","fLimit","fWarn","fRate","fUnit","fFree","fCap","fRound"].forEach(function(id){
+    var el=$(id);if(el)el.addEventListener("focus",firstTouch,{once:true});
+  });
+
+  /* 啟動 */
+  var saved=load(K.act,null);
+  if(saved){ if(saved.cfg){ if(saved.start){active=saved;fillForm(saved.cfg)} } }
+  setNow();
+  if(active){var d=new Date(active.start);$("fStart").value=String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")}
+  renderPresets();renderLog();render();
+  if(active) scheduleNotices();
+  setInterval(render,1000);
+  if(DEBUG){ if(window.console) console.log("[hy-tool] ready",TOOL) }
+})();
+</script>
+
+</body>
+</html>

@@ -261,6 +261,30 @@
    ]
   },
   {
+   "id": "parking_timer",
+   "cats": [
+    "travel"
+   ],
+   "url": "https://tools.knittinghiyori.com/parking-timer/",
+   "ui": [
+    "zh"
+   ],
+   "page": "parking-timer",
+   "new": true,
+   "zh": [
+    "停車計時卡",
+    "算停車費、倒數限停時間，到期提醒可加進手機行事曆"
+   ],
+   "en": [
+    "Parking Timer",
+    "Track parking fees and time limits, with calendar reminders before time runs out"
+   ],
+   "ja": [
+    "駐車タイマー",
+    "駐車料金と制限時間をカウントダウン、カレンダーに通知を追加"
+   ]
+  },
+  {
    "id": "kaomoji",
    "cats": [
     "social"
