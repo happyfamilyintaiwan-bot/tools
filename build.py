@@ -434,23 +434,40 @@ def main():
         out.write_text(page(lang), encoding='utf-8')
     (ROOT / '404.html').write_text(notfound(), encoding='utf-8')
     (ROOT / 'assets' / 'favicon.svg').write_text(FAVICON, encoding='utf-8')
+    import tool_pages, sys
+    groups = tool_pages.build_all(sys.modules[__name__])
     today = datetime.date.today().isoformat()
-    alts = ''.join(f'<xhtml:link rel="alternate" hreflang="{LANGS[l]["hreflang"]}" href="{SITE}{LANGS[l]["path"]}"/>' for l in ORDER)
-    alts += f'<xhtml:link rel="alternate" hreflang="x-default" href="{SITE}/"/>'
-    urls = ''.join(f'<url><loc>{SITE}{LANGS[l]["path"]}</loc><lastmod>{today}</lastmod>{alts}</url>' for l in ORDER)
-    # 自動收錄 repo 裡其他工具頁（例如 /ai-image-prompts/），跳過 noindex 頁與 _ 開頭的資料夾
-    hub = {ROOT / 'index.html', ROOT / 'en' / 'index.html', ROOT / 'ja' / 'index.html'}
-    for f in sorted(ROOT.rglob('index.html')):
-        rel = f.relative_to(ROOT)
-        if f in hub or any(part.startswith(('_', '.')) or part in ('assets', 'node_modules') for part in rel.parts):
-            continue
-        if 'noindex' in f.read_text(encoding='utf-8', errors='ignore')[:4000]:
-            continue
-        urls += f'<url><loc>{SITE}/{rel.parent.as_posix()}/</loc></url>'
+
+    def url_group(paths, x_default):
+        alts = ''.join(f'<xhtml:link rel="alternate" hreflang="{LANGS[l]["hreflang"]}" href="{SITE}{paths[l]}"/>' for l in ORDER)
+        alts += f'<xhtml:link rel="alternate" hreflang="x-default" href="{SITE}{x_default}"/>'
+        return ''.join(f'<url><loc>{SITE}{paths[l]}</loc><lastmod>{today}</lastmod>{alts}</url>' for l in ORDER)
+    urls = url_group({l: LANGS[l]['path'] for l in ORDER}, '/')
+    for g in groups:
+        urls += url_group(g['paths'], g['paths']['zh'])
     (ROOT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
         'xmlns:xhtml="http://www.w3.org/1999/xhtml">' + urls + '</urlset>\n', encoding='utf-8')
-    (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n', encoding='utf-8')
+
+    # llms.txt：給 AI 搜尋與助理讀的網站摘要（GEO）
+    names = {'travel': '旅行與出國', 'learn': '學習與語言', 'life': '生活與興趣', 'social': '文字與社群排版', 'money': '理財與投資', 'work': '工作與行銷'}
+    lines = ['# knittinghiyori tools（編織日和・免費小工具）', '',
+             '> 編織日和（knittinghiyori.com）作者 Zoe 製作的免費線上小工具，全部免註冊、在瀏覽器中執行、手機好用。介面有繁體中文、英文、日文。', '',
+             '- 工具總覽（中文）：' + SITE + '/', '- Tools hub (English): ' + SITE + '/en/', '- ツール一覧（日本語）：' + SITE + '/ja/', '']
+    for c, cn in names.items():
+        items = [t for t in DATA if t['cats'][0] == c]
+        if not items:
+            continue
+        lines.append(f'## {cn}')
+        for t in items:
+            extra = ''
+            if t.get('alt'):
+                extra = '（' + '、'.join(f'{k}: {v}' for k, v in t['alt'].items()) + '）'
+            lines.append(f"- [{t['zh'][0]}]({t['url']})：{t['zh'][1]}{extra}")
+        lines.append('')
+    lines += ['## 關於', '- 部落格：' + BLOG, '- 小遊戲：' + GAMES, '- 隱私權政策：' + PRIVACY, '']
+    (ROOT / 'llms.txt').write_text('\n'.join(lines), encoding='utf-8')
+    (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /_src/\n\nSitemap: {SITE}/sitemap.xml\n', encoding='utf-8')
     (ROOT / 'CNAME').write_text('tools.knittinghiyori.com\n', encoding='utf-8')
     (ROOT / '.nojekyll').write_text('', encoding='utf-8')
     print('built', len(DATA), 'tools ×', len(ORDER), 'languages', '(GA4 未設定)' if GA_ID.startswith('G-XXXX') else '')

@@ -77,7 +77,7 @@
     "travel"
    ],
    "hot": true,
-   "url": "https://knittinghiyori.com/tools/travel-split-calculator/",
+   "url": "https://tools.knittinghiyori.com/travel-split-calculator/",
    "ui": [
     "zh",
     "en",
@@ -94,7 +94,12 @@
    "ja": [
     "旅行の割り勘計算機",
     "多通貨で記録、誰が誰にいくら払うか自動で計算"
-   ]
+   ],
+   "alt": {
+    "en": "https://tools.knittinghiyori.com/en/travel-split-calculator/",
+    "ja": "https://tools.knittinghiyori.com/ja/travel-split-calculator/"
+   },
+   "src": "travel-split"
   },
   {
    "id": "bill_split",

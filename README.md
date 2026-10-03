@@ -36,3 +36,9 @@ knittinghiyori 免費小工具總覽（中文／English／日本語）。純靜�
 - 白底黑字＋朱紅（#e5412d）單一強調色；標題用 Noto Serif TC／JP（中日）與 Instrument Serif（英文、數字），標籤用 IBM Plex Mono。
 - 圖示是 build.py 裡的 ICONS（24×24 線條 SVG）；新增工具時記得在 ICONS 補一個同 id 的圖示。
 - 支援「減少動態效果」設定；篩選切換在支援的瀏覽器會有 View Transitions 動畫。
+
+## 工具頁（從 WordPress 搬過來的）
+- 原始檔在 `_src/<工具>/`，由 `tool_pages.py` 套上共用外框，產生 `/<slug>/`、`/en/<slug>/`、`/ja/<slug>/`。
+- 已搬：旅費分帳計算機（`_src/travel-split/`）。
+- 搬家步驟、頁面結構、SEO／GEO 檢查見《tools 子網域・追蹤與版型規範 v2.1》§14。
+- 改工具內容：改 `_src/<工具>/` 的檔案 → `python3 build.py` → 上傳。

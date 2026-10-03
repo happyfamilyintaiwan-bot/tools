@@ -1,0 +1,96 @@
+{
+ "tool_id": "travel_split",
+ "slug": "travel-split-calculator",
+ "cat": "travel",
+ "page_title": "工具|旅費分帳計算機|出國多幣別分帳",
+ "old_url": "https://knittinghiyori.com/tools/travel-split-calculator/",
+ "updated": "2026-10-03",
+ "related": [
+  "jr_pass",
+  "esim",
+  "packing_list",
+  "bill_split"
+ ],
+ "blog": [
+  {
+   "url": "https://knittinghiyori.com/cube-tree-points-to-airline-miles-guide/",
+   "zh": "國泰小樹點換哩程划算嗎？比例試算與每點價值",
+   "en": "Are Cathay CUBE points worth converting to airline miles?",
+   "ja": "国泰CUBEポイントはマイルに換えるとお得？"
+  },
+  {
+   "url": "https://knittinghiyori.com/saily-esim-review-japan-discount-code/",
+   "zh": "Saily eSIM 日本實測：設定教學與折扣碼",
+   "en": "Saily eSIM review, tested in Japan",
+   "ja": "Saily eSIMを日本で使ってみた：設定と割引コード"
+  },
+  {
+   "url": "https://knittinghiyori.com/knitting-needles-carry-on-rules/",
+   "zh": "竹針、木針能帶上飛機嗎？織女出國安檢攻略",
+   "en": "Can you bring knitting needles on a plane?",
+   "ja": "竹・木の編み針は機内に持ち込める？"
+  }
+ ],
+ "lang": {
+  "zh": {
+   "name": "旅費分帳計算機",
+   "title": "旅費分帳計算機｜出國多幣別分帳，自動算出誰該轉給誰（免費）",
+   "desc": "出國旅費怎麼分最公平？免費旅費分帳計算機，記錄誰先付了什麼，支援日圓、韓元等 20 種幣別自動換匯，一鍵算出最少轉帳次數，產生連結直接傳到 LINE 給旅伴。免註冊、手機好用。",
+   "app_desc": "記錄旅途中每筆由誰先付款的支出，支援多幣別換匯，以淨額法計算每人應收應付，產生最少轉帳次數的結算清單與分享連結。",
+   "features": [
+    "多幣別自動換匯",
+    "最少轉帳次數結算",
+    "分享連結給旅伴",
+    "可指定分攤對象",
+    "合併多人帳本",
+    "標記已付款",
+    "免註冊"
+   ],
+   "howto": "如何用旅費分帳計算機結算出國旅費"
+  },
+  "en": {
+   "name": "Trip Expense Splitter",
+   "title": "Trip Expense Splitter – Split Travel Costs in Any Currency, See Who Owes Whom (Free)",
+   "desc": "Free trip expense splitter: log who paid for what in 20 currencies, convert automatically, and settle up with the fewest transfers. Share one link with your group. No sign-up, works on your phone.",
+   "app_desc": "Log every shared expense on a trip and who paid it, convert between currencies, and get a settlement with the fewest transfers plus a link to share with your group.",
+   "features": [
+    "Automatic multi-currency conversion",
+    "Fewest-transfer settlement",
+    "Share by link",
+    "Choose who shares each expense",
+    "Merge ledgers from several phones",
+    "Mark payments as paid",
+    "No sign-up"
+   ],
+   "howto": "How to split trip expenses with the Trip Expense Splitter"
+  },
+  "ja": {
+   "name": "旅行の割り勘計算機",
+   "title": "旅行の割り勘計算機｜多通貨で立て替えを記録、誰が誰にいくら払うか自動計算（無料）",
+   "desc": "旅行の割り勘を無料で計算。誰が何を立て替えたかを20通貨で記録し、自動で換算して送金回数が最も少ない精算方法を表示。リンク1つで仲間と共有でき、登録不要・スマホ対応。",
+   "app_desc": "旅行中の立て替えを記録し、複数通貨を換算して、送金回数が最も少ない精算方法と共有リンクを作成します。",
+   "features": [
+    "複数通貨の自動換算",
+    "送金回数を最小化",
+    "リンクで共有",
+    "割り勘する人を支出ごとに選択",
+    "複数の帳簿を統合",
+    "支払い済みを記録",
+    "登録不要"
+   ],
+   "howto": "旅行の割り勘計算機で旅費を精算する方法"
+  }
+ },
+ "aff": {
+  "trip": "https://trip.tpk.ro/4JCNKu4q",
+  "agoda": "https://agoda.tpk.ro/BjCNFyqy",
+  "booking": "https://booking.tpk.ro/RcBdtiWX",
+  "klook": "https://klook.tpk.ro/yPdA5Iyi",
+  "kkday": "https://kkday.tpk.ro/NXjHmyP7"
+ },
+ "base": {
+  "zh": "TWD",
+  "en": "USD",
+  "ja": "JPY"
+ }
+}
