@@ -214,7 +214,11 @@ def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工�
 <meta property="og:url" content="{canonical}">
 <meta property="og:locale" content="{L["og_locale"]}">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="https://games.knittinghiyori.com/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://games.knittinghiyori.com/icons/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://games.knittinghiyori.com/icons/icon-192.png">
+<link rel="apple-touch-icon" href="https://games.knittinghiyori.com/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?{latin}&display=swap">
@@ -433,7 +437,6 @@ def main():
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(page(lang), encoding='utf-8')
     (ROOT / '404.html').write_text(notfound(), encoding='utf-8')
-    (ROOT / 'assets' / 'favicon.svg').write_text(FAVICON, encoding='utf-8')
     import tool_pages, sys
     groups = tool_pages.build_all(sys.modules[__name__])
     today = datetime.date.today().isoformat()
