@@ -478,7 +478,7 @@ def main():
         lines.append('')
     lines += ['## 關於', '- 部落格：' + BLOG, '- 小遊戲：' + GAMES, '- 隱私權政策：' + PRIVACY, '']
     (ROOT / 'llms.txt').write_text('\n'.join(lines), encoding='utf-8')
-    (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /_src/\n\nSitemap: {SITE}/sitemap.xml\n', encoding='utf-8')
+    (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /_src/\nDisallow: /wp-src/\n\nSitemap: {SITE}/sitemap.xml\n', encoding='utf-8')
     (ROOT / 'CNAME').write_text('tools.knittinghiyori.com\n', encoding='utf-8')
     (ROOT / '.nojekyll').write_text('', encoding='utf-8')
     print('built', len(DATA), 'tools ×', len(ORDER), 'languages', '(GA4 未設定)' if GA_ID.startswith('G-XXXX') else '')
