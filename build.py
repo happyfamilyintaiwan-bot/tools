@@ -270,6 +270,22 @@ def tool_head(lang, tool_id, name, after_crumb=''):
             f'{after_crumb}</div>\n<!--k-head:end-->')
 
 
+def fix_serif_subset(page):
+    """Noto Serif TC 只載 &text= 子集（tools.md §5）：把標題、頁首品牌用到的字補進子集，避免缺字換成別的字體"""
+    from urllib.parse import unquote
+    m = re.search(r'(family=Noto\+Serif\+TC[^"]*?[?&;]text=)([^"&]*)', page)
+    if not m:
+        return page
+    have = unquote(m.group(2))
+    body = page.split('<body', 1)[-1]
+    used = ''.join(re.findall(r'<h[1-3][^>]*>(.*?)</h[1-3]>', body, re.S)) + ''.join(BRAND.values())
+    used = re.sub(r'<[^>]+>', '', used)
+    add = sorted(set(c for c in used if not c.isspace() and c not in have))
+    if not add:
+        return page
+    return page[:m.start(2)] + quote(have + ''.join(add), safe='') + page[m.end(2):]
+
+
 def stamp_page_heads():
     """只有中文、直接放進 repo 的工具頁（tools.json 有 "page"）：把頁首換成共用版"""
     pat = re.compile(r'(?:<!--k-head:start.*?<!--k-head:end-->|<header class="k-head">.*?</header>\s*<nav class="k-crumb"[^>]*>.*?</nav>)', re.S)
@@ -287,6 +303,7 @@ def stamp_page_heads():
         else:  # 放在 head 最後一個 script（JSON-LD）後面，符合 core §2 順序
             h = new.index('</head>'); i = new.rfind('</script>', 0, h) + len('</script>')
             new = new[:i] + '\n' + meta + new[i:]
+        new = fix_serif_subset(new)
         if n:
             f.write_text(new, encoding='utf-8')
         else:
