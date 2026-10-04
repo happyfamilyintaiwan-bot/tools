@@ -285,6 +285,30 @@
    ]
   },
   {
+   "id": "concert_trip",
+   "cats": [
+    "travel"
+   ],
+   "url": "https://tools.knittinghiyori.com/concert-trip-planner/",
+   "ui": [
+    "zh"
+   ],
+   "page": "concert-trip-planner",
+   "new": true,
+   "zh": [
+    "追星遠征規劃器",
+    "海外演唱會開賣換算台灣時間，排好搶票、訂房與預算"
+   ],
+   "en": [
+    "Concert Trip Planner",
+    "Convert overseas on-sale times to Taiwan time and plan tickets, hotels and budget"
+   ],
+   "ja": [
+    "遠征ライブ計画ツール",
+    "海外公演の発売時刻を台湾時間に換算、チケット・宿・予算をまとめて計画"
+   ]
+  },
+  {
    "id": "kaomoji",
    "cats": [
     "social"

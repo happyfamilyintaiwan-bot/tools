@@ -16,6 +16,7 @@
 - [小樹點換哩程試算器](https://knittinghiyori.com/cube-tree-points-to-airline-miles-guide/)：輸入點數，算出長榮、華航、亞洲萬里通等可換多少哩程
 - [旅遊優惠總整理](https://knittinghiyori.com/tools/travel-deals/)：訂房、票券、eSIM 折扣一頁查（en: https://knittinghiyori.com/en/en-tools/en-travel-deals-hub/）
 - [停車計時卡](https://tools.knittinghiyori.com/parking-timer/)：算停車費、倒數限停時間，到期提醒可加進手機行事曆
+- [追星遠征規劃器](https://tools.knittinghiyori.com/concert-trip-planner/)：海外演唱會開賣換算台灣時間，排好搶票、訂房與預算
 
 ## 學習與語言
 - [日文學習資源＋30 天闖關](https://knittinghiyori.com/tools/japanese-quest/)：從看懂漫畫到開口說，每天打卡
