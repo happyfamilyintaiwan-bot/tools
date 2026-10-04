@@ -1,0 +1,200 @@
+<div id="tp-app" class="tp" lang="zh-Hant-TW">
+<style><!--@@STYLE@@--></style>
+
+<!-- 開場：一句話結論（給讀者＋AI 摘要引用） -->
+<span class="kick">旅遊工具・最後更新 2026-09-22</span>
+<h2><span class="hl">旅遊行程</span>共編工具：和旅伴一起排行程，一鍵變成 Google 地圖和旅遊手冊</h2>
+<p class="lead"><strong>一句話說明：</strong>每個旅伴都能丟出想去的景點、按愛心投票，再把景點排進每一天。排好後<strong>一鍵開啟 Google 地圖整天路線</strong>、匯出到 Google My Maps，並自動產出<strong>可列印成 PDF 的旅遊手冊</strong>。用連結傳到 LINE 群組就能一起編輯，免註冊。</p>
+<div class="pills"><span>旅伴共同編輯</span><span>景點投票</span><span>Google 地圖路線</span><span>My Maps 匯出</span><span>旅遊手冊 PDF</span></div>
+
+<!-- 1. 旅程設定 -->
+<section class="card" aria-labelledby="tp-h1">
+  <h3 id="tp-h1"><span class="step">1</span>旅程與旅伴</h3>
+  <div class="row">
+    <div class="field" style="flex:2;min-width:200px"><label for="tp-title">旅程名稱</label><input id="tp-title" class="in" placeholder="例如：東京五日遊" maxlength="40"></div>
+    <div class="field"><label for="tp-dst">目的地（找景點用）</label><input id="tp-dst" class="in" placeholder="例如：東京" maxlength="30"></div>
+  </div>
+  <div class="row" style="margin-top:10px">
+    <div class="field"><label for="tp-sd">出發日期（可不填）</label><input id="tp-sd" type="date" class="in"></div>
+    <div class="field" style="flex:none"><span class="lbl">天數</span><div class="stepper"><button type="button" id="tp-dminus" aria-label="減少一天">−</button><span id="tp-nd">5 天</span><button type="button" id="tp-dplus" aria-label="增加一天">＋</button></div></div>
+  </div>
+  <form id="tp-mform" class="row" style="margin-top:12px" autocomplete="off">
+    <label for="tp-mname" class="sr">旅伴名字</label>
+    <input id="tp-mname" class="in" style="flex:1;width:auto;min-width:0" placeholder="先輸入自己，再加旅伴（可用逗號）" maxlength="60">
+    <button class="btn" type="submit">＋ 旅伴</button>
+  </form>
+  <div class="chips" id="tp-members" aria-live="polite"></div>
+  <div class="me" id="tp-me"></div>
+  <div class="row" id="tp-trips" style="margin-top:10px;justify-content:space-between"></div>
+</section>
+
+<!-- 分頁 -->
+<div class="tabs" role="tablist" id="tp-tabs">
+  <button role="tab" data-tab="pool" aria-selected="true">候選景點<b id="tp-c-pool">0</b></button>
+  <button role="tab" data-tab="plan" aria-selected="false">每日行程<b id="tp-c-plan">0</b></button>
+  <button role="tab" data-tab="map" aria-selected="false">地圖<b>Google</b></button>
+  <button role="tab" data-tab="guide" aria-selected="false">旅遊手冊<b>PDF</b></button>
+</div>
+
+<!-- 2. 候選景點 -->
+<section class="pane card" id="tp-p-pool" aria-labelledby="tp-h2">
+  <h3 id="tp-h2"><span class="step">2</span>大家想去哪？丟進候選清單</h3>
+  <form class="qadd" id="tp-qform" autocomplete="off">
+    <label for="tp-qname" class="sr">景點名稱</label>
+    <input id="tp-qname" class="in" placeholder="景點、餐廳或店名，例如：淺草寺" maxlength="60">
+    <button class="btn" type="submit">＋ 加入</button>
+  </form>
+  <div class="row" style="justify-content:space-between;margin-top:4px"><p class="note" style="margin:0">喜歡就按愛心，票數高的會排前面。</p><button class="lnk" type="button" id="tp-qmore">填更多細節</button></div>
+  <div class="filt pick" id="tp-filt">
+    <button type="button" data-f="all" aria-pressed="true">全部</button>
+    <button type="button" data-f="un" aria-pressed="false">還沒排進行程</button>
+    <button type="button" data-f="mine" aria-pressed="false">我投過的</button>
+  </div>
+  <div id="tp-pool"></div>
+</section>
+
+<!-- 3. 每日行程 -->
+<section class="pane" id="tp-p-plan" hidden aria-label="每日行程">
+  <div id="tp-days"></div>
+</section>
+
+<!-- 4. 地圖 -->
+<section class="pane card" id="tp-p-map" hidden aria-labelledby="tp-h4">
+  <h3 id="tp-h4"><span class="step">4</span>行程地圖</h3>
+  <div class="pick" id="tp-mday"></div>
+  <div class="mapw" id="tp-mapw"><div class="ph">點下方景點，地圖會顯示位置</div></div>
+  <ol class="ml" id="tp-mlist"></ol>
+  <div class="btns">
+    <a class="btn" id="tp-route" href="#" target="_blank" rel="noopener">在 Google 地圖開啟這天的路線</a>
+    <button class="btn ghost" type="button" id="tp-csv">匯出 CSV，建立 My Maps 地圖</button>
+  </div>
+  <details style="margin-top:12px"><summary>怎麼把 CSV 變成 Google My Maps？</summary><div>
+    <ol>
+      <li>打開 <a href="https://www.google.com/maps/d/" target="_blank" rel="noopener">Google My Maps</a>，按「建立新地圖」。</li>
+      <li>在圖層按「匯入」，選剛剛下載的 CSV。</li>
+      <li>「選擇標示位置的欄」勾選<strong>地點</strong>，「標題欄」選<strong>名稱</strong>。</li>
+      <li>完成後按「統一樣式」→「依據資料欄分組」選<strong>天數</strong>，每天就會是不同顏色。</li>
+      <li>按「分享」開啟連結權限，旅伴手機的 Google 地圖 App 也看得到（「你的地點」→「地圖」）。</li>
+    </ol>
+  </div></details>
+</section>
+
+<!-- 5. 旅遊手冊 -->
+<section class="pane" id="tp-p-guide" hidden aria-label="旅遊手冊">
+  <div class="row" style="margin-bottom:12px">
+    <button class="btn block" type="button" id="tp-print">列印／存成 PDF</button>
+    <button class="btn ghost block" type="button" id="tp-gcopy">複製文字版</button>
+  </div>
+  <div class="guide" id="tp-guide"></div>
+  <p class="note">手機存 PDF：按「列印／存成 PDF」後，iPhone 在預覽畫面用兩指放大再按分享，Android 選「另存為 PDF」。</p>
+</section>
+
+<!-- 分享 -->
+<section class="card" id="tp-sharebox" aria-labelledby="tp-h5">
+  <h3 id="tp-h5">找旅伴一起編輯</h3>
+  <div class="flow"><div><b>① 傳連結</b>丟到 LINE 群組</div><div><b>② 旅伴編輯</b>加景點、投票</div><div><b>③ 傳回連結</b>自動合併</div></div>
+  <div class="share">
+    <button class="btn coral" id="tp-share" type="button">分享編輯連結</button>
+    <button class="btn ghost" id="tp-copytext" type="button">複製行程文字</button>
+  </div>
+  <p class="note">打開旅伴傳回來的連結，工具會自動合併：新景點加進來，同一個景點以「最後修改的版本」為準。行程只存在你的瀏覽器和連結裡，網站不會儲存。</p>
+</section>
+
+<section class="card" aria-labelledby="tp-h6">
+  <h3 id="tp-h6" style="font-size:1em;display:block">行程排好了，<span id="tp-dest">門票和住宿</span>也先搞定</h3>
+  <div class="reco">
+    <a class="rc big" style="--c:#FF5B00" data-aff="klook" href="https://klook.tpk.ro/yPdA5Iyi" target="_blank" rel="sponsored nofollow noopener"><span class="br">Klook</span><b>景點門票、周遊券先買好</b><small>樂園、展望台、交通票券，常比現場便宜，免排隊</small><em>查景點門票 →</em></a>
+    <a class="rc" style="--c:#26BEC9" data-aff="kkday" href="https://kkday.tpk.ro/NXjHmyP7" target="_blank" rel="sponsored nofollow noopener"><span class="br">KKday</span><b>一日遊與包車</b><small>交通不方便的景點，一次串起來</small><em>找一日遊 →</em></a>
+    <a class="rc" style="--c:#E0443A" data-aff="agoda" href="https://agoda.tpk.ro/BjCNFyqy" target="_blank" rel="sponsored nofollow noopener"><span class="br">Agoda</span><b>住在行程中間</b><small>照每天景點選住宿區域，少搬行李</small><em>看住宿 →</em></a>
+    <a class="rc" style="--c:#003B95" data-aff="booking" href="https://booking.tpk.ro/RcBdtiWX" target="_blank" rel="sponsored nofollow noopener"><span class="br">Booking.com</span><b>免費取消房型</b><small>行程還在喬，也能先卡位</small><em>找免費取消 →</em></a>
+    <a class="rc big" style="--c:#287DFA" data-aff="trip" href="https://trip.tpk.ro/4JCNKu4q" target="_blank" rel="sponsored nofollow noopener"><span class="br">Trip.com</span><b>機票＋酒店一起比價</b><small>日期定了就先比價，常有組合優惠</small><em>查機票與酒店 →</em></a>
+  </div>
+  <p class="disc">以上為聯盟連結：透過連結預訂，我會收到小額回饋，不會影響你的價格。— Zoe</p>
+</section>
+
+<!-- 文章內容（搜尋引擎與 AI 可直接讀取） -->
+<div class="art">
+  <section class="card">
+    <h3>行程共編工具怎麼用？四個步驟</h3>
+    <ol>
+      <li><strong>建立旅程、加入旅伴：</strong>填旅程名稱、目的地和天數，先輸入自己的名字，再加入一起出發的朋友。</li>
+      <li><strong>大家丟景點、投票：</strong>把編輯連結傳到 LINE 群組，每個人都能加入想去的景點、餐廳，看到喜歡的就按愛心。</li>
+      <li><strong>排進每日行程：</strong>在候選景點選「排入第幾天」，再到「每日行程」調整順序、填時間，景點之間可以直接查交通。</li>
+      <li><strong>產出地圖和手冊：</strong>在「地圖」一鍵開啟 Google 地圖整天路線，或匯出 CSV 建立 My Maps；在「旅遊手冊」存成 PDF 或複製文字，出發當天照著走。</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>沒有帳號，要怎麼和旅伴共同編輯？</h3>
+    <p>整份行程會壓縮成一條連結（放在網址 # 後面）。你把連結傳給旅伴，旅伴打開就能編輯；改完按「分享編輯連結」傳回來，你打開後工具會<strong>自動合併</strong>兩邊的修改：</p>
+    <ul>
+      <li>對方新增的景點會直接加進來，你自己的也不會消失。</li>
+      <li>同一個景點兩個人都改過，以<strong>最後修改</strong>的版本為準。</li>
+      <li>愛心投票記在每個人名下，所以一定要先在上方選「我是誰」。</li>
+    </ul>
+    <p>建議分工：一個人當「主編」負責最後排順序，其他人負責丟景點和投票，連結來回兩三次行程就定了。</p>
+  </section>
+
+  <section class="card">
+    <h3>把行程變成 Google 地圖的兩種方法</h3>
+    <p><strong>方法一：一鍵開啟整天路線。</strong>在「地圖」選一天，按「在 Google 地圖開啟這天的路線」，手機會直接打開 Google 地圖 App，照順序串起當天所有景點，可以切換開車、步行或大眾運輸。Google 地圖一條路線最多 10 個點，超過的話工具會提醒你。</p>
+    <p><strong>方法二：匯入 Google My Maps。</strong>按「匯出 CSV」，到 Google My Maps 匯入，所有景點會變成地圖上的標記，每天一個顏色。分享 My Maps 後，旅伴在自己的 Google 地圖 App 也能看到，旅途中打開就知道附近還有哪些想去的點。</p>
+  </section>
+
+  <section class="card">
+    <h3>旅行共編工具常見問題</h3>
+    <details open><summary>和朋友一起排行程，有免費又不用註冊的工具嗎？</summary><div><p>有。這個行程共編工具直接用瀏覽器開啟，不用下載 App 也不用註冊。把編輯連結傳到 LINE 群組，每個人都能加入景點、投票和調整行程，傳回連結後會自動合併。</p></div></details>
+    <details><summary>排好的行程可以匯入 Google 地圖嗎？</summary><div><p>可以。每天的行程能一鍵在 Google 地圖開啟整條路線；也能匯出 CSV 檔，在 Google My Maps 匯入，把所有景點變成依天數分色的自訂地圖，分享給旅伴。</p></div></details>
+    <details><summary>旅遊手冊可以存成 PDF 或印出來嗎？</summary><div><p>可以。在「旅遊手冊」分頁按「列印／存成 PDF」，只會印出手冊內容，包含每天的時間、景點、地址、備註和 Google 地圖連結。也可以複製文字版，貼到 LINE 記事本或手機備忘錄。</p></div></details>
+    <details><summary>兩個人同時改行程會不會互相蓋掉？</summary><div><p>不會整份蓋掉。工具以「景點」為單位合併：對方新增的景點會加進來，只有同一個景點兩邊都改過時，才會以最後修改的版本為準。</p></div></details>
+    <details><summary>我的行程資料會上傳到網站嗎？</summary><div><p>不會。行程只存在你的瀏覽器，以及你分享出去的連結裡，網站伺服器不會收到或儲存任何行程內容。換手機時，用分享連結就能接續編輯。</p></div></details>
+    <details><summary>可以同時規劃好幾趟旅行嗎？</summary><div><p>可以。按「＋ 新行程」就能開新的一趟，舊行程會保留在「我的行程」選單裡，隨時切換。</p></div></details>
+  </section>
+
+  <section class="card">
+    <h3>出發前也用得到</h3>
+    <div class="rel">
+      <a href="https://knittinghiyori.com/travel-split-calculator/">旅費分帳計算機<span>旅途中誰先付的都記下來，自動算出誰該轉給誰</span></a>
+      <a href="https://knittinghiyori.com/tools/esim-picker/">eSIM 選購小幫手<span>選國家、天數、用量，10 秒比完 Saily、Airalo、Yesim</span></a>
+      <a href="https://knittinghiyori.com/jr-pass-calculator/">JR Pass 划算計算機<span>輸入日本行程，比較周遊券和單買車票</span></a>
+      <a href="https://knittinghiyori.com/tools/travel-deals/">旅遊優惠整理頁<span>訂房、交通、網卡的限時優惠一次看</span></a>
+    </div>
+  </section>
+</div>
+
+<div class="fab" id="tp-fab">
+  <div class="sum"><span id="tp-fab-l">還沒有景點</span><b id="tp-fab-v">開始規劃</b></div>
+  <button class="btn ghost sm" type="button" id="tp-fab-share">分享</button>
+  <button class="btn sm" type="button" id="tp-fab-add">＋ 景點</button>
+</div>
+
+<dialog class="dlg" id="tp-dlg" aria-labelledby="tp-dlg-t">
+  <form class="sheet" id="tp-eform" method="dialog" autocomplete="off">
+    <h3><span id="tp-dlg-t">新增景點</span><button class="x" type="button" id="tp-close" aria-label="關閉">×</button></h3>
+    <div class="sec"><label class="lbl" for="tp-en">名稱</label><input id="tp-en" class="in" style="margin-top:6px" placeholder="例如：淺草寺、一蘭拉麵 新宿店" maxlength="60"></div>
+    <div class="sec"><label class="lbl" for="tp-ea">地址或區域（讓地圖找得更準）</label><input id="tp-ea" class="in" style="margin-top:6px" placeholder="例如：台東區、東京都台東区浅草2-3-1" maxlength="100"></div>
+    <div class="sec"><div class="lbl" style="margin-bottom:6px">分類</div><div class="pick" id="tp-ek"></div></div>
+    <div class="row sec">
+      <div class="field"><label for="tp-ed">排入</label><select id="tp-ed" class="in"></select></div>
+      <div class="field"><label for="tp-et">時間（可不填）</label><input id="tp-et" type="time" class="in"></div>
+    </div>
+    <div class="sec"><label class="lbl" for="tp-eno">備註（營業時間、要訂位、必吃…）</label><textarea id="tp-eno" class="in" style="margin-top:6px" maxlength="300" placeholder="例如：週二公休；要提前一個月訂位"></textarea></div>
+    <div class="sec"><label class="lbl" for="tp-el">連結（Google 地圖、官網或訂位網址）</label><input id="tp-el" class="in" type="url" inputmode="url" style="margin-top:6px" placeholder="https://" maxlength="500"></div>
+    <p class="err" id="tp-eerr" role="alert"></p>
+    <div class="foot"><button type="button" class="btn ghost" id="tp-edel" hidden style="color:var(--red)!important;border-color:var(--red)">刪除</button><button type="submit" class="btn block">儲存</button></div>
+  </form>
+</dialog>
+
+<dialog class="dlg" id="tp-pdlg" aria-labelledby="tp-pdlg-t">
+  <div class="sheet">
+    <h3><span id="tp-pdlg-t">從候選加入</span><button class="x" type="button" id="tp-pclose" aria-label="關閉">×</button></h3>
+    <div id="tp-plist"></div>
+  </div>
+</dialog>
+<div class="toast" id="tp-toast" role="status"></div>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"旅遊行程共編工具","url":"https://knittinghiyori.com/group-trip-planner/","applicationCategory":"TravelApplication","operatingSystem":"Any","inLanguage":"zh-Hant-TW","description":"和旅伴共同編輯旅遊行程：各自加入想去的景點並投票，排入每日行程後，一鍵開啟 Google 地圖路線、匯出 Google My Maps，並產生可列印成 PDF 的旅遊手冊。","featureList":["旅伴共同編輯","景點投票","每日行程排序","Google 地圖整天路線","匯出 Google My Maps CSV","旅遊手冊 PDF","免註冊"],"offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"dateModified":"2026-09-22","author":{"@type":"Person","name":"Zoe","url":"https://knittinghiyori.com/"}},{"@type":"HowTo","name":"如何和旅伴一起排出國行程，並產出 Google 地圖與旅遊手冊","totalTime":"PT15M","step":[{"@type":"HowToStep","position":1,"name":"建立旅程、加入旅伴","text":"填旅程名稱、目的地和天數，先輸入自己的名字，再加入旅伴。"},{"@type":"HowToStep","position":2,"name":"大家丟景點、投票","text":"把編輯連結傳到 LINE 群組，每個人加入想去的景點並按愛心投票。"},{"@type":"HowToStep","position":3,"name":"排進每日行程","text":"把候選景點排入每一天，調整順序、填上時間，景點之間可直接查交通。"},{"@type":"HowToStep","position":4,"name":"產出地圖和手冊","text":"一鍵開啟 Google 地圖整天路線、匯出 CSV 建立 My Maps，並把旅遊手冊存成 PDF。"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"和朋友一起排行程，有免費又不用註冊的工具嗎？","acceptedAnswer":{"@type":"Answer","text":"有。這個行程共編工具直接用瀏覽器開啟，不用下載 App 也不用註冊。把編輯連結傳到 LINE 群組，每個人都能加入景點、投票和調整行程，傳回連結後會自動合併。"}},{"@type":"Question","name":"排好的行程可以匯入 Google 地圖嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。每天的行程能一鍵在 Google 地圖開啟整條路線；也能匯出 CSV 檔，在 Google My Maps 匯入，把所有景點變成依天數分色的自訂地圖，分享給旅伴。"}},{"@type":"Question","name":"旅遊手冊可以存成 PDF 或印出來嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。在「旅遊手冊」分頁按「列印／存成 PDF」，只會印出手冊內容，包含每天的時間、景點、地址、備註和 Google 地圖連結。也可以複製文字版，貼到 LINE 記事本或手機備忘錄。"}},{"@type":"Question","name":"兩個人同時改行程會不會互相蓋掉？","acceptedAnswer":{"@type":"Answer","text":"不會整份蓋掉。工具以「景點」為單位合併：對方新增的景點會加進來，只有同一個景點兩邊都改過時，才會以最後修改的版本為準。"}},{"@type":"Question","name":"我的行程資料會上傳到網站嗎？","acceptedAnswer":{"@type":"Answer","text":"不會。行程只存在你的瀏覽器，以及你分享出去的連結裡，網站伺服器不會收到或儲存任何行程內容。換手機時，用分享連結就能接續編輯。"}},{"@type":"Question","name":"可以同時規劃好幾趟旅行嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。按「＋ 新行程」就能開新的一趟，舊行程會保留在「我的行程」選單裡，隨時切換。"}}]}]}</script>
+
+<script><!--@@MAIN@@--></script>
+</div>
+<!-- ===== /旅遊行程共編工具 ===== -->
