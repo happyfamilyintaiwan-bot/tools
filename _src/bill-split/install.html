@@ -1,0 +1,73 @@
+<section class="card" id="bs-install" aria-labelledby="bs-h-ins">
+    <h3 id="bs-h-ins" data-t="insH">把聚餐分帳計算機加到手機桌面，吃完飯直接開</h3>
+    <p data-t="insP">加到主畫面後，它會像 App 一樣出現在手機桌面，不用下載、不佔空間，結帳時打開就能算。</p>
+    <div class="tabs" role="tablist" aria-label="選擇你的裝置" data-ta="insTabs">
+      <button type="button" role="tab" data-os="ios" aria-selected="true">iPhone Safari</button>
+      <button type="button" role="tab" data-os="ioschrome" aria-selected="false">iPhone Chrome</button>
+      <button type="button" role="tab" data-os="android" aria-selected="false">Android</button>
+      <button type="button" role="tab" data-os="pc" aria-selected="false" data-t="tabPc">電腦</button>
+    </div>
+    <button type="button" class="btn block" id="bs-pwa" hidden style="width:100%;margin-bottom:12px" data-t="bPwa">一鍵安裝到桌面</button>
+    <div data-panel="ios" role="tabpanel" data-t="pIos">
+      <p class="os-t">iPhone：加到主畫面（Safari）</p>
+      <ol class="steps">
+        <li>用 <strong>Safari</strong> 打開這一頁</li>
+        <li>點網址列旁的<strong>「分享」</strong>圖示（方框加向上箭頭；新版 iOS 可能要先點「⋯」）</li>
+        <li>往下滑，點<strong>「加入主畫面」</strong></li>
+        <li>名稱可以改成「聚餐分帳」，再按<strong>「加入」</strong></li>
+      </ol>
+      <p class="os-t">iPhone：加到我的最愛</p>
+      <ol class="steps">
+        <li>一樣點<strong>「分享」</strong>圖示</li>
+        <li>點<strong>「加入我的最愛」</strong>，之後在 Safari 新分頁就能一鍵打開</li>
+      </ol>
+    </div>
+    <div data-panel="ioschrome" role="tabpanel" hidden data-t="pIosC">
+      <p class="os-t">iPhone：加到主畫面（Chrome）</p>
+      <ol class="steps">
+        <li>用 <strong>Chrome</strong> 打開這一頁</li>
+        <li>點網址列右側的<strong>「分享」</strong>圖示（沒看到的話，點右下角「⋯」再選「分享」）</li>
+        <li>往下滑，點<strong>「加入主畫面」</strong></li>
+        <li>按<strong>「加入」</strong>，桌面就會出現圖示</li>
+      </ol>
+      <p class="os-t">iPhone：加入 Chrome 書籤</p>
+      <ol class="steps">
+        <li>點右下角<strong>「⋯」</strong></li>
+        <li>點<strong>「加入書籤」</strong>（部分版本顯示為☆圖示）</li>
+      </ol>
+      <p class="note">iPhone 的 Chrome 需要 iOS 16.4 以上才有「加入主畫面」；沒有的話，改用 Safari 操作一次即可。</p>
+    </div>
+    <div data-panel="android" role="tabpanel" hidden data-t="pAnd">
+      <p class="os-t">Android：加到主畫面（Chrome）</p>
+      <ol class="steps">
+        <li>用 <strong>Chrome</strong> 打開這一頁</li>
+        <li>點右上角的<strong>「⋮」</strong>選單</li>
+        <li>點<strong>「加到主畫面」</strong>，出現視窗後選<strong>「新增」</strong>或<strong>「建立捷徑」</strong></li>
+      </ol>
+      <p class="os-t">Android：加入書籤</p>
+      <ol class="steps">
+        <li>點右上角<strong>「⋮」</strong></li>
+        <li>點最上排的<strong>「☆」星號</strong></li>
+      </ol>
+      <p class="note">Samsung 網際網路瀏覽器：點下方的「≡」選單 →「加入頁面至」→「主畫面」。</p>
+    </div>
+    <div data-panel="pc" role="tabpanel" hidden data-t="pPc">
+      <p class="os-t">電腦：加入書籤</p>
+      <ol class="steps">
+        <li>Windows 按 <strong>Ctrl＋D</strong>，Mac 按 <strong>⌘＋D</strong></li>
+        <li>資料夾選「書籤列」，之後瀏覽器最上方就能一鍵打開</li>
+      </ol>
+    </div>
+    <div class="row" style="justify-content:space-between;margin-top:4px">
+      <span class="note" style="margin:0" data-t="insNote">基於手機安全設計，網頁無法替你直接加入，照上面步驟約 10 秒完成。</span>
+      <button type="button" class="btn ghost sm" id="bs-installed" data-t="bDone">我加好了</button>
+    </div>
+    <div class="invite">
+      <p data-t="invite"><strong>覺得好用嗎？</strong>分享給常一起吃飯的朋友，下次結帳不用再拿計算機按半天。分享出去，就是給免費工具最好的鼓勵。</p>
+      <div class="share3">
+        <button type="button" class="btn" id="bs-tshare" data-t="bTShare">分享給朋友</button>
+        <a class="btn line" id="bs-tline" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fknittinghiyori.com%2Ftools%2Fbill-split-calculator%2F" target="_blank" rel="noopener" data-t="bLine">傳到 LINE</a>
+        <button type="button" class="btn ghost" id="bs-tcopy" data-t="bTCopy">複製網址</button>
+      </div>
+    </div>
+  </section>
