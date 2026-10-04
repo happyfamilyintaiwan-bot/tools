@@ -14,7 +14,7 @@ GA_ID = 'G-ZQZHTYTRMQ'   # GA4 評估 ID
 ADS_CLIENT = 'ca-pub-2022028565680247'   # AdSense 發布商 ID（全站共用）
 ADS_SLOT = '3114811513'                  # AdSense 廣告單元「tools」
 DRIVE = 'https://emrld.ltd/NTc5OTI2.js?t=579926'   # Travelpayouts Drive（tools 專屬）
-SPEC = 'core-v1.1/tools-v2.3'   # spec-version meta（core §0）：規範升版時改這裡，build 會套到所有頁面
+SPEC = 'core-v1.2/tools-v2.3'   # spec-version meta（core §0）：規範升版時改這裡，build 會套到所有頁面
 VER = datetime.date.today().strftime('%Y%m%d')  # 改版時更新快取
 YEAR = datetime.date.today().year
 
@@ -188,7 +188,8 @@ def feat(i, t, lang, L, k):
             f'<span class="fgo">{L["open"]}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>')
 
 
-def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工具總覽|免費線上小工具'):
+def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工具總覽|免費線上小工具', og_img=''):
+    lang = next(k for k, v in LANGS.items() if v is L)
     alts = ''.join(f'<link rel="alternate" hreflang="{LANGS[l]["hreflang"]}" href="{SITE}{LANGS[l]["path"]}">' for l in ORDER)
     alts += f'<link rel="alternate" hreflang="x-default" href="{SITE}/">'
     ga = '' if GA_ID.startswith('G-XXXX') else (
@@ -219,12 +220,9 @@ def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工�
 <meta property="og:description" content="{E(desc)}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:locale" content="{L["og_locale"]}">
-<meta name="twitter:card" content="summary">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="https://games.knittinghiyori.com/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="https://games.knittinghiyori.com/icons/favicon-96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="https://games.knittinghiyori.com/icons/icon-192.png">
-<link rel="apple-touch-icon" href="https://games.knittinghiyori.com/icons/apple-touch-icon.png">
+{og_tags(og_img, title, lang) if og_img else '<meta name="twitter:card" content="summary">'}
+{ICON_LINKS}
+{BRAND_STYLE}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?{latin}&display=swap">
@@ -237,10 +235,37 @@ def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工�
 </head>'''
 
 
-# ---- 工具頁共用頁首（2026-10-04 統一）：logo＋編織日和・小工具／No.XX · 分類／麵包屑 ----
-BRAND = {'zh': '編織日和・小工具', 'en': 'Knitting Hiyori · Tools', 'ja': '編織日和・ツール'}
+# ---- 品牌統一（core §7 頁首品牌列＋分頁圖示；2026-10-04）----
+# 品牌列：正式 logo＋「編織日和・小工具」，點了回 tools 首頁（data-cta=brand_hub）；400px 以下藏站名
+BRAND_SUB = {'zh': '・小工具', 'en': ' · Tools', 'ja': '・ツール'}
+BRAND = {l: '編織日和' + v for l, v in BRAND_SUB.items()}
 CRUMB_HOME = {'zh': '小工具', 'en': 'Tools', 'ja': 'ツール'}
-LOGO = '/assets/logo.webp'
+LOGO = '/icons/logo-knitting-120.webp'   # 正式 logo（與 games /icons/ 同一份）
+BRAND_STYLE = ('<style>.kh-brand-row{display:flex;align-items:center;justify-content:space-between;gap:12px}'
+               '.kh-brand{display:inline-flex;align-items:center;gap:10px;min-height:44px;color:#16120f;text-decoration:none;'
+               'font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:14.4px;font-weight:700;'
+               'letter-spacing:.04em;line-height:1.2;white-space:nowrap}'
+               '.kh-brand img{width:40px;height:40px;border-radius:8px;flex:none}'
+               '.kh-brand:hover{text-decoration:underline;text-underline-offset:4px}'
+               '@media (max-width:400px){.kh-brand-sub{display:none}}</style>')
+# 分頁圖示：全部放在 tools 自己的 /icons/（檔案同 games /icons/），不跨網域
+ICON_LINKS = '\n'.join([
+    '<link rel="icon" href="/favicon.ico" sizes="any">',
+    '<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">',
+    '<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96.png">',
+    '<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">',
+    '<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">'])
+
+
+def og_tags(img_path, alt, lang='zh'):
+    """分享預覽圖（og.py 產生，左上角品牌列＋網址）。檔案不存在就只放 summary 卡"""
+    if not (ROOT / img_path.lstrip('/')).exists():
+        return '<meta name="twitter:card" content="summary">'
+    u = SITE + img_path
+    a = E(BRAND[lang] + '｜' + alt)
+    return (f'<meta property="og:image" content="{u}">\n<meta property="og:image:width" content="1200">\n'
+            f'<meta property="og:image:height" content="630">\n<meta property="og:image:alt" content="{a}">\n'
+            f'<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:image" content="{u}">')
 
 
 def tool_no(tool_id):
@@ -248,12 +273,10 @@ def tool_no(tool_id):
     return next(i for i, t in enumerate(DATA, 1) if t['id'] == tool_id)
 
 
-def brand_link(lang, extra_attrs=''):
+def brand_link(lang):
     L = LANGS[lang]
-    return (f'<a class="brand k-brandlogo" href="{L["path"]}" data-cta="header_hub" data-cta-type="tool" data-google-vignette="false"{extra_attrs} '
-            f'style="display:inline-flex;align-items:center;gap:8px;text-decoration:none">'
-            f'<img src="{LOGO}" width="28" height="28" alt="" style="width:28px;height:28px;border-radius:6px;flex:none">'
-            f'<span>{BRAND[lang]}</span></a>')
+    return (f'<a class="kh-brand" href="{L["path"]}" data-cta="brand_hub" data-cta-type="tool" data-google-vignette="false">'
+            f'<img src="{LOGO}" width="40" height="40" alt=""><span>編織日和<span class="kh-brand-sub">{BRAND_SUB[lang]}</span></span></a>')
 
 
 def tool_head(lang, tool_id, name, after_crumb=''):
@@ -262,7 +285,7 @@ def tool_head(lang, tool_id, name, after_crumb=''):
     t = next(x for x in DATA if x['id'] == tool_id)
     cat = L['cats'][t['cats'][0]]
     return ('<!--k-head:start（build.py 產生，請勿手改）-->\n'
-            f'<header class="k-head">{brand_link(lang)}'
+            f'{BRAND_STYLE}<header class="k-head kh-brand-row">{brand_link(lang)}'
             f'<span class="k-label">No.{tool_no(tool_id):02d} · {cat}</span></header>\n'
             f'<div class="k-crumbrow" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px">'
             f'<nav class="k-crumb" aria-label="{"麵包屑" if lang == "zh" else ("Breadcrumb" if lang == "en" else "パンくずリスト")}">'
@@ -286,6 +309,21 @@ def fix_serif_subset(page):
     return page[:m.start(2)] + quote(have + ''.join(add), safe='') + page[m.end(2):]
 
 
+def stamp_icons_og(page, og_img, alt):
+    """手寫頁：分頁圖示換成 tools 自己的 /icons/；分享預覽圖換成 og.py 產生的品牌版"""
+    icon_pat = re.compile(r'<link rel="(?:icon|shortcut icon|apple-touch-icon)"[^>]*>\n?')
+    m = icon_pat.search(page)
+    if m:
+        pos = m.start()
+        page = icon_pat.sub('', page)
+        page = page[:pos] + ICON_LINKS + '\n' + page[pos:]
+    og_pat = re.compile(r'<meta (?:property="og:image(?::[a-z]+)?"|name="twitter:(?:card|image)")[^>]*>\n?')
+    page = og_pat.sub('', page)
+    m = re.search(r'<meta property="og:url"[^>]*>\n?', page)
+    pos = m.end() if m else page.index('</head>')
+    return page[:pos] + og_tags(og_img, alt) + '\n' + page[pos:]
+
+
 def stamp_page_heads():
     """只有中文、直接放進 repo 的工具頁（tools.json 有 "page"）：把頁首換成共用版"""
     pat = re.compile(r'(?:<!--k-head:start.*?<!--k-head:end-->|<header class="k-head">.*?</header>\s*<nav class="k-crumb"[^>]*>.*?</nav>)', re.S)
@@ -304,6 +342,7 @@ def stamp_page_heads():
             h = new.index('</head>'); i = new.rfind('</script>', 0, h) + len('</script>')
             new = new[:i] + '\n' + meta + new[i:]
         new = fix_serif_subset(new)
+        new = stamp_icons_og(new, f'/{t["page"]}/og-2.png', t['zh'][0])
         if n:
             f.write_text(new, encoding='utf-8')
         else:
@@ -418,7 +457,7 @@ def page(lang):
     glyphs = (re.sub('<[^>]+>', '', L['h1'] + L['share_h']) + L['hot_h'] + L['idx_h'] + L['promo_t'] + L['faq_h']
               + L['omi']['title'] + ''.join(L['omi']['luck']) + '道具'
               + ''.join(t[lang][0] + t[other][0] for t in DATA))
-    return vignette(f'''{head(L, L["title"], L["desc"], canonical, extra, glyphs)}
+    return vignette(f'''{head(L, L["title"], L["desc"], canonical, extra, glyphs, og_img=f'/assets/og/hub-{lang}.png')}
 <body>
 <a class="skip" href="#index">Skip to tools</a>
 {header(lang)}

@@ -1,0 +1,358 @@
+<!-- ===== eSIM 選購小幫手 by knittinghiyori.com｜貼到 WordPress「自訂 HTML」區塊 ===== -->
+<div id="esp" class="esp" lang="zh-Hant-TW">
+<style>
+.esp{--bg:#F6F3EE;--card:#FFFFFF;--ink:#3D3A36;--sub:#7C766F;--line:#E4DED5;--sage:#8E9E86;--sage-d:#6F8067;--sage-l:#E7ECE3;--rose:#C4A49A;--rose-l:#F4EAE6;--blue:#8C9FAA;--blue-l:#E6ECEF;--gold:#C8A96A;
+font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink);background:var(--bg);border-radius:20px;padding:22px 16px 26px;line-height:1.7;font-size:16px;max-width:760px;margin:0 auto;box-sizing:border-box}
+.esp *,.esp *::before,.esp *::after{box-sizing:border-box}
+.esp p{margin:0 0 .8em}
+.esp h2{font-size:1.45em;line-height:1.35;margin:.2em 0 .35em;font-weight:700;letter-spacing:.02em;color:var(--ink)}
+.esp h3{font-size:1.12em;margin:1.6em 0 .6em;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:.5em}
+.esp h3::before{content:"";width:4px;height:1.05em;border-radius:2px;background:var(--sage)}
+.esp a{color:var(--sage-d)}
+.esp button{font:inherit;color:inherit;cursor:pointer}
+.esp .kick{display:inline-block;font-size:.8em;color:var(--sage-d);background:var(--sage-l);padding:2px 10px;border-radius:99px;letter-spacing:.05em}
+.esp .lead{color:var(--sub);font-size:.96em}
+.esp .pills{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 4px}
+.esp .pills span{font-size:.8em;border:1px solid var(--line);background:var(--card);padding:3px 10px;border-radius:99px;color:var(--sub)}
+.esp .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 14px;margin-top:16px}
+.esp .step{font-size:.9em;font-weight:700;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.esp .step i{font-style:normal;width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;font-size:.78em;display:inline-flex;align-items:center;justify-content:center}
+.esp .grp+.grp{margin-top:20px;padding-top:18px;border-top:1px dashed var(--line)}
+.esp .chips{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.esp .chip{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 2px;font-size:.84em;white-space:nowrap;transition:all .15s;text-align:center}
+.esp .chip[aria-checked=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.esp .days{display:flex;align-items:center;gap:12px}
+.esp .days button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:1.3em;line-height:1;flex:none}
+.esp .days output{font-size:1.9em;font-weight:700;min-width:3.6em;text-align:center;font-variant-numeric:tabular-nums}
+.esp .days output small{font-size:.45em;font-weight:400;color:var(--sub);margin-left:2px}
+.esp input[type=range]{width:100%;margin-top:12px;accent-color:var(--sage-d);height:28px}
+.esp .quick{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.esp .quick button{font-size:.8em;border:1px solid var(--line);background:var(--bg);border-radius:99px;padding:3px 10px;color:var(--sub)}
+.esp .use{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:600px){.esp .chip{font-size:.95em}.esp{padding:30px 28px 34px}.esp .use{grid-template-columns:repeat(4,1fr)}.esp h2{font-size:1.7em}}
+.esp .uc{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px;text-align:left;transition:all .15s}
+.esp .uc b{display:block;font-size:1em}
+.esp .uc span{display:block;font-size:.78em;color:var(--sub);line-height:1.45;margin-top:2px}
+.esp .uc em{font-style:normal;font-size:.75em;color:var(--sage-d);font-weight:700}
+.esp .uc[aria-checked=true]{border-color:var(--sage-d);background:var(--sage-l);box-shadow:inset 0 0 0 1px var(--sage-d)}
+.esp .tog{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:.9em;color:var(--sub);cursor:pointer;user-select:none}
+.esp .tog input{width:20px;height:20px;accent-color:var(--sage-d);margin:0}
+.esp .res{margin-top:18px}
+.esp .need{font-size:.92em;color:var(--sub);margin-bottom:10px}
+.esp .need b{color:var(--ink)}
+.esp .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 14px;margin-top:10px;animation:espIn .35s ease both}
+.esp .card.top{border:1.5px solid var(--sage-d);box-shadow:0 6px 22px -12px rgba(80,95,75,.45)}
+@keyframes espIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.esp .badge{position:absolute;top:-11px;left:14px;background:var(--sage-d);color:#fff;font-size:.75em;font-weight:700;padding:2px 10px;border-radius:99px;letter-spacing:.05em}
+.esp .row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.esp .bn{font-weight:700;font-size:1.12em}
+.esp .pl{font-size:.9em;color:var(--sub)}
+.esp .pr{text-align:right;white-space:nowrap}
+.esp .pr b{font-size:1.35em;font-variant-numeric:tabular-nums}
+.esp .pr s{color:var(--sub);font-size:.8em;margin-right:4px}
+.esp .pr small{display:block;font-size:.78em;color:var(--sub)}
+.esp .bar{height:8px;border-radius:99px;background:var(--bg);margin:12px 0 4px;overflow:hidden}
+.esp .bar span{display:block;height:100%;border-radius:99px;background:var(--blue);transition:width .5s ease}
+.esp .card.top .bar span{background:var(--sage-d)}
+.esp .note{font-size:.8em;color:var(--sub);margin-top:6px}
+.esp .warn{font-size:.8em;color:#9A6B5E;background:var(--rose-l);border-radius:8px;padding:6px 10px;margin-top:8px}
+.esp .tip{font-size:.8em;background:var(--blue-l);border-radius:8px;padding:6px 10px;margin-top:8px}
+.esp .cta{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;background:var(--ink);color:#fff!important;text-decoration:none!important;border-radius:12px;padding:12px;font-weight:700;font-size:.95em}
+.esp .card:not(.top) .cta{background:#fff;color:var(--ink)!important;border:1px solid var(--ink)}
+.esp .code{display:flex;align-items:center;gap:8px;margin-top:10px;border:1px dashed var(--gold);background:#FBF7EE;border-radius:10px;padding:8px 10px;font-size:.85em}
+.esp .code code{font-family:ui-monospace,Menlo,monospace;font-size:1.08em;font-weight:700;letter-spacing:.06em;background:none;color:var(--ink);padding:0}
+.esp .code button{margin-left:auto;border:0;background:var(--gold);color:#fff;border-radius:8px;padding:5px 12px;font-size:.9em;font-weight:700}
+.esp .share{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.esp .share button,.esp .share a{flex:1 1 30%;min-width:96px;text-align:center;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 6px;font-size:.85em;text-decoration:none;color:var(--ink)}
+.esp .share .line{background:#06C755;border-color:#06C755;color:#fff}
+.esp .share button.done{background:var(--sage-d);border-color:var(--sage-d);color:#fff;font-weight:700}
+.esp .code button.done{background:var(--sage-d)}
+.esp .share button,.esp .code button{transition:background .2s,color .2s}
+.esp .ctip{margin-top:14px;font-size:.88em;background:var(--sage-l);border-radius:12px;padding:10px 12px}
+#esp-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:8px 16px;border-radius:99px;font-size:.88em;opacity:0;pointer-events:none;transition:all .25s;z-index:9999}
+#esp-toast.on{opacity:1;transform:translateX(-50%)}
+.esp .tl{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 6px;font-size:.95em}
+.esp .tl li{margin-bottom:.5em}
+.esp .tl ul{margin:0;padding-left:1.1em}
+.esp .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;background:#fff}
+.esp table{border-collapse:collapse;width:100%;font-size:.85em;min-width:520px;margin:0}
+.esp th,.esp td{padding:9px 10px;border:0;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.esp thead th{background:var(--bg);font-weight:700;white-space:nowrap}
+.esp td b{font-variant-numeric:tabular-nums}
+.esp td.win{background:var(--sage-l)}
+.esp td small{color:var(--sub);display:block;line-height:1.35}
+.esp .tabs{display:flex;gap:6px;margin-bottom:8px}
+.esp .tabs button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:5px 14px;font-size:.85em}
+.esp .tabs button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.esp .brands{display:grid;gap:10px}
+@media(min-width:600px){.esp .brands{grid-template-columns:repeat(3,1fr)}}
+.esp .bc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.9em}
+.esp .bc b{font-size:1.1em;display:block;margin-bottom:4px}
+.esp .bc ul{margin:0;padding-left:1.1em}
+.esp .bc a{display:inline-block;margin-top:8px;font-weight:700}
+.esp details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:8px}
+.esp summary{padding:12px 14px;font-weight:700;cursor:pointer;list-style:none;position:relative;padding-right:36px;font-size:.95em}
+.esp summary::-webkit-details-marker{display:none}
+.esp summary::after{content:"+";position:absolute;right:14px;top:10px;font-size:1.3em;color:var(--sub);font-weight:400}
+.esp details[open] summary::after{content:"−"}
+.esp details>div{padding:0 14px 12px;font-size:.92em}
+.esp .rel{display:grid;gap:8px}
+@media(min-width:600px){.esp .rel2{grid-template-columns:repeat(2,1fr)}}
+.esp .rel a{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--ink);font-size:.92em}
+.esp .rel a span{display:block;font-size:.8em;color:var(--sub)}
+.esp .disc{font-size:.78em;color:var(--sub);margin-top:22px;border-top:1px solid var(--line);padding-top:12px}
+</style>
+<!-- 開場：一句話結論（給讀者＋AI 摘要引用） -->
+<span class="kick">旅遊工具・最後更新 2026-09-19</span>
+<h2>輸入你的行程，馬上看 Saily、Airalo、Yesim 三家價格</h2>
+<p class="lead"><strong>結論先講：</strong>以「5 天、每天 1GB」來算，原價最便宜的是 Airalo（10 個目的地贏 6 個）；拉長到「10 天、每天 2GB」則換 Yesim 領先（贏 7 個）。如果你是 Saily 新用戶，用折扣碼 <strong>ZOEEHA9323</strong> 首購折 US$5 後，5 天情境有 9 個目的地變成 Saily 最便宜。三家實際差距常在 US$1–3，選你用得順手的就好。</p>
+<div class="pills"><span>3 家實際方案比價</span><span>10 個熱門目的地</span><span>Saily 首購折 US$5</span><span>免註冊・手機好按</span></div>
+<!-- 互動工具 -->
+<div class="panel" id="esp-tool">
+  <div class="grp">
+    <p class="step"><i>1</i>要去哪裡？</p>
+    <div class="chips" role="radiogroup" aria-label="目的地" id="esp-c"></div>
+  </div>
+  <div class="grp">
+    <p class="step"><i>2</i>玩幾天？</p>
+    <div class="days">
+      <button type="button" id="esp-dm" aria-label="少一天">−</button>
+      <output id="esp-dv" aria-live="polite">5<small>天</small></output>
+      <button type="button" id="esp-dp" aria-label="多一天">＋</button>
+    </div>
+    <input type="range" id="esp-d" min="1" max="30" value="5" aria-label="旅遊天數">
+    <div class="quick"><button type="button" data-d="3">週末 3 天</button><button type="button" data-d="5">5 天</button><button type="button" data-d="7">一週</button><button type="button" data-d="14">兩週</button><button type="button" data-d="30">一個月</button></div>
+  </div>
+  <div class="grp">
+    <p class="step"><i>3</i>每天大概怎麼用？</p>
+    <div class="use" role="radiogroup" aria-label="每日用量" id="esp-u"></div>
+    <label class="tog"><input type="checkbox" id="esp-code" checked>我是 Saily 新用戶（價格套用折扣碼首購折 US$5）</label>
+  </div>
+  <div class="res" id="esp-res" aria-live="polite"><p class="need">正在計算比價結果…若一直停在這裡，請重新整理頁面。</p></div>
+  <div class="share">
+    <button type="button" id="esp-sh">分享結果</button>
+    <a class="line" id="esp-line" href="#" target="_blank" rel="noopener">傳到 LINE</a>
+    <button type="button" id="esp-cp">複製給旅伴</button>
+  </div>
+  <div class="ctip" id="esp-tip"></div>
+</div>
+<!-- 靜態比價表（搜尋引擎與 AI 可直接讀取） -->
+<h3>熱門目的地 eSIM 價格比較表（2026-09-19）</h3>
+<p>下面是用同一套算法、<strong>不套任何折扣碼</strong>算出的參考價（美元），綠底是該情境最便宜的一家。想看自己的天數，直接用上面的小幫手。</p>
+<div class="tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-t="a">5 天・每天 1GB</button><button type="button" role="tab" aria-selected="false" data-t="b">10 天・每天 2GB</button></div>
+<div class="tw" data-p="a"><table><thead><tr><th>目的地</th><th>Saily</th><th>Airalo</th><th>Yesim</th></tr></thead><tbody><tr><th scope="row">日本</th><td><b>US$10.99</b><small>5GB／30 天</small></td><td class="win"><b>US$10.00</b><small>5GB／7 天</small></td><td><b>US$10.09</b><small>5GB／30 天</small></td></tr><tr><th scope="row">韓國</th><td><b>US$10.99</b><small>5GB／30 天</small></td><td class="win"><b>US$10.00</b><small>5GB／7 天</small></td><td><b>US$18.57</b><small>10GB／30 天</small></td></tr><tr><th scope="row">泰國</th><td><b>US$7.99</b><small>5GB／30 天</small></td><td class="win"><b>US$7.00</b><small>5GB／7 天</small></td><td><b>US$8.08</b><small>5GB／30 天</small></td></tr><tr><th scope="row">越南</th><td><b>US$10.99</b><small>5GB／30 天</small></td><td class="win"><b>US$10.00</b><small>5GB／7 天</small></td><td><b>US$11.02</b><small>5GB／30 天</small></td></tr><tr><th scope="row">香港</th><td><b>US$11.99</b><small>5GB／30 天</small></td><td class="win"><b>US$11.00</b><small>5GB／7 天</small></td><td><b>US$11.02</b><small>5GB／30 天</small></td></tr><tr><th scope="row">新加坡</th><td><b>US$9.99</b><small>5GB／30 天</small></td><td class="win"><b>US$9.00</b><small>5GB／7 天</small></td><td><b>US$11.15</b><small>5GB／30 天</small></td></tr><tr><th scope="row">中國</th><td><b>US$15.99</b><small>5GB／30 天</small></td><td><b>US$14.50</b><small>5GB／7 天</small></td><td class="win"><b>US$12.76</b><small>5GB／30 天</small></td></tr><tr><th scope="row">美國</th><td><b>US$13.99</b><small>5GB／30 天</small></td><td><b>US$12.50</b><small>5GB／7 天</small></td><td class="win"><b>US$10.33</b><small>5GB／30 天</small></td></tr><tr><th scope="row">英國</th><td><b>US$12.99</b><small>5GB／30 天</small></td><td><b>US$12.00</b><small>5GB／7 天</small></td><td class="win"><b>US$11.14</b><small>5GB／30 天</small></td></tr><tr><th scope="row">歐洲多國</th><td><b>US$19.49</b><small>5GB／30 天</small></td><td><b>US$18.50</b><small>5GB／7 天</small></td><td class="win"><b>US$11.02</b><small>5GB／30 天</small></td></tr></tbody></table></div>
+<div class="tw" data-p="b" hidden><table><thead><tr><th>目的地</th><th>Saily</th><th>Airalo</th><th>Yesim</th></tr></thead><tbody><tr><th scope="row">日本</th><td><b>US$24.99</b><small>20GB／30 天</small></td><td class="win"><b>US$24.00</b><small>20GB／15 天</small></td><td><b>US$28.44</b><small>20GB／30 天</small></td></tr><tr><th scope="row">韓國</th><td><b>US$29.99</b><small>20GB／30 天</small></td><td><b>US$29.00</b><small>20GB／15 天</small></td><td class="win"><b>US$27.04</b><small>20GB／30 天</small></td></tr><tr><th scope="row">泰國</th><td><b>US$19.99</b><small>20GB／30 天</small></td><td class="win"><b>US$17.50</b><small>20GB／15 天</small></td><td><b>US$19.61</b><small>20GB／30 天</small></td></tr><tr><th scope="row">越南</th><td><b>US$28.99</b><small>20GB／30 天</small></td><td><b>US$28.00</b><small>20GB／15 天</small></td><td class="win"><b>US$25.25</b><small>20GB／30 天</small></td></tr><tr><th scope="row">香港</th><td><b>US$34.99</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td><b>US$28.00</b><small>20GB／15 天</small></td><td class="win"><b>US$25.25</b><small>20GB／30 天</small></td></tr><tr><th scope="row">新加坡</th><td><b>US$22.99</b><small>20GB／30 天</small></td><td class="win"><b>US$22.00</b><small>20GB／15 天</small></td><td><b>US$25.55</b><small>20GB／30 天</small></td></tr><tr><th scope="row">中國</th><td><b>US$34.99</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td><b>US$35.00</b><small>吃到飽 10 天（每日高速 3GB）</small></td><td class="win"><b>US$34.58</b><small>20GB／30 天</small></td></tr><tr><th scope="row">美國</th><td><b>US$34.99</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td><b>US$34.00</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td class="win"><b>US$24.10</b><small>20GB／30 天</small></td></tr><tr><th scope="row">英國</th><td><b>US$30.99</b><small>20GB／30 天</small></td><td><b>US$28.00</b><small>吃到飽 10 天（每日高速 3GB）</small></td><td class="win"><b>US$25.53</b><small>20GB／30 天</small></td></tr><tr><th scope="row">歐洲多國</th><td><b>US$35.99</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td><b>US$35.00</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td class="win"><b>US$25.25</b><small>20GB／30 天</small></td></tr></tbody></table></div>
+<h3>Saily、Airalo、Yesim 怎麼選？</h3>
+<div class="brands">
+  <div class="bc"><b>Saily</b><ul><li>NordVPN 團隊推出，App 介面最直覺</li><li>吃到飽每天 5GB 高速，三家最寬</li><li>用碼 <strong>ZOEEHA9323</strong> 首購折 US$5</li></ul><a href="https://saily.tpk.ro/C78NyEnq" target="_blank" rel="sponsored nofollow noopener" data-b="saily">看 Saily 方案 →</a></div>
+  <div class="bc"><b>Airalo</b><ul><li>老牌 eSIM 商店，方案最多元</li><li>短天數（3–7 天）小流量常常最便宜</li><li>吃到飽多為每天 3GB 高速，之後 1Mbps</li></ul><a href="https://airalo.tpk.ro/kJJeVxlV" target="_blank" rel="sponsored nofollow noopener" data-b="airalo">看 Airalo 方案 →</a></div>
+  <div class="bc"><b>Yesim</b><ul><li>固定流量多為 30 天效期，天數長不怕過期</li><li>10 天以上的吃到飽常是三家最低價</li><li>吃到飽採公平使用原則，重度使用可能降速</li></ul><a href="https://yesim.tpk.ro/mjE4mscH" target="_blank" rel="sponsored nofollow noopener" data-b="yesim">看 Yesim 方案 →</a></div>
+</div>
+<h3>小幫手是怎麼算的？</h3>
+<div class="tl"><ul>
+<li><strong>需要流量＝天數 × 每日用量。</strong>輕度 0.5GB、一般 1GB、重度 2GB、狂用 4GB。</li>
+<li>只挑<strong>有效天數涵蓋整趟旅程</strong>的方案；固定流量不夠時，最多疊加 3 張同方案（三家都能在 App 內加購）。</li>
+<li>吃到飽方案若「每日高速上限」低於你的用量，會自動降低排序，並跳出提醒。</li>
+<li>價格為各家官網美元標價（2026-09-19 查價），台幣以 1 USD ≈ 32 TWD 估算；實際以結帳頁為準。</li>
+</ul></div>
+<h3>eSIM 常見問題</h3>
+<details open><summary>eSIM 選哪一家最便宜？</summary><div><p>沒有一家永遠最便宜，要看國家、天數和用量。依 2026 年 9 月查價：3–7 天的小流量，Airalo 常最便宜、Saily 通常只貴 US$1 左右；10 天以上、每天用 2GB 左右，Yesim 30 天效期的大流量方案常是三家最低；Saily 新用戶用折扣碼 ZOEEHA9323 首購折 US$5，短天數時通常會變成最便宜。</p></div></details>
+<details><summary>出國每天大概會用多少流量？</summary><div><p>只用地圖、LINE、查餐廳約 0.3–0.5GB；再加上 IG、FB 和傳照片約 1GB；常看短影音或視訊通話約 2GB；追劇或開熱點給旅伴可能到 4GB 以上。不確定就選「一般」，再多買一點緩衝。</p></div></details>
+<details><summary>eSIM 吃到飽真的無限用嗎？</summary><div><p>大多不是完全無限。Saily 吃到飽每天前 5GB 高速，之後降速；Airalo 多為每天 3GB（部分國家 5GB）高速，之後 1Mbps；Yesim 採公平使用原則，極大量使用可能降速。降速後還能傳 LINE、看地圖，但看影片會卡。</p></div></details>
+<details><summary>Saily 折扣碼怎麼用？</summary><div><p>下載 Saily App 或到官網選好方案，結帳時輸入折扣碼 ZOEEHA9323，新用戶首次購買可折 US$5（實際以 Saily 官方規則為準），每次購買還有 3% Saily Credits 回饋。</p></div></details>
+<details><summary>我的手機可以用 eSIM 嗎？</summary><div><p>iPhone XS／XR 之後的機型、Google Pixel 3 之後、多數 Samsung Galaxy S20 之後都支援。最快的確認方法：到手機設定搜尋「EID」，有出現一串號碼就代表支援。手機若有電信鎖，需要先解鎖。</p></div></details>
+<details><summary>用了 eSIM，還收得到台灣的簡訊驗證碼嗎？</summary><div><p>可以。把台灣門號的實體 SIM 保持開啟、關閉它的「數據漫遊」，上網改用 eSIM，就能收台灣簡訊而不會產生漫遊上網費；接收簡訊一般不收費，但撥打或接聽電話仍可能計費。</p></div></details>
+<details><summary>eSIM 什麼時候安裝比較好？</summary><div><p>建議出發前一兩天在台灣有 Wi-Fi 時先安裝好，抵達當地後再開啟這張 eSIM 的數據漫遊即可。多數方案是「抵達目的地連上網路才開始計算天數」，提早安裝不會浪費效期。</p></div></details>
+<h3>延伸閱讀</h3>
+<div class="rel">
+<a href="https://knittinghiyori.com/saily-esim-and-coupon/">Saily eSIM 評價＋日本實測<span>安裝教學、實際網速、折扣碼使用方式</span></a>
+<a href="https://knittinghiyori.com/saily-ultra-esim-review-coupon/">Saily Ultra 方案值得買嗎？<span>隱藏福利與適合的人</span></a>
+<a href="https://knittinghiyori.com/europe-esim-best-plan-saily/">歐洲 eSIM 怎麼買最划算？<span>跨國方案比較、英國要不要分開買</span></a>
+<a href="https://knittinghiyori.com/tools/travel-deals/">旅遊優惠整理頁<span>訂房、交通、網卡的限時優惠一次看</span></a>
+<a href="https://knittinghiyori.com/tools/esim-plan-picker-en/">English version<span>同一個工具的英文版，多了台灣的方案比較</span></a>
+</div>
+<h3>出國前後還用得到的工具</h3>
+<div class="rel rel2">
+<a href="https://knittinghiyori.com/tools/packing-list-generator/">出國行李清單產生器<span>依天數和季節自動生清單，不會漏帶</span></a>
+<a href="https://knittinghiyori.com/tools/jr-pass-calculator/">JR Pass 試算器<span>去日本前先算：買周遊券還是單程票划算</span></a>
+<a href="https://knittinghiyori.com/tools/travel-split-calculator/">旅費分帳計算機<span>回國前把同行朋友的帳算清楚</span></a>
+<a href="https://knittinghiyori.com/cube-tree-points-to-airline-miles-guide/">小樹點換哩程試算器<span>點數換機票前先算換得划不划算</span></a>
+<a href="https://knittinghiyori.com/knitting-needles-carry-on-rules/">織女出國安檢查詢<span>棒針、鉤針能不能帶上飛機</span></a>
+</div>
+<p class="disc">本頁含聯盟連結：透過連結購買，我會收到小額回饋，不會影響你的價格；推薦排序完全依價格計算，不因佣金調整。價格變動快，購買前請以官網為準。— Zoe</p>
+<div class="toast" id="esp-toast" role="status"></div>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"eSIM 選購小幫手","url":"https://knittinghiyori.com/tools/esim-plan-picker/","applicationCategory":"TravelApplication","operatingSystem":"Any","inLanguage":"zh-Hant-TW","description":"輸入目的地、旅遊天數與每日流量，自動比較 Saily、Airalo、Yesim 的 eSIM 方案價格並推薦最划算的買法。","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"dateModified":"2026-09-19","author":{"@type":"Person","name":"Zoe","url":"https://knittinghiyori.com/"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"eSIM 選哪一家最便宜？","acceptedAnswer":{"@type":"Answer","text":"沒有一家永遠最便宜，要看國家、天數和用量。依 2026 年 9 月查價：3–7 天的小流量，Airalo 常最便宜、Saily 通常只貴 US$1 左右；10 天以上、每天用 2GB 左右，Yesim 30 天效期的大流量方案常是三家最低；Saily 新用戶用折扣碼 ZOEEHA9323 首購折 US$5，短天數時通常會變成最便宜。"}},{"@type":"Question","name":"出國每天大概會用多少流量？","acceptedAnswer":{"@type":"Answer","text":"只用地圖、LINE、查餐廳約 0.3–0.5GB；再加上 IG、FB 和傳照片約 1GB；常看短影音或視訊通話約 2GB；追劇或開熱點給旅伴可能到 4GB 以上。不確定就選「一般」，再多買一點緩衝。"}},{"@type":"Question","name":"eSIM 吃到飽真的無限用嗎？","acceptedAnswer":{"@type":"Answer","text":"大多不是完全無限。Saily 吃到飽每天前 5GB 高速，之後降速；Airalo 多為每天 3GB（部分國家 5GB）高速，之後 1Mbps；Yesim 採公平使用原則，極大量使用可能降速。降速後還能傳 LINE、看地圖，但看影片會卡。"}},{"@type":"Question","name":"Saily 折扣碼怎麼用？","acceptedAnswer":{"@type":"Answer","text":"下載 Saily App 或到官網選好方案，結帳時輸入折扣碼 ZOEEHA9323，新用戶首次購買可折 US$5（實際以 Saily 官方規則為準），每次購買還有 3% Saily Credits 回饋。"}},{"@type":"Question","name":"我的手機可以用 eSIM 嗎？","acceptedAnswer":{"@type":"Answer","text":"iPhone XS／XR 之後的機型、Google Pixel 3 之後、多數 Samsung Galaxy S20 之後都支援。最快的確認方法：到手機設定搜尋「EID」，有出現一串號碼就代表支援。手機若有電信鎖，需要先解鎖。"}},{"@type":"Question","name":"用了 eSIM，還收得到台灣的簡訊驗證碼嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。把台灣門號的實體 SIM 保持開啟、關閉它的「數據漫遊」，上網改用 eSIM，就能收台灣簡訊而不會產生漫遊上網費；接收簡訊一般不收費，但撥打或接聽電話仍可能計費。"}},{"@type":"Question","name":"eSIM 什麼時候安裝比較好？","acceptedAnswer":{"@type":"Answer","text":"建議出發前一兩天在台灣有 Wi-Fi 時先安裝好，抵達當地後再開啟這張 eSIM 的數據漫遊即可。多數方案是「抵達目的地連上網路才開始計算天數」，提早安裝不會浪費效期。"}}]}]}</script>
+<script>
+var ESIM = (function () {
+  var P = {
+    tw: { name: '台灣', en: 'Taiwan',
+      saily:  { f: [[1,7,3.99],[3,30,8.99],[5,30,11.99],[10,30,19.99],[20,30,30.99]], u: {5:18.99,10:34.99,15:48.99,20:59.99,25:65.99,30:71.99}, cap: 5 },
+      airalo: { f: [[1,3,4],[3,3,8.5],[3,7,9],[5,7,11],[5,15,11.5],[5,30,12],[10,7,17.5],[10,15,18],[10,30,19],[20,15,28],[20,30,29],[50,30,49]], u: {3:11.5,5:19,7:26,10:35,15:49,30:73.5}, cap: 3 },
+      yesim:  { f: [[1,30,2.92],[3,30,5.84],[5,30,10.51],[10,30,14.01],[20,30,18.68],[30,30,23.35]], u: {7:22.18,15:33.85,30:45.53}, cap: 0 } },
+    jp: { name: '日本', en: 'Japan',
+      saily:  { f: [[1,7,3.99],[3,30,7.99],[5,30,10.99],[10,30,17.99],[20,30,24.99]], u: {5:18.99,7:28.99,10:34.99,15:48.99,20:59.99,25:65.99,30:71.99}, cap: 5 },
+      airalo: { f: [[1,3,4],[3,3,7.5],[3,7,8],[5,7,10],[5,15,10.5],[5,30,11],[10,7,17],[10,15,17.5],[10,30,18],[20,15,24],[20,30,25],[50,30,59]], u: {3:11.5,5:17,7:26,10:34.5,15:48,30:69}, cap: 3 },
+      yesim:  { f: [[1,30,4.24],[5,30,10.09],[10,30,18.35],[20,30,28.44],[30,30,37.85]], u: {1:4.01,2:8.03,3:12.04,4:16.06,5:20.07,6:24.09,7:28.10,8:29.75,9:31.40,10:33.04,12:36.35,15:41.29,20:48.55,25:55.82,30:63.08}, cap: 0 } },
+    kr: { name: '韓國', en: 'South Korea',
+      saily:  { f: [[1,7,3.99],[3,30,8.99],[5,30,10.99],[10,30,18.99],[20,30,29.99]], u: {5:18.99,10:34.99,15:48.99,20:59.99,25:65.99,30:71.99}, cap: 5 },
+      airalo: { f: [[1,3,4],[1,7,8.5],[3,3,8],[3,7,9],[5,7,10],[5,15,10.5],[5,30,11],[10,7,18],[10,15,18.5],[10,30,19],[20,15,29],[20,30,30],[50,30,49]], u: {3:12,5:20,7:29,10:35,15:49,30:69}, cap: 3 },
+      yesim:  { f: [[1,30,2.90],[10,30,18.57],[20,30,27.04],[30,30,33.88]], u: {5:20.31,7:28.43,10:34.74,15:45.25,30:66.14}, cap: 0 } },
+    th: { name: '泰國', en: 'Thailand',
+      saily:  { f: [[1,7,2.99],[3,30,5.99],[5,30,7.99],[10,30,10.99],[20,30,19.99]], u: {5:18.99,7:28.99,10:34.99,15:48.99,20:59.99,25:65.99,30:71.99}, cap: 5 },
+      airalo: { f: [[1,3,4],[3,3,5.5],[3,7,6],[5,7,7],[5,15,7.5],[5,30,8],[10,7,10],[10,15,10.5],[10,30,11],[20,15,17.5],[20,30,18],[50,30,27.5]], u: {5:15,7:21,15:39,30:49}, cap: 5 },
+      yesim:  { f: [[1,30,3.00],[5,30,8.08],[10,30,12.69],[20,30,19.61],[30,30,26.54],[50,30,39.23]], u: {5:18.46,7:25.84,10:29.54,15:35.77,30:48.46}, cap: 0 } },
+    vn: { name: '越南', en: 'Vietnam',
+      saily:  { f: [[1,7,3.99],[3,30,7.99],[5,30,10.99],[10,30,17.99],[20,30,28.99]], u: {5:18.99,10:34.99,15:48.99,20:59.99,25:65.99,30:71.99}, cap: 5 },
+      airalo: { f: [[1,3,4],[3,3,7.5],[5,7,10],[10,7,17],[20,15,28],[50,30,49]], u: {3:11.5,7:26,30:69}, cap: 3 },
+      yesim:  { f: [[1,30,2.87],[3,30,8.03],[5,30,11.02],[10,30,18.36],[20,30,25.25],[30,30,32.13]], u: {5:20.08,7:28.12,10:34.36,15:44.76,30:65.41}, cap: 0 } },
+    hk: { name: '香港', en: 'Hong Kong',
+      saily:  { f: [[1,7,3.99],[3,30,8.99],[5,30,11.99],[10,30,19.99],[20,30,36.99]], u: {5:18.99,10:34.99,15:48.99,20:59.99,25:65.99,30:71.99}, cap: 5 },
+      airalo: { f: [[1,3,4],[3,3,8],[3,7,8.5],[5,7,11],[5,15,11.5],[5,30,12],[10,7,17],[10,15,17.5],[10,30,18],[20,15,28],[20,30,29],[50,30,49]], u: {3:11.5,5:19,7:26,30:71}, cap: 3 },
+      yesim:  { f: [[1,30,2.87],[5,30,11.02],[10,30,18.36],[20,30,25.25],[30,30,32.13]], u: {5:20.08,7:28.12,10:34.36,15:44.76,30:65.41}, cap: 0 } },
+    sg: { name: '新加坡', en: 'Singapore',
+      saily:  { f: [[1,7,3.99],[3,30,6.99],[5,30,9.99],[10,30,15.99],[20,30,22.99]], u: {5:18.99,10:34.99,15:48.99,20:59.99,25:65.99,30:71.99}, cap: 5 },
+      airalo: { f: [[1,3,4],[3,3,6.5],[3,7,7],[5,7,9],[5,15,9.5],[5,30,10],[10,7,15],[10,15,15.5],[10,30,16],[20,15,22],[20,30,23],[50,30,48]], u: {3:11.5,5:18.5,7:26,30:69}, cap: 3 },
+      yesim:  { f: [[1,30,2.90],[5,30,11.15],[10,30,18.58],[20,30,25.55],[30,30,32.52]], u: {5:20.32,7:28.45,10:34.77,15:45.29,30:66.20}, cap: 0 } },
+    cn: { name: '中國', en: 'China',
+      saily:  { f: [[1,7,4.49],[3,30,10.99],[5,30,15.99],[10,30,26.99],[20,30,45.99]], u: {5:18.99,10:34.99,15:48.99,20:59.99,25:65.99,30:71.99}, cap: 5 },
+      airalo: { f: [[1,3,4],[3,3,9.5],[5,7,14.5],[5,15,15],[5,30,15.5],[10,7,24.5],[10,15,25.5],[10,30,26.5],[20,15,39],[20,30,40],[50,30,49]], u: {3:11.5,5:19,7:27,10:35,15:49,30:69}, cap: 3 },
+      yesim:  { f: [[1,30,3.25],[3,30,8.12],[5,30,12.76],[10,30,21.58],[20,30,34.58],[30,30,44.09]], u: {5:20.89,7:29.24,10:36.12,15:47.57,30:73.10}, cap: 0 } },
+    us: { name: '美國', en: 'USA',
+      saily:  { f: [[1,7,3.99],[3,30,8.99],[5,30,13.99],[10,30,22.99],[20,30,36.99]], u: {5:18.99,7:28.99,10:34.99,15:48.99,20:59.99,25:65.99,30:71.99}, cap: 5 },
+      airalo: { f: [[1,3,4],[1,7,8.5],[3,3,8.5],[3,7,9],[5,7,12.5],[5,15,13],[5,30,13.5],[10,7,21.5],[10,15,22],[10,30,22.5],[20,15,36],[20,30,36.5],[50,30,42]], u: {3:11.5,5:18.5,7:25,10:34,15:46,30:68}, cap: 5 },
+      yesim:  { f: [[1,30,3.56],[5,30,10.33],[10,30,16.07],[20,30,24.10],[30,30,30.53]], u: {5:16.64,7:23.30,10:27.04,15:33.28,30:51.64}, cap: 0 } },
+    uk: { name: '英國', en: 'UK',
+      saily:  { f: [[1,7,4.49],[3,30,8.99],[5,30,12.99],[10,30,18.99],[20,30,30.99]], u: {7:28.99,10:34.99,15:48.99,20:59.99,25:65.99,30:71.99}, cap: 5 },
+      airalo: { f: [[1,3,4],[3,3,8],[3,7,9],[5,7,12],[5,15,13],[5,30,14],[10,7,18],[10,15,18.5],[10,30,19],[20,15,30],[20,30,31],[50,30,39]], u: {3:10,5:16.5,7:23.5,10:28,15:39,30:58}, cap: 3 },
+      yesim:  { f: [[1,30,2.90],[5,30,11.14],[10,30,18.57],[20,30,25.53],[30,30,32.49]], u: {5:20.31,7:28.43,10:34.74,15:45.25,30:66.14}, cap: 0 } },
+    eu: { name: '歐洲多國', en: 'Europe',
+      saily:  { f: [[1,7,4.99],[3,30,12.49],[5,30,19.49],[10,30,35.99],[50,90,95.99]], u: {7:28.99,10:35.99,15:49.99,20:59.99,25:65.99,30:71.99}, cap: 5 },
+      airalo: { f: [[1,3,5],[3,3,10],[3,7,11],[5,7,18.5],[5,15,19],[5,30,19.5],[10,7,26],[10,15,28],[10,30,31],[20,15,47],[20,30,48],[50,30,70]], u: {3:11.5,5:19.5,7:27,10:35,15:49,30:71}, cap: 5 },
+      yesim:  { f: [[1,30,2.87],[5,30,11.02],[10,30,18.36],[20,30,25.25],[30,30,32.13]], u: {7:24.10,15:37.87,30:64.26}, cap: 0 } }
+  };
+  var USAGE = {
+    l: { gb: 0.5, label: '輕度', desc: '地圖、LINE、查餐廳', el: 'Light', ed: 'Maps, messaging, looking things up' },
+    m: { gb: 1,   label: '一般', desc: '再加 IG／FB、傳照片', el: 'Normal', ed: 'Plus social feeds and photo uploads' },
+    h: { gb: 2,   label: '重度', desc: '常看短影音、視訊通話', el: 'Heavy', ed: 'Short videos and video calls' },
+    x: { gb: 4,   label: '狂用', desc: '追劇、開熱點給旅伴', el: 'Max', ed: 'Streaming, or hotspot for others' }
+  };
+  var BRANDS = ['saily', 'airalo', 'yesim'];
+  var BRAND_NAME = { saily: 'Saily', airalo: 'Airalo', yesim: 'Yesim' };
+  var CODE_OFF = 5;
+  function need(days, u) { return Math.ceil(days * USAGE[u].gb * 10) / 10; }
+  function bestFor(country, brand, days, u, useCode) {
+    var d = P[country][brand], n = need(days, u), perDay = USAGE[u].gb, opts = [];
+    d.f.forEach(function (p) {
+      if (p[1] < days) return;
+      var k = Math.ceil(n / p[0]);
+      if (k > 3) return;
+      opts.push({ type: 'fixed', gb: p[0], qty: k, days: p[1], price: +(p[2] * k).toFixed(2) });
+    });
+    Object.keys(d.u).forEach(function (k) {
+      k = +k; if (k < days) return;
+      opts.push({ type: 'unl', days: k, price: d.u[k], cap: d.cap, capWarn: d.cap > 0 ? perDay > d.cap : false });
+    });
+    if (!opts.length) return null;
+    function score(o) { return o.price + (o.capWarn ? o.price * 0.2 + 3 : 0) + (o.qty > 1 ? (o.qty - 1) * 1.5 : 0); }
+    opts.sort(function (a, b) { return score(a) - score(b); });
+    var best = opts[0];
+    var upg = null;
+    if (best.type === 'fixed') {
+      opts.forEach(function (o) {
+        if (o.type !== 'unl') return;
+        if (o.capWarn) return;
+        if (upg) { if (o.price >= upg.price) return; }
+        upg = o;
+      });
+      if (upg) { if (upg.price - best.price > Math.max(8, best.price * 0.35)) upg = null; }
+    }
+    var eff = best.price;
+    if (brand === 'saily') { if (useCode) eff = Math.max(0, +(best.price - CODE_OFF).toFixed(2)); }
+    return { brand: brand, plan: best, eff: eff, upgrade: upg, need: n };
+  }
+  function rank(country, days, u, useCode) {
+    return BRANDS.map(function (b) { return bestFor(country, b, days, u, useCode); })
+      .filter(Boolean).sort(function (a, b) { return pen(a) - pen(b); });
+    function pen(x) { return x.eff + (x.plan.capWarn ? x.eff * 0.2 + 3 : 0); }
+  }
+  function planLabel(p) {
+    if (p.type === 'unl') return '吃到飽 ' + p.days + ' 天' + (p.cap ? '（每日高速 ' + p.cap + 'GB）' : '');
+    return p.gb + 'GB／' + p.days + ' 天' + (p.qty > 1 ? ' ×' + p.qty + ' 張' : '');
+  }
+  function planLabelEn(p) {
+    if (p.type === 'unl') return 'Unlimited, ' + p.days + ' days' + (p.cap ? ' (' + p.cap + 'GB/day at full speed)' : '');
+    return p.gb + 'GB / ' + p.days + ' days' + (p.qty > 1 ? ' x' + p.qty : '');
+  }
+  return { P: P, USAGE: USAGE, BRANDS: BRANDS, BRAND_NAME: BRAND_NAME, CODE_OFF: CODE_OFF, need: need, rank: rank, planLabel: planLabel, planLabelEn: planLabelEn };
+})();
+(function(){
+var E=ESIM,R=document.getElementById('esp'),RATE=32,CODE='ZOEEHA9323';
+var L={saily:'https://saily.tpk.ro/C78NyEnq',airalo:'https://airalo.tpk.ro/kJJeVxlV',yesim:'https://yesim.tpk.ro/mjE4mscH'};
+var TIP={"jp":"日本電信訊號穩定，5 天內、一般用量買固定流量最省；每天看很多短影音再考慮吃到飽。交通票券也先算一下：<a href=\"https://knittinghiyori.com/tools/jr-pass-calculator/\">JR Pass 試算器</a>。","kr":"Naver Map、Kakao Map 很吃流量，別買太小的方案；韓國 5G 普及，三家都有支援。","th":"泰國是流量最便宜的國家之一，同樣預算可以買到比日韓多一倍的流量。出發前可以先用<a href=\"https://knittinghiyori.com/tools/packing-list-generator/\">行李清單產生器</a>備齊東西。","vn":"越南城市訊號好，但山區、下龍灣船上訊號較弱，重度使用前先看吃到飽的每日上限。","hk":"只買香港方案通常不含澳門與深圳；要順遊的話改選多國或中港澳方案。","sg":"新加坡範圍小、訊號穩，3–5 天輕度使用買 3GB 左右就很夠。","cn":"海外 eSIM 在中國多半走境外線路，通常不用另開 VPN 就能用 Google、LINE、IG；出發前仍請確認方案說明。","us":"美國幅員大，國家公園與郊區訊號弱；自駕記得先下載 Google 離線地圖。","uk":"只去英國的話，單國方案通常比歐洲區域方案便宜；倫敦地鐵大部分路段都有訊號。","eu":"一張歐洲區域方案可以跨國使用；行程若包含英國、瑞士，購買前確認方案有涵蓋。"};
+var ORDER=['jp','kr','th','vn','hk','sg','cn','us','uk','eu'];
+var st={c:'jp',d:5,u:'m',code:true};
+function $(id){return document.getElementById(id)}
+function ga(n,p){try{if(window.gtag)gtag('event',n,p||{})}catch(e){}}
+function toast(t){var el=$('esp-toast');el.textContent=t;el.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){el.classList.remove('on')},1800)}
+function flash(btn,label){if(!btn)return;if(btn.dataset.busy==='1')return;btn.dataset.busy='1';var old=btn.innerHTML;btn.innerHTML=label;btn.classList.add('done');setTimeout(function(){btn.innerHTML=old;btn.classList.remove('done');btn.dataset.busy='0'},1800)}
+function copy(t,ok,btn,label){function done(){toast(ok);flash(btn,label||'已複製 ✓')}var ok2=navigator.clipboard?window.isSecureContext:false;if(ok2){navigator.clipboard.writeText(t).then(done,fb)}else fb();function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(a)}}
+function ntd(u){return Math.round(u*RATE).toLocaleString('zh-TW')}
+function usd(u){return 'US$'+(Math.round(u*100)/100).toFixed(2)}
+var cBox=$('esp-c');
+ORDER.forEach(function(k){var b=document.createElement('button');b.type='button';b.className='chip';b.setAttribute('role','radio');b.dataset.c=k;b.textContent=E.P[k].name;cBox.appendChild(b)});
+var uBox=$('esp-u');
+Object.keys(E.USAGE).forEach(function(k){var u=E.USAGE[k],b=document.createElement('button');b.type='button';b.className='uc';b.setAttribute('role','radio');b.dataset.u=k;b.innerHTML='<b>'+u.label+'</b><em>約 '+u.gb+'GB／天</em><span>'+u.desc+'</span>';uBox.appendChild(b)});
+function readHash(){var m=(location.hash||'').match(/^#esim-([a-z]{2})-(\d{1,2})-([lmhx])$/);if(m?E.P[m[1]]:false){st.c=m[1];st.d=Math.min(30,Math.max(1,+m[2]));st.u=m[3];return true}return false}
+function shareUrl(){return location.origin+location.pathname+'#esim-'+st.c+'-'+st.d+'-'+st.u}
+function summary(r){var t='【'+E.P[st.c].name+' '+st.d+' 天・每天約 '+E.USAGE[st.u].gb+'GB】eSIM 比價結果\n';r.forEach(function(x,i){t+=(i+1)+'. '+E.BRAND_NAME[x.brand]+'：'+E.planLabel(x.plan)+' '+usd(x.eff)+'（約 NT$'+ntd(x.eff)+'）'+(x.brand==='saily'?(st.code?'｜折扣碼 '+CODE:''):'')+'\n'});return t+'自己試算：'+shareUrl()}
+var timer;
+function render(push){
+  [].forEach.call(cBox.children,function(b){b.setAttribute('aria-checked',b.dataset.c===st.c)});
+  [].forEach.call(uBox.children,function(b){b.setAttribute('aria-checked',b.dataset.u===st.u)});
+  $('esp-d').value=st.d;$('esp-dv').innerHTML=st.d+'<small>天</small>';
+  var r=E.rank(st.c,st.d,st.u,st.code),max=Math.max.apply(null,r.map(function(x){return x.eff}))||1;
+  var h='<p class="need">你大約需要 <b>'+r[0].need+'GB</b>（'+st.d+' 天 × '+E.USAGE[st.u].gb+'GB），以下是三家最划算的買法：</p>';
+  r.forEach(function(x,i){
+    var p=x.plan,disc=false;if(x.brand==='saily'){if(st.code){disc=x.eff<p.price}}
+    var per=x.eff/st.d;
+    h+='<div class="card'+(i===0?' top':'')+'" style="animation-delay:'+(i*.06)+'s">'+(i===0?'<span class="badge">最划算</span>':'')+
+    '<div class="row"><div><div class="bn">'+E.BRAND_NAME[x.brand]+'</div><div class="pl">'+E.planLabel(p)+'</div></div>'+
+    '<div class="pr">'+(disc?'<s>'+usd(p.price)+'</s>':'')+'<b>'+usd(x.eff)+'</b><small>約 NT$'+ntd(x.eff)+'・每天 NT$'+ntd(per)+'</small></div></div>'+
+    '<div class="bar"><span style="width:'+Math.max(8,x.eff/max*100)+'%"></span></div>';
+    if(p.type==='fixed'?p.qty>1:false)h+='<p class="note">單張 '+p.gb+'GB 不夠用，買 1 張後在 App 內再加購 '+(p.qty-1)+' 張同方案。</p>';
+    if(p.type==='fixed'?p.days>st.d+5:false)h+='<p class="note">效期 '+p.days+' 天，用不完的流量下趟不能延用，但不用擔心提早到期。</p>';
+    if(p.type==='unl'?!p.cap:false)h+='<p class="note">吃到飽採公平使用原則，極大量使用時可能降速。</p>';
+    if(p.capWarn)h+='<p class="warn">你每天約用 '+E.USAGE[st.u].gb+'GB，超過此方案每日高速 '+p.cap+'GB 後會降到 1Mbps（還能用 LINE、地圖，但看影片會卡）。</p>';
+    if(x.upgrade)h+='<p class="tip">小提醒：再多 '+usd(x.upgrade.price-p.price)+' 就能升級「'+E.planLabel(x.upgrade)+'」，不用算流量。</p>';
+    if(x.brand==='saily')h+='<div class="code"><span>折扣碼</span><code>'+CODE+'</code><button type="button" data-copy="1">複製</button></div>';
+    h+='<a class="cta" href="'+L[x.brand]+'" target="_blank" rel="sponsored nofollow noopener" data-b="'+x.brand+'" data-rank="'+(i+1)+'">去 '+E.BRAND_NAME[x.brand]+' 看'+E.P[st.c].name+'方案 →</a></div>';
+  });
+  $('esp-res').innerHTML=h;
+  $('esp-tip').innerHTML='<strong>'+E.P[st.c].name+'小叮嚀：</strong>'+TIP[st.c];
+  $('esp-line').href='https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(shareUrl());
+  if(push?history.replaceState:false)history.replaceState(null,'','#esim-'+st.c+'-'+st.d+'-'+st.u);
+  clearTimeout(timer);timer=setTimeout(function(){ga('esim_calc',{esim_country:st.c,esim_days:st.d,esim_usage:st.u,esim_top:r[0].brand})},1200);
+}
+cBox.addEventListener('click',function(e){var b=e.target.closest('[data-c]');if(b){st.c=b.dataset.c;render(1)}});
+uBox.addEventListener('click',function(e){var b=e.target.closest('[data-u]');if(b){st.u=b.dataset.u;render(1)}});
+$('esp-d').addEventListener('input',function(){st.d=+this.value;render(1)});
+$('esp-dm').onclick=function(){if(st.d>1){st.d--;render(1)}};
+$('esp-dp').onclick=function(){if(st.d<30){st.d++;render(1)}};
+[].forEach.call(R.querySelectorAll('.quick [data-d]'),function(b){b.onclick=function(){st.d=+b.dataset.d;render(1)}});
+$('esp-code').onchange=function(){st.code=this.checked;render(1)};
+R.addEventListener('click',function(e){
+  var c=e.target.closest('[data-copy]');if(c){copy(CODE,'已複製折扣碼 '+CODE,c,'已複製 ✓');ga('esim_copy_code',{esim_country:st.c});return}
+  var a=e.target.closest('a[data-b]');if(a){ga('esim_click',{esim_brand:a.dataset.b,esim_rank:a.dataset.rank||'section',esim_country:st.c,esim_days:st.d})}
+  var t=e.target.closest('[data-t]');if(t){[].forEach.call(R.querySelectorAll('[data-t]'),function(x){x.setAttribute('aria-selected',x===t)});[].forEach.call(R.querySelectorAll('[data-p]'),function(p){p.hidden=p.dataset.p!==t.dataset.t})}
+});
+$('esp-sh').onclick=function(){var r=E.rank(st.c,st.d,st.u,st.code),txt=summary(r);ga('esim_share',{method:'native'});if(navigator.share){navigator.share({title:'eSIM 比價結果',text:txt.split('\n自己試算')[0],url:shareUrl()}).catch(function(){})}else copy(txt,'已複製結果＋連結',this,'已複製結果 ✓')};
+$('esp-cp').onclick=function(){copy(summary(E.rank(st.c,st.d,st.u,st.code)),'已複製，貼上就能傳給旅伴',this,'已複製 ✓');ga('esim_share',{method:'copy'})};
+$('esp-line').addEventListener('click',function(){ga('esim_share',{method:'line'})});
+try{document.body.appendChild($('esp-toast'))}catch(e){}
+var fromHash=readHash();render(0);
+if(fromHash){setTimeout(function(){$('esp-tool').scrollIntoView({behavior:'smooth',block:'start'})},300)}
+window.addEventListener('hashchange',function(){if(readHash())render(0)});
+})();
+</script>
+</div>
+<!-- ===== /eSIM 選購小幫手 ===== -->

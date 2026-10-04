@@ -11,12 +11,19 @@
 <meta property="og:title" content="停車計時卡｜算停車費與限停倒數">
 <meta property="og:description" content="倒數限時停車格的到期時間，同時算出目前累積的停車費，可把提醒加進手機行事曆。">
 <meta property="og:url" content="https://tools.knittinghiyori.com/parking-timer/">
-<meta property="og:image" content="https://tools.knittinghiyori.com/parking-timer/og.png">
+<meta property="og:image" content="https://tools.knittinghiyori.com/parking-timer/og-2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="編織日和・小工具｜停車計時卡">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tools.knittinghiyori.com/parking-timer/og-2.png">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:type" content="website">
 <link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="https://games.knittinghiyori.com/icons/favicon-32.png">
-<link rel="apple-touch-icon" href="https://games.knittinghiyori.com/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <!-- 字體：內文走系統字；英文數字 Display 用 Instrument Serif；標籤與數字用 IBM Plex Mono；中文標題用 Noto Serif TC 子集 -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
@@ -49,7 +56,7 @@ gtag("config","G-ZQZHTYTRMQ");</script>
 {"@type":"Question","name":"沒有網路可以用嗎？","acceptedAnswer":{"@type":"Answer","text":"頁面載入之後，計時與計費都在你的裝置上執行，進到地下停車場收不到訊號也會繼續倒數。但第一次打開頁面需要網路。"}}
 ]}
 </script>
-<meta name="spec-version" content="core-v1.1/tools-v2.3">
+<meta name="spec-version" content="core-v1.2/tools-v2.3">
 <style>
 /* 版型概念：印刷品的收費單 —— 細線分隔、等寬字標籤、編號 No.，單一套印紅 */
 :root{
@@ -204,7 +211,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
 <div class="k-wrap">
 
   <!--k-head:start（build.py 產生，請勿手改）-->
-<header class="k-head"><a class="brand k-brandlogo" href="/" data-cta="header_hub" data-cta-type="tool" data-google-vignette="false" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none"><img src="/assets/logo.webp" width="28" height="28" alt="" style="width:28px;height:28px;border-radius:6px;flex:none"><span>編織日和・小工具</span></a><span class="k-label">No.12 · 旅行與出國</span></header>
+<style>.kh-brand-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.kh-brand{display:inline-flex;align-items:center;gap:10px;min-height:44px;color:#16120f;text-decoration:none;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:14.4px;font-weight:700;letter-spacing:.04em;line-height:1.2;white-space:nowrap}.kh-brand img{width:40px;height:40px;border-radius:8px;flex:none}.kh-brand:hover{text-decoration:underline;text-underline-offset:4px}@media (max-width:400px){.kh-brand-sub{display:none}}</style><header class="k-head kh-brand-row"><a class="kh-brand" href="/" data-cta="brand_hub" data-cta-type="tool" data-google-vignette="false"><img src="/icons/logo-knitting-120.webp" width="40" height="40" alt=""><span>編織日和<span class="kh-brand-sub">・小工具</span></span></a><span class="k-label">No.12 · 旅行與出國</span></header>
 <div class="k-crumbrow" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px"><nav class="k-crumb" aria-label="麵包屑"><a href="/" data-cta="back_hub" data-cta-type="tool" data-google-vignette="false">小工具</a> / 旅行與出國 / 停車計時卡</nav></div>
 <!--k-head:end-->
 
@@ -865,7 +872,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
       lines.push("停車時間："+hhmm(st));
       if(c.limit>0) lines.push("限停 "+c.limit+" 分，"+hhmm(st+c.limit*60000)+" 前要移車");
       if(active) lines.push("目前已停 "+dur(mins)+"，估計 NT$"+calcFee(mins,c));
-      lines.push("","—— 用免費的「停車計時卡」記的，你也可以試試："+"https://tools.knittinghiyori.com/parking-timer/");
+      lines.push("","—— 用編織日和免費的「停車計時卡」記的，你也可以試試："+"https://tools.knittinghiyori.com/parking-timer/");
       copyText(lines.join("\n"),function(){toast("已複製，可以貼給同車的人");track("export",{method:"copy_text",content_type:"result"})});
     }catch(e){}
   };
@@ -883,7 +890,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
 
   /* 收藏與分享 */
   var PAGE="https://tools.knittinghiyori.com/parking-timer/";
-  var INVITE="停車快到期會提醒、還幫你算停車費的免費小工具，一起來試試：";
+  var INVITE="停車快到期會提醒、還幫你算停車費的免費小工具，一起來試試（編織日和免費小工具）：";
   $("btnShareLine").onclick=function(){
     try{
       var u="https://social-plugins.line.me/lineit/share?url="+encodeURIComponent(PAGE);
