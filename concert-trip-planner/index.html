@@ -5,8 +5,8 @@
 <!-- 1. Travelpayouts Drive（tools 專屬，放第一個） -->
 <script data-cfasync="false" data-cmp-ab="2">(function(){var s=document.createElement("script");s.async=1;s.setAttribute("data-cmp-ab","2");s.src="https://emrld.ltd/NTc5OTI2.js?t=579926";document.head.appendChild(s)})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>追星遠征規劃器｜海外演唱會開賣台灣時間、搶票清單與預算試算</title>
-<meta name="description" content="去日本、韓國、中國大陸、美國看演唱會怎麼準備？選城市、填開賣與演出日期，自動換算開賣的台灣時間，產生搶票準備清單、遠征時間軸、每人預算與場館周邊住宿建議。Ticketmaster、e+、NOL World、大麥都適用，免註冊。">
+<title>追星遠征規劃器｜海外演唱會開賣是台灣幾點？時差換算、搶票清單與預算</title>
+<meta name="description" content="海外演唱會開賣是台灣幾點？選城市、填官方公告的當地開賣時間，立刻換算台灣時間並加進行事曆提醒；再填演出日期，產生搶票準備清單、遠征時間軸、每人預算與場館周邊住宿建議。Ticketmaster、e+、NOL World、大麥都適用，免註冊。">
 <link rel="canonical" href="https://tools.knittinghiyori.com/concert-trip-planner/">
 <meta property="og:title" content="追星遠征規劃器｜開賣台灣時間、搶票清單、預算一次排好">
 <meta property="og:description" content="日韓、大陸、美國演唱會遠征：選城市就換算開賣台灣時間，排好搶票、訂房與預算。">
@@ -20,7 +20,7 @@
 <!-- 字體：內文走系統字；英文數字 Display 用 Instrument Serif；標籤與數字用 IBM Plex Mono；中文標題用 Noto Serif TC 子集 -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&amp;text=%E3%83%BB%E4%B8%AD%E4%BA%8B%E4%BC%B8%E4%BF%A1%E5%80%8B%E5%80%BC%E5%83%B9%E5%85%A8%E5%85%B7%E5%87%BA%E5%88%86%E5%8A%83%E5%8D%A1%E5%8E%BB%E5%8F%B0%E5%90%84%E5%90%8C%E5%90%8D%E5%92%8C%E5%94%AE%E5%94%B1%E5%95%8F%E5%96%AE%E5%97%8E%E5%99%A8%E5%9C%8B%E5%9C%A8%E5%B0%8F%E5%B7%A5%E5%B8%B3%E5%B8%B8%E5%B9%B3%E5%BB%B6%E5%BE%81%E5%BE%97%E6%80%8E%E6%84%8F%E6%88%B2%E6%90%AD%E6%94%B6%E6%97%85%E6%97%A5%E6%98%9F%E6%9C%83%E6%9D%8E%E6%A9%9F%E6%AF%94%E6%B3%A8%E6%B8%85%E6%BC%94%E7%81%A3%E7%8E%A9%E7%94%9F%E7%94%A2%E7%94%A8%E7%9C%8B%E7%A5%A8%E7%AE%97%E7%B7%A8%E7%B9%94%E7%BE%8E%E8%81%AF%E8%88%AA%E8%8F%AF%E8%97%8F%E8%A1%8C%E8%A6%8B%E8%A6%8F%E8%A8%88%E8%A9%A6%E8%AE%80%E8%B2%B7%E8%B2%BB%E8%BE%A6%E8%BF%BD%E9%80%99%E9%81%8A%E9%81%A0%E9%81%B8%E9%83%A8%E9%96%80%E9%96%B1%E9%A0%85%E9%A1%8C%E9%A1%9E%E9%A3%9B%E9%BA%BC%EF%BC%8C%EF%BC%9F&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&amp;text=%E3%80%81%E4%B8%AD%E4%BA%8B%E4%BC%B8%E4%BF%A1%E5%80%8B%E5%80%BC%E5%83%B9%E5%85%A8%E5%85%B7%E5%87%BA%E5%88%86%E5%8A%83%E5%8D%A1%E5%8E%BB%E5%8F%B0%E5%90%84%E5%90%8C%E5%90%8D%E5%92%8C%E5%94%AE%E5%94%B1%E5%95%8F%E5%96%AE%E5%97%8E%E5%99%A8%E5%9C%8B%E5%9F%8E%E5%A4%96%E5%A4%A7%E5%AD%B8%E5%B0%8F%E5%B7%A5%E5%B7%AE%E5%B8%82%E5%B8%B3%E5%B8%B8%E5%B9%B3%E5%B9%BE%E5%BB%B6%E5%BE%81%E5%BE%97%E6%80%8E%E6%84%8F%E6%88%B2%E6%90%AD%E6%94%B6%E6%95%99%E6%97%85%E6%98%9F%E6%99%82%E6%9C%83%E6%9D%8E%E6%A9%9F%E6%AF%94%E6%B3%A8%E6%B5%B7%E6%B8%85%E6%BC%94%E7%81%A3%E7%8E%A9%E7%94%9F%E7%94%A2%E7%94%A8%E7%9C%8B%E7%A5%A8%E7%AE%97%E8%81%AF%E8%88%AA%E8%8F%AF%E8%97%8F%E8%A1%8C%E8%A6%8B%E8%A6%8F%E8%A8%88%E8%A9%A6%E8%AE%80%E8%B2%B7%E8%B2%BB%E8%B3%A3%E8%BE%A6%E8%BF%BD%E9%80%99%E9%81%8A%E9%81%A0%E9%81%B8%E9%83%A8%E9%96%80%E9%96%8B%E9%96%93%E9%96%B1%E9%A0%85%E9%A1%8C%E9%A1%9E%E9%A3%9B%E9%BA%A5%E9%BA%BC%EF%BC%8C%EF%BC%9F&amp;display=swap">
 <script>document.documentElement.classList.add('js')</script>
 <!-- 2. AdSense 載入碼：不帶 ?client= -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
@@ -31,7 +31,7 @@ gtag("set",{content_group:"tool",tool_id:"concert_trip",page_lang:"zh-Hant",page
 gtag("config","G-ZQZHTYTRMQ");</script>
 <!-- 4. JSON-LD -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"追星遠征規劃器","url":"https://tools.knittinghiyori.com/concert-trip-planner/","applicationCategory":"TravelApplication","operatingSystem":"Web","inLanguage":"zh-Hant-TW","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"featureList":["開賣時間換算台灣時間","各國售票平台搶票準備清單","搶票到出發的遠征時間軸","每人與全團預算試算","場館周邊住宿與交通建議","行前清單"],"author":{"@type":"Organization","name":"編織日和","url":"https://knittinghiyori.com/"}}
+{"@context":"https://schema.org","@type":"WebApplication","name":"追星遠征規劃器","url":"https://tools.knittinghiyori.com/concert-trip-planner/","applicationCategory":"TravelApplication","operatingSystem":"Web","inLanguage":"zh-Hant-TW","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"featureList":["開賣時間換算台灣時間（含美國夏令時間）","開賣提醒加入行事曆","各國售票平台搶票準備清單","搶票到出發的遠征時間軸","每人與全團預算試算","場館周邊住宿與交通建議","行前清單"],"author":{"@type":"Organization","name":"編織日和","url":"https://knittinghiyori.com/"}}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"小工具","item":"https://tools.knittinghiyori.com/"},{"@type":"ListItem","position":2,"name":"旅行與出國","item":"https://tools.knittinghiyori.com/"},{"@type":"ListItem","position":3,"name":"追星遠征規劃器","item":"https://tools.knittinghiyori.com/concert-trip-planner/"}]}
@@ -41,7 +41,7 @@ gtag("config","G-ZQZHTYTRMQ");</script>
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","inLanguage":"zh-Hant-TW","mainEntity":[
-{"@type": "Question", "name": "開賣時間要填台灣時間還是當地時間？", "acceptedAnswer": {"@type": "Answer", "text": "填官方公告上的當地時間。工具會依你選的城市時區換成台灣時間，美國的夏令與冬令時間也會自動處理。"}},
+{"@type": "Question", "name": "開賣時間要填台灣時間還是當地時間？", "acceptedAnswer": {"@type": "Answer", "text": "填官方公告上的當地時間。選好城市、填開賣日期與時間，下方會立刻顯示台灣幾點、差幾小時，美國的夏令與冬令時間也會依日期自動處理。"}},
 {"@type": "Question", "name": "在台灣可以登記 Ticketmaster 的 Verified Fan 嗎？", "acceptedAnswer": {"@type": "Answer", "text": "可以。國際粉絲只要有 Ticketmaster.com 帳號就能登記；登記人數超過票量時會抽選，拿到預購碼也不保證買得到，票仍然是先搶先贏。"}},
 {"@type": "Question", "name": "沒有日本手機號碼可以買日本演唱會門票嗎？", "acceptedAnswer": {"@type": "Answer", "text": "部分公演可以用 e+ 的英文國際版購買。チケットぴあ與ローチケ多數要日本手機號碼收驗證簡訊，先看官方公告有沒有海外受付或國際版。"}},
 {"@type": "Question", "name": "韓國演唱會入場要帶什麼？", "acceptedAnswer": {"@type": "Answer", "text": "要帶護照正本，影本不行。購票帳號的英文姓名要和護照一字不差，名字對不上可能無法入場。"}},
@@ -50,6 +50,7 @@ gtag("config","G-ZQZHTYTRMQ");</script>
 {"@type": "Question", "name": "勾選紀錄會存到哪裡？", "acceptedAnswer": {"@type": "Answer", "text": "只存在你這台裝置的瀏覽器裡，不會上傳。換手機、換瀏覽器或清除瀏覽資料，紀錄就會消失。"}}
 ]}
 </script>
+<meta name="spec-version" content="core-v1.2/tools-v2.2.1">
 <style>
 /* 版型概念：演唱會的紙本票根 —— 細線分隔、等寬字票號、No. 編號，單一套印紅 */
 :root{
@@ -94,7 +95,7 @@ li+li{margin-top:6px}
 /* 頁首與麵包屑 */
 .k-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px;font-size:13px}
 .k-head .brand{font-family:var(--serif);font-size:17px;color:var(--ink);text-decoration:none}
-.k-crumb{font-family:var(--mono);font-size:11px;color:var(--label);padding-bottom:18px}
+.k-crumb{font-family:var(--mono);font-size:11px;color:var(--label);padding-block:12px 18px}
 .k-crumb a{color:var(--label)}
 .k-hero{padding-bottom:26px}
 .k-lede{color:var(--ink-2);margin-top:10px;font-size:17px}
@@ -126,6 +127,23 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-off
 button.ghost{font-size:13px;border-color:var(--rule-2);color:var(--ink-2)}
 .err{color:var(--accent);font-size:14px;margin-top:8px;min-height:1em}
 .rm-note{font-size:13px;color:var(--ink-2)}
+
+/* 品牌列（core §7） */
+.kh-brand-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:8px;border-bottom:1px solid var(--rule)}
+.kh-brand{display:inline-flex;align-items:center;gap:10px;min-height:44px;color:var(--ink);text-decoration:none;font-family:var(--body);font-size:14.4px;font-weight:700;letter-spacing:.04em;line-height:1.2;white-space:nowrap}
+.kh-brand img{width:40px;height:40px;border-radius:8px;flex:none}
+.kh-brand:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:360px){.kh-brand .site{display:none}}
+
+/* 開賣時間換算 */
+.conv{margin-top:14px;border:1px solid var(--rule-2);border-radius:12px;background:var(--block);padding:14px}
+.conv .k-label{display:block}
+.conv-big{display:block;font-family:var(--mono);font-weight:500;font-size:clamp(22px,6.4vw,30px);line-height:1.25;margin-top:4px;font-variant-numeric:tabular-nums}
+.conv-big.idle{color:var(--label);font-size:16px;font-family:var(--body);font-weight:400}
+.conv-sub{display:block;font-size:13px;color:var(--ink-2);margin-top:4px}
+.conv .btns{margin-top:10px}
+.conv .btns button{background:var(--paper)}
+.sep{grid-column:1/-1;border-top:1px dashed var(--rule-2);margin-top:6px;padding-top:10px}
 
 /* 結果 */
 .res{margin-top:22px;display:flex;flex-direction:column;gap:14px}
@@ -230,10 +248,10 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
 
 <div class="k-wrap">
 
-  <header class="k-head">
-    <a class="brand" href="https://tools.knittinghiyori.com/" data-cta="header_hub" data-cta-type="tool" data-google-vignette="false">編織日和・小工具</a>
+  <div class="kh-brand-row">
+    <a class="kh-brand" href="https://tools.knittinghiyori.com/" data-cta="brand_hub" data-cta-type="tool" data-google-vignette="false"><img src="https://games.knittinghiyori.com/icons/logo-knitting-120.webp" srcset="https://games.knittinghiyori.com/icons/logo-knitting-240.webp 2x" width="40" height="40" alt=""><span>編織日和<span class="site">・工具</span></span></a>
     <span class="k-label">No.21 · 旅行與出國</span>
-  </header>
+  </div>
 
   <nav class="k-crumb" aria-label="麵包屑">
     <a href="https://tools.knittinghiyori.com/" data-cta="back_hub" data-cta-type="tool" data-google-vignette="false">小工具</a> / 旅行與出國 / 追星遠征規劃器
@@ -241,31 +259,44 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
 
   <div class="k-col k-hero">
     <h1>追星遠征規劃器</h1>
-    <p class="k-lede">去日本、韓國、中國大陸、美國看演唱會，選城市、填開賣與演出日期，就幫你把官方公告的開賣時間換成台灣時間，並排出搶票準備清單、遠征時間軸、每人預算與場館周邊住宿建議。免註冊，勾選紀錄只存在你的裝置上。</p>
-    <ol class="k-steps"><li>選城市與日期</li><li>照清單準備搶票</li><li>照時間軸訂房訂機票</li></ol>
+    <p class="k-lede">海外演唱會開賣是台灣幾點？選城市、填官方公告的當地開賣時間，立刻換算成台灣時間，還能加進行事曆提醒。再填演出日期，就幫你排出搶票準備清單、遠征時間軸、每人預算與場館周邊住宿建議。免註冊，勾選紀錄只存在你的裝置上。</p>
+    <ol class="k-steps"><li>換算開賣台灣時間</li><li>照清單準備搶票</li><li>照時間軸訂房訂機票</li></ol>
   </div>
 
   <!-- 工具操作區 -->
   <div class="k-col" id="tool">
     <div class="ticket">
-      <div class="ticket-top"><span class="k-label">Admit one · 遠征資訊</span><b id="tNo">TPE → ---</b></div>
+      <div class="ticket-top"><span class="k-label">Admit one · 開賣時間換算</span><b id="tNo">TPE → ---</b></div>
       <div class="ticket-body">
-        <div class="grid">
+        <div class="grid" id="convert">
           <div class="field full">
             <label for="fCity">演唱會城市</label>
             <select id="fCity"><option value="">請選擇城市</option></select>
           </div>
           <div class="field">
-            <label for="fShow">演出日期</label>
-            <input type="date" id="fShow">
-          </div>
-          <div class="field">
-            <label for="fSaleDate">開賣日期 <small>還不知道可先空著</small></label>
+            <label for="fSaleDate">開賣日期 <small>官方公告的日期</small></label>
             <input type="date" id="fSaleDate">
           </div>
           <div class="field">
             <label for="fSaleTime">開賣時間 <small>官方公告的當地時間</small></label>
             <input type="time" id="fSaleTime" value="10:00">
+          </div>
+        </div>
+        <div class="conv" aria-live="polite">
+          <span class="k-label">開賣是台灣幾點 · 台灣時間</span>
+          <span class="conv-big idle" id="convBig">選城市、填開賣日期，這裡會立刻顯示台灣時間。</span>
+          <span class="conv-sub" id="convSub"></span>
+          <div class="btns" id="convBtns" hidden>
+            <button class="ghost" type="button" id="btnGcal">加入 Google 日曆</button>
+            <button class="ghost" type="button" id="btnIcs">下載行事曆檔</button>
+            <button class="ghost" type="button" id="btnCopyTime">複製台灣時間</button>
+          </div>
+        </div>
+        <div class="grid" style="margin-top:14px">
+          <p class="sep k-label">再填這些，產生完整遠征計畫</p>
+          <div class="field full">
+            <label for="fShow">演出日期</label>
+            <input type="date" id="fShow">
           </div>
           <div class="field">
             <label for="fPeople">同行人數</label>
@@ -340,7 +371,8 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
       <h2>怎麼用</h2>
       <ol>
         <li><strong>選演唱會城市。</strong>目前收錄日本 6 城、韓國 3 城、中國大陸 6 城、美國 4 城，選了城市，工具就會切換成那個國家的售票平台、購票規則與貨幣。</li>
-        <li><strong>填演出日期與開賣時間。</strong>開賣時間一定要照官方公告填「當地時間」，工具會依時區換成台灣時間，美國夏令與冬令時間也會自動處理。還沒公布開賣日的話先空著，時間軸會先排出現在就能做的準備。</li>
+        <li><strong>填開賣日期與時間，立刻看到台灣時間。</strong>開賣時間照官方公告填「當地時間」，下方會馬上顯示台灣幾點、差幾小時，美國夏令與冬令時間也會自動處理。按「加入 Google 日曆」或「下載行事曆檔」，開賣前就會收到提醒。</li>
+        <li><strong>填演出日期，產生完整計畫。</strong>還沒公布開賣日的話，開賣日期可以先空著，時間軸會先排出現在就能做的準備。</li>
         <li><strong>照搶票準備度逐項打勾。</strong>清單是依各國平台的規則整理的，例如 Ticketmaster 的 Verified Fan、日本的先行抽選、韓國 Global 站的護照姓名、大陸的台胞證實名。</li>
         <li><strong>照時間軸安排住宿、機票與網卡。</strong>預算表可以改成你查到的實際價格，全團合計會跟著更新。</li>
       </ol>
@@ -350,6 +382,28 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
   <section>
     <div class="k-col">
       <span class="k-no">§ 02</span>
+      <h2>各城市開賣時間和台灣差幾小時</h2>
+      <p>官方公告寫的都是當地時間。下表是收錄城市和台灣的時差，日韓與大陸全年固定，美國有夏令時間，3 月第二個週日到 11 月第一個週日之間會差少 1 小時。工具會依開賣日期自動判斷。</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>城市</th><th>夏令時間</th><th>和台灣的時差</th><th>當地 10:00 開賣＝台灣</th></tr></thead>
+          <tbody>
+            <tr><td>東京、橫濱、埼玉、大阪、名古屋、福岡</td><td>沒有</td><td>比台灣快 1 小時</td><td>同一天 09:00</td></tr>
+            <tr><td>首爾、仁川、釜山</td><td>沒有</td><td>比台灣快 1 小時</td><td>同一天 09:00</td></tr>
+            <tr><td>上海、北京、廣州、深圳、杭州、成都</td><td>沒有</td><td>相同</td><td>同一天 10:00</td></tr>
+            <tr><td>紐約</td><td>有</td><td>夏令慢 12 小時，冬令慢 13 小時</td><td>同一天 22:00／23:00</td></tr>
+            <tr><td>芝加哥</td><td>有</td><td>夏令慢 13 小時，冬令慢 14 小時</td><td>同一天 23:00／隔天 00:00</td></tr>
+            <tr><td>洛杉磯、拉斯維加斯</td><td>有</td><td>夏令慢 15 小時，冬令慢 16 小時</td><td>隔天 01:00／02:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="rm-note">美國開賣換成台灣時間常常是深夜或隔天凌晨，日期也可能跟著跳一天。把提醒加進行事曆，比靠自己記可靠。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="k-col">
+      <span class="k-no">§ 03</span>
       <h2>各國售票平台怎麼選</h2>
       <p>同一位歌手在不同國家、甚至不同場次，可能用不同平台開賣，一定先看官方公告寫的是哪一個。下表是台灣粉絲最常遇到的情況。</p>
       <div class="scroll">
@@ -376,7 +430,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
 
   <section>
     <div class="k-col">
-      <span class="k-no">§ 03</span>
+      <span class="k-no">§ 04</span>
       <h2>注意事項</h2>
       <div class="note">
         <p><strong>平台規則以官方公告為準。</strong>本工具整理的是常見做法，各平台、各主辦單位的規則會調整，購票前請再看一次公告與平台說明。</p>
@@ -401,9 +455,9 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
 
   <section>
     <div class="k-col">
-      <span class="k-no">§ 04</span>
+      <span class="k-no">§ 05</span>
       <h2>常見問題</h2>
-      <details data-faq="q_tw_time"><summary>開賣時間要填台灣時間還是當地時間？</summary><p>填官方公告上的當地時間。工具會依你選的城市時區換成台灣時間，美國的夏令與冬令時間也會自動處理。</p></details>
+      <details data-faq="q_tw_time"><summary>開賣時間要填台灣時間還是當地時間？</summary><p>填官方公告上的當地時間。選好城市、填開賣日期與時間，下方會立刻顯示台灣幾點、差幾小時，美國的夏令與冬令時間也會依日期自動處理。</p></details>
       <details data-faq="q_verified_fan"><summary>在台灣可以登記 Ticketmaster 的 Verified Fan 嗎？</summary><p>可以。國際粉絲只要有 Ticketmaster.com 帳號就能登記；登記人數超過票量時會抽選，拿到預購碼也不保證買得到，票仍然是先搶先贏。</p></details>
       <details data-faq="q_jp_phone"><summary>沒有日本手機號碼可以買日本演唱會門票嗎？</summary><p>部分公演可以用 e+ 的英文國際版購買。チケットぴあ與ローチケ多數要日本手機號碼收驗證簡訊，先看官方公告有沒有海外受付或國際版。</p></details>
       <details data-faq="q_kr_entry"><summary>韓國演唱會入場要帶什麼？</summary><p>要帶護照正本，影本不行。購票帳號的英文姓名要和護照一字不差，名字對不上可能無法入場。</p></details>
@@ -415,7 +469,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
 
   <section>
     <div class="k-col">
-      <span class="k-no">§ 05</span>
+      <span class="k-no">§ 06</span>
       <h2>同類工具</h2>
       <div class="cards">
         <a class="lcard" href="https://tools.knittinghiyori.com/travel-split-calculator/" data-cta="related" data-cta-type="tool" data-google-vignette="false"><span class="t">旅費分帳計算機</span><span class="d">遠征回來，多幣別分帳算誰該付誰</span></a>
@@ -428,11 +482,10 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
 
   <section>
     <div class="k-col">
-      <span class="k-no">§ 06</span>
+      <span class="k-no">§ 07</span>
       <h2>延伸閱讀</h2>
       <div class="cards">
-        <!-- TODO：教學文上線後，把 href 換成文章網址 -->
-        <a class="lcard" href="https://knittinghiyori.com/" data-cta="blog_read" data-cta-type="article" data-google-vignette="false"><span class="t">在台灣怎麼用 Ticketmaster 買美國演唱會門票？</span><span class="d">Ticketmaster、日本 e+、韓國 NOL World、大陸大麥購票教學</span></a>
+        <a class="lcard" href="https://knittinghiyori.com/overseas-concert-tickets-guide/" data-cta="blog_read" data-cta-type="article" data-google-vignette="false"><span class="t">海外演唱會門票怎麼買？Ticketmaster、e+、NOL World、大麥教學</span><span class="d">Ticketmaster、日本 e+、韓國 NOL World、大陸大麥購票教學</span></a>
         <a class="lcard" href="https://knittinghiyori.com/ctbc-china-airlines-card-pros-cons-guide/" data-cta="blog_read" data-cta-type="article" data-google-vignette="false"><span class="t">常搭飛機去追星，中信華航聯名卡值得辦嗎？</span><span class="d">飛得多的人怎麼累積哩程</span></a>
       </div>
       <p><a href="https://knittinghiyori.com/" data-cta="blog_home" data-cta-type="article" data-google-vignette="false">到編織日和部落格看更多</a></p>
@@ -448,7 +501,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
 
   <section>
     <div class="k-col">
-      <span class="k-no">§ 07</span>
+      <span class="k-no">§ 08</span>
       <h2>收藏這個工具</h2>
       <p class="rm-note">下一場開賣公告出來時，打開就能直接排計畫。建議加到手機主畫面，開啟速度跟 App 一樣。</p>
       <div id="howAdd"></div>
@@ -468,7 +521,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
         <a href="https://games.knittinghiyori.com/" data-cta="footer_games" data-cta-type="game" data-google-vignette="false">小遊戲</a>
         <a href="https://knittinghiyori.com/privacy-policy/" data-google-vignette="false">隱私權政策</a>
       </nav>
-      <p class="kh-legal">本站使用 Cookie 進行流量分析（Google Analytics）與顯示廣告（Google AdSense），部分連結為旅遊聯盟連結。<a href="https://knittinghiyori.com/privacy-policy/" data-google-vignette="false">隱私權政策</a></p>
+      <p class="kh-legal">本站使用 Cookie 進行流量分析（Google Analytics）與顯示廣告（Google AdSense），部分連結為聯盟連結。<a href="https://knittinghiyori.com/privacy-policy/" data-google-vignette="false">隱私權政策</a></p>
     </div>
   </footer>
 
@@ -483,6 +536,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
   var DEBUG=location.search.indexOf("hy_debug=1")>-1;
   var $=function(id){return document.getElementById(id)};
   var started=false,resulted=false,toastT=null;
+  var AMP=String.fromCharCode(38); /* 網址組字不出現和號字元 */
 
   function track(name,params){
     try{
@@ -743,7 +797,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
     var p={};f.formatToParts(new Date(ms)).forEach(function(x){p[x.type]=x.value});
     return Date.UTC(+p.year,+p.month-1,+p.day);
   }
-  function fmtTW(ms){return new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",month:"numeric",day:"numeric",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date(ms))}
+  function fmtTW(ms){return new Intl.DateTimeFormat("zh-TW",{timeZone:"Asia/Taipei",month:"numeric",day:"numeric",weekday:"short",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).format(new Date(ms))}
   function fmtDay(d){return new Intl.DateTimeFormat("zh-TW",{timeZone:"UTC",year:"numeric",month:"numeric",day:"numeric",weekday:"short"}).format(new Date(d))}
   function parseDate(s){if(!s)return null;var a=s.split("-");if(a.length!==3)return null;return{y:+a[0],m:+a[1],d:+a[2],day:Date.UTC(+a[0],+a[1]-1,+a[2])}}
   function fmtNum(n){return Math.round(n).toLocaleString("zh-TW")}
@@ -762,11 +816,73 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
     }catch(e){}
   })();
 
+
+  /* ---------- 開賣時間換算（不用填演出日期也能用） ---------- */
+  var conv=null;
+  function pad(n){return String(n).padStart(2,"0")}
+  function utcStamp(ms){var d=new Date(ms);return d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate())+"T"+pad(d.getUTCHours())+pad(d.getUTCMinutes())+"00Z"}
+  function hoursText(h){return h===0?"和台灣同一個時間":(h>0?"比台灣快 ":"比台灣慢 ")+Math.abs(h)+" 小時"}
+  function convert(){
+    try{
+      var city=CITY_BY_ID[$("fCity").value],sale=parseDate($("fSaleDate").value),tm=($("fSaleTime").value||"").split(":");
+      var big=$("convBig"),sub=$("convSub");
+      if(!city||!sale||tm.length<2){
+        conv=null;big.className="conv-big idle";
+        big.textContent=!city?"選城市、填開賣日期，這裡會立刻顯示台灣時間。":(!sale?"再填開賣日期，就會顯示台灣時間。":"再填開賣時間。");
+        sub.textContent="";$("convBtns").hidden=true;return;
+      }
+      var utc=zonedToUtc(sale.y,sale.m,sale.d,+tm[0],+tm[1],city.tz);
+      var diffH=Math.round((tzOffset(utc,city.tz)-tzOffset(utc,"Asia/Taipei"))/3600000);
+      var dst="";
+      if(city.c==="us"){var jan=tzOffset(Date.UTC(sale.y,0,15),city.tz);dst=tzOffset(utc,city.tz)>jan?"（美國夏令時間）":"（美國冬令時間）"}
+      var shift=Math.round((twDay(utc)-sale.day)/DAY),shiftTxt=shift>0?"，台灣是隔天":(shift<0?"，台灣是前一天":"");
+      big.className="conv-big";big.textContent=fmtTW(utc);
+      sub.textContent=city.n+" 當地 "+sale.m+"/"+sale.d+" "+pad(+tm[0])+":"+pad(+tm[1])+" 開賣，"+hoursText(diffH)+dst+shiftTxt+"。";
+      $("convBtns").hidden=false;
+      conv={city:city,utc:utc,local:sale.m+"/"+sale.d+" "+pad(+tm[0])+":"+pad(+tm[1])};
+      $("tNo").textContent="TPE → "+city.n;
+      if(!resulted){resulted=true;track("tool_result",{option:city.id,source:"convert"})}
+    }catch(e){}
+  }
+  function remindTitle(){return "【開賣】"+conv.city.n+" 演唱會｜台灣時間 "+fmtTW(conv.utc)}
+  function remindDetail(){return "官方公告：當地 "+conv.local+" 開賣。行程從開賣前 30 分鐘開始：先登入、確認付款方式。由編織日和・追星遠征規劃器建立 https://tools.knittinghiyori.com/concert-trip-planner/"}
+  $("btnGcal").onclick=function(){
+    try{
+      if(!conv)return;
+      var q=["action=TEMPLATE","text="+encodeURIComponent(remindTitle()),
+        "dates="+utcStamp(conv.utc-30*60000)+"/"+utcStamp(conv.utc),
+        "details="+encodeURIComponent(remindDetail())].join(AMP);
+      window.open("https://calendar.google.com/calendar/render?"+q,"_blank","noopener");
+      track("ct_remind",{option:"gcal"});
+    }catch(e){}
+  };
+  $("btnIcs").onclick=function(){
+    try{
+      if(!conv)return;
+      var ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//knittinghiyori//concert-trip-planner//ZH-TW","CALSCALE:GREGORIAN","BEGIN:VEVENT",
+        "UID:ct-"+conv.utc+"-"+conv.city.id+"@knittinghiyori","DTSTAMP:"+utcStamp(Date.now()),
+        "DTSTART:"+utcStamp(conv.utc-30*60000),"DTEND:"+utcStamp(conv.utc),"SUMMARY:"+remindTitle(),
+        "DESCRIPTION:"+remindDetail(),
+        "BEGIN:VALARM","TRIGGER:-PT10M","ACTION:DISPLAY","DESCRIPTION:演唱會 40 分鐘後開賣","END:VALARM",
+        "END:VEVENT","END:VCALENDAR"].join("\r\n");
+      var blob=new Blob([ics],{type:"text/calendar;charset=utf-8"});
+      var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="concert-onsale.ics";
+      a.setAttribute("data-google-vignette","false");
+      document.body.appendChild(a);a.click();
+      setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},1000);
+      toast("已產生行事曆檔，開啟後存進日曆");
+      track("ct_remind",{option:"ics"});
+    }catch(e){}
+  };
+  $("btnCopyTime").onclick=function(){
+    try{ if(!conv)return; copyText(conv.city.n+" 開賣：台灣時間 "+fmtTW(conv.utc)+"（當地 "+conv.local+"）",function(){toast("已複製台灣時間");track("export",{method:"copy_text"})}) }catch(e){}
+  };
+
   var state=null;
   function generate(fromUser){
     var city=CITY_BY_ID[$("fCity").value],show=parseDate($("fShow").value);
     if(!city){$("err").textContent="請先選擇演唱會城市。";return}
-    if(!show){$("err").textContent="請填演出日期。";return}
+    if(!show){$("err").textContent="要產生完整計畫，請再填演出日期。";try{$("fShow").focus()}catch(e){}return}
     $("err").textContent="";
     var cc=COUNTRY[city.c];
     var people=Math.max(1,Math.min(8,parseInt($("fPeople").value,10)||1));
@@ -783,7 +899,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
     $("res").hidden=false;
     $("tNo").textContent="TPE → "+city.n;
     if(fromUser){
-      if(!resulted){resulted=true;track("tool_result",{option:city.id})}
+      if(!resulted){resulted=true;track("tool_result",{option:city.id,source:"planner"})}
       try{$("res").scrollIntoView({behavior:"smooth",block:"start"})}catch(e){}
     }
   }
@@ -954,7 +1070,8 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
   ["fCity","fShow","fSaleDate","fSaleTime","fPeople","fNights"].forEach(function(id){
     var x=$(id);if(!x)return;
     x.addEventListener("focus",firstTouch,{once:true});
-    x.addEventListener("change",function(){try{if(state)generate(false)}catch(e){}});
+    x.addEventListener("change",function(){try{convert();if(state)generate(false)}catch(e){}});
+    x.addEventListener("input",function(){try{convert()}catch(e){}});
   });
 
   /* FAQ */
