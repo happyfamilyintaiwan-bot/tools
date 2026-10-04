@@ -202,14 +202,10 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
 
 <div class="k-wrap">
 
-  <header class="k-head">
-    <a class="brand" href="https://tools.knittinghiyori.com/" data-cta="header_hub" data-cta-type="tool" data-google-vignette="false">編織日和・小工具</a>
-    <span class="k-label">No.20 · 旅行與出國</span>
-  </header>
-
-  <nav class="k-crumb" aria-label="麵包屑">
-    <a href="https://tools.knittinghiyori.com/" data-cta="back_hub" data-cta-type="tool" data-google-vignette="false">小工具</a> / 旅行與出國 / 停車計時卡
-  </nav>
+  <!--k-head:start（build.py 產生，請勿手改）-->
+<header class="k-head"><a class="brand k-brandlogo" href="/" data-cta="header_hub" data-cta-type="tool" data-google-vignette="false" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none"><img src="/assets/logo.webp" width="28" height="28" alt="" style="width:28px;height:28px;border-radius:6px;flex:none"><span>編織日和・小工具</span></a><span class="k-label">No.12 · 旅行與出國</span></header>
+<div class="k-crumbrow" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px"><nav class="k-crumb" aria-label="麵包屑"><a href="/" data-cta="back_hub" data-cta-type="tool" data-google-vignette="false">小工具</a> / 旅行與出國 / 停車計時卡</nav></div>
+<!--k-head:end-->
 
   <div class="k-col k-hero">
     <h1>停車計時卡</h1>
@@ -788,7 +784,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
       var end=expiryMs();if(!end)return;
       var q=["action=TEMPLATE","text="+encodeURIComponent(evTitle()),
         "dates="+utc(end-5*60000)+"/"+utc(end),
-        "details="+encodeURIComponent("停車開始 "+hhmm(active.start)+"，限停 "+active.cfg.limit+" 分鐘。")].join(AMP);
+        "details="+encodeURIComponent("停車開始 "+hhmm(active.start)+"，限停 "+active.cfg.limit+" 分鐘。\n停車計時卡 "+"https://tools.knittinghiyori.com/parking-timer/")].join(AMP);
       window.open("https://calendar.google.com/calendar/render?"+q,"_blank","noopener");
       track("park_remind",{option:"gcal",result:limitCode(active.cfg.limit)});
     }catch(e){}
@@ -800,7 +796,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
       var ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//knittinghiyori//parking-timer//ZH-TW","CALSCALE:GREGORIAN","BEGIN:VEVENT",
         "UID:park-"+active.start+"@knittinghiyori","DTSTAMP:"+utc(Date.now()),
         "DTSTART:"+utc(end-5*60000),"DTEND:"+utc(end),"SUMMARY:"+evTitle(),
-        "DESCRIPTION:停車開始 "+hhmm(active.start)+"，限停 "+active.cfg.limit+" 分鐘。",
+        "DESCRIPTION:停車開始 "+hhmm(active.start)+"，限停 "+active.cfg.limit+" 分鐘。\\n停車計時卡 "+"https://tools.knittinghiyori.com/parking-timer/","URL:"+"https://tools.knittinghiyori.com/parking-timer/",
         "BEGIN:VALARM","TRIGGER:-PT"+warn+"M","ACTION:DISPLAY","DESCRIPTION:停車快到期了","END:VALARM",
         "END:VEVENT","END:VCALENDAR"].join("\r\n");
       var blob=new Blob([ics],{type:"text/calendar;charset=utf-8"});
@@ -867,6 +863,7 @@ details p{margin-top:8px;color:var(--ink-2);font-size:15px}
       lines.push("停車時間："+hhmm(st));
       if(c.limit>0) lines.push("限停 "+c.limit+" 分，"+hhmm(st+c.limit*60000)+" 前要移車");
       if(active) lines.push("目前已停 "+dur(mins)+"，估計 NT$"+calcFee(mins,c));
+      lines.push("","—— 停車計時卡 "+"https://tools.knittinghiyori.com/parking-timer/");
       copyText(lines.join("\n"),function(){toast("已複製，可以貼給同車的人");track("export",{method:"copy_text",content_type:"result"})});
     }catch(e){}
   };

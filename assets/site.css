@@ -17,23 +17,18 @@ body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 var(--sans)
 :focus-visible{outline:2px solid var(--shu);outline-offset:3px;border-radius:6px}
 ::selection{background:var(--shu);color:#fff}
 
-/* 頁首 */
-.k-top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid var(--line)}
-.k-top .k-wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
-.k-brand{display:flex;align-items:center;gap:6px;font:500 14px var(--mono);color:var(--ink);text-decoration:none;white-space:nowrap}
-.k-brand i{width:10px;height:10px;border-radius:50%;background:var(--shu);margin-right:4px;box-shadow:0 0 0 3px var(--shu-soft)}
-.k-brand span{color:var(--muted)}
+/* 頁首＋麵包屑（2026-10-04 統一：logo＋編織日和・小工具／No.XX · 分類／小工具 / 分類 / 工具名）
+   HTML 由 build.py 的 tool_head() 產生，只有中文的工具頁也用同一段 */
+.k-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px;font-size:13px}
+.k-head .brand{font-family:"Noto Serif TC","Noto Serif JP",var(--display);font-size:17px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.k-label{font:500 11px var(--mono);letter-spacing:.14em;color:var(--muted);text-transform:uppercase;white-space:nowrap}
+.k-crumbrow{padding-bottom:18px}
+.k-crumb{font:500 11px/1.6 var(--mono);letter-spacing:.04em;color:var(--muted)}
+.k-crumb a{color:var(--muted)}
 .k-langs{display:flex;gap:2px;font:500 13px var(--mono)}
 .k-langs a{position:relative;display:grid;place-items:center;min-width:40px;height:36px;padding:0 6px;color:var(--muted);text-decoration:none;border-radius:999px}
 .k-langs a[aria-current="page"]{color:var(--ink)}
 .k-langs a[aria-current="page"]::after{content:"";position:absolute;left:50%;bottom:4px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--shu)}
-
-/* 麵包屑 */
-.k-crumb ol{display:flex;flex-wrap:wrap;gap:4px 0;list-style:none;margin:0;padding:14px 0 0;font:500 12px/1.5 var(--mono);letter-spacing:.04em;color:var(--muted)}
-.k-crumb li+li::before{content:"/";margin:0 8px;color:var(--line2)}
-.k-crumb a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line2)}
-.k-crumb [aria-current]{color:var(--ink)}
-.k-crumb .k-upd{margin-left:auto}
 
 /* 工具本身改用全站色票（工具的 CSS 先載入，這裡覆蓋） */
 .ts{--ink:#16120f;--sub:#5a524e;--line:#e4deda;--soft:#f7f4f2;--coral:#c8341e;--coral-l:#fbebe7;--hi:#f6c4b8;--red:#c8341e;--green:#1d6b45;max-width:none!important}

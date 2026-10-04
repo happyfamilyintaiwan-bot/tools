@@ -234,6 +234,56 @@ def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工�
 </head>'''
 
 
+# ---- 工具頁共用頁首（2026-10-04 統一）：logo＋編織日和・小工具／No.XX · 分類／麵包屑 ----
+BRAND = {'zh': '編織日和・小工具', 'en': 'Knitting Hiyori · Tools', 'ja': '編織日和・ツール'}
+CRUMB_HOME = {'zh': '小工具', 'en': 'Tools', 'ja': 'ツール'}
+LOGO = '/assets/logo.webp'
+
+
+def tool_no(tool_id):
+    """工具編號＝總覽頁 tools.json 的順序（和總覽頁卡片上的 No. 一致）"""
+    return next(i for i, t in enumerate(DATA, 1) if t['id'] == tool_id)
+
+
+def brand_link(lang, extra_attrs=''):
+    L = LANGS[lang]
+    return (f'<a class="brand k-brandlogo" href="{L["path"]}" data-cta="header_hub" data-cta-type="tool" data-google-vignette="false"{extra_attrs} '
+            f'style="display:inline-flex;align-items:center;gap:8px;text-decoration:none">'
+            f'<img src="{LOGO}" width="28" height="28" alt="" style="width:28px;height:28px;border-radius:6px;flex:none">'
+            f'<span>{BRAND[lang]}</span></a>')
+
+
+def tool_head(lang, tool_id, name, after_crumb=''):
+    """工具頁頁首＋麵包屑。after_crumb：放在麵包屑右邊（例：三語工具的語言切換）"""
+    L = LANGS[lang]
+    t = next(x for x in DATA if x['id'] == tool_id)
+    cat = L['cats'][t['cats'][0]]
+    return ('<!--k-head:start（build.py 產生，請勿手改）-->\n'
+            f'<header class="k-head">{brand_link(lang)}'
+            f'<span class="k-label">No.{tool_no(tool_id):02d} · {cat}</span></header>\n'
+            f'<div class="k-crumbrow" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px">'
+            f'<nav class="k-crumb" aria-label="{"麵包屑" if lang == "zh" else ("Breadcrumb" if lang == "en" else "パンくずリスト")}">'
+            f'<a href="{L["path"]}" data-cta="back_hub" data-cta-type="tool" data-google-vignette="false">{CRUMB_HOME[lang]}</a> / {cat} / {E(name)}</nav>'
+            f'{after_crumb}</div>\n<!--k-head:end-->')
+
+
+def stamp_page_heads():
+    """只有中文、直接放進 repo 的工具頁（tools.json 有 "page"）：把頁首換成共用版"""
+    pat = re.compile(r'(?:<!--k-head:start.*?<!--k-head:end-->|<header class="k-head">.*?</header>\s*<nav class="k-crumb"[^>]*>.*?</nav>)', re.S)
+    for t in DATA:
+        if not t.get('page'):
+            continue
+        f = ROOT / t['page'] / 'index.html'
+        if not f.exists():
+            print('⚠ 找不到', f); continue
+        s = f.read_text(encoding='utf-8')
+        new, n = pat.subn(lambda m: tool_head('zh', t['id'], t['zh'][0]), s, count=1)
+        if n:
+            f.write_text(new, encoding='utf-8')
+        else:
+            print('⚠ 沒找到頁首可替換：', f)
+
+
 def header(lang):
     L = LANGS[lang]
     langs = ''.join(
@@ -241,7 +291,7 @@ def header(lang):
         + (' aria-current="page"' if l == lang else '') + f'>{n}</a>'
         for l, n in zip(ORDER, L['lang_names']))
     return (f'<header class="top"><div class="wrap">'
-            f'<a class="brand" href="{L["path"]}"><span class="dot" aria-hidden="true"></span>knittinghiyori<span class="sl">/</span><b>{L["brand_sub"]}</b></a>'
+            + brand_link(lang) +
             f'<nav class="langs" aria-label="Language">{langs}</nav></div></header>')
 
 
@@ -441,6 +491,7 @@ def main():
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(page(lang), encoding='utf-8')
     (ROOT / '404.html').write_text(notfound(), encoding='utf-8')
+    stamp_page_heads()
     import tool_pages, sys
     groups = tool_pages.build_all(sys.modules[__name__])
     today = datetime.date.today().isoformat()
@@ -478,7 +529,7 @@ def main():
         lines.append('')
     lines += ['## 關於', '- 部落格：' + BLOG, '- 小遊戲：' + GAMES, '- 隱私權政策：' + PRIVACY, '']
     (ROOT / 'llms.txt').write_text('\n'.join(lines), encoding='utf-8')
-    (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /_src/\n\nSitemap: {SITE}/sitemap.xml\n', encoding='utf-8')
+    (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /_src/\nDisallow: /wp-src/\n\nSitemap: {SITE}/sitemap.xml\n', encoding='utf-8')
     (ROOT / 'CNAME').write_text('tools.knittinghiyori.com\n', encoding='utf-8')
     (ROOT / '.nojekyll').write_text('', encoding='utf-8')
     print('built', len(DATA), 'tools ×', len(ORDER), 'languages', '(GA4 未設定)' if GA_ID.startswith('G-XXXX') else '')

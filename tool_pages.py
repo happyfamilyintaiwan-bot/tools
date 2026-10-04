@@ -203,8 +203,7 @@ def build_tool(B, tool):
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 </head>
 <body>
-<header class="k-top"><div class="k-wrap"><a class="k-brand" href="{H["path"]}" data-cta="header_hub" data-cta-type="tool"><i aria-hidden="true"></i>knittinghiyori<span>/</span>{H["brand_sub"]}</a><nav class="k-langs" aria-label="Language">{langs}</nav></div></header>
-<nav class="k-crumb k-wrap" aria-label="{S["crumb"]}"><ol><li><a href="{H["path"]}">{S["tools"]}</a></li><li><a href="{H["path"]}#index">{cat_name}</a></li><li aria-current="page">{L["name"]}</li></ol></nav>
+<div class="k-wrap">{B.tool_head(lang, tool["id"], L["name"], '<nav class="k-langs" aria-label="Language">' + langs + '</nav>')}</div>
 <main class="k-wrap">
 <div id="ts-app" class="ts" lang="{H["html_lang"]}">
 {top}
