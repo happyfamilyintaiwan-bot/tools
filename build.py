@@ -14,6 +14,7 @@ GA_ID = 'G-ZQZHTYTRMQ'   # GA4 評估 ID
 ADS_CLIENT = 'ca-pub-2022028565680247'   # AdSense 發布商 ID（全站共用）
 ADS_SLOT = '3114811513'                  # AdSense 廣告單元「tools」
 DRIVE = 'https://emrld.ltd/NTc5OTI2.js?t=579926'   # Travelpayouts Drive（tools 專屬）
+SPEC = 'core-v1.1/tools-v2.3'   # spec-version meta（core §0）：規範升版時改這裡，build 會套到所有頁面
 VER = datetime.date.today().strftime('%Y%m%d')  # 改版時更新快取
 YEAR = datetime.date.today().year
 
@@ -21,6 +22,7 @@ DATA = json.loads((ROOT / 'tools.json').read_text(encoding='utf-8'))['tools']
 CATS = ['travel', 'learn', 'life', 'social', 'money', 'work']
 ORDER = ['zh', 'en', 'ja']
 E = lambda s: html.escape(s, quote=True)
+js_json = lambda o: json.dumps(o, ensure_ascii=False).replace('&', '\\u0026')  # 頁內 script 不出現和號字元（core §3-1 #7）
 
 # 每個工具的線條圖示（24×24，stroke 繪製）
 ICONS = {
@@ -231,6 +233,7 @@ def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工�
 <script>document.documentElement.classList.add('js')</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
 {ga}{extra}
+<meta name="spec-version" content="{SPEC}">
 </head>'''
 
 
@@ -278,6 +281,12 @@ def stamp_page_heads():
             print('⚠ 找不到', f); continue
         s = f.read_text(encoding='utf-8')
         new, n = pat.subn(lambda m: tool_head('zh', t['id'], t['zh'][0]), s, count=1)
+        meta = f'<meta name="spec-version" content="{SPEC}">'
+        if 'name="spec-version"' in new:
+            new = re.sub(r'<meta name="spec-version"[^>]*>', meta, new, count=1)
+        else:  # 放在 head 最後一個 script（JSON-LD）後面，符合 core §2 順序
+            h = new.index('</head>'); i = new.rfind('</script>', 0, h) + len('</script>')
+            new = new[:i] + '\n' + meta + new[i:]
         if n:
             f.write_text(new, encoding='utf-8')
         else:
@@ -452,7 +461,7 @@ def page(lang):
 </main>
 {footer(lang)}
 {omikuji(L)}
-<script>window.HUB={json.dumps(hub, ensure_ascii=False)};</script>
+<script>window.HUB={js_json(hub)};</script>
 <script src="/assets/app.js?v={VER}" defer></script>
 </body>
 </html>

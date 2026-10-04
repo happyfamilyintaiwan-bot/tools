@@ -201,6 +201,7 @@ def build_tool(B, tool):
 <script async src="https://www.googletagmanager.com/gtag/js?id={B.GA_ID}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag("js",new Date());gtag("set",{{content_group:"tool",tool_id:"{M["tool_id"]}",page_lang:"{H["ga_lang"]}",page_title:"{M["page_title"]}"}});gtag("config","{B.GA_ID}");</script>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<meta name="spec-version" content="{B.SPEC}">
 </head>
 <body>
 <div class="k-wrap">{B.tool_head(lang, tool["id"], L["name"], '<nav class="k-langs" aria-label="Language">' + langs + '</nav>')}</div>
