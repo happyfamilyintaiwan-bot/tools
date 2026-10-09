@@ -9,6 +9,12 @@ _src/<工具>/ 需要的檔案：
   tail.html   浮動按鈕、對話框等，中文
   i18n.json   工具介面的英日翻譯（data-t／data-tp／data-ta 對應的字串）
   style.css、main.js
+
+meta.json 可選欄位（沒寫就用旅費分帳的預設值）：
+  "root"           外框代號，產生 <div id="<root>-app" class="<root> k-tool">（預設 "ts"）
+  "aff_var"        聯盟連結放進哪個 window 變數（預設 "<ROOT>_AFF"，例 TS_AFF、BS_AFF）
+  "app_category"   JSON-LD applicationCategory（預設 "TravelApplication"）
+  "i18n_fixes"     執行時才填、沒有 data-t 的字：{"選擇器": "i18n 鍵"}
 """
 import json, html, re, shutil, datetime
 from urllib.parse import quote
@@ -34,7 +40,7 @@ def _frag(s):
     return BeautifulSoup(s, 'html.parser')
 
 
-def translate(fragment, lang, I18N):
+def translate(fragment, lang, I18N, fixes=None):
     """把 data-t／data-tp／data-ta 換成該語言的字串（中文維持原樣）。"""
     if lang == 'zh':
         return fragment
@@ -52,8 +58,7 @@ def translate(fragment, lang, I18N):
         if el['data-ta'] in d:
             el['aria-label'] = d[el['data-ta']]
     # 執行時才填入、沒有 data-t 的幾個預設字
-    fixes = {'#ts-dlg-t': 'dlgNew', '#ts-eall': 'selAll', '#ts-fab-l': 'fabNone', '#ts-close': None}
-    for sel, k in fixes.items():
+    for sel, k in (fixes or {}).items():
         el = soup.select_one(sel)
         if el is not None and k and k in d:
             el.string = d[k]
@@ -100,6 +105,9 @@ def build_tool(B, tool):
     shutil.copyfile(src / 'style.css', asset_dir / f'{tool["src"]}.css')
     shutil.copyfile(src / 'main.js', asset_dir / f'{tool["src"]}.js')
     parts = {k: (src / f'{k}.html').read_text(encoding='utf-8') for k in ('top', 'install', 'tail')}
+    ROOTID = M.get('root', 'ts')
+    AFF_VAR = M.get('aff_var', ROOTID.upper() + '_AFF')
+    FIX = M.get('i18n_fixes', {'#ts-dlg-t': 'dlgNew', '#ts-eall': 'selAll', '#ts-fab-l': 'fabNone'})
     n_tools = len(B.DATA)
     by_id = {t['id']: t for t in B.DATA}
 
@@ -112,10 +120,10 @@ def build_tool(B, tool):
               f'<ins class="adsbygoogle" style="display:block" data-ad-client="{B.ADS_CLIENT}" data-ad-slot="{B.ADS_SLOT}" data-ad-format="auto" data-full-width-responsive="true"></ins>'
               f'<script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div></aside>')
         art = art.replace('<!--AD-->', ad)
-        top = translate(parts['top'], lang, I18N)
-        install = translate(parts['install'], lang, I18N)
+        top = translate(parts['top'], lang, I18N, FIX)
+        install = translate(parts['install'], lang, I18N, FIX)
         install = install.replace(quote(M['old_url'], safe=''), quote(canonical, safe=''))
-        tail = translate(parts['tail'], lang, I18N)
+        tail = translate(parts['tail'], lang, I18N, FIX)
 
         # 相關工具
         cards = ''
@@ -147,7 +155,7 @@ def build_tool(B, tool):
         # 結構化資料
         ld = {'@context': 'https://schema.org', '@graph': [
             {'@type': 'WebApplication', '@id': canonical + '#app', 'name': L['name'], 'url': canonical,
-             'applicationCategory': 'TravelApplication', 'operatingSystem': 'Any', 'browserRequirements': 'Requires JavaScript',
+             'applicationCategory': M.get('app_category', 'TravelApplication'), 'operatingSystem': 'Any', 'browserRequirements': 'Requires JavaScript',
              'inLanguage': H['html_lang'], 'description': L['app_desc'], 'featureList': L['features'],
              'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'TWD'}, 'isAccessibleForFree': True,
              'dateModified': datetime.date.today().isoformat(),
@@ -165,7 +173,7 @@ def build_tool(B, tool):
         langs = ''.join(
             f'<a href="{paths[l]}" hreflang="{B.LANGS[l]["hreflang"]}" lang="{B.LANGS[l]["html_lang"]}"' + (' aria-current="page"' if l == lang else '') + f'>{n}</a>'
             for l, n in zip(B.ORDER, H['lang_names']))
-        cfg = {'TS_PAGE_LANG': lang, 'TS_PATHS': paths, 'TS_AFF': M.get('aff', {}), 'TS_BASE': M.get('base', {}).get(lang, 'TWD')}
+        cfg = {'TS_PAGE_LANG': lang, 'TS_PATHS': paths, AFF_VAR: M.get('aff', {}), 'TS_BASE': M.get('base', {}).get(lang, 'TWD')}
         cfg_js = ''.join(f'window.{k}={json.dumps(v, ensure_ascii=False)};' for k, v in cfg.items())
         page = f'''<!doctype html>
 <html lang="{H["html_lang"]}">
@@ -185,13 +193,9 @@ def build_tool(B, tool):
 <meta property="og:description" content="{B.E(L["desc"])}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:locale" content="{H["og_locale"]}">
-<meta name="twitter:card" content="summary">
+{B.og_tags(f"/assets/og/{tool['id']}-{lang}.png", L["name"], lang)}
 <meta name="author" content="Zoe">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="https://games.knittinghiyori.com/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="https://games.knittinghiyori.com/icons/favicon-96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="https://games.knittinghiyori.com/icons/icon-192.png">
-<link rel="apple-touch-icon" href="https://games.knittinghiyori.com/icons/apple-touch-icon.png">
+{B.ICON_LINKS}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -201,12 +205,12 @@ def build_tool(B, tool):
 <script async src="https://www.googletagmanager.com/gtag/js?id={B.GA_ID}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag("js",new Date());gtag("set",{{content_group:"tool",tool_id:"{M["tool_id"]}",page_lang:"{H["ga_lang"]}",page_title:"{M["page_title"]}"}});gtag("config","{B.GA_ID}");</script>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<meta name="spec-version" content="{B.SPEC}">
 </head>
 <body>
-<header class="k-top"><div class="k-wrap"><a class="k-brand" href="{H["path"]}" data-cta="header_hub" data-cta-type="tool"><i aria-hidden="true"></i>knittinghiyori<span>/</span>{H["brand_sub"]}</a><nav class="k-langs" aria-label="Language">{langs}</nav></div></header>
-<nav class="k-crumb k-wrap" aria-label="{S["crumb"]}"><ol><li><a href="{H["path"]}">{S["tools"]}</a></li><li><a href="{H["path"]}#index">{cat_name}</a></li><li aria-current="page">{L["name"]}</li></ol></nav>
+<div class="k-wrap">{B.tool_head(lang, tool["id"], L["name"], '<nav class="k-langs" aria-label="Language">' + langs + '</nav>')}</div>
 <main class="k-wrap">
-<div id="ts-app" class="ts" lang="{H["html_lang"]}">
+<div id="{ROOTID}-app" class="{ROOTID} k-tool" lang="{H["html_lang"]}">
 {top}
 <div class="art">
 {art}

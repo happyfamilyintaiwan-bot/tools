@@ -1,0 +1,200 @@
+<div class="kyt" id="kyt">
+<style><!--@@STYLE@@--></style>
+
+<header class="kyt-hero">
+  <span class="kyt-kicker">SHADOWING PRACTICE</span>
+  <h2>YouTube 跟讀練習工具<span class="kyt-sub">用喜歡的影片學日文、英文，一句一句聽、跟著唸</span></h2>
+  <p>YouTube 的轉錄稿每兩三秒就斷一行，很難拿來練習。貼進來，工具會切成完整的句子，每句都能單獨重播、跟讀、聽寫。<br>沒有字幕的影片或錄音檔，也能上傳用 AI 轉成文字。</p>
+  <div class="kyt-badges"><span>免費・免註冊</span><span>一句一句重播</span><span>聽寫模式</span><span>日文・英文・中文</span><span>沒字幕也能轉</span></div>
+</header>
+
+<div class="kyt-flow" aria-label="使用步驟"><div><b>貼上影片</b>網址＋轉錄稿</div><div><b>逐句跟讀</b>播一句、唸一句</div><div><b>收藏筆記</b>交給 AI 整理</div></div>
+<section class="kyt-card" aria-label="建立練習">
+  <div class="kyt-mode" role="tablist" aria-label="練習素材來源">
+    <button type="button" role="tab" data-mode="paste" aria-selected="true">▶️ YouTube 影片<small>影片有字幕時用</small></button>
+    <button type="button" role="tab" data-mode="audio" aria-selected="false">🎙️ 上傳音檔<small>沒有字幕、錄音檔</small></button>
+  </div>
+  <div id="kyt-m-paste">
+  <div class="kyt-step">
+    <label class="kyt-label" for="kyt-url"><span class="kyt-num">1</span>影片網址 <small>建議填：才能播放原聲、一句一句重播</small></label>
+    <input type="url" class="kyt-field" id="kyt-url" inputmode="url" autocomplete="off" placeholder="https://www.youtube.com/watch?v=…">
+  </div>
+  <div class="kyt-step" style="margin-bottom:8px">
+    <label class="kyt-label" for="kyt-src"><span class="kyt-num">2</span>貼上轉錄稿 <small>時間碼一起貼沒關係</small></label>
+    <details class="kyt-how">
+      <summary>怎麼複製 YouTube 轉錄稿？</summary>
+      <ol>
+        <li>用電腦開啟 YouTube 影片，點影片說明欄的「…更多」。</li>
+        <li>拉到說明欄最下方，按「顯示轉錄稿」（Show transcript）。</li>
+        <li>右側出現轉錄稿後，從第一行拖曳選取到最後一行，按 Ctrl＋C（Mac 是 ⌘＋C）。</li>
+        <li>回到這裡貼上，按「開始跟讀練習」。</li>
+      </ol>
+      <p>手機 YouTube App 多半沒辦法選取轉錄稿文字，建議用電腦操作。找不到「顯示轉錄稿」代表影片沒有字幕，可以改用上方的「上傳音檔」。</p>
+    </details>
+    <textarea class="kyt-field" id="kyt-src" spellcheck="false" placeholder="0:00&#10;Hi everyone, welcome back to the channel.&#10;0:04&#10;Today I want to share…"></textarea>
+    <div class="kyt-row">
+      <label class="kyt-chip kyt-file">📄 匯入字幕檔（.srt／.vtt／.txt）<input type="file" id="kyt-fileinput" accept=".srt,.vtt,.txt,.sbv,text/plain"></label>
+      <button type="button" class="kyt-chip" data-act="clear">清除</button>
+    </div>
+    <div class="kyt-row"><span class="kyt-muted">先試試範例：</span><button type="button" class="kyt-chip" data-sample="en">English</button><button type="button" class="kyt-chip" data-sample="ja">日本語</button><button type="button" class="kyt-chip" data-sample="zh">中文（自動字幕）</button></div>
+  </div>
+  </div>
+  <div id="kyt-m-audio" hidden>
+    <div class="kyt-step">
+      <div class="kyt-label"><span class="kyt-num">1</span>選擇音檔或影片檔 <small>MP3、M4A、WAV、MP4、MOV 都可以</small></div>
+      <label class="kyt-drop" id="kyt-drop"><input type="file" id="kyt-audio" accept="audio/*,video/*,.mp3,.m4a,.wav,.aac,.flac,.ogg,.opus,.mp4,.mov,.webm"><span class="kyt-drop-ic">🎧</span><b id="kyt-drop-t">點這裡選擇檔案</b><small id="kyt-drop-s">電腦也可以直接把檔案拖曳到這裡</small></label>
+    </div>
+    <div class="kyt-step">
+      <div class="kyt-label"><span class="kyt-num">2</span>辨識模型 <small>第一次使用要下載，之後會存在瀏覽器裡</small></div>
+      <div class="kyt-models" id="kyt-models"></div>
+    </div>
+    <label class="kyt-check" id="kyt-trad-wrap"><input type="checkbox" id="kyt-trad" checked>中文結果轉成繁體（台灣用語）</label>
+    <p class="kyt-small" id="kyt-env" hidden></p>
+    <p class="kyt-small">🔒 音檔只在你的瀏覽器裡辨識，不會上傳到任何伺服器。</p>
+  </div>
+  <div class="kyt-opts" style="margin-top:14px">
+    <span class="kyt-lang-l">語言</span>
+    <div class="kyt-seg" id="kyt-lang" role="group" aria-label="逐字稿語言"><button type="button" data-lang="auto">自動</button><button type="button" data-lang="zh">中文</button><button type="button" data-lang="ja">日本語</button><button type="button" data-lang="en">English</button></div>
+    <label class="kyt-check" id="kyt-clean-wrap"><input type="checkbox" id="kyt-clean" checked>移除［音樂］［掌聲］等標記</label>
+  </div>
+  <button type="button" class="kyt-go" id="kyt-go" data-act="go">開始跟讀練習</button>
+  <div class="kyt-prog" id="kyt-prog" hidden aria-live="polite">
+    <div class="kyt-prog-top"><b id="kyt-prog-t">準備中…</b><span id="kyt-prog-p"></span></div>
+    <div class="kyt-bar" id="kyt-bar"><i id="kyt-prog-bar"></i></div>
+    <p class="kyt-small" id="kyt-prog-s" style="margin-top:2px"></p>
+    <ol class="kyt-live" id="kyt-live"></ol>
+    <button type="button" class="kyt-btn" data-act="cancel">停止辨識</button>
+  </div>
+</section>
+
+<section class="kyt-result" id="kyt-result" hidden aria-label="逐字稿結果">
+  <div class="kyt-stats" id="kyt-stats"></div>
+  <p class="kyt-note" id="kyt-note" hidden></p>
+  <div class="kyt-player" id="kyt-player" hidden></div>
+  <div class="kyt-tabs" role="tablist">
+    <button type="button" role="tab" data-tab="learn" aria-selected="true" aria-controls="kyt-p-learn">逐句跟讀</button>
+    <button type="button" role="tab" data-tab="read" aria-selected="false" aria-controls="kyt-p-read">閱讀全文</button>
+    <button type="button" role="tab" data-tab="ai" aria-selected="false" aria-controls="kyt-p-ai">AI 學習筆記</button>
+  </div>
+
+  <div id="kyt-p-read" role="tabpanel" hidden>
+    <div class="kyt-tool">
+      <button type="button" class="kyt-btn" id="kyt-ts" data-act="ts" aria-pressed="true">時間碼</button>
+      <span class="sp"></span>
+      <button type="button" class="kyt-btn" data-act="fsm" aria-label="字變小">A−</button>
+      <button type="button" class="kyt-btn" data-act="fsp" aria-label="字變大">A＋</button>
+    </div>
+    <div class="kyt-out" id="kyt-read-out"></div>
+    <div class="kyt-actions">
+      <button type="button" class="pri" data-act="copyall">複製全文</button>
+      <button type="button" data-act="txt">下載 TXT</button>
+      <button type="button" data-act="md">下載 MD</button>
+      <button type="button" data-act="print">列印／PDF</button>
+    </div>
+  </div>
+
+  <div id="kyt-p-learn" role="tabpanel">
+    <div class="kyt-tool">
+      <button type="button" class="kyt-btn" data-act="dict" id="kyt-dict" aria-pressed="false">🙈 聽寫模式</button>
+      <button type="button" class="kyt-btn" data-act="staronly" id="kyt-staronly" aria-pressed="false">★ 只看收藏</button>
+      <button type="button" class="kyt-btn" data-act="copystar">複製收藏句</button>
+      <span class="sp"></span>
+      <button type="button" class="kyt-btn" data-act="fsm" aria-label="字變小">A−</button>
+      <button type="button" class="kyt-btn" data-act="fsp" aria-label="字變大">A＋</button>
+    </div>
+    <p class="kyt-small" id="kyt-learn-tip" style="margin:-4px 0 10px"></p>
+    <ul class="kyt-units" id="kyt-units"></ul>
+    <p class="kyt-empty" id="kyt-starempty" hidden>還沒有收藏的句子，按每句右上角的 ☆ 就能收藏。</p>
+  </div>
+
+  <div id="kyt-p-ai" role="tabpanel" hidden>
+    <div class="kyt-ai-step">
+      <div class="kyt-label"><span class="kyt-num">1</span>想請 AI 做什麼？</div>
+      <div class="kyt-tasks" id="kyt-tasks"></div>
+      <textarea class="kyt-field" id="kyt-custom" rows="3" style="min-height:0;margin-top:8px" placeholder="例如：幫我找出影片裡提到的所有書名和工具" hidden></textarea>
+    </div>
+    <div class="kyt-ai-step" id="kyt-reply-wrap">
+      <div class="kyt-label"><span class="kyt-num">2</span>AI 用什麼語言回覆？ <small>逐字稿本身維持原文，不會翻譯</small></div>
+      <div class="kyt-seg" id="kyt-reply" role="group" aria-label="回覆語言"><button type="button" data-reply="zh">繁體中文</button><button type="button" data-reply="orig" id="kyt-reply-orig">影片原語言</button></div>
+    </div>
+    <details class="kyt-preview"><summary id="kyt-preview-sum">預覽提示詞</summary><pre id="kyt-preview"></pre></details>
+    <p class="kyt-warn" id="kyt-warn" hidden></p>
+    <button type="button" class="kyt-copy" data-act="copyprompt">複製提示詞＋逐字稿</button>
+    <p class="kyt-small" style="text-align:center">複製後，打開任一個 AI 直接貼上送出：</p>
+    <div class="kyt-open">
+      <a href="https://chatgpt.com/" target="_blank" rel="noopener" data-ai="chatgpt">ChatGPT ↗</a>
+      <a href="https://claude.ai/new" target="_blank" rel="noopener" data-ai="claude">Claude ↗</a>
+      <a href="https://gemini.google.com/app" target="_blank" rel="noopener" data-ai="gemini">Gemini ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 以下為靜態內容：給讀者，也給 Google 與 AI 搜尋引擎讀 ===== -->
+<div class="kyt-seo">
+  <section class="kyt-answer" aria-labelledby="kyt-q1">
+    <h2 id="kyt-q1" style="border:0;padding:0;margin-bottom:4px">YouTube 影片怎麼拿來練跟讀？</h2>
+    <p><strong>快速答案：</strong>找一支有字幕的影片，把轉錄稿貼進這個工具，就能一句一句播放、跟著唸：</p>
+    <ol>
+      <li>用電腦開啟影片，點說明欄的「…更多」→「顯示轉錄稿」，從第一行選到最後一行複製。</li>
+      <li>把影片網址和轉錄稿貼進上方工具，按「開始跟讀練習」。</li>
+      <li>在「逐句跟讀」按「▶ 播這句」，聽完一句會自動暫停，換你跟著唸。</li>
+      <li>打開「聽寫模式」測試自己聽不聽得懂；想記的句子按 ☆ 收藏。</li>
+    </ol>
+    <p style="margin-top:8px"><strong>影片沒有字幕？</strong>手上有影片檔或錄音檔的話，切到「上傳音檔」，用 AI 語音辨識在瀏覽器裡轉成文字，一樣可以逐句練習。</p>
+  </section>
+  <section>
+    <h2>為什麼不直接看 YouTube 的轉錄稿？</h2>
+    <p>YouTube 的轉錄稿適合用來「找某句話在哪裡」，但拿來練聽力和口說不太順手。差別在這裡：</p>
+    <div class="kyt-tablewrap" style="margin-top:10px">
+      <table class="kyt-table">
+        <thead><tr><th></th><th>YouTube 轉錄稿</th><th>跟讀練習工具</th></tr></thead>
+        <tbody>
+          <tr><td>斷句</td><td>每 2–3 秒切一行，句子常被切斷</td><td class="y">合併成完整句子，一句一張卡片</td></tr>
+          <tr><td>重播一句</td><td>要自己拖進度條</td><td class="y">按「播這句」，播完自動暫停</td></tr>
+          <tr><td>聽寫練習</td><td>沒有</td><td class="y">文字先遮住，聽完再點開</td></tr>
+          <tr><td>收藏句子</td><td>沒有</td><td class="y">按 ☆ 收藏，一鍵複製成筆記</td></tr>
+          <tr><td>沒有字幕時</td><td>無法使用</td><td class="y">上傳音檔，用 AI 轉成文字</td></tr>
+          <tr><td>單字文法</td><td>沒有</td><td class="y">一鍵產生 AI 學習筆記提示詞</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <section>
+    <h2>跟讀（shadowing）怎麼練？4 個步驟</h2>
+    <ol class="kyt-steps">
+      <li>先不看字幕，完整聽一次影片，抓住大意。</li>
+      <li>打開「聽寫模式」，一句一句聽，聽不懂的再點開文字對照。</li>
+      <li>按「▶ 播這句」，聽完馬上跟著唸，模仿語調、停頓和速度；太快就把速度調到 0.75×。</li>
+      <li>把卡住的句子收藏起來，隔天再練；也可以到「AI 學習筆記」整理單字和文法。</li>
+    </ol>
+    <p class="kyt-small">＊比起每天換新影片，同一支影片反覆練幾天，通常更容易感覺到進步。挑 3–10 分鐘、自己有興趣的影片最容易持續。</p>
+  </section>
+  <section>
+    <h2>錄音檔、Podcast、課程影片也能轉成文字</h2>
+    <p>上課錄音、Podcast 或自己拍的影片，切到「上傳音檔」就能轉成含時間碼的文字，一樣可以逐句跟讀（直接播放你的檔案），或交給 AI 整理。英文或很清楚的錄音選「快速」模型；中文、日文建議選「精準」。</p>
+    <p class="kyt-note" style="margin-top:12px">辨識速度看你的裝置：支援 WebGPU 的電腦（新版 Chrome、Edge、Safari）會自動用顯示卡加速，「快速」模型處理時間大約是音檔長度的幾分之一；不支援的裝置會改用 CPU，速度大約和音檔長度差不多。語音辨識偶爾會聽錯人名、專有名詞，重要內容請再對照原音。</p>
+  </section>
+  <section>
+    <h2>不知道要看哪些影片練習？</h2>
+    <a class="kyt-rel" href="/tools/japanese-learning-quest/">日文修行圖鑑 →<span>整理了 32 個免費的日文 podcast、YouTube 頻道、漫畫閱讀網站與工具，挑一支喜歡的影片回來這裡練跟讀。</span></a>
+  </section>
+  <section class="kyt-faq">
+    <h2>YouTube 跟讀練習常見問題</h2>
+    <details open><summary>什麼是跟讀（shadowing）？</summary><p>跟讀是聽到一句話之後，馬上跟著唸出來，盡量模仿原本的發音、語調和速度。它同時練到聽力和口說，是很多語言學習者常用的方法。這個工具的「播這句」會在一句結束時自動暫停，讓你有時間跟著唸。</p></details>
+    <details><summary>YouTube 已經有轉錄稿，為什麼還要用這個工具？</summary><p>YouTube 的轉錄稿每 2–3 秒切一行，也沒辦法單獨重播一句，比較適合用來查找內容。這個工具會把它整理成完整的句子，每句都能單獨播放、聽寫、收藏，還能處理沒有字幕的錄音檔，是專門為練習設計的。</p></details>
+    <details><summary>找不到「顯示轉錄稿」按鈕怎麼辦？</summary><p>先確認是用電腦版瀏覽器，並展開影片說明欄（點「…更多」），按鈕通常在說明欄最下方。如果還是沒有，代表這支影片沒有任何字幕，可能是創作者關閉了字幕。這種情況如果你手上有影片或錄音檔，可以改用「上傳音檔」轉成文字。</p></details>
+    <details><summary>沒有填影片網址，也可以播放嗎？</summary><p>可以，但聲音不一樣。沒有影片網址時，「🔊 聽這句」會用手機或電腦內建的語音朗讀，是機器聲音，適合確認念法；想聽原本的說話聲音和語氣，請填入影片網址。</p></details>
+    <details><summary>支援哪些語言？會翻譯嗎？</summary><p>目前針對日文、英文、中文最佳化，會自動判斷語言，也可以手動指定。工具不會翻譯：影片是什麼語言，句子就保留什麼語言，適合練原文。需要中文解說的話，可以在「AI 學習筆記」選擇用繁體中文回覆。</p></details>
+    <details><summary>自動字幕沒有標點符號，也可以練嗎？</summary><p>可以。YouTube 自動產生的字幕常常沒有標點，工具會改用字幕行當作一句。想要通順好讀的版本，可以到「AI 學習筆記」選「補標點・分段」，把提示詞貼給 ChatGPT、Claude 或 Gemini，AI 會在不翻譯、不改原文的前提下補上標點並分段。</p></details>
+    <details><summary>沒有字幕的影片或錄音檔，可以轉成文字嗎？</summary><p>可以。切到「上傳音檔」，選擇 MP3、M4A、WAV、MP4、MOV 等檔案，工具會用 OpenAI 開源的 Whisper 語音辨識模型，直接在你的瀏覽器裡轉成含時間碼的文字，支援中文、日文、英文。第一次使用要下載模型（快速約 80–200MB、精準約 250–590MB，支援顯示卡加速的裝置會下載較大的版本），之後會存在瀏覽器裡。YouTube 影片本身沒辦法直接下載音訊，需要是你手上已經有的檔案。</p></details>
+    <details><summary>貼上的內容或上傳的音檔會被傳到伺服器嗎？</summary><p>不會。整理文字和語音辨識都在你的瀏覽器裡完成，音檔不會上傳；只有辨識模型會從網路下載到你的裝置。最近一次的練習內容只會存在你這台裝置的瀏覽器，方便下次回來繼續。使用 AI 學習筆記時，只有你自己把提示詞貼到 AI 服務，內容才會送到那個服務。</p></details>
+  </section>
+  <p class="kyt-meta">最後更新：2026 年 9 月 24 日 ・ 作者：Zoe</p>
+</div>
+<div class="kyt-toast" id="kyt-toast" role="status" aria-live="polite"></div>
+
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "YouTube 跟讀練習工具", "alternateName": "YouTube 逐字稿產生器", "url": "https://knittinghiyori.com/tools/youtube-shadowing/", "applicationCategory": "EducationalApplication", "operatingSystem": "Any（瀏覽器）", "inLanguage": "zh-TW", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TWD"}, "description": "用 YouTube 影片練日文、英文跟讀：貼上轉錄稿，自動切成完整句子，每句可單獨重播、跟讀、聽寫與收藏；沒有字幕的影片或錄音檔，可上傳後用 Whisper 在瀏覽器內轉成文字。不翻譯、保留原文，免費免註冊。", "author": {"@type": "Person", "name": "Zoe"}, "publisher": {"@type": "Organization", "name": "knittinghiyori", "url": "https://knittinghiyori.com/"}, "dateModified": "2026-09-24", "featureList": ["把 YouTube 轉錄稿切成完整句子", "單句重播，播完自動暫停方便跟讀", "聽寫模式：先遮住文字，聽完再對答案", "收藏句子並一鍵複製成筆記", "播放速度 0.5×–1.25×", "沒有影片網址時用裝置語音朗讀", "日文、英文、中文自動判斷，不翻譯", "上傳音檔或影片檔，用 Whisper 在瀏覽器內轉成文字", "一鍵產生單字、文法學習筆記的 AI 提示詞"]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "什麼是跟讀（shadowing）？", "acceptedAnswer": {"@type": "Answer", "text": "跟讀是聽到一句話之後，馬上跟著唸出來，盡量模仿原本的發音、語調和速度。它同時練到聽力和口說，是很多語言學習者常用的方法。這個工具的「播這句」會在一句結束時自動暫停，讓你有時間跟著唸。"}}, {"@type": "Question", "name": "YouTube 已經有轉錄稿，為什麼還要用這個工具？", "acceptedAnswer": {"@type": "Answer", "text": "YouTube 的轉錄稿每 2–3 秒切一行，也沒辦法單獨重播一句，比較適合用來查找內容。這個工具會把它整理成完整的句子，每句都能單獨播放、聽寫、收藏，還能處理沒有字幕的錄音檔，是專門為練習設計的。"}}, {"@type": "Question", "name": "找不到「顯示轉錄稿」按鈕怎麼辦？", "acceptedAnswer": {"@type": "Answer", "text": "先確認是用電腦版瀏覽器，並展開影片說明欄（點「…更多」），按鈕通常在說明欄最下方。如果還是沒有，代表這支影片沒有任何字幕，可能是創作者關閉了字幕。這種情況如果你手上有影片或錄音檔，可以改用「上傳音檔」轉成文字。"}}, {"@type": "Question", "name": "沒有填影片網址，也可以播放嗎？", "acceptedAnswer": {"@type": "Answer", "text": "可以，但聲音不一樣。沒有影片網址時，「🔊 聽這句」會用手機或電腦內建的語音朗讀，是機器聲音，適合確認念法；想聽原本的說話聲音和語氣，請填入影片網址。"}}, {"@type": "Question", "name": "支援哪些語言？會翻譯嗎？", "acceptedAnswer": {"@type": "Answer", "text": "目前針對日文、英文、中文最佳化，會自動判斷語言，也可以手動指定。工具不會翻譯：影片是什麼語言，句子就保留什麼語言，適合練原文。需要中文解說的話，可以在「AI 學習筆記」選擇用繁體中文回覆。"}}, {"@type": "Question", "name": "自動字幕沒有標點符號，也可以練嗎？", "acceptedAnswer": {"@type": "Answer", "text": "可以。YouTube 自動產生的字幕常常沒有標點，工具會改用字幕行當作一句。想要通順好讀的版本，可以到「AI 學習筆記」選「補標點・分段」，把提示詞貼給 ChatGPT、Claude 或 Gemini，AI 會在不翻譯、不改原文的前提下補上標點並分段。"}}, {"@type": "Question", "name": "沒有字幕的影片或錄音檔，可以轉成文字嗎？", "acceptedAnswer": {"@type": "Answer", "text": "可以。切到「上傳音檔」，選擇 MP3、M4A、WAV、MP4、MOV 等檔案，工具會用 OpenAI 開源的 Whisper 語音辨識模型，直接在你的瀏覽器裡轉成含時間碼的文字，支援中文、日文、英文。第一次使用要下載模型（快速約 80–200MB、精準約 250–590MB，支援顯示卡加速的裝置會下載較大的版本），之後會存在瀏覽器裡。YouTube 影片本身沒辦法直接下載音訊，需要是你手上已經有的檔案。"}}, {"@type": "Question", "name": "貼上的內容或上傳的音檔會被傳到伺服器嗎？", "acceptedAnswer": {"@type": "Answer", "text": "不會。整理文字和語音辨識都在你的瀏覽器裡完成，音檔不會上傳；只有辨識模型會從網路下載到你的裝置。最近一次的練習內容只會存在你這台裝置的瀏覽器，方便下次回來繼續。使用 AI 學習筆記時，只有你自己把提示詞貼到 AI 服務，內容才會送到那個服務。"}}]}]}
+</script>
+<script><!--@@MAIN@@--></script>
+</div>
