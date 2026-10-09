@@ -185,13 +185,9 @@ def build_tool(B, tool):
 <meta property="og:description" content="{B.E(L["desc"])}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:locale" content="{H["og_locale"]}">
-<meta name="twitter:card" content="summary">
+{B.og_tags(f"/assets/og/{tool['id']}-{lang}.png", L["name"], lang)}
 <meta name="author" content="Zoe">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="https://games.knittinghiyori.com/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="https://games.knittinghiyori.com/icons/favicon-96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="https://games.knittinghiyori.com/icons/icon-192.png">
-<link rel="apple-touch-icon" href="https://games.knittinghiyori.com/icons/apple-touch-icon.png">
+{B.ICON_LINKS}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -201,10 +197,10 @@ def build_tool(B, tool):
 <script async src="https://www.googletagmanager.com/gtag/js?id={B.GA_ID}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag("js",new Date());gtag("set",{{content_group:"tool",tool_id:"{M["tool_id"]}",page_lang:"{H["ga_lang"]}",page_title:"{M["page_title"]}"}});gtag("config","{B.GA_ID}");</script>
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+<meta name="spec-version" content="{B.SPEC}">
 </head>
 <body>
-<header class="k-top"><div class="k-wrap"><a class="k-brand" href="{H["path"]}" data-cta="header_hub" data-cta-type="tool"><i aria-hidden="true"></i>knittinghiyori<span>/</span>{H["brand_sub"]}</a><nav class="k-langs" aria-label="Language">{langs}</nav></div></header>
-<nav class="k-crumb k-wrap" aria-label="{S["crumb"]}"><ol><li><a href="{H["path"]}">{S["tools"]}</a></li><li><a href="{H["path"]}#index">{cat_name}</a></li><li aria-current="page">{L["name"]}</li></ol></nav>
+<div class="k-wrap">{B.tool_head(lang, tool["id"], L["name"], '<nav class="k-langs" aria-label="Language">' + langs + '</nav>')}</div>
 <main class="k-wrap">
 <div id="ts-app" class="ts" lang="{H["html_lang"]}">
 {top}
