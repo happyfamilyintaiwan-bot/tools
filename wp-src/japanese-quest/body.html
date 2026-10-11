@@ -1,0 +1,338 @@
+<div id="njq" class="njq" lang="zh-Hant-TW">
+<style><!--@@STYLE@@--></style>
+
+<span class="kick">語言學習・最後更新 2026-09-23</span>
+<h2>日文修行圖鑑：用 30 天闖關，從看懂漫畫到開口說</h2>
+<p class="lead"><strong>先講結論：</strong>想「看得懂漫畫」和「說得出口」，關鍵不是背更多單字，而是每天接觸<strong>你聽得懂八成的日文</strong>，並且把查字典的摩擦降到最低。做法是三件事：<strong>①</strong> 用 Yomitan 這類彈跳字典，讓查一個字從 30 秒變 1 秒；<strong>②</strong> 每天聽一集 5 分鐘的初級 podcast，讓耳朵先習慣語速；<strong>③</strong> 把當天聽到的其中一句話唸出來錄下來。下面這個工具幫你測出起點、排好 30 天任務，並收集 32 個免費資源。</p>
+<div class="pills"><span>32 個免費資源</span><span>三條程度路線</span><span>30 天打卡</span><span>免註冊・進度存在你的瀏覽器</span></div>
+
+<!-- 修行紀錄 HUD -->
+<div class="hud" id="njq-hud">
+  <div class="hudtop"><span class="rank" id="njq-rank">見習<small>Lv.1</small></span><span class="xpn" id="njq-xpn">0 / 50 XP</span></div>
+  <div class="xpbar"><span id="njq-xpb"></span></div>
+  <div class="stats">
+    <div><b id="njq-s1">0</b><span>收集資源</span></div>
+    <div><b id="njq-s2">0</b><span>闖關天數</span></div>
+    <div><b id="njq-s3">0</b><span>連續天數</span></div>
+  </div>
+  <div class="badges" id="njq-badges"></div>
+  <button type="button" class="reset" id="njq-reset">清空我的進度</button>
+</div>
+
+<!-- 1. 測驗 -->
+<h3>第一步：5 題測出你的起點</h3>
+<div class="panel">
+  <p class="step"><i>Q</i>誠實回答就好，沒有標準答案</p>
+  <div id="njq-quiz">
+    <div class="q" data-q="lv"><p><em>1.</em>看到「まんが」和「漫画」這兩個寫法，你的反應是？</p><div class="opts">
+      <button type="button" class="opt" data-v="0">兩個都唸不太出來</button>
+      <button type="button" class="opt" data-v="1">假名唸得出來，漢字用猜的</button>
+      <button type="button" class="opt" data-v="2">兩個都沒問題</button></div></div>
+    <div class="q" data-q="gr"><p><em>2.</em>日文文法你學到哪裡了？</p><div class="opts">
+      <button type="button" class="opt" data-v="0">還沒開始，或只記得幾句</button>
+      <button type="button" class="opt" data-v="1">大概 N5–N4，動詞變化會卡</button>
+      <button type="button" class="opt" data-v="2">N3 以上，看得懂長句</button></div></div>
+    <div class="q" data-q="goal"><p><em>3.</em>這 30 天你最想先拿到哪一個？</p><div class="opts">
+      <button type="button" class="opt" data-v="read">看懂原文漫畫的一頁</button>
+      <button type="button" class="opt" data-v="speak">跟日本人說出三句話</button>
+      <button type="button" class="opt" data-v="all">兩個都要，慢慢來沒關係</button></div></div>
+    <div class="q" data-q="time"><p><em>4.</em>每天大概擠得出多少時間？</p><div class="opts">
+      <button type="button" class="opt" data-v="10">10 分鐘（通勤、睡前）</button>
+      <button type="button" class="opt" data-v="20">20 分鐘</button>
+      <button type="button" class="opt" data-v="40">40 分鐘以上</button></div></div>
+    <div class="q" data-q="pain"><p><em>5.</em>過去學日文最常卡在哪裡？</p><div class="opts two">
+      <button type="button" class="opt" data-v="bored">背單字太枯燥，撐不過兩週</button>
+      <button type="button" class="opt" data-v="shy">看得懂但開不了口</button>
+      <button type="button" class="opt" data-v="busy">太忙，常常斷掉就放棄</button>
+      <button type="button" class="opt" data-v="hard">原文材料太難，查到懷疑人生</button></div></div>
+  </div>
+  <div class="qres" id="njq-qres" aria-live="polite"></div>
+</div>
+
+<!-- 2. 30 天路線 -->
+<h3>第二步：選一條路線，開始 30 天闖關</h3>
+<p>每天只做一件事，任務會依照「聽 → 讀 → 說」輪流出現，第 7、14、21、28 天是回顧日。點格子就算完成，<strong>進度存在你自己的瀏覽器</strong>，不用註冊。</p>
+<div class="panel">
+  <div class="tabs" role="tablist" id="njq-tabs">
+    <button type="button" role="tab" data-r="a" aria-selected="true">初級・五十音～N5</button>
+    <button type="button" role="tab" data-r="b" aria-selected="false">中級・N5～N4</button>
+    <button type="button" role="tab" data-r="c" aria-selected="false">進階・N3 以上</button>
+  </div>
+  <p class="rinfo" id="njq-rinfo"></p>
+  <div class="weeks" id="njq-weeks"></div>
+  <div class="grid" id="njq-grid"></div>
+  <div class="task" id="njq-task" aria-live="polite"></div>
+</div>
+
+<!-- 3. 資源圖鑑 -->
+<h3>第三步：資源圖鑑（32 張卡片）</h3>
+<p>每張卡片都是我實際點進去確認過還在更新的免費資源。按「我試過了」會加 10 XP 並收進你的圖鑑；試過覺得不合可以再按一次取消，圖鑑的重點是<strong>找出適合你的那三、四個</strong>，不是全部收集。</p>
+<div class="panel">
+  <div class="fgrp"><span>目標</span><div class="filt" data-f="goal">
+    <button type="button" data-v="all" aria-pressed="true">全部</button>
+    <button type="button" data-v="listen" aria-pressed="false">聽力</button>
+    <button type="button" data-v="read" aria-pressed="false">讀漫畫</button>
+    <button type="button" data-v="speak" aria-pressed="false">口說</button>
+    <button type="button" data-v="tool" aria-pressed="false">工具</button>
+  </div></div>
+  <div class="fgrp"><span>程度</span><div class="filt" data-f="lv">
+    <button type="button" data-v="all" aria-pressed="true">全部</button>
+    <button type="button" data-v="1" aria-pressed="false">入門</button>
+    <button type="button" data-v="2" aria-pressed="false">初級</button>
+    <button type="button" data-v="3" aria-pressed="false">中級以上</button>
+  </div></div>
+  <div class="cards" id="njq-cards">
+
+    <article class="rc" data-id="teppei" data-goal="listen" data-lv="1" data-type="podcast">
+      <div class="rch"><span class="ic">聽</span><h4>Nihongo con Teppei 初級版</h4><span class="lvb">入門</span></div>
+      <p>一集 4–5 分鐘、全日文的閒聊，主題簡單到可以用畫面猜。語速沒有刻意放很慢，適合當成「每天一定做得到」的那一集。</p>
+      <div class="rcf"><a href="https://nihongoconteppei.com/" target="_blank" rel="noopener">前往收聽 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="sakura" data-goal="listen" data-lv="1" data-type="podcast">
+      <div class="rch"><span class="ic">聽</span><h4>Sakura Tips</h4><span class="lvb">入門</span></div>
+      <p>每集約 4 分鐘、語速慢，而且<strong>有免費逐字稿</strong>。完全零基礎想先習慣日文的聲音，從這個開始最沒有壓力。</p>
+      <div class="rcf"><a href="https://open.spotify.com/show/1QOFCnQAMQ9wZZ7WNuEmvn" target="_blank" rel="noopener">前往收聽 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="shun" data-goal="listen" data-lv="1" data-type="podcast">
+      <div class="rch"><span class="ic">聽</span><h4>Japanese with Shun</h4><span class="lvb">入門</span></div>
+      <p>一集約 7 分鐘，內容跟著初級教材的文法順序走。剛學完一課文法想找「同款難度」的聽力材料時很好用。</p>
+      <div class="rcf"><a href="https://open.spotify.com/show/0TWRqowC0TPhXlG79M0qzv" target="_blank" rel="noopener">前往收聽 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="akane-pod" data-goal="listen" data-lv="2" data-type="podcast">
+      <div class="rch"><span class="ic">聽</span><h4>日本語の聴解のためのpodcast</h4><span class="lvb">初級</span></div>
+      <p>Akane 老師的聽解練習，一集約 5 分鐘、<strong>逐字稿免費</strong>。建議先裸聽一次，再看稿聽第二次，落差最有感。</p>
+      <div class="rcf"><a href="https://podcasters.spotify.com/pod/show/akanesensei" target="_blank" rel="noopener">前往收聽 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="ltij" data-goal="listen" data-lv="2" data-type="podcast">
+      <div class="rch"><span class="ic">聽</span><h4>Let's Talk in Japanese</h4><span class="lvb">初級</span></div>
+      <p>200 集以上，而且<strong>每集標好 JLPT 等級</strong>，可以從 N5 一路往上爬。想要有「升級感」的人特別適合。</p>
+      <div class="rcf"><a href="https://open.spotify.com/show/7rzB4zCdrSf67jd3nHm8Vy" target="_blank" rel="noopener">前往收聽 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="bitesize" data-goal="listen" data-lv="2" data-type="podcast">
+      <div class="rch"><span class="ic">聽</span><h4>The Bite Size Japanese Podcast</h4><span class="lvb">初級</span></div>
+      <p>Yuka 主持，短篇日常話題，官網有整理逐字稿與單字。通勤路上聽一集剛剛好。</p>
+      <div class="rcf"><a href="https://bitesizejapanese.com/" target="_blank" rel="noopener">前往收聽 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="noriko" data-goal="listen" data-lv="3" data-type="podcast">
+      <div class="rch"><span class="ic">聽</span><h4>Japanese with Noriko</h4><span class="lvb">中級以上</span></div>
+      <p>接近自然語速的全日文談話，主題偏生活與社會觀察。當你覺得初級 podcast 開始「太簡單」，就換到這裡。</p>
+      <div class="rcf"><a href="https://www.japanesewithnoriko.com/" target="_blank" rel="noopener">前往收聽 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="compjp" data-goal="listen" data-lv="1" data-type="youtube">
+      <div class="rch"><span class="ic">聽</span><h4>Comprehensible Japanese</h4><span class="lvb">入門</span></div>
+      <p>Yuki 用白板、圖卡和肢體動作講全日文，Absolute Beginner 系列真的零基礎也看得懂。想體驗「不靠翻譯也聽得懂」，先看這個。</p>
+      <div class="rcf"><a href="https://www.youtube.com/@cijapanese" target="_blank" rel="noopener">前往頻道 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="akane-yt" data-goal="listen" data-lv="2" data-type="youtube">
+      <div class="rch"><span class="ic">聽</span><h4>あかね的日本語教室</h4><span class="lvb">初級</span></div>
+      <p>全日文授課但語速溫和、字幕清楚，從初級聊天到中級文法都有，是很多人「第一個聽得完整集」的頻道。</p>
+      <div class="rcf"><a href="https://www.youtube.com/@akanenihongo" target="_blank" rel="noopener">前往頻道 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="onomappu" data-goal="listen" data-lv="3" data-type="youtube">
+      <div class="rch"><span class="ic">聽</span><h4>Onomappu</h4><span class="lvb">中級以上</span></div>
+      <p>專講擬聲擬態語和日常說法，日文字幕做得很完整。漫畫裡滿滿的「ドキドキ」「ふわふわ」就是在這裡補起來的。</p>
+      <div class="rcf"><a href="https://www.youtube.com/@Onomappu" target="_blank" rel="noopener">前往頻道 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="nihongonomori" data-goal="listen" data-lv="3" data-type="youtube">
+      <div class="rch"><span class="ic">聽</span><h4>日本語の森</h4><span class="lvb">中級以上</span></div>
+      <p>N5 到 N1 的文法課程，全日文授課、板書清楚。準備檢定或想把文法一次補齊時的免費題庫級資源。</p>
+      <div class="rcf"><a href="https://www.youtube.com/@nihongonomori2013" target="_blank" rel="noopener">前往頻道 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="misa" data-goal="listen" data-lv="2" data-type="youtube">
+      <div class="rch"><span class="ic">聽</span><h4>Japanese Ammo with Misa</h4><span class="lvb">初級</span></div>
+      <p>英文講解文法，把「為什麼日本人這樣說」講得很細。動詞變化、は／が 的差別卡住時來這裡。</p>
+      <div class="rcf"><a href="https://www.youtube.com/@JapaneseAmmowithMisa" target="_blank" rel="noopener">前往頻道 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="miku" data-goal="listen" data-lv="3" data-type="youtube">
+      <div class="rch"><span class="ic">聽</span><h4>Miku Real Japanese</h4><span class="lvb">中級以上</span></div>
+      <p>教科書不會教、但日本人天天在用的說法。看完會發現漫畫對白為什麼跟課本長得不一樣。</p>
+      <div class="rcf"><a href="https://www.youtube.com/@MikuRealJapanese" target="_blank" rel="noopener">前往頻道 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="colaneko" data-goal="listen" data-lv="1" data-type="youtube">
+      <div class="rch"><span class="ic">聽</span><h4>王可樂日語（中文講解）</h4><span class="lvb">入門</span></div>
+      <p>台灣老師用中文講日文文法，講「中文母語者最容易搞錯的地方」特別準。全日文聽到快放棄時，回來這裡喘口氣。</p>
+      <div class="rcf"><a href="https://www.youtube.com/@wangcolaneko" target="_blank" rel="noopener">前往頻道 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="sigure" data-goal="listen" data-lv="1" data-type="site">
+      <div class="rch"><span class="ic">聽</span><h4>時雨の町（繁中日語學習網）</h4><span class="lvb">入門</span></div>
+      <p>繁體中文的日文文法字典，曖昧相近的文法解釋得很清楚，還有閱讀與歌曲專區。查文法不用再忍受簡體或英文。</p>
+      <div class="rcf"><a href="https://www.sigure.tw/" target="_blank" rel="noopener">前往網站 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="kadocomi" data-goal="read" data-lv="2" data-type="manga">
+      <div class="rch"><span class="ic">讀</span><h4>カドコミ（原 コミックウォーカー）</h4><span class="lvb">初級</span></div>
+      <p>KADOKAWA 官方的免費線上漫畫，每部作品都有免費話數，網頁版可以直接搭配 Yomitan 查字。合法、畫質好、不用註冊就能看。</p>
+      <div class="rcf"><a href="https://comic-walker.com/" target="_blank" rel="noopener">前往閱讀 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="jumpplus" data-goal="read" data-lv="3" data-type="manga">
+      <div class="rch"><span class="ic">讀</span><h4>少年ジャンプ＋</h4><span class="lvb">中級以上</span></div>
+      <p>集英社官方，連載作品最新話與第一話多半免費。對白多、俚語多，屬於「有點難但很想看下去」的那種材料。</p>
+      <div class="rcf"><a href="https://shonenjumpplus.com/" target="_blank" rel="noopener">前往閱讀 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="mangacross" data-goal="read" data-lv="3" data-type="manga">
+      <div class="rch"><span class="ic">讀</span><h4>マンガクロス</h4><span class="lvb">中級以上</span></div>
+      <p>秋田書店的免費連載網站，日常系與職場系作品多，句子比熱血漫畫短、生活用語比例高，其實更好讀。</p>
+      <div class="rcf"><a href="https://mangacross.jp/" target="_blank" rel="noopener">前往閱讀 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="tadoku" data-goal="read" data-lv="1" data-type="site">
+      <div class="rch"><span class="ic">讀</span><h4>にほんごたどく 免費分級讀本</h4><span class="lvb">入門</span></div>
+      <p>NPO 多言語多読 提供的免費分級讀物，從 Level 0 起跳，附假名與朗讀。<strong>漫畫之前的暖身首選</strong>：先體驗「一整篇都看得懂」的感覺。</p>
+      <div class="rcf"><a href="https://tadoku.org/japanese/free-books/" target="_blank" rel="noopener">前往閱讀 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="nhkeasy" data-goal="read" data-lv="2" data-type="site">
+      <div class="rch"><span class="ic">讀</span><h4>NHK NEWS WEB EASY</h4><span class="lvb">初級</span></div>
+      <p>官方的簡易日文新聞，全文標假名、附朗讀音檔，一篇 200 字左右。每天一篇，同時練到讀和聽。</p>
+      <div class="rcf"><a href="https://www3.nhk.or.jp/news/easy/" target="_blank" rel="noopener">前往閱讀 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="hukumusume" data-goal="read" data-lv="1" data-type="site">
+      <div class="rch"><span class="ic">讀</span><h4>福娘童話集</h4><span class="lvb">入門</span></div>
+      <p>日本民間故事短篇集，句子短、附音檔，部分故事有多語版本可對照。想睡前讀一篇不費力的東西時很好用。</p>
+      <div class="rcf"><a href="https://hukumusume.com/douwa/" target="_blank" rel="noopener">前往閱讀 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="satori" data-goal="read" data-lv="2" data-type="site">
+      <div class="rch"><span class="ic">讀</span><h4>Satori Reader</h4><span class="lvb">初級</span></div>
+      <p>為學習者寫的分級故事，可以逐句切換漢字比例、點字查解釋、聽真人朗讀。有免費試讀，完整功能要訂閱。</p>
+      <div class="rcf"><a href="https://www.satorireader.com/" target="_blank" rel="noopener">前往網站 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="aozora" data-goal="read" data-lv="3" data-type="site">
+      <div class="rch"><span class="ic">讀</span><h4>青空文庫</h4><span class="lvb">中級以上</span></div>
+      <p>已過著作權保護期的日本文學全文免費。夏目漱石、太宰治都在裡面，適合當長期目標，不適合當第一本。</p>
+      <div class="rcf"><a href="https://www.aozora.gr.jp/" target="_blank" rel="noopener">前往閱讀 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="yomitan" data-goal="tool" data-lv="1" data-type="tool">
+      <div class="rch"><span class="ic">具</span><h4>Yomitan（彈跳字典外掛）</h4><span class="lvb">入門</span></div>
+      <p><strong>整份清單裡最該先裝的一個。</strong>免費開源，支援 Chrome、Firefox、Edge，滑鼠移到日文單字上就跳出解釋與發音，還能一鍵送進 Anki。它是已停止維護的 Yomichan 的接班人。</p>
+      <div class="rcf"><a href="https://yomitan.wiki/" target="_blank" rel="noopener">前往安裝 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="mokuro" data-goal="tool" data-lv="3" data-type="tool">
+      <div class="rch"><span class="ic">具</span><h4>Mokuro（漫畫 OCR）</h4><span class="lvb">中級以上</span></div>
+      <p>把漫畫圖檔的對白框辨識成可選取的文字，配上 Yomitan 就能直接在漫畫上查字。需要一點指令操作，但這是漫畫閱讀體驗的分水嶺。</p>
+      <div class="rcf"><a href="https://github.com/kha-white/mokuro" target="_blank" rel="noopener">前往專案 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="ttsu" data-goal="tool" data-lv="2" data-type="tool">
+      <div class="rch"><span class="ic">具</span><h4>ttsu reader（線上電子書閱讀器）</h4><span class="lvb">初級</span></div>
+      <p>免安裝的網頁版 epub 閱讀器，支援直書排版，可以搭配 Yomitan 邊讀邊查，還會記住閱讀進度。</p>
+      <div class="rcf"><a href="https://reader.ttsu.app/" target="_blank" rel="noopener">前往使用 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="jpdb" data-goal="tool" data-lv="3" data-type="tool">
+      <div class="rch"><span class="ic">具</span><h4>jpdb.io（作品難度查詢）</h4><span class="lvb">中級以上</span></div>
+      <p>可以查某部漫畫、動畫的單字難度與涵蓋率，<strong>挑對第一本作品比硬讀名作有效得多</strong>。也內建單字複習系統。</p>
+      <div class="rcf"><a href="https://jpdb.io/" target="_blank" rel="noopener">前往查詢 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="anki" data-goal="tool" data-lv="2" data-type="tool">
+      <div class="rch"><span class="ic">具</span><h4>Anki（間隔複習）</h4><span class="lvb">初級</span></div>
+      <p>電腦版與 Android 版免費。重點不是灌現成牌組，而是<strong>只加你在漫畫裡真的遇到的句子</strong>，一天上限 10 張就好。</p>
+      <div class="rcf"><a href="https://apps.ankiweb.net/" target="_blank" rel="noopener">前往下載 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="langreactor" data-goal="tool" data-lv="2" data-type="tool">
+      <div class="rch"><span class="ic">具</span><h4>Language Reactor</h4><span class="lvb">初級</span></div>
+      <p>在 YouTube、Netflix 上開雙語字幕，可以逐句暫停、重播、存單字。追日劇和動畫時的標準配備。</p>
+      <div class="rcf"><a href="https://www.languagereactor.com/" target="_blank" rel="noopener">前往安裝 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="shadowing" data-goal="speak" data-lv="1" data-type="method">
+      <div class="rch"><span class="ic">說</span><h4>影子跟讀法（Shadowing）</h4><span class="lvb">入門</span></div>
+      <p>不用任何 App：播一句、暫停、模仿語調唸出來，只挑<strong>一天一句</strong>。錄下來跟原音比對，兩週後自己會聽出差別。</p>
+      <div class="rcf"><a href="https://www3.nhk.or.jp/news/easy/" target="_blank" rel="noopener">用 NHK Easy 的音檔練 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="hellotalk" data-goal="speak" data-lv="2" data-type="app">
+      <div class="rch"><span class="ic">說</span><h4>HelloTalk / Tandem</h4><span class="lvb">初級</span></div>
+      <p>語言交換 App，可以先用文字和語音訊息，不必馬上視訊。開場先自我介紹三句，對方通常會很有耐心地改你的句子。</p>
+      <div class="rcf"><a href="https://www.hellotalk.com/" target="_blank" rel="noopener">前往了解 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="aitalk" data-goal="speak" data-lv="1" data-type="app">
+      <div class="rch"><span class="ic">說</span><h4>AI 語音對話（先跟機器練膽）</h4><span class="lvb">入門</span></div>
+      <p>ChatGPT、Gemini 等的語音模式可以當免費的日文陪練，請它「用 N5 程度、慢慢說」，講錯也不會尷尬。開口前的暖身首選。</p>
+      <div class="rcf"><a href="https://chatgpt.com/" target="_blank" rel="noopener">前往使用 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+    <article class="rc" data-id="italki" data-goal="speak" data-lv="3" data-type="app">
+      <div class="rch"><span class="ic">說</span><h4>italki（付費一對一）</h4><span class="lvb">中級以上</span></div>
+      <p>找日文老師或社群導師上課，一堂通常比實體課便宜。當你已經「聽得懂但講不順」，這是最快的解法。</p>
+      <div class="rcf"><a href="https://www.italki.com/affshare?ref=af33704922" target="_blank" rel="sponsored nofollow noopener">前往了解 →</a><button type="button" class="col">＋10 我試過了</button></div>
+    </article>
+
+  </div>
+  <p class="empty" id="njq-empty" hidden>這個組合目前沒有卡片，換個篩選看看。</p>
+</div>
+
+<div class="share">
+  <button type="button" id="njq-sh">分享我的修行進度</button>
+  <a class="line" id="njq-line" href="#" target="_blank" rel="noopener">傳到 LINE</a>
+  <button type="button" id="njq-cp">複製給學伴</button>
+</div>
+
+<!-- 4. 漫畫工具包 -->
+<h3>看懂原文漫畫的五個步驟</h3>
+<p>看不懂漫畫，通常不是實力問題，而是<strong>查一個字要 30 秒</strong>，查三次就想關掉。把查字的摩擦降到 1 秒，難度會整個改變。</p>
+<ol class="tl">
+  <li><b>先裝 Yomitan</b>在 Chrome、Firefox 或 Edge 安裝擴充功能，再依網站指示下載一份日中或日英字典檔。之後滑鼠移到任何日文字上就會跳出解釋。</li>
+  <li><b>挑一部「太簡單」的作品</b>四格漫畫、日常系、小學生向的作品最好。用 jpdb.io 可以查作品難度；如果一頁要查超過 5 個字，代表這本現在太難，換一本不是放棄。</li>
+  <li><b>在合法的網頁版上讀</b>カドコミ、少年ジャンプ＋、マンガクロス 都有免費話數，而且是網頁文字或圖片皆可搭配工具。盜版網站除了違法，畫質差也讓 OCR 認不出來。</li>
+  <li><b>圖片型漫畫用 Mokuro 轉成可選取文字</b>手上有合法購買的電子書或掃描檔時，用 Mokuro 做一次 OCR，之後就能像網頁一樣點字查詢。</li>
+  <li><b>一頁只記一句</b>把當天最喜歡的一句丟進 Anki，或直接抄在手機備忘錄。一個月後你會有 30 句真正屬於你的日文。</li>
+</ol>
+<p class="note">小提醒：請只使用官方或合法授權的漫畫來源。付費支持作者，這個圈子才有下一部作品可以讀。</p>
+
+<!-- 5. 口說 -->
+<h3>從「看得懂」到「說得出口」的三個練法</h3>
+<ol class="tl">
+  <li><b>先解決「不敢」而不是「不會」</b>用 AI 語音對話或自言自語開始，把第一次開口的心理成本降到零。請 AI 用 N5 程度、慢速回答，並在最後幫你改三個句子。</li>
+  <li><b>一天一句影子跟讀</b>挑今天聽的 podcast 裡最短的一句，暫停、模仿語調、錄音、比對。重點是語調不是速度，語調對了聽起來就像日本人。</li>
+  <li><b>準備三句「自我介紹罐頭」</b>名字、做什麼的、為什麼學日文。這三句練到不用想就講得出來，遇到真人時就不會卡在第一秒。</li>
+</ol>
+<p class="note">練到第三步還是覺得「自己講給自己聽沒有進步感」，就該找真人了。<a href="https://www.italki.com/affshare?ref=af33704922" target="_blank" rel="sponsored nofollow noopener">italki</a> 上可以找日文老師或價格較親民的社群導師，先約一堂試上，把你這 30 天練的三句話講給對方聽。</p>
+
+<!-- FAQ -->
+<h3>常見問題</h3>
+<details open><summary>完全零基礎，可以直接用這套方法看漫畫嗎？</summary><div><p>建議先花一到兩週把平假名、片假名認完，否則連查字都做不到。認完五十音之後就可以開始：先從 にほんごたどく 的 Level 0 分級讀本，再進到四格或日常系漫畫。不需要等文法學到 N4 才開始看，邊看邊補反而記得更牢。</p></div></details>
+<details><summary>看動畫學日文和看漫畫學日文，哪個比較有效？</summary><div><p>兩個練的能力不一樣。動畫練聽力與語調，但速度由不得你、句子瞬間就過去了；漫畫可以隨時停下來查字，適合累積單字和閱讀速度，缺點是沒有聲音、容易把重音記錯。理想做法是兩個一起：漫畫負責累積字彙，podcast 或動畫負責把聲音刻進耳朵。</p></div></details>
+<details><summary>學日文每天要花多少時間才有效？</summary><div><p>比起時間長度，<strong>每天不中斷</strong>影響更大。每天 10 到 15 分鐘、持續 30 天的效果，會勝過週末一次做三小時。如果只有 10 分鐘，優先順序是：聽一集短 podcast ＞ 讀一頁漫畫 ＞ 背單字。</p></div></details>
+<details><summary>Yomitan 是什麼？和以前的 Yomichan 有什麼不同？</summary><div><p>Yomitan 是瀏覽器的日文彈跳字典擴充功能，滑鼠移到單字上就顯示字義、發音與詞形變化，並可一鍵製作 Anki 卡片。它是已停止維護的 Yomichan 的延續專案，免費開源，支援 Chrome、Firefox 與 Edge。安裝後需要自行加入字典檔才能使用。</p></div></details>
+<details><summary>哪裡可以合法免費看日文原文漫畫？</summary><div><p>カドコミ（原 コミックウォーカー，KADOKAWA）、少年ジャンプ＋（集英社）、マンガクロス（秋田書店）都提供官方免費話數，不需要日本帳號即可閱讀。想看完整作品可以在 BOOK☆WALKER 等日本電子書店購買。請避開來源不明的盜版網站。</p></div></details>
+<details><summary>我的進度會不會不見？</summary><div><p>這頁的打卡與收集紀錄存在你自己的瀏覽器裡（localStorage），沒有上傳到任何伺服器，所以也不用註冊。但如果你換一台裝置、換瀏覽器，或清除瀏覽資料，紀錄就會消失。想長期保存，建議每週截圖一次，或用分享按鈕把進度複製到自己的備忘錄。</p></div></details>
+<details><summary>30 天之後呢？</summary><div><p>30 天的目標是建立「每天碰日文」的習慣，以及找出適合你的那三、四個資源。接下來把每天的份量拉長，例如 podcast 從一集變兩集、漫畫從一頁變一話，並開始固定和真人或 AI 對話。程度的分水嶺通常出現在能讀完第一整本漫畫的時候。</p></div></details>
+
+<h3>延伸閱讀</h3>
+<div class="rel">
+<a href="https://knittinghiyori.com/tools/travel-deals/">旅遊優惠整理頁<span>訂房、交通、網卡的限時優惠一次看</span></a>
+<a href="https://knittinghiyori.com/">更多 AI 工具與學習資源<span>knittinghiyori.com 全站文章</span></a>
+</div>
+
+<p class="disc">本頁資源以 2026-09-23 實際確認為準；平台服務內容與收費方式可能變動，請以各官方網站為準。部分連結為聯盟連結，透過連結註冊或購買我可能獲得小額回饋，不影響你的價格，也不影響推薦順序。— Zoe</p>
+<div class="toast" id="njq-toast" role="status"></div>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"日文修行圖鑑","url":"https://knittinghiyori.com/tools/japanese-learning-quest/","applicationCategory":"EducationalApplication","operatingSystem":"Any","inLanguage":"zh-Hant-TW","description":"測出日文起點、選擇 30 天闖關路線，並收集 32 個免費的日文 podcast、YouTube 頻道、漫畫閱讀網站與工具，目標是看懂原文漫畫並開口說。","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"dateModified":"2026-09-23","author":{"@type":"Person","name":"Zoe","url":"https://knittinghiyori.com/"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"完全零基礎，可以直接用這套方法看漫畫嗎？","acceptedAnswer":{"@type":"Answer","text":"建議先花一到兩週把平假名、片假名認完，否則連查字都做不到。認完五十音之後就可以開始：先從 にほんごたどく 的 Level 0 分級讀本，再進到四格或日常系漫畫。不需要等文法學到 N4 才開始看，邊看邊補反而記得更牢。"}},{"@type":"Question","name":"看動畫學日文和看漫畫學日文，哪個比較有效？","acceptedAnswer":{"@type":"Answer","text":"兩個練的能力不一樣。動畫練聽力與語調，但速度由不得你；漫畫可以隨時停下來查字，適合累積單字和閱讀速度，缺點是沒有聲音、容易把重音記錯。理想做法是兩個一起：漫畫負責累積字彙，podcast 或動畫負責把聲音刻進耳朵。"}},{"@type":"Question","name":"學日文每天要花多少時間才有效？","acceptedAnswer":{"@type":"Answer","text":"比起時間長度，每天不中斷影響更大。每天 10 到 15 分鐘、持續 30 天的效果，會勝過週末一次做三小時。如果只有 10 分鐘，優先順序是：聽一集短 podcast、讀一頁漫畫、背單字。"}},{"@type":"Question","name":"Yomitan 是什麼？和以前的 Yomichan 有什麼不同？","acceptedAnswer":{"@type":"Answer","text":"Yomitan 是瀏覽器的日文彈跳字典擴充功能，滑鼠移到單字上就顯示字義、發音與詞形變化，並可一鍵製作 Anki 卡片。它是已停止維護的 Yomichan 的延續專案，免費開源，支援 Chrome、Firefox 與 Edge。安裝後需要自行加入字典檔才能使用。"}},{"@type":"Question","name":"哪裡可以合法免費看日文原文漫畫？","acceptedAnswer":{"@type":"Answer","text":"カドコミ（原 コミックウォーカー，KADOKAWA）、少年ジャンプ＋（集英社）、マンガクロス（秋田書店）都提供官方免費話數，不需要日本帳號即可閱讀。想看完整作品可以在 BOOK☆WALKER 等日本電子書店購買。請避開來源不明的盜版網站。"}},{"@type":"Question","name":"30 天之後呢？","acceptedAnswer":{"@type":"Answer","text":"30 天的目標是建立每天碰日文的習慣，以及找出適合你的三、四個資源。接下來把每天的份量拉長，例如 podcast 從一集變兩集、漫畫從一頁變一話，並開始固定和真人或 AI 對話。程度的分水嶺通常出現在能讀完第一整本漫畫的時候。"}}]}]}</script>
+
+<script><!--@@MAIN@@--></script>
+</div>
+<!-- ===== /日文修行圖鑑 ===== -->

@@ -1,0 +1,176 @@
+<div class="khp" id="khp">
+<style><!--@@STYLE@@--></style>
+<header class="khp-hero">
+  <span class="khp-kicker">PACKING LIST GENERATOR</span>
+  <h2>出國行李清單產生器<br>選目的地、季節、天數，30 秒產生勾選清單</h2>
+  <p>自動算好衣物件數、提醒轉接頭與電壓、入境手續、eSIM、旅平險與機場接送。<br>勾選進度會自動記住，打包到一半也不怕。</p>
+  <div class="khp-badges"><span>免費・免註冊</span><span>存成圖片</span><span>分享給旅伴</span><span>16 個熱門目的地</span></div>
+</header>
+<div class="khp-layout">
+  <form class="khp-card khp-form" id="khp-form" onsubmit="return false" aria-label="行李清單設定">
+    <div class="khp-step">
+      <div class="khp-label"><span class="khp-num">1</span>要去哪裡？</div>
+      <div class="khp-dests" id="khp-dests" role="group" aria-label="目的地"><button type="button" class="khp-dest" data-d="jp" aria-pressed="true"><span class="khp-flag" aria-hidden="true">🇯🇵</span>日本</button><button type="button" class="khp-dest" data-d="kr" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇰🇷</span>韓國</button><button type="button" class="khp-dest" data-d="th" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇹🇭</span>泰國</button><button type="button" class="khp-dest" data-d="vn" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇻🇳</span>越南</button><button type="button" class="khp-dest" data-d="sg" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇸🇬</span>新加坡</button><button type="button" class="khp-dest" data-d="hk" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇭🇰</span>港澳</button><button type="button" class="khp-dest" data-d="cn" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇨🇳</span>中國</button><button type="button" class="khp-dest" data-d="my" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇲🇾</span>馬來西亞</button><button type="button" class="khp-dest" data-d="ph" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇵🇭</span>菲律賓</button><button type="button" class="khp-dest" data-d="id" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇮🇩</span>峇里島</button><button type="button" class="khp-dest" data-d="uk" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇬🇧</span>英國</button><button type="button" class="khp-dest" data-d="eu" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇪🇺</span>歐洲</button><button type="button" class="khp-dest" data-d="us" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇺🇸</span>美國</button><button type="button" class="khp-dest" data-d="ca" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇨🇦</span>加拿大</button><button type="button" class="khp-dest" data-d="au" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇦🇺</span>澳洲</button><button type="button" class="khp-dest" data-d="nz" aria-pressed="false"><span class="khp-flag" aria-hidden="true">🇳🇿</span>紐西蘭</button></div>
+    </div>
+    <div class="khp-step">
+      <div class="khp-label"><span class="khp-num">2</span>出發季節 <small>以台灣的季節選</small></div>
+      <div class="khp-seg" id="khp-season" role="group" aria-label="季節">
+        <button type="button" data-s="spring">春</button><button type="button" data-s="summer">夏</button><button type="button" data-s="autumn">秋</button><button type="button" data-s="winter">冬</button>
+      </div>
+      <p class="khp-hint" id="khp-shint"></p>
+    </div>
+    <div class="khp-step">
+      <div class="khp-label"><span class="khp-num">3</span>玩幾天？</div>
+      <div class="khp-days">
+        <button type="button" id="khp-dminus" aria-label="減少一天">−</button>
+        <input type="range" class="khp-range" id="khp-range" min="1" max="30" value="5" aria-label="旅行天數">
+        <button type="button" id="khp-dplus" aria-label="增加一天">＋</button>
+        <div class="khp-dayval"><span id="khp-dayval">5</span><small>天</small></div>
+      </div>
+    </div>
+    <div class="khp-step">
+      <div class="khp-label"><span class="khp-num">4</span>旅行型態 <small>可複選，會加碼專屬物品</small></div>
+      <div class="khp-tags" id="khp-tags"><button type="button" class="khp-tag" data-t="biz" aria-pressed="false">商務出差</button><button type="button" class="khp-tag" data-t="kid" aria-pressed="false">親子</button><button type="button" class="khp-tag" data-t="beach" aria-pressed="false">海島玩水</button><button type="button" class="khp-tag" data-t="ski" aria-pressed="false">滑雪</button><button type="button" class="khp-tag" data-t="hike" aria-pressed="false">登山健行</button><button type="button" class="khp-tag" data-t="shop" aria-pressed="false">購物血拚</button><button type="button" class="khp-tag" data-t="drive" aria-pressed="false">自駕</button></div>
+    </div>
+    <button type="button" class="khp-go" id="khp-go">看我的清單 ↓</button>
+  </form>
+  <div id="khp-result">
+    <div class="khp-info" id="khp-info"></div>
+    <div class="khp-bar" id="khp-bar">
+      <div class="khp-bar-top">
+        <div class="khp-ring" id="khp-ring"><i id="khp-pct">0%</i></div>
+        <div><div class="khp-bar-title" id="khp-title">日本 5 天行李清單</div><div class="khp-bar-sub" id="khp-sub">已打包 0 / 0 項</div></div>
+      </div>
+      <div class="khp-actions">
+        <button type="button" class="pri" data-act="image"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>存成圖片</button>
+        <button type="button" data-act="share"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>分享旅伴</button>
+        <button type="button" data-act="copy"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>複製文字</button>
+        <button type="button" data-act="reset"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>清除勾選</button>
+      </div>
+    </div>
+    <div class="khp-list" id="khp-list"><p class="khp-loading">清單產生中…若一直沒出現，請重新整理頁面</p></div>
+    <p class="khp-hidden" id="khp-hidden"></p>
+    <p class="khp-disc">＊標示品牌的按鈕為聯盟連結，透過連結購買我可能獲得少量分潤，不會增加你的費用，也幫助這個工具持續免費更新。入境規定與電壓資訊以各國官方公告為準。</p>
+  </div>
+</div>
+<!-- ===== 以下為靜態內容：給讀者，也給 Google 與 AI 搜尋引擎讀 ===== -->
+<div class="khp-seo">
+  <section class="khp-answer" aria-labelledby="khp-q1">
+    <h2 id="khp-q1" style="border:0;padding:0;margin-bottom:4px">出國行李清單：最容易忘的 10 樣必帶物品</h2>
+    <p><strong>快速答案：</strong>不論去哪個國家，出門前先確認這 10 樣，其他東西大多能在當地買到。</p>
+    <ol>
+      <li>護照（效期至少 6 個月以上）與目的地要求的入境手續</li>
+      <li>信用卡 2 張（不同卡組織）＋少量當地現金</li>
+      <li>網路：eSIM 或漫遊，出發前先安裝好</li>
+      <li>旅平險＋海外突發疾病醫療（信用卡附贈的保障通常不夠）</li>
+      <li>轉接頭：日本、美國、加拿大免帶；韓國、歐洲、英國、新加坡、澳洲都要帶</li>
+      <li>手機充電器與行動電源（行動電源只能放隨身行李）</li>
+      <li>個人處方藥與常備藥</li>
+      <li>住宿地址與機場接送安排（深夜抵達尤其重要）</li>
+      <li>依天數準備的衣物，超過 7 天建議只帶 7 天份並安排洗衣</li>
+      <li>健保卡：海外就醫可回台申請核退</li>
+    </ol>
+  </section>
+  <section>
+    <h2>怎麼用這個行李清單產生器？</h2>
+    <ol class="khp-steps">
+      <li>選擇目的地，工具會自動帶出插頭規格、電壓、入境手續與當地交通卡。</li>
+      <li>選台灣出發時的季節：熱帶國家會自動改成夏季衣物，澳洲、紐西蘭會自動換成相反季節。</li>
+      <li>拉動天數，內衣褲、襪子、上衣件數會自動計算；超過 7 天會提醒安排洗衣。</li>
+      <li>勾選商務、親子、滑雪、自駕等旅行型態，加入專屬物品；也能新增自己的項目。</li>
+      <li>打包時逐項勾選，進度自動記在這台裝置上。按「存成圖片」存到相簿，或「分享旅伴」傳一樣的清單給同行的人。</li>
+    </ol>
+  </section>
+  <section>
+    <h2>各國插頭、電壓與轉接頭速查表</h2>
+    <p>台灣是 A／B 型插頭、110V。先看各型插頭長什麼樣子，再對照下方 16 個目的地：</p>
+    <div class="khp-plugguide"><figure><svg class="khp-plugsvg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="13" width="3" height="13" rx="1"/><rect x="24" y="13" width="3" height="13" rx="1"/></g></svg><figcaption><b>A 型</b>兩片扁腳<br>台灣、日本、美國</figcaption></figure><figure><svg class="khp-plugsvg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="10" width="3" height="11" rx="1"/><rect x="24" y="10" width="3" height="11" rx="1"/><circle cx="20" cy="28.5" r="2.6"/></g></svg><figcaption><b>B 型</b>兩扁腳＋圓形接地<br>台灣、日本、美國（三孔）</figcaption></figure><figure><svg class="khp-plugsvg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="14" cy="20" r="2.3"/><circle cx="26" cy="20" r="2.3"/></g></svg><figcaption><b>C 型</b>兩根細圓腳<br>歐洲、韓國、峇里島</figcaption></figure><figure><svg class="khp-plugsvg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="13" cy="20" r="3"/><circle cx="27" cy="20" r="3"/><rect x="18" y="4.5" width="4" height="3.5" rx="1"/><rect x="18" y="32" width="4" height="3.5" rx="1"/></g></svg><figcaption><b>F 型</b>兩根粗圓腳＋側邊接地片<br>韓國、德國、法國、印尼</figcaption></figure><figure><svg class="khp-plugsvg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="18.5" y="9" width="3" height="10" rx="1"/><rect x="10" y="25" width="8" height="3" rx="1"/><rect x="22" y="25" width="8" height="3" rx="1"/></g></svg><figcaption><b>G 型</b>三根方腳（英式）<br>英國、香港、新加坡、馬來西亞</figcaption></figure><figure><svg class="khp-plugsvg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="12.5" y="10" width="3" height="11" rx="1" transform="rotate(30 14 15.5)"/><rect x="24.5" y="10" width="3" height="11" rx="1" transform="rotate(-30 26 15.5)"/><rect x="18.5" y="24" width="3" height="9" rx="1"/></g></svg><figcaption><b>I 型</b>八字斜插＋直腳<br>澳洲、紐西蘭、中國</figcaption></figure><figure><svg class="khp-plugsvg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="13" cy="16" r="2.6"/><circle cx="27" cy="16" r="2.6"/><circle cx="20" cy="27" r="2.6"/></g></svg><figcaption><b>O 型</b>三根圓腳（泰式）<br>泰國</figcaption></figure><figure><svg class="khp-plugsvg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="11" cy="20" r="2.3"/><circle cx="20" cy="20" r="2.3"/><circle cx="29" cy="20" r="2.3"/></g></svg><figcaption><b>L 型</b>三根圓腳一直排<br>義大利</figcaption></figure><figure><svg class="khp-plugsvg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="12.5" cy="15" r="2.3"/><circle cx="27.5" cy="15" r="2.3"/><circle cx="20" cy="22" r="2.3"/></g></svg><figcaption><b>J 型</b>三根圓腳（中間偏下）<br>瑞士</figcaption></figure><figure><svg class="khp-plugsvg" viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="14" cy="14" r="3"/><circle cx="26" cy="14" r="3"/><circle cx="20" cy="27" r="4"/></g></svg><figcaption><b>D 型</b>三根大圓腳（舊英式）<br>澳門部分、印度</figcaption></figure></div>
+    <p style="margin-top:14px">台灣人常去的 16 個目的地：</p>
+    <div class="khp-tablewrap" style="margin-top:10px">
+      <table class="khp-table">
+        <thead><tr><th>目的地</th><th>插頭類型</th><th>電壓</th><th>需要轉接頭？</th><th>注意</th></tr></thead>
+        <tbody>
+          <tr><td>日本</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="13" width="3" height="13" rx="1"/><rect x="24" y="13" width="3" height="13" rx="1"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="10" width="3" height="11" rx="1"/><rect x="24" y="10" width="3" height="11" rx="1"/><circle cx="20" cy="28.5" r="2.6"/></g></svg><small>A / B</small></div></td><td>100V</td><td class="khp-n">不用</td><td>多為兩孔插座，三孔插頭帶轉接</td></tr>
+          <tr><td>韓國</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="14" cy="20" r="2.3"/><circle cx="26" cy="20" r="2.3"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="13" cy="20" r="3"/><circle cx="27" cy="20" r="3"/><rect x="18" y="4.5" width="4" height="3.5" rx="1"/><rect x="18" y="32" width="4" height="3.5" rx="1"/></g></svg><small>C / F</small></div></td><td>220V</td><td class="khp-y">要</td><td>只標 110V 的吹風機不能用</td></tr>
+          <tr><td>泰國</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="13" width="3" height="13" rx="1"/><rect x="24" y="13" width="3" height="13" rx="1"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="10" width="3" height="11" rx="1"/><rect x="24" y="10" width="3" height="11" rx="1"/><circle cx="20" cy="28.5" r="2.6"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="14" cy="20" r="2.3"/><circle cx="26" cy="20" r="2.3"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="13" cy="16" r="2.6"/><circle cx="27" cy="16" r="2.6"/><circle cx="20" cy="27" r="2.6"/></g></svg><small>A / B / C / O</small></div></td><td>220V</td><td class="khp-y">建議</td><td>插座混用，帶萬用轉接頭最保險</td></tr>
+          <tr><td>越南</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="13" width="3" height="13" rx="1"/><rect x="24" y="13" width="3" height="13" rx="1"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="14" cy="20" r="2.3"/><circle cx="26" cy="20" r="2.3"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="13" cy="20" r="3"/><circle cx="27" cy="20" r="3"/><rect x="18" y="4.5" width="4" height="3.5" rx="1"/><rect x="18" y="32" width="4" height="3.5" rx="1"/></g></svg><small>A / C / F</small></div></td><td>220V</td><td class="khp-y">建議</td><td>兩孔扁插常可用，注意電壓</td></tr>
+          <tr><td>新加坡</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="18.5" y="9" width="3" height="10" rx="1"/><rect x="10" y="25" width="8" height="3" rx="1"/><rect x="22" y="25" width="8" height="3" rx="1"/></g></svg><small>G</small></div></td><td>230V</td><td class="khp-y">要</td><td>英式三孔</td></tr>
+          <tr><td>香港・澳門</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="18.5" y="9" width="3" height="10" rx="1"/><rect x="10" y="25" width="8" height="3" rx="1"/><rect x="22" y="25" width="8" height="3" rx="1"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="14" cy="14" r="3"/><circle cx="26" cy="14" r="3"/><circle cx="20" cy="27" r="4"/></g></svg><small>G（澳門部分 D）</small></div></td><td>220V</td><td class="khp-y">要</td><td>英式三孔</td></tr>
+          <tr><td>中國</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="13" width="3" height="13" rx="1"/><rect x="24" y="13" width="3" height="13" rx="1"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="14" cy="20" r="2.3"/><circle cx="26" cy="20" r="2.3"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="12.5" y="10" width="3" height="11" rx="1" transform="rotate(30 14 15.5)"/><rect x="24.5" y="10" width="3" height="11" rx="1" transform="rotate(-30 26 15.5)"/><rect x="18.5" y="24" width="3" height="9" rx="1"/></g></svg><small>A / C / I</small></div></td><td>220V</td><td>看插頭</td><td>兩孔扁插可用，三孔需轉接</td></tr>
+          <tr><td>馬來西亞</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="18.5" y="9" width="3" height="10" rx="1"/><rect x="10" y="25" width="8" height="3" rx="1"/><rect x="22" y="25" width="8" height="3" rx="1"/></g></svg><small>G</small></div></td><td>240V</td><td class="khp-y">要</td><td>英式三孔</td></tr>
+          <tr><td>菲律賓</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="13" width="3" height="13" rx="1"/><rect x="24" y="13" width="3" height="13" rx="1"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="10" width="3" height="11" rx="1"/><rect x="24" y="10" width="3" height="11" rx="1"/><circle cx="20" cy="28.5" r="2.6"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="14" cy="20" r="2.3"/><circle cx="26" cy="20" r="2.3"/></g></svg><small>A / B / C</small></div></td><td>220V</td><td>多半不用</td><td>插頭相容，但電壓不同</td></tr>
+          <tr><td>印尼・峇里島</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="14" cy="20" r="2.3"/><circle cx="26" cy="20" r="2.3"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="13" cy="20" r="3"/><circle cx="27" cy="20" r="3"/><rect x="18" y="4.5" width="4" height="3.5" rx="1"/><rect x="18" y="32" width="4" height="3.5" rx="1"/></g></svg><small>C / F</small></div></td><td>230V</td><td class="khp-y">要</td><td>歐規圓孔</td></tr>
+          <tr><td>英國</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="18.5" y="9" width="3" height="10" rx="1"/><rect x="10" y="25" width="8" height="3" rx="1"/><rect x="22" y="25" width="8" height="3" rx="1"/></g></svg><small>G</small></div></td><td>230V</td><td class="khp-y">要</td><td>英式三孔</td></tr>
+          <tr><td>歐洲申根區</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="14" cy="20" r="2.3"/><circle cx="26" cy="20" r="2.3"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="13" cy="20" r="3"/><circle cx="27" cy="20" r="3"/><rect x="18" y="4.5" width="4" height="3.5" rx="1"/><rect x="18" y="32" width="4" height="3.5" rx="1"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="11" cy="20" r="2.3"/><circle cx="20" cy="20" r="2.3"/><circle cx="29" cy="20" r="2.3"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><circle cx="12.5" cy="15" r="2.3"/><circle cx="27.5" cy="15" r="2.3"/><circle cx="20" cy="22" r="2.3"/></g></svg><small>C / F（義大利 L、瑞士 J）</small></div></td><td>230V</td><td class="khp-y">要</td><td>瑞士、義大利建議帶萬用轉接頭</td></tr>
+          <tr><td>美國</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="13" width="3" height="13" rx="1"/><rect x="24" y="13" width="3" height="13" rx="1"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="10" width="3" height="11" rx="1"/><rect x="24" y="10" width="3" height="11" rx="1"/><circle cx="20" cy="28.5" r="2.6"/></g></svg><small>A / B</small></div></td><td>120V</td><td class="khp-n">不用</td><td>台灣電器可直接使用</td></tr>
+          <tr><td>加拿大</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="13" width="3" height="13" rx="1"/><rect x="24" y="13" width="3" height="13" rx="1"/></g></svg><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="13" y="10" width="3" height="11" rx="1"/><rect x="24" y="10" width="3" height="11" rx="1"/><circle cx="20" cy="28.5" r="2.6"/></g></svg><small>A / B</small></div></td><td>120V</td><td class="khp-n">不用</td><td>台灣電器可直接使用</td></tr>
+          <tr><td>澳洲</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="12.5" y="10" width="3" height="11" rx="1" transform="rotate(30 14 15.5)"/><rect x="24.5" y="10" width="3" height="11" rx="1" transform="rotate(-30 26 15.5)"/><rect x="18.5" y="24" width="3" height="9" rx="1"/></g></svg><small>I</small></div></td><td>230V</td><td class="khp-y">要</td><td>八字斜插</td></tr>
+          <tr><td>紐西蘭</td><td><div class="khp-tplugs"><svg class="khp-plugsvg" viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" focusable="false"><rect x="3" y="3" width="34" height="34" rx="9" fill="#F4F0E9" stroke="#CFC7BA" stroke-width="1.2"/><g fill="currentColor"><rect x="12.5" y="10" width="3" height="11" rx="1" transform="rotate(30 14 15.5)"/><rect x="24.5" y="10" width="3" height="11" rx="1" transform="rotate(-30 26 15.5)"/><rect x="18.5" y="24" width="3" height="9" rx="1"/></g></svg><small>I</small></div></td><td>230V</td><td class="khp-y">要</td><td>八字斜插</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="khp-note">手機、筆電充電器多半標示「100–240V」可全球通用，只需轉接頭；吹風機、離子夾、電熱水壺若只標 110V，到 220V 以上的國家會燒壞，需要選購雙電壓款。</p>
+  </section>
+  <section class="khp-faq">
+    <h2>出國行李常見問題</h2>
+    <details open><summary>出國行李清單有哪些一定要帶？</summary><p>護照、信用卡與少量外幣、手機與充電器、網路（eSIM 或漫遊）、旅平險、個人藥品、轉接頭（依目的地）、住宿與交通確認資料是最基本的必帶物品。衣物可以依天數準備，超過 7 天建議帶 7 天份並在當地洗衣。</p></details>
+    <details><summary>去日本需要帶轉接頭嗎？</summary><p>日本是 A／B 型插頭、100V，和台灣相同，手機與筆電充電器可以直接使用，不需要轉接頭。不過日本很多插座只有兩孔，如果你的電器是三孔插頭，建議帶一個三孔轉兩孔的轉接頭。</p></details>
+    <details><summary>行動電源可以托運嗎？</summary><p>不行。行動電源與備用鋰電池只能放在隨身行李，嚴禁托運。容量 100Wh 以下可隨身攜帶，100–160Wh 需航空公司同意，超過 160Wh 禁止攜帶。另外多數航空公司已禁止在機上使用行動電源或替它充電，搭機前請確認航空公司規定。</p></details>
+    <details><summary>隨身行李的液體限制是多少？</summary><p>一般國際線規定每瓶液體、膠狀或噴霧類容器不超過 100 毫升，全部裝進一個容量約 1 公升、可重複密封的透明夾鏈袋，每位旅客限帶一袋。超過的保養品請分裝或放托運行李。各機場規定可能不同，以當地機場公告為準。</p></details>
+    <details><summary>出國上網用 eSIM 還是漫遊比較好？</summary><p>多數情況下 eSIM 比電信漫遊便宜，而且出發前在台灣就能安裝，落地開啟就能上網，同時保留台灣門號接收簡訊驗證碼。使用前要確認手機支援 eSIM 且未鎖卡；如果手機不支援，可以改用實體 SIM 卡或漫遊方案。</p></details>
+    <details><summary>旅平險和旅遊不便險有什麼不同？</summary><p>旅平險（旅行平安險）保的是意外身故、失能與意外傷害醫療，通常可以加保「海外突發疾病」；旅遊不便險保的是班機延誤、行李延誤或遺失等狀況。刷信用卡買機票附贈的多半以不便險為主，海外生病的醫療保障通常不足，建議另外投保旅平險並附加海外突發疾病醫療。</p></details>
+    <details><summary>清單可以存起來或分享給朋友嗎？</summary><p>可以。勾選進度會自動保存在你目前使用的瀏覽器；按「存成圖片」可以把清單存進手機相簿，按「分享旅伴」會產生一個連結，朋友打開就是同一份目的地、季節與天數的清單，可以各自勾選。</p></details>
+  </section>
+  <section>
+    <h2>出發前，這幾個工具也用得上</h2>
+    <div class="khp-tools">
+      <a class="khp-tool" href="https://knittinghiyori.com/tools/esim-plan-picker/" data-tool="esim"><b>eSIM 方案選擇器 →</b><span>比較各家 eSIM 的天數、流量與價格，挑出最適合這趟旅程的方案。</span></a>
+      <a class="khp-tool" href="https://knittinghiyori.com/tools/travel-split-calculator/" data-tool="split"><b>旅遊分帳計算機 →</b><span>和旅伴一起出門，回國前算清楚誰該付誰多少，不用翻收據。</span></a>
+      <a class="khp-tool" href="/tools/travel-deals/" data-tool="deals"><b>旅遊優惠整理 →</b><span>機票、住宿、票券、接送與 eSIM 的限時優惠與常態推薦，一頁看完。</span></a>
+    </div>
+  </section>
+  <p class="khp-meta">最後更新：2026 年 9 月 24 日 ・ 作者：Zoe </p>
+</div>
+<div class="khp khp-portal" id="khp-portal">
+<div class="khp-float" id="khp-float" aria-hidden="true"><span id="khp-float-t">已打包 0/0</span><button type="button" class="alt" data-act="share">分享</button><button type="button" data-act="image">存圖</button></div>
+<div class="khp-toast" id="khp-toast" role="status" aria-live="polite"></div>
+<div class="khp-modal" id="khp-modal" role="dialog" aria-modal="true" aria-label="清單圖片">
+  <div class="khp-modal-in">
+    <div class="khp-modal-h">存成圖片<button type="button" data-act="close" aria-label="關閉">×</button></div>
+    <div class="khp-opt" id="khp-opt"><button type="button" data-img="all" aria-pressed="true">完整清單</button><button type="button" data-img="todo" aria-pressed="false">只列還沒打包的</button></div>
+    <div class="khp-modal-img"><img id="khp-img" alt="我的出國行李清單圖片"></div>
+    <p class="khp-modal-tip">手機也可以長按圖片「加入照片」；在 LINE、FB 裡開啟時請用長按儲存</p>
+    <div class="khp-modal-f"><button type="button" class="alt" data-act="download">下載圖片</button><button type="button" data-act="shareimg">分享圖片</button></div>
+  </div>
+</div>
+</div>
+<!--noptimize--><script type="application/ld+json" data-cfasync="false" data-no-optimize="1" nowprocket>
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"出國行李清單產生器","url":"https://knittinghiyori.com/tools/packing-list-generator/","applicationCategory":"TravelApplication","operatingSystem":"Any（瀏覽器）","inLanguage":"zh-TW","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"description":"依目的地、季節、天數自動產生可勾選的出國行李清單，含轉接頭與電壓提醒、入境手續、eSIM、旅平險與機場接送建議，可存成圖片或分享給旅伴。","author":{"@type":"Person","name":"Zoe"},"publisher":{"@type":"Organization","name":"knittinghiyori","url":"https://knittinghiyori.com/"},"dateModified":"2026-09-24","featureList":["16 個熱門目的地","依季節與天數自動計算衣物件數","插頭類型、電壓與轉接頭提醒","可勾選並自動保存進度","存成圖片","分享連結給旅伴"]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"出國行李清單有哪些一定要帶？","acceptedAnswer":{"@type":"Answer","text":"護照、信用卡與少量外幣、手機與充電器、網路（eSIM 或漫遊）、旅平險、個人藥品、轉接頭（依目的地）、住宿與交通確認資料是最基本的必帶物品。衣物可以依天數準備，超過 7 天建議帶 7 天份並在當地洗衣。"}},
+{"@type":"Question","name":"去日本需要帶轉接頭嗎？","acceptedAnswer":{"@type":"Answer","text":"日本是 A／B 型插頭、100V，和台灣相同，手機與筆電充電器可以直接使用，不需要轉接頭。不過日本很多插座只有兩孔，如果你的電器是三孔插頭，建議帶一個三孔轉兩孔的轉接頭。"}},
+{"@type":"Question","name":"行動電源可以托運嗎？","acceptedAnswer":{"@type":"Answer","text":"不行。行動電源與備用鋰電池只能放在隨身行李，嚴禁托運。容量 100Wh 以下可隨身攜帶，100–160Wh 需航空公司同意，超過 160Wh 禁止攜帶。另外多數航空公司已禁止在機上使用行動電源或替它充電，搭機前請確認航空公司規定。"}},
+{"@type":"Question","name":"隨身行李的液體限制是多少？","acceptedAnswer":{"@type":"Answer","text":"一般國際線規定每瓶液體、膠狀或噴霧類容器不超過 100 毫升，全部裝進一個容量約 1 公升、可重複密封的透明夾鏈袋，每位旅客限帶一袋。超過的保養品請分裝或放托運行李。各機場規定可能不同，以當地機場公告為準。"}},
+{"@type":"Question","name":"出國上網用 eSIM 還是漫遊比較好？","acceptedAnswer":{"@type":"Answer","text":"多數情況下 eSIM 比電信漫遊便宜，而且出發前在台灣就能安裝，落地開啟就能上網，同時保留台灣門號接收簡訊驗證碼。使用前要確認手機支援 eSIM 且未鎖卡；如果手機不支援，可以改用實體 SIM 卡或漫遊方案。"}},
+{"@type":"Question","name":"旅平險和旅遊不便險有什麼不同？","acceptedAnswer":{"@type":"Answer","text":"旅平險（旅行平安險）保的是意外身故、失能與意外傷害醫療，通常可以加保「海外突發疾病」；旅遊不便險保的是班機延誤、行李延誤或遺失等狀況。刷信用卡買機票附贈的多半以不便險為主，海外生病的醫療保障通常不足，建議另外投保旅平險並附加海外突發疾病醫療。"}},
+{"@type":"Question","name":"清單可以存起來或分享給朋友嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。勾選進度會自動保存在你目前使用的瀏覽器；按「存成圖片」可以把清單存進手機相簿，按「分享旅伴」會產生一個連結，朋友打開就是同一份目的地、季節與天數的清單，可以各自勾選。"}}
+]}
+]}
+</script><!--/noptimize-->
+<!--noptimize-->
+<script data-cfasync="false" data-no-optimize="1" data-no-defer="1" data-no-minify="1" data-pagespeed-no-defer nowprocket>
+/* 聯盟連結：只改這裡的網址即可 */
+window.KHP_LINKS = {
+  saily:   "https://saily.tpk.ro/C78NyEnq",
+  airalo:  "https://airalo.tpk.ro/kJJeVxlV",
+  welcome: "https://tpk.ro/eHrxH4Lv",
+  klook:   "https://klook.tpk.ro/c4eUkucl",
+  kkday:   "https://kkday.tpk.ro/YgkrHTiE",
+  airhelp: "https://airhelp.tpk.ro/QogWEfCJ",
+  qeeq:    "https://qeeq.tpk.ro/P8sNaep2"
+};
+(function(){var c=document.currentScript,s=document.createElement("script"),b=window.atob("<!--@@MAIN@@-->"),u=new Uint8Array(b.length),i=0;for(i=0;i!==b.length;i++){u[i]=b.charCodeAt(i);}s.text=new TextDecoder("utf-8").decode(u);if(c){c.parentNode.insertBefore(s,c.nextSibling);}else{document.getElementById("khp").appendChild(s);}})();
+</script>
+<!--/noptimize-->
+</div>

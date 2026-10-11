@@ -1,0 +1,85 @@
+<div id="esp" class="esp" lang="zh-Hant-TW">
+<style><!--@@STYLE@@--></style>
+<!-- 開場：一句話結論（給讀者＋AI 摘要引用） -->
+<span class="kick">旅遊工具・最後更新 2026-09-19</span>
+<h2>輸入你的行程，馬上看 Saily、Airalo、Yesim 三家價格</h2>
+<p class="lead"><strong>結論先講：</strong>以「5 天、每天 1GB」來算，原價最便宜的是 Airalo（10 個目的地贏 6 個）；拉長到「10 天、每天 2GB」則換 Yesim 領先（贏 7 個）。如果你是 Saily 新用戶，用折扣碼 <strong>ZOEEHA9323</strong> 首購折 US$5 後，5 天情境有 9 個目的地變成 Saily 最便宜。三家實際差距常在 US$1–3，選你用得順手的就好。</p>
+<div class="pills"><span>3 家實際方案比價</span><span>10 個熱門目的地</span><span>Saily 首購折 US$5</span><span>免註冊・手機好按</span></div>
+<!-- 互動工具 -->
+<div class="panel" id="esp-tool">
+  <div class="grp">
+    <p class="step"><i>1</i>要去哪裡？</p>
+    <div class="chips" role="radiogroup" aria-label="目的地" id="esp-c"></div>
+  </div>
+  <div class="grp">
+    <p class="step"><i>2</i>玩幾天？</p>
+    <div class="days">
+      <button type="button" id="esp-dm" aria-label="少一天">−</button>
+      <output id="esp-dv" aria-live="polite">5<small>天</small></output>
+      <button type="button" id="esp-dp" aria-label="多一天">＋</button>
+    </div>
+    <input type="range" id="esp-d" min="1" max="30" value="5" aria-label="旅遊天數">
+    <div class="quick"><button type="button" data-d="3">週末 3 天</button><button type="button" data-d="5">5 天</button><button type="button" data-d="7">一週</button><button type="button" data-d="14">兩週</button><button type="button" data-d="30">一個月</button></div>
+  </div>
+  <div class="grp">
+    <p class="step"><i>3</i>每天大概怎麼用？</p>
+    <div class="use" role="radiogroup" aria-label="每日用量" id="esp-u"></div>
+    <label class="tog"><input type="checkbox" id="esp-code" checked>我是 Saily 新用戶（價格套用折扣碼首購折 US$5）</label>
+  </div>
+  <div class="res" id="esp-res" aria-live="polite"><p class="need">正在計算比價結果…若一直停在這裡，請重新整理頁面。</p></div>
+  <div class="share">
+    <button type="button" id="esp-sh">分享結果</button>
+    <a class="line" id="esp-line" href="#" target="_blank" rel="noopener">傳到 LINE</a>
+    <button type="button" id="esp-cp">複製給旅伴</button>
+  </div>
+  <div class="ctip" id="esp-tip"></div>
+</div>
+<!-- 靜態比價表（搜尋引擎與 AI 可直接讀取） -->
+<h3>熱門目的地 eSIM 價格比較表（2026-09-19）</h3>
+<p>下面是用同一套算法、<strong>不套任何折扣碼</strong>算出的參考價（美元），綠底是該情境最便宜的一家。想看自己的天數，直接用上面的小幫手。</p>
+<div class="tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-t="a">5 天・每天 1GB</button><button type="button" role="tab" aria-selected="false" data-t="b">10 天・每天 2GB</button></div>
+<div class="tw" data-p="a"><table><thead><tr><th>目的地</th><th>Saily</th><th>Airalo</th><th>Yesim</th></tr></thead><tbody><tr><th scope="row">日本</th><td><b>US$10.99</b><small>5GB／30 天</small></td><td class="win"><b>US$10.00</b><small>5GB／7 天</small></td><td><b>US$10.09</b><small>5GB／30 天</small></td></tr><tr><th scope="row">韓國</th><td><b>US$10.99</b><small>5GB／30 天</small></td><td class="win"><b>US$10.00</b><small>5GB／7 天</small></td><td><b>US$18.57</b><small>10GB／30 天</small></td></tr><tr><th scope="row">泰國</th><td><b>US$7.99</b><small>5GB／30 天</small></td><td class="win"><b>US$7.00</b><small>5GB／7 天</small></td><td><b>US$8.08</b><small>5GB／30 天</small></td></tr><tr><th scope="row">越南</th><td><b>US$10.99</b><small>5GB／30 天</small></td><td class="win"><b>US$10.00</b><small>5GB／7 天</small></td><td><b>US$11.02</b><small>5GB／30 天</small></td></tr><tr><th scope="row">香港</th><td><b>US$11.99</b><small>5GB／30 天</small></td><td class="win"><b>US$11.00</b><small>5GB／7 天</small></td><td><b>US$11.02</b><small>5GB／30 天</small></td></tr><tr><th scope="row">新加坡</th><td><b>US$9.99</b><small>5GB／30 天</small></td><td class="win"><b>US$9.00</b><small>5GB／7 天</small></td><td><b>US$11.15</b><small>5GB／30 天</small></td></tr><tr><th scope="row">中國</th><td><b>US$15.99</b><small>5GB／30 天</small></td><td><b>US$14.50</b><small>5GB／7 天</small></td><td class="win"><b>US$12.76</b><small>5GB／30 天</small></td></tr><tr><th scope="row">美國</th><td><b>US$13.99</b><small>5GB／30 天</small></td><td><b>US$12.50</b><small>5GB／7 天</small></td><td class="win"><b>US$10.33</b><small>5GB／30 天</small></td></tr><tr><th scope="row">英國</th><td><b>US$12.99</b><small>5GB／30 天</small></td><td><b>US$12.00</b><small>5GB／7 天</small></td><td class="win"><b>US$11.14</b><small>5GB／30 天</small></td></tr><tr><th scope="row">歐洲多國</th><td><b>US$19.49</b><small>5GB／30 天</small></td><td><b>US$18.50</b><small>5GB／7 天</small></td><td class="win"><b>US$11.02</b><small>5GB／30 天</small></td></tr></tbody></table></div>
+<div class="tw" data-p="b" hidden><table><thead><tr><th>目的地</th><th>Saily</th><th>Airalo</th><th>Yesim</th></tr></thead><tbody><tr><th scope="row">日本</th><td><b>US$24.99</b><small>20GB／30 天</small></td><td class="win"><b>US$24.00</b><small>20GB／15 天</small></td><td><b>US$28.44</b><small>20GB／30 天</small></td></tr><tr><th scope="row">韓國</th><td><b>US$29.99</b><small>20GB／30 天</small></td><td><b>US$29.00</b><small>20GB／15 天</small></td><td class="win"><b>US$27.04</b><small>20GB／30 天</small></td></tr><tr><th scope="row">泰國</th><td><b>US$19.99</b><small>20GB／30 天</small></td><td class="win"><b>US$17.50</b><small>20GB／15 天</small></td><td><b>US$19.61</b><small>20GB／30 天</small></td></tr><tr><th scope="row">越南</th><td><b>US$28.99</b><small>20GB／30 天</small></td><td><b>US$28.00</b><small>20GB／15 天</small></td><td class="win"><b>US$25.25</b><small>20GB／30 天</small></td></tr><tr><th scope="row">香港</th><td><b>US$34.99</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td><b>US$28.00</b><small>20GB／15 天</small></td><td class="win"><b>US$25.25</b><small>20GB／30 天</small></td></tr><tr><th scope="row">新加坡</th><td><b>US$22.99</b><small>20GB／30 天</small></td><td class="win"><b>US$22.00</b><small>20GB／15 天</small></td><td><b>US$25.55</b><small>20GB／30 天</small></td></tr><tr><th scope="row">中國</th><td><b>US$34.99</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td><b>US$35.00</b><small>吃到飽 10 天（每日高速 3GB）</small></td><td class="win"><b>US$34.58</b><small>20GB／30 天</small></td></tr><tr><th scope="row">美國</th><td><b>US$34.99</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td><b>US$34.00</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td class="win"><b>US$24.10</b><small>20GB／30 天</small></td></tr><tr><th scope="row">英國</th><td><b>US$30.99</b><small>20GB／30 天</small></td><td><b>US$28.00</b><small>吃到飽 10 天（每日高速 3GB）</small></td><td class="win"><b>US$25.53</b><small>20GB／30 天</small></td></tr><tr><th scope="row">歐洲多國</th><td><b>US$35.99</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td><b>US$35.00</b><small>吃到飽 10 天（每日高速 5GB）</small></td><td class="win"><b>US$25.25</b><small>20GB／30 天</small></td></tr></tbody></table></div>
+<h3>Saily、Airalo、Yesim 怎麼選？</h3>
+<div class="brands">
+  <div class="bc"><b>Saily</b><ul><li>NordVPN 團隊推出，App 介面最直覺</li><li>吃到飽每天 5GB 高速，三家最寬</li><li>用碼 <strong>ZOEEHA9323</strong> 首購折 US$5</li></ul><a href="https://saily.tpk.ro/C78NyEnq" target="_blank" rel="sponsored nofollow noopener" data-b="saily">看 Saily 方案 →</a></div>
+  <div class="bc"><b>Airalo</b><ul><li>老牌 eSIM 商店，方案最多元</li><li>短天數（3–7 天）小流量常常最便宜</li><li>吃到飽多為每天 3GB 高速，之後 1Mbps</li></ul><a href="https://airalo.tpk.ro/kJJeVxlV" target="_blank" rel="sponsored nofollow noopener" data-b="airalo">看 Airalo 方案 →</a></div>
+  <div class="bc"><b>Yesim</b><ul><li>固定流量多為 30 天效期，天數長不怕過期</li><li>10 天以上的吃到飽常是三家最低價</li><li>吃到飽採公平使用原則，重度使用可能降速</li></ul><a href="https://yesim.tpk.ro/mjE4mscH" target="_blank" rel="sponsored nofollow noopener" data-b="yesim">看 Yesim 方案 →</a></div>
+</div>
+<h3>小幫手是怎麼算的？</h3>
+<div class="tl"><ul>
+<li><strong>需要流量＝天數 × 每日用量。</strong>輕度 0.5GB、一般 1GB、重度 2GB、狂用 4GB。</li>
+<li>只挑<strong>有效天數涵蓋整趟旅程</strong>的方案；固定流量不夠時，最多疊加 3 張同方案（三家都能在 App 內加購）。</li>
+<li>吃到飽方案若「每日高速上限」低於你的用量，會自動降低排序，並跳出提醒。</li>
+<li>價格為各家官網美元標價（2026-09-19 查價），台幣以 1 USD ≈ 32 TWD 估算；實際以結帳頁為準。</li>
+</ul></div>
+<h3>eSIM 常見問題</h3>
+<details open><summary>eSIM 選哪一家最便宜？</summary><div><p>沒有一家永遠最便宜，要看國家、天數和用量。依 2026 年 9 月查價：3–7 天的小流量，Airalo 常最便宜、Saily 通常只貴 US$1 左右；10 天以上、每天用 2GB 左右，Yesim 30 天效期的大流量方案常是三家最低；Saily 新用戶用折扣碼 ZOEEHA9323 首購折 US$5，短天數時通常會變成最便宜。</p></div></details>
+<details><summary>出國每天大概會用多少流量？</summary><div><p>只用地圖、LINE、查餐廳約 0.3–0.5GB；再加上 IG、FB 和傳照片約 1GB；常看短影音或視訊通話約 2GB；追劇或開熱點給旅伴可能到 4GB 以上。不確定就選「一般」，再多買一點緩衝。</p></div></details>
+<details><summary>eSIM 吃到飽真的無限用嗎？</summary><div><p>大多不是完全無限。Saily 吃到飽每天前 5GB 高速，之後降速；Airalo 多為每天 3GB（部分國家 5GB）高速，之後 1Mbps；Yesim 採公平使用原則，極大量使用可能降速。降速後還能傳 LINE、看地圖，但看影片會卡。</p></div></details>
+<details><summary>Saily 折扣碼怎麼用？</summary><div><p>下載 Saily App 或到官網選好方案，結帳時輸入折扣碼 ZOEEHA9323，新用戶首次購買可折 US$5（實際以 Saily 官方規則為準），每次購買還有 3% Saily Credits 回饋。</p></div></details>
+<details><summary>我的手機可以用 eSIM 嗎？</summary><div><p>iPhone XS／XR 之後的機型、Google Pixel 3 之後、多數 Samsung Galaxy S20 之後都支援。最快的確認方法：到手機設定搜尋「EID」，有出現一串號碼就代表支援。手機若有電信鎖，需要先解鎖。</p></div></details>
+<details><summary>用了 eSIM，還收得到台灣的簡訊驗證碼嗎？</summary><div><p>可以。把台灣門號的實體 SIM 保持開啟、關閉它的「數據漫遊」，上網改用 eSIM，就能收台灣簡訊而不會產生漫遊上網費；接收簡訊一般不收費，但撥打或接聽電話仍可能計費。</p></div></details>
+<details><summary>eSIM 什麼時候安裝比較好？</summary><div><p>建議出發前一兩天在台灣有 Wi-Fi 時先安裝好，抵達當地後再開啟這張 eSIM 的數據漫遊即可。多數方案是「抵達目的地連上網路才開始計算天數」，提早安裝不會浪費效期。</p></div></details>
+<h3>延伸閱讀</h3>
+<div class="rel">
+<a href="https://knittinghiyori.com/saily-esim-and-coupon/">Saily eSIM 評價＋日本實測<span>安裝教學、實際網速、折扣碼使用方式</span></a>
+<a href="https://knittinghiyori.com/saily-ultra-esim-review-coupon/">Saily Ultra 方案值得買嗎？<span>隱藏福利與適合的人</span></a>
+<a href="https://knittinghiyori.com/europe-esim-best-plan-saily/">歐洲 eSIM 怎麼買最划算？<span>跨國方案比較、英國要不要分開買</span></a>
+<a href="https://knittinghiyori.com/tools/travel-deals/">旅遊優惠整理頁<span>訂房、交通、網卡的限時優惠一次看</span></a>
+<a href="https://knittinghiyori.com/tools/esim-plan-picker-en/">English version<span>同一個工具的英文版，多了台灣的方案比較</span></a>
+</div>
+<h3>出國前後還用得到的工具</h3>
+<div class="rel rel2">
+<a href="https://knittinghiyori.com/tools/packing-list-generator/">出國行李清單產生器<span>依天數和季節自動生清單，不會漏帶</span></a>
+<a href="https://knittinghiyori.com/tools/jr-pass-calculator/">JR Pass 試算器<span>去日本前先算：買周遊券還是單程票划算</span></a>
+<a href="https://knittinghiyori.com/tools/travel-split-calculator/">旅費分帳計算機<span>回國前把同行朋友的帳算清楚</span></a>
+<a href="https://knittinghiyori.com/cube-tree-points-to-airline-miles-guide/">小樹點換哩程試算器<span>點數換機票前先算換得划不划算</span></a>
+<a href="https://knittinghiyori.com/knitting-needles-carry-on-rules/">織女出國安檢查詢<span>棒針、鉤針能不能帶上飛機</span></a>
+</div>
+<p class="disc">本頁含聯盟連結：透過連結購買，我會收到小額回饋，不會影響你的價格；推薦排序完全依價格計算，不因佣金調整。價格變動快，購買前請以官網為準。— Zoe</p>
+<div class="toast" id="esp-toast" role="status"></div>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"eSIM 選購小幫手","url":"https://knittinghiyori.com/tools/esim-plan-picker/","applicationCategory":"TravelApplication","operatingSystem":"Any","inLanguage":"zh-Hant-TW","description":"輸入目的地、旅遊天數與每日流量，自動比較 Saily、Airalo、Yesim 的 eSIM 方案價格並推薦最划算的買法。","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"dateModified":"2026-09-19","author":{"@type":"Person","name":"Zoe","url":"https://knittinghiyori.com/"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"eSIM 選哪一家最便宜？","acceptedAnswer":{"@type":"Answer","text":"沒有一家永遠最便宜，要看國家、天數和用量。依 2026 年 9 月查價：3–7 天的小流量，Airalo 常最便宜、Saily 通常只貴 US$1 左右；10 天以上、每天用 2GB 左右，Yesim 30 天效期的大流量方案常是三家最低；Saily 新用戶用折扣碼 ZOEEHA9323 首購折 US$5，短天數時通常會變成最便宜。"}},{"@type":"Question","name":"出國每天大概會用多少流量？","acceptedAnswer":{"@type":"Answer","text":"只用地圖、LINE、查餐廳約 0.3–0.5GB；再加上 IG、FB 和傳照片約 1GB；常看短影音或視訊通話約 2GB；追劇或開熱點給旅伴可能到 4GB 以上。不確定就選「一般」，再多買一點緩衝。"}},{"@type":"Question","name":"eSIM 吃到飽真的無限用嗎？","acceptedAnswer":{"@type":"Answer","text":"大多不是完全無限。Saily 吃到飽每天前 5GB 高速，之後降速；Airalo 多為每天 3GB（部分國家 5GB）高速，之後 1Mbps；Yesim 採公平使用原則，極大量使用可能降速。降速後還能傳 LINE、看地圖，但看影片會卡。"}},{"@type":"Question","name":"Saily 折扣碼怎麼用？","acceptedAnswer":{"@type":"Answer","text":"下載 Saily App 或到官網選好方案，結帳時輸入折扣碼 ZOEEHA9323，新用戶首次購買可折 US$5（實際以 Saily 官方規則為準），每次購買還有 3% Saily Credits 回饋。"}},{"@type":"Question","name":"我的手機可以用 eSIM 嗎？","acceptedAnswer":{"@type":"Answer","text":"iPhone XS／XR 之後的機型、Google Pixel 3 之後、多數 Samsung Galaxy S20 之後都支援。最快的確認方法：到手機設定搜尋「EID」，有出現一串號碼就代表支援。手機若有電信鎖，需要先解鎖。"}},{"@type":"Question","name":"用了 eSIM，還收得到台灣的簡訊驗證碼嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。把台灣門號的實體 SIM 保持開啟、關閉它的「數據漫遊」，上網改用 eSIM，就能收台灣簡訊而不會產生漫遊上網費；接收簡訊一般不收費，但撥打或接聽電話仍可能計費。"}},{"@type":"Question","name":"eSIM 什麼時候安裝比較好？","acceptedAnswer":{"@type":"Answer","text":"建議出發前一兩天在台灣有 Wi-Fi 時先安裝好，抵達當地後再開啟這張 eSIM 的數據漫遊即可。多數方案是「抵達目的地連上網路才開始計算天數」，提早安裝不會浪費效期。"}}]}]}</script>
+<script><!--@@MAIN@@--></script>
+</div>
+<!-- ===== /eSIM 選購小幫手 ===== -->

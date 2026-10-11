@@ -1,0 +1,263 @@
+<div id="ts-app" class="ts" lang="zh-Hant-TW">
+<style><!--@@STYLE@@--></style>
+
+<!-- 開場：一句話結論（給讀者＋AI 摘要引用） -->
+<div class="lang"><span class="lang-tip" id="ts-langtip" hidden></span><div class="seg" role="group" aria-label="語言 Language 言語"><button type="button" data-lang="zh" aria-pressed="true">中文</button><button type="button" data-lang="en" aria-pressed="false">EN</button><button type="button" data-lang="ja" aria-pressed="false">日本語</button></div></div>
+<span class="kick" data-t="kick">旅遊工具・最後更新 2026-09-25</span>
+<h2 data-t="h2"><span class="hl">旅費分帳</span>計算機：記下誰先付，自動算出誰該轉給誰</h2>
+<p class="lead" data-t="lead"><strong>一句話說明：</strong>這是一個免費的旅行拆帳（AA 制）工具。出國時誰先付了住宿、誰刷了餐費，每筆記下來，工具會自動換匯成台幣，用「淨額法」算出<strong>最少轉帳次數</strong>的結算方式（N 個人最多 N－1 筆）。完成後產生連結傳到 LINE 群組，旅伴打開就能看到同一本帳。</p>
+<div class="pills" data-t="pills"><span>支援 20 種幣別</span><span>最少轉帳</span><span>連結分享給旅伴</span><span>免註冊・手機好按</span><a href="#ts-install">加到手機桌面 ↓</a></div>
+
+<div class="grid">
+  <div style="display:grid;gap:14px;min-width:0;grid-template-columns:minmax(0,1fr)">
+    <section class="card" aria-labelledby="ts-h1">
+      <h3 id="ts-h1"><span class="step">1</span><span data-t="c1">旅程與旅伴</span></h3>
+      <div class="row">
+        <div class="field" style="flex:2"><label for="ts-title" data-t="lTitle">旅程名稱</label><input id="ts-title" class="in" data-tp="pTitle" placeholder="例如：東京五日遊" maxlength="40"></div>
+        <div class="field"><label for="ts-base" data-t="lBase">結算幣別</label><select id="ts-base" class="in"></select></div>
+      </div>
+      <div id="ts-mform" class="row" style="margin-top:12px">
+        <label for="ts-mname" class="sr" data-t="lName">旅伴名字</label>
+        <input id="ts-mname" class="in" style="flex:1;width:auto;min-width:0" data-tp="pName" placeholder="輸入名字，可用逗號一次加多位" maxlength="60">
+        <button class="btn" type="button" id="ts-madd" data-t="bAdd">＋ 新增</button>
+      </div>
+      <div class="chips" id="ts-members" aria-live="polite"></div>
+    </section>
+
+    <section class="card" aria-labelledby="ts-h2">
+      <div class="bar-top"><h3 id="ts-h2"><span class="step">2</span><span data-t="c2">支出紀錄</span></h3><button class="btn sm" id="ts-add" type="button" data-t="bAddExp">＋ 記一筆</button></div>
+      <div id="ts-list"></div>
+      <div id="ts-ratebox" hidden>
+        <p class="h4" data-t="rates">匯率設定</p>
+        <div class="rates" id="ts-rates"></div>
+        <div class="row" style="margin-top:6px;justify-content:space-between"><p class="note" id="ts-rnote" style="margin:0"></p><button class="btn ghost sm" id="ts-radj" type="button" data-t="bAdjust">調整匯率</button></div>
+        <p class="note" data-t="rateNote">按「調整匯率」可以改成你實際刷卡或換匯的匯率；匯率會存進分享連結，旅伴看到的數字就會一致。</p>
+      </div>
+      <div class="row" style="margin-top:12px;justify-content:space-between">
+        <button class="lnk" id="ts-demo" type="button" data-t="bDemo">載入範例看看</button>
+        <button class="lnk" id="ts-restore" type="button" hidden data-t="bRestore">還原上一本帳本</button>
+        <button class="lnk" id="ts-reset" type="button" style="color:var(--sub)" data-t="bReset">清空，開新帳本</button>
+      </div>
+    </section>
+  </div>
+
+  <aside class="side" id="ts-res-anchor" style="min-width:0">
+    <section class="card" aria-labelledby="ts-h3">
+      <h3 id="ts-h3"><span class="step">3</span><span data-t="c3">結算結果</span></h3>
+      <div id="ts-result" aria-live="polite"></div>
+      <div class="share">
+        <button class="btn coral" id="ts-share" type="button" data-t="bShare">分享連結給旅伴</button>
+        <button class="btn ghost" id="ts-copytext" type="button" data-t="bCopy">複製結算文字</button>
+      </div>
+      <p class="note" data-t="payNote">旅伴轉帳還你之後，按「標記已付款」；之後分享的連結和結算文字，就會標出誰已經付了。</p>
+      <p class="note" data-t="privacy">帳本只存在你的瀏覽器和分享連結裡，網站不會儲存任何帳目。</p>
+    </section>
+
+    <section class="card" style="margin-top:14px" aria-labelledby="ts-h4">
+      <h3 id="ts-h4" style="font-size:1em;display:block">帳算清了，<span id="ts-dest">下一趟旅行</span>也先準備起來</h3>
+      <div class="reco">
+        <a class="rc big" style="--c:#287DFA" data-aff="trip" data-cta="rec_card" data-cta-type="trip" href="https://trip.tpk.ro/4JCNKu4q" target="_blank" rel="sponsored nofollow noopener"><span class="br">Trip.com</span><b data-t="trip_b">機票＋酒店一起訂</b><small data-t="trip_s">一次比價航班與住宿，常有組合優惠</small><em data-t="trip_e">查機票與酒店 →</em></a>
+        <a class="rc" style="--c:#E0443A" data-aff="agoda" data-cta="rec_card" data-cta-type="agoda" href="https://agoda.tpk.ro/BjCNFyqy" target="_blank" rel="sponsored nofollow noopener"><span class="br">Agoda</span><b data-t="agoda_b">亞洲訂房比價</b><small data-t="agoda_s">日韓泰越房源多，常有會員價</small><em data-t="agoda_e">看住宿 →</em></a>
+        <a class="rc" style="--c:#003B95" data-aff="booking" data-cta="rec_card" data-cta-type="booking" href="https://booking.tpk.ro/RcBdtiWX" target="_blank" rel="sponsored nofollow noopener"><span class="br">Booking.com</span><b data-t="booking_b">免費取消房型</b><small data-t="booking_s">行程未定也能先卡位</small><em data-t="booking_e">找免費取消 →</em></a>
+        <a class="rc" style="--c:#FF5B00" data-aff="klook" data-cta="rec_card" data-cta-type="klook" href="https://klook.tpk.ro/yPdA5Iyi" target="_blank" rel="sponsored nofollow noopener"><span class="br">Klook</span><b data-t="klook_b">票券與交通</b><small data-t="klook_s">樂園門票、周遊券、機場接送</small><em data-t="klook_e">看熱門行程 →</em></a>
+        <a class="rc" style="--c:#26BEC9" data-aff="kkday" data-cta="rec_card" data-cta-type="kkday" href="https://kkday.tpk.ro/NXjHmyP7" target="_blank" rel="sponsored nofollow noopener"><span class="br">KKday</span><b data-t="kkday_b">一日遊與在地體驗</b><small data-t="kkday_s">包車、導覽、體驗課程</small><em data-t="kkday_e">找一日遊 →</em></a>
+      </div>
+      <p class="disc" data-t="disc">以上為聯盟連結：透過連結預訂，我會收到小額回饋，不會影響你的價格。— Zoe</p>
+    </section>
+  </aside>
+</div>
+
+<!-- 文章內容（搜尋引擎與 AI 可直接讀取） -->
+<div class="art">
+  <section class="card" id="ts-artnote" hidden><p style="margin:0" data-t="artnote"></p></section>
+  <section class="card">
+    <h3>旅費分帳計算機怎麼用？三步驟完成</h3>
+    <ol>
+      <li><strong>新增旅伴、選結算幣別：</strong>把所有一起出遊的人加進來，結算幣別通常選新台幣，回國後轉帳最方便。</li>
+      <li><strong>每付一筆就記一筆：</strong>填入金額、當地幣別和項目，選誰先付，再勾選哪些人要分攤。沒參加的人不勾就不用分。</li>
+      <li><strong>看結算、傳連結：</strong>結算區會即時顯示「誰該轉給誰多少」。按「分享連結給旅伴」丟到 LINE 群組，大家點開就能核對。</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>計算原理：淨額法＋最少轉帳</h3>
+    <p>每個人的<strong>淨額＝實際先付的金額－應該分攤的金額</strong>。淨額為正代表別人欠你，為負代表你欠別人。接著把欠最多的人配對應收最多的人，一筆一筆結清，所以 N 個人最多只需要 N－1 筆轉帳，不用每筆帳都互相找錢。</p>
+    <p><strong>舉例：</strong>小明、阿華、小美三人去東京。小明付住宿 ¥60,000，阿華付餐費 ¥15,000，三人平分，每人應分攤 ¥25,000。</p>
+    <div class="tw"><table>
+      <thead><tr><th>旅伴</th><th>先付</th><th>應分攤</th><th>淨額</th></tr></thead>
+      <tbody>
+        <tr><td>小明</td><td>¥60,000</td><td>¥25,000</td><td>＋¥35,000（應收）</td></tr>
+        <tr><td>阿華</td><td>¥15,000</td><td>¥25,000</td><td>－¥10,000（應付）</td></tr>
+        <tr><td>小美</td><td>¥0</td><td>¥25,000</td><td>－¥25,000（應付）</td></tr>
+      </tbody>
+    </table></div>
+    <p>結算只要兩筆：小美轉 ¥25,000 給小明、阿華轉 ¥10,000 給小明。結算幣別選新台幣時，工具會依匯率換成台幣金額。</p>
+  </section>
+
+  <section class="card">
+    <h3>出國多幣別分帳，匯率要用哪一個？</h3>
+    <p>工具預設抓取國際參考匯率（中間價），適合大家事先說好「用市場匯率算」的情況。想更精準，可以在匯率設定改成信用卡帳單上的實際匯率，或出發前在銀行換匯的匯率。匯率會存進分享連結，確保每位旅伴看到的金額完全一樣。</p>
+  </section>
+
+  <section class="card" id="ts-install" aria-labelledby="ts-h-ins">
+    <h3 id="ts-h-ins" data-t="insH">把旅費分帳計算機加到手機桌面，下次出國直接開</h3>
+    <p data-t="insP">加到主畫面後，它會像 App 一樣出現在手機桌面，不用下載、不佔空間；帳本也會自動存在同一支手機的瀏覽器裡，下次打開就接著記。</p>
+    <div class="tabs" role="tablist" aria-label="選擇你的裝置" data-ta="insTabs">
+      <button type="button" role="tab" data-os="ios" aria-selected="true">iPhone Safari</button>
+      <button type="button" role="tab" data-os="ioschrome" aria-selected="false">iPhone Chrome</button>
+      <button type="button" role="tab" data-os="android" aria-selected="false">Android</button>
+      <button type="button" role="tab" data-os="pc" aria-selected="false" data-t="tabPc">電腦</button>
+    </div>
+    <button type="button" class="btn block" id="ts-pwa" hidden style="width:100%;margin-bottom:12px" data-t="bPwa">一鍵安裝到桌面</button>
+    <div data-panel="ios" role="tabpanel" data-t="pIos">
+      <p class="os-t">iPhone：加到主畫面（Safari）</p>
+      <ol class="steps">
+        <li>用 <strong>Safari</strong> 打開這一頁</li>
+        <li>點網址列旁的<strong>「分享」</strong>圖示（方框加向上箭頭；新版 iOS 可能要先點「⋯」）</li>
+        <li>往下滑，點<strong>「加入主畫面」</strong></li>
+        <li>名稱可以改成「旅費分帳」，再按<strong>「加入」</strong>，桌面就會出現圖示</li>
+      </ol>
+      <p class="os-t">iPhone：加到我的最愛</p>
+      <ol class="steps">
+        <li>一樣點<strong>「分享」</strong>圖示</li>
+        <li>點<strong>「加入我的最愛」</strong>，之後在 Safari 新分頁就能一鍵打開</li>
+      </ol>
+    </div>
+    <div data-panel="ioschrome" role="tabpanel" hidden data-t="pIosC">
+      <p class="os-t">iPhone：加到主畫面（Chrome）</p>
+      <ol class="steps">
+        <li>用 <strong>Chrome</strong> 打開這一頁</li>
+        <li>點網址列右側的<strong>「分享」</strong>圖示（方框加向上箭頭；沒看到的話，點右下角「⋯」再選「分享」）</li>
+        <li>往下滑，點<strong>「加入主畫面」</strong></li>
+        <li>按<strong>「加入」</strong>，桌面就會出現圖示，點開就是 Chrome</li>
+      </ol>
+      <p class="os-t">iPhone：加入 Chrome 書籤</p>
+      <ol class="steps">
+        <li>點右下角<strong>「⋯」</strong></li>
+        <li>點<strong>「加入書籤」</strong>（部分版本顯示為☆圖示），之後在 Chrome 的「書籤」就找得到</li>
+      </ol>
+      <p class="note">iPhone 的 Chrome 需要 iOS 16.4 以上才有「加入主畫面」；沒有的話，改用 Safari 操作一次即可。</p>
+    </div>
+    <div data-panel="android" role="tabpanel" hidden data-t="pAnd">
+      <p class="os-t">Android：加到主畫面（Chrome）</p>
+      <ol class="steps">
+        <li>用 <strong>Chrome</strong> 打開這一頁</li>
+        <li>點右上角的<strong>「⋮」</strong>選單</li>
+        <li>點<strong>「加到主畫面」</strong>，出現視窗後選<strong>「新增」</strong>或<strong>「建立捷徑」</strong></li>
+        <li>回到手機桌面，就會看到旅費分帳的圖示</li>
+      </ol>
+      <p class="os-t">Android：加入書籤</p>
+      <ol class="steps">
+        <li>點右上角<strong>「⋮」</strong></li>
+        <li>點最上排的<strong>「☆」星號</strong>，就加入書籤了</li>
+      </ol>
+      <p class="note">Samsung 網際網路瀏覽器：點下方的「≡」選單 →「加入頁面至」→「主畫面」。</p>
+    </div>
+    <div data-panel="pc" role="tabpanel" hidden data-t="pPc">
+      <p class="os-t">電腦：加入書籤</p>
+      <ol class="steps">
+        <li>Windows 按 <strong>Ctrl＋D</strong>，Mac 按 <strong>⌘＋D</strong></li>
+        <li>資料夾選「書籤列」，之後瀏覽器最上方就能一鍵打開</li>
+      </ol>
+      <p class="note">在電腦上記好的帳，按「分享連結給旅伴」把連結傳到手機，就能在手機上接著記。</p>
+    </div>
+    <div class="row" style="justify-content:space-between;margin-top:4px">
+      <span class="note" style="margin:0" data-t="insNote">基於手機安全設計，網頁無法替你直接加入，照上面步驟約 10 秒完成。</span>
+      <button type="button" class="btn ghost sm" id="ts-installed" data-t="bDone">我加好了</button>
+    </div>
+    <div class="invite">
+      <p data-t="invite"><strong>覺得好用嗎？</strong>分享給下次要一起出國的朋友，出發前先傳到旅遊群組，回國算錢就不用再對帳對半天。</p>
+      <div class="share3">
+        <button type="button" class="btn" id="ts-tshare" data-t="bTShare">分享給朋友</button>
+        <a class="btn line" id="ts-tline" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fknittinghiyori.com%2Ftools%2Ftravel-split-calculator%2F" target="_blank" rel="noopener" data-t="bLine">傳到 LINE</a>
+        <button type="button" class="btn ghost" id="ts-tcopy" data-t="bTCopy">複製網址</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>旅費分帳常見問題</h3>
+    <details open><summary>旅費分帳要怎麼算最公平？</summary><div><p>最常見的做法是淨額法：先把每個人「實際付出的錢」減去「應該分攤的錢」，得到每人的淨額。淨額為正的人應收錢，為負的人應付錢，再用最少的轉帳筆數把差額配對結清。</p></div></details>
+    <details><summary>出國用不同幣別付款，要怎麼分帳？</summary><div><p>先選定一個結算幣別（例如新台幣），把每筆外幣支出依匯率換算成結算幣別後再分攤。本工具可以抓取參考匯率，也能手動改成你實際刷卡或換匯的匯率。</p></div></details>
+    <details><summary>分享連結會把資料上傳到伺服器嗎？</summary><div><p>不會。帳本資料會壓縮後放在連結的 # 後面，只存在連結本身和你的瀏覽器中，網站伺服器不會收到或儲存你的帳目。</p></div></details>
+    <details><summary>有人沒參加某項行程，可以不分攤嗎？</summary><div><p>可以。每筆支出都能勾選「分攤對象」，只有被勾選的人會平均分攤該筆費用，例如沒喝酒的人可以不分攤酒錢。</p></div></details>
+    <details><summary>為什麼轉帳次數比想像中少？</summary><div><p>工具不會逐筆互相找錢，而是先抵銷每個人所有收支，只留下淨額，再把最大的欠款配對最大的應收款，通常 N 個人最多只需要 N－1 筆轉帳。</p></div></details>
+    <details><summary>可以把旅費分帳計算機加到手機桌面嗎？</summary><div><p>可以。iPhone 用 Safari 打開本頁，點「分享」圖示再選「加入主畫面」；Android 用 Chrome 點右上角「⋮」選「加到主畫面」。加好之後會像 App 一樣出現在桌面，不用下載，帳本也會存在同一支手機裡。</p></div></details>
+    <details><summary>旅伴沒有用這個工具，也能看到分帳結果嗎？</summary><div><p>可以。按「分享連結給旅伴」後，對方只要點開連結就能看到完整帳本和每個人該轉多少錢，不用註冊、不用安裝；也可以按「複製結算文字」直接貼到 LINE 群組。</p></div></details>
+    <details><summary>兩個人各自用手機記帳，可以合併成一本嗎？</summary><div><p>可以。各自記好後，把自己的帳本用「分享連結給旅伴」傳給對方。對方打開時，工具會認出是同一趟旅行，把兩邊的支出合併在一起，重複的自動略過、被刪掉的也不會再跑回來。合併後再分享一次連結，大家就是同一份帳本。</p></div></details>
+    <details><summary>怎麼標記誰已經付錢？</summary><div><p>在結算結果每一筆轉帳下方按「標記已付款」，工具會記下這筆還款，剩下的轉帳自動重算，並顯示已付清幾筆、還差多少。再按「分享連結給旅伴」或「複製結算文字」，訊息裡會列出已付款和還沒付的人，不會一直催到已經付錢的旅伴。付款紀錄也會跟著合併帳本一起合併。</p></div></details>
+    <details><summary>和 Splitwise 這類分帳 App 有什麼不同？</summary><div><p>Splitwise 等 App 需要每位旅伴下載並註冊，適合長期記帳；這個工具打開網頁就能用、不用註冊，旅伴只要點連結就能看到同一本帳，適合一趟旅行結束就結算的情況。它沒有雲端即時同步，但多人各自記帳後互傳連結，就能把支出合併在一起。</p></div></details>
+    <details><summary>需要下載 App 或註冊嗎？</summary><div><p>不需要。直接用手機或電腦瀏覽器開啟就能用，資料會自動存在你的瀏覽器，也可以用分享連結在不同裝置之間接續編輯。</p></div></details>
+  </section>
+
+  <section class="card">
+    <h3>出發前也用得到</h3>
+    <div class="rel">
+      <a href="https://knittinghiyori.com/tools/esim-plan-picker/" data-cta="related" data-cta-type="tool">eSIM 選購小幫手<span>選國家、天數、用量，10 秒比完 Saily、Airalo、Yesim</span></a>
+      <a href="https://knittinghiyori.com/jr-pass-calculator/" data-cta="related" data-cta-type="tool">JR Pass 划算計算機<span>輸入日本行程，比較周遊券和單買車票</span></a>
+      <a href="https://knittinghiyori.com/tools/travel-deals/" data-cta="related" data-cta-type="article">旅遊優惠整理頁<span>訂房、交通、網卡的限時優惠一次看</span></a>
+    </div>
+  </section>
+</div>
+
+<div class="fab" id="ts-fab">
+  <div class="sum"><span id="ts-fab-l">尚未記帳</span><b id="ts-fab-v">NT$0</b></div>
+  <button class="btn ghost sm" type="button" id="ts-fab-res" data-t="bRes">看結算</button>
+  <button class="btn sm" type="button" id="ts-fab-add" data-t="bAddShort">＋ 記一筆</button>
+</div>
+
+<dialog class="dlg" id="ts-dlg" aria-labelledby="ts-dlg-t">
+  <div class="sheet" id="ts-eform">
+    <h3><span id="ts-dlg-t">記一筆支出</span><button class="x" type="button" id="ts-close" aria-label="關閉" data-ta="aClose">×</button></h3>
+    <div class="sec"><div class="lbl" style="margin-bottom:6px" data-t="lAmt">金額</div>
+      <div class="amt"><label for="ts-eamt" class="sr" data-t="lAmt">金額</label><input id="ts-eamt" class="in" inputmode="decimal" placeholder="0"><label for="ts-ecur" class="sr" data-t="lCur">幣別</label><select id="ts-ecur" class="in"></select></div></div>
+    <div class="sec"><label class="lbl" for="ts-edesc" data-t="lDesc">項目</label><input id="ts-edesc" class="in" style="margin-top:6px" data-tp="pDesc" placeholder="例如：一蘭拉麵、飯店兩晚" maxlength="40"></div>
+    <div class="sec"><div class="lbl" style="margin-bottom:6px" data-t="lCat">分類</div><div class="pick" id="ts-ecat"></div></div>
+    <div class="sec"><div class="lbl" style="margin-bottom:6px" data-t="lPayer">誰先付的？</div><div class="pick" id="ts-epay"></div></div>
+    <div class="sec">
+      <div class="row" style="justify-content:space-between;margin-bottom:6px"><span class="lbl" data-t="lSplit">誰要分攤？</span><button type="button" class="lnk" id="ts-eall">全選</button></div>
+      <div class="pick" id="ts-esplit"></div>
+      <div class="pre" id="ts-epre" hidden></div>
+    </div>
+    <p class="err" id="ts-eerr" role="alert"></p>
+    <div class="foot"><button type="button" class="btn ghost" id="ts-edel" hidden style="color:var(--red);border-color:var(--red)" data-t="bDel">刪除</button><button type="button" class="btn block" id="ts-esave" data-t="bSave">儲存</button></div>
+  </div>
+</dialog>
+<dialog class="dlg" id="ts-rdlg" aria-labelledby="ts-r-t">
+  <div class="sheet">
+    <h3><span id="ts-r-t" data-t="rTitle">確認匯率</span><button class="x" type="button" id="ts-r-x" aria-label="關閉" data-ta="aClose">×</button></h3>
+    <p class="note" id="ts-r-sub" style="margin:0 0 8px"></p>
+    <div class="rates" id="ts-r-list"></div>
+    <div class="row" style="margin-top:10px;justify-content:space-between">
+      <label for="ts-r-add" class="sr" data-t="rAddL">加入其他幣別</label><select id="ts-r-add" class="in"></select>
+      <button class="lnk" id="ts-r-live" type="button" data-t="bFetch">更新為即時匯率</button>
+    </div>
+    <p class="note" id="ts-r-note"></p>
+    <p class="err" id="ts-r-err" role="alert"></p>
+    <div class="foot"><button type="button" class="btn ghost" id="ts-r-cancel" data-t="bCancel">取消</button><button type="button" class="btn block" id="ts-r-ok" data-t="bConfirm">確認匯率</button></div>
+  </div>
+</dialog>
+<dialog class="dlg" id="ts-mdlg" aria-labelledby="ts-m-t">
+  <div class="sheet">
+    <h3 id="ts-m-t"></h3>
+    <p id="ts-m-p"></p>
+    <p class="note" id="ts-m-n"></p>
+    <div class="mbtns" id="ts-m-b"></div>
+  </div>
+</dialog>
+<div class="toast" id="ts-toast" role="status"></div>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"旅費分帳計算機","url":"https://knittinghiyori.com/tools/travel-split-calculator/","applicationCategory":"TravelApplication","operatingSystem":"Any","inLanguage":"zh-Hant-TW","description":"記錄旅途中每筆由誰先付款的支出，支援多幣別換匯，以淨額法計算每人應收應付，產生最少轉帳次數的結算清單與分享連結。","featureList":["多幣別自動換匯","最少轉帳次數結算","分享連結給旅伴","可指定分攤對象","免註冊","標記已付款、分享時標示誰已付"],"offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"dateModified":"2026-09-25","author":{"@type":"Person","name":"Zoe","url":"https://knittinghiyori.com/"}},{"@type":"HowTo","name":"如何用旅費分帳計算機結算出國旅費","totalTime":"PT2M","step":[{"@type":"HowToStep","position":1,"name":"新增旅伴、選結算幣別","text":"把所有一起出遊的人加進來，結算幣別通常選新台幣。"},{"@type":"HowToStep","position":2,"name":"每付一筆就記一筆","text":"填入金額、當地幣別和項目，選誰先付，再勾選哪些人要分攤。"},{"@type":"HowToStep","position":3,"name":"看結算、傳連結","text":"工具即時算出誰該轉給誰多少，按分享連結傳給旅伴核對。"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"旅費分帳要怎麼算最公平？","acceptedAnswer":{"@type":"Answer","text":"最常見的做法是淨額法：先把每個人「實際付出的錢」減去「應該分攤的錢」，得到每人的淨額。淨額為正的人應收錢，為負的人應付錢，再用最少的轉帳筆數把差額配對結清。"}},{"@type":"Question","name":"出國用不同幣別付款，要怎麼分帳？","acceptedAnswer":{"@type":"Answer","text":"先選定一個結算幣別（例如新台幣），把每筆外幣支出依匯率換算成結算幣別後再分攤。本工具可以抓取參考匯率，也能手動改成你實際刷卡或換匯的匯率。"}},{"@type":"Question","name":"分享連結會把資料上傳到伺服器嗎？","acceptedAnswer":{"@type":"Answer","text":"不會。帳本資料會壓縮後放在連結的 # 後面，只存在連結本身和你的瀏覽器中，網站伺服器不會收到或儲存你的帳目。"}},{"@type":"Question","name":"有人沒參加某項行程，可以不分攤嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。每筆支出都能勾選「分攤對象」，只有被勾選的人會平均分攤該筆費用，例如沒喝酒的人可以不分攤酒錢。"}},{"@type":"Question","name":"為什麼轉帳次數比想像中少？","acceptedAnswer":{"@type":"Answer","text":"工具不會逐筆互相找錢，而是先抵銷每個人所有收支，只留下淨額，再把最大的欠款配對最大的應收款，通常 N 個人最多只需要 N－1 筆轉帳。"}},{"@type":"Question","name":"可以把旅費分帳計算機加到手機桌面嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。iPhone 用 Safari 打開本頁，點「分享」圖示再選「加入主畫面」；Android 用 Chrome 點右上角「⋮」選「加到主畫面」。加好之後會像 App 一樣出現在桌面，不用下載，帳本也會存在同一支手機裡。"}},{"@type":"Question","name":"旅伴沒有用這個工具，也能看到分帳結果嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。按「分享連結給旅伴」後，對方只要點開連結就能看到完整帳本和每個人該轉多少錢，不用註冊、不用安裝；也可以按「複製結算文字」直接貼到 LINE 群組。"}},{"@type":"Question","name":"兩個人各自用手機記帳，可以合併成一本嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。各自記好後，把自己的帳本用「分享連結給旅伴」傳給對方。對方打開時，工具會認出是同一趟旅行，把兩邊的支出合併在一起，重複的自動略過、被刪掉的也不會再跑回來。合併後再分享一次連結，大家就是同一份帳本。"}},{"@type":"Question","name":"怎麼標記誰已經付錢？","acceptedAnswer":{"@type":"Answer","text":"在結算結果每一筆轉帳下方按「標記已付款」，工具會記下這筆還款，剩下的轉帳自動重算，並顯示已付清幾筆、還差多少。再按「分享連結給旅伴」或「複製結算文字」，訊息裡會列出已付款和還沒付的人，不會一直催到已經付錢的旅伴。付款紀錄也會跟著合併帳本一起合併。"}},{"@type":"Question","name":"和 Splitwise 這類分帳 App 有什麼不同？","acceptedAnswer":{"@type":"Answer","text":"Splitwise 等 App 需要每位旅伴下載並註冊，適合長期記帳；這個工具打開網頁就能用、不用註冊，旅伴只要點連結就能看到同一本帳，適合一趟旅行結束就結算的情況。它沒有雲端即時同步，但多人各自記帳後互傳連結，就能把支出合併在一起。"}},{"@type":"Question","name":"需要下載 App 或註冊嗎？","acceptedAnswer":{"@type":"Answer","text":"不需要。直接用手機或電腦瀏覽器開啟就能用，資料會自動存在你的瀏覽器，也可以用分享連結在不同裝置之間接續編輯。"}}]}]}</script>
+
+<!--noptimize--><script data-cfasync="false" data-no-optimize="1" data-no-defer="1" nowprocket>
+window.TS_AFF={
+  trip:'https://trip.tpk.ro/4JCNKu4q',
+  agoda:'https://agoda.tpk.ro/BjCNFyqy',
+  booking:'https://booking.tpk.ro/RcBdtiWX',
+  klook:'https://klook.tpk.ro/yPdA5Iyi',
+  kkday:'https://kkday.tpk.ro/NXjHmyP7'
+};
+(function(){var b="<!--@@MAIN@@-->";try{var s=atob(b),u=new Uint8Array(s.length),i=0;for(;i!==s.length;i++)u[i]=s.charCodeAt(i);(new Function(new TextDecoder().decode(u)))()}catch(e){if(window.console)console.error("[travel-split] 載入失敗",e)}})();
+</script><!--/noptimize-->
+</div>
+<!-- ===== /旅費分帳計算機 ===== -->
