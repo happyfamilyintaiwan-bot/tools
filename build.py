@@ -188,7 +188,7 @@ def feat(i, t, lang, L, k):
             f'<span class="fgo">{L["open"]}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>')
 
 
-def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工具總覽|免費線上小工具', og_img=''):
+def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工具總覽|免費線上小工具', og_img='', notfound=False):
     lang = next(k for k, v in LANGS.items() if v is L)
     alts = ''.join(f'<link rel="alternate" hreflang="{LANGS[l]["hreflang"]}" href="{SITE}{LANGS[l]["path"]}">' for l in ORDER)
     alts += f'<link rel="alternate" hreflang="x-default" href="{SITE}/">'
@@ -202,6 +202,17 @@ def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工�
     if L['fonts'] and glyphs:
         # 中日文襯線只載入本頁標題實際用到的字（text= 子集），避免數 MB 字型拖慢 LCP
         cjk = f'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?{L["fonts"]}&text={quote("".join(sorted(set(glyphs))))}&display=swap">'
+    # 404（core §7）：不放 canonical／hreflang／OG，也不載 AdSense（錯誤頁不能放廣告）
+    canon = '' if notfound else f'<link rel="canonical" href="{canonical}">\n{alts}\n'
+    og = '' if notfound else f'''<meta property="og:type" content="website">
+<meta property="og:site_name" content="knittinghiyori tools">
+<meta property="og:title" content="{E(title)}">
+<meta property="og:description" content="{E(desc)}">
+<meta property="og:url" content="{canonical}">
+<meta property="og:locale" content="{L["og_locale"]}">
+{og_tags(og_img, title, lang) if og_img else '<meta name="twitter:card" content="summary">'}
+'''
+    ads = '' if notfound else '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>\n'
     return f'''<!doctype html>
 <html lang="{L["html_lang"]}" class="{L["cls"]}">
 <head>
@@ -210,18 +221,9 @@ def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工�
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{E(title)}</title>
 <meta name="description" content="{E(desc)}">
-<link rel="canonical" href="{canonical}">
-{alts}
-<meta name="theme-color" content="#ffffff">
+{canon}<meta name="theme-color" content="#ffffff">
 <meta name="color-scheme" content="light">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="knittinghiyori tools">
-<meta property="og:title" content="{E(title)}">
-<meta property="og:description" content="{E(desc)}">
-<meta property="og:url" content="{canonical}">
-<meta property="og:locale" content="{L["og_locale"]}">
-{og_tags(og_img, title, lang) if og_img else '<meta name="twitter:card" content="summary">'}
-{ICON_LINKS}
+{og}{ICON_LINKS}
 {BRAND_STYLE}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -229,8 +231,7 @@ def head(L, title, desc, canonical, extra='', glyphs='', page_title='工具|工�
 {cjk}
 <link rel="stylesheet" href="/assets/style.css?v={VER}">
 <script>document.documentElement.classList.add('js')</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
-{ga}{extra}
+{ads}{ga}{extra}
 <meta name="spec-version" content="{SPEC}">
 </head>'''
 
@@ -529,18 +530,85 @@ def vignette(h):
     return h.replace('<a ', '<a data-google-vignette="false" ')
 
 
+# ---- 404 頁（core §7）----
+# 由上到下：品牌列 → 一句說明 → 回工具總覽（notfound_hub）＋到主站（notfound_main）→ 推薦工具最多 3 個（notfound_card）
+# 推薦清單和總覽頁同樣讀 tools.json，build 時產生，不另外維護；三種語言都先產好，瀏覽器依網址 /en/、/ja/ 或瀏覽器語言顯示
+NF = {
+    'zh': dict(title='404 找不到這個頁面｜編織日和・小工具', h1='找不到這個頁面',
+               lead='網址可能打錯了，或是這個工具搬家了。回工具總覽，或從下面挑一個來用。',
+               hub='回工具總覽', main='到編織日和主站', more='推薦你用'),
+    'en': dict(title='404 Page not found | Knitting Hiyori Tools', h1='Page not found',
+               lead='The link may have a typo, or this tool has moved. Go back to all tools, or pick one below.',
+               hub='All tools', main='Knitting Hiyori main site', more='Try these'),
+    'ja': dict(title='404 ページが見つかりません｜編織日和・ツール', h1='ページが見つかりません',
+               lead='URLが間違っているか、ツールが移動したかもしれません。ツール一覧に戻るか、下から選んでください。',
+               hub='ツール一覧へ', main='編織日和メインサイトへ', more='おすすめ'),
+}
+
+
+def nf_picks(lang):
+    """推薦最多 3 個：有該語言版本的排前面，其次人氣、NEW，再照 tools.json 順序"""
+    native = lambda t: lang == 'zh' or lang in t.get('ui', []) or lang in (t.get('alt') or {})
+    ranked = sorted(enumerate(DATA), key=lambda x: (not native(x[1]), not x[1].get('hot'), not x[1].get('new'), x[0]))
+    return [t for _, t in ranked[:3]]
+
+
+def nf_row(t, lang, L):
+    name, desc = t[lang]
+    return (f'<li class="row"><a href="{E(url_for(t, lang))}" data-cta="notfound_card" data-cta-type="tool" data-id="{t["id"]}">'
+            f'<span class="no">{tool_no(t["id"]):02d}</span>{icon(t["id"])}'
+            f'<span class="txt"><span class="nm">{E(name)}</span><span class="ds">{E(desc)}</span>'
+            f'<span class="tags">{tags_for(t, lang, L)}</span></span>'
+            f'<svg class="arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>')
+
+
 def notfound():
-    L = LANGS['zh']
-    return vignette(f'''{head(L, '找不到這個頁面｜knittinghiyori 小工具', '這個網址不存在，回到工具總覽看看所有免費小工具。', SITE + '/', '<meta name="robots" content="noindex">', '找不到這個頁面', '工具|找不到頁面|404')}
+    L, T = LANGS['zh'], NF['zh']
+    lists = '\n'.join(
+        f'<ul class="rows nf-rows" data-l="{l}" lang="{LANGS[l]["html_lang"]}"{"" if l == "zh" else " hidden"}>'
+        + ''.join(nf_row(t, l, LANGS[l]) for t in nf_picks(l)) + '</ul>' for l in ORDER)
+    tx = {l: dict(NF[l], brand=BRAND_SUB[l], hubUrl=SITE + LANGS[l]['path'], pageLang=LANGS[l]['ga_lang'],
+                  htmlLang=LANGS[l]['html_lang'], legal=LANGS[l]['legal'], privacy=LANGS[l]['privacy']) for l in ORDER}
+    script = ('<script>(function(){'
+              'var TX=' + js_json(tx) + ';'
+              # 語言：網址第一層 /ja/、/en/ 優先，其次瀏覽器語言；中文以外沒有對應時用英文
+              'var p=location.pathname,l=/^\\/ja(\\/|$)/.test(p)?"ja":/^\\/en(\\/|$)/.test(p)?"en":null;'
+              'if(!l){var n=(navigator.language||"").toLowerCase();l=n.indexOf("zh")===0?"zh":n.indexOf("ja")===0?"ja":"en"}'
+              'var T=TX[l],d=document,$=function(q){return d.querySelector(q)};'
+              'if(l!=="zh"){d.documentElement.lang=T.htmlLang;d.documentElement.className=d.documentElement.className.replace("l-zh","l-"+l);d.title=T.title;'
+              '$(".kh-brand-sub").textContent=T.brand;$(".kh-brand").href=T.hubUrl;'
+              '$("#nfH").textContent=T.h1;$("#nfLead").textContent=T.lead;'
+              'd.querySelectorAll(".nf-alt").forEach(function(x){x.hidden=true});'
+              'var h=$("#nfHub");h.firstChild.textContent=T.hub;h.href=T.hubUrl;$("#nfMain").textContent=T.main;$("#nfMoreH").textContent=T.more;'
+              'var g=$(".kh-legal");g.firstChild.textContent=T.legal;g.querySelector("a").textContent=T.privacy;'
+              'd.querySelectorAll(".nf-rows").forEach(function(u){u.hidden=u.getAttribute("data-l")!==l});'
+              'd.querySelectorAll(".langs a").forEach(function(a){if(a.getAttribute("hreflang")===T.pageLang)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});'
+              'try{gtag("set",{page_lang:T.pageLang})}catch(e){}}'
+              # 點擊追蹤：只送 cta_click（notfound_hub／notfound_main／notfound_card／brand_hub）；卡片的工具 id 放 option（同總覽頁 hub_card）
+              'd.addEventListener("click",function(e){var a=e.target.closest?e.target.closest("[data-cta]"):null;if(!a)return;'
+              'var q={cta_id:a.getAttribute("data-cta"),cta_type:a.getAttribute("data-cta-type")||"other",link_url:a.href,page_lang:T.pageLang};'
+              'var i=a.getAttribute("data-id");if(i)q.option=i;try{gtag("event","cta_click",q)}catch(er){}});'
+              '})();</script>')
+    arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+    glyphs = ''.join(NF[l]['h1'] + NF[l]['more'] for l in ('zh', 'ja'))
+    return vignette(f'''{head(L, T['title'], T['lead'], SITE + '/', '<meta name="robots" content="noindex, follow">', glyphs, '工具|404|找不到頁面', notfound=True)}
 <body>
 {header('zh')}
 <main class="nf"><div class="wrap">
 <p class="lbl">Error — 404</p>
-<p class="nf-big">4<span>0</span>4</p>
-<h1>找不到這個頁面</h1>
-<p class="lead">Page not found ・ ページが見つかりません</p>
-<div class="hero-cta"><a class="btn main big" href="/">看所有工具</a><a class="btn big" href="/en/">English</a><a class="btn big" href="/ja/">日本語</a></div>
+<p class="nf-big" aria-hidden="true">4<span>🌸</span>4</p>
+<h1 id="nfH">{T['h1']}</h1>
+<p class="lead" id="nfLead">{T['lead']}</p>
+<p class="nf-alt" lang="en">{NF['en']['lead']}</p>
+<p class="nf-alt" lang="ja">{NF['ja']['lead']}</p>
+<div class="hero-cta"><a class="btn main big" id="nfHub" href="{SITE}/" data-cta="notfound_hub" data-cta-type="tool">{T['hub']}{arrow}</a><a class="btn big" id="nfMain" href="{BLOG}" data-cta="notfound_main" data-cta-type="tool">{T['main']}</a></div>
+<section class="nf-more" aria-labelledby="nfMoreH">
+<h2 class="lbl" id="nfMoreH">{T['more']}</h2>
+{lists}
+</section>
+<p class="kh-legal">{L["legal"]}<a href="{PRIVACY}">{L["privacy"]}</a></p>
 </div></main>
+{script}
 </body>
 </html>
 ''')
