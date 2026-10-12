@@ -269,10 +269,16 @@ svg{display:block}
 .omi-act [hidden]{display:none}
 
 /* ---------- 404 ---------- */
-.nf{padding:60px 0 100px}
-.nf-big{font:400 clamp(120px,40vw,320px)/.9 var(--num);letter-spacing:-.05em;margin:20px 0 10px}
-.nf-big span{color:var(--shu);font-style:italic}
-.nf h1{font:900 32px var(--serif);margin:0}
+.nf{padding:40px 0 80px}
+.nf-big{font:400 clamp(96px,30vw,220px)/.9 var(--num);letter-spacing:-.03em;margin:16px 0 10px}
+.nf-big span{display:inline-block;font-size:.62em;font-style:normal;letter-spacing:0;margin:0 .06em;vertical-align:.12em}
+.nf h1{font:900 clamp(26px,7vw,32px) var(--serif);margin:0;text-wrap:balance}
+.nf .lead{max-width:34em}
+.nf-alt{font-size:13px;line-height:1.6;color:var(--muted);margin:0 0 4px;max-width:40em}
+.nf .hero-cta{margin-top:24px}
+.nf-more{margin-top:56px;padding-top:20px;border-top:1px solid var(--line)}
+.nf-rows[hidden]{display:none}
+.nf .kh-legal{padding:0;margin-top:40px}
 
 /* ---------- reveal ---------- */
 .js .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
@@ -291,7 +297,7 @@ svg{display:block}
   .row .no{display:none}
   .ico{width:40px;height:40px;padding:8px}
 }
-.nf .lead{margin:8px 0 28px}
+.nf .lead{margin:10px 0 8px}
 
 /* ---------- AdSense（規範 v2 §5） ---------- */
 .kh-ad-wrap{padding-top:56px}
