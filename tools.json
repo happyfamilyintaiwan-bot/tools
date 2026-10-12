@@ -106,7 +106,7 @@
    "cats": [
     "travel"
    ],
-   "url": "https://knittinghiyori.com/tools/bill-split-calculator/",
+   "url": "https://tools.knittinghiyori.com/bill-split-calculator/",
    "ui": [
     "zh",
     "en",
@@ -123,7 +123,12 @@
    "ja": [
     "飲み会・食事の割り勘計算機",
     "注文ごとに分けて、サービス料や割引は比例配分"
-   ]
+   ],
+   "src": "bill-split",
+   "alt": {
+    "en": "https://tools.knittinghiyori.com/en/bill-split-calculator/",
+    "ja": "https://tools.knittinghiyori.com/ja/bill-split-calculator/"
+   }
   },
   {
    "id": "knitting_needles",

@@ -1,0 +1,100 @@
+{
+ "tool_id": "bill_split",
+ "slug": "bill-split-calculator",
+ "cat": "travel",
+ "root": "bs",
+ "aff_var": "BS_AFF",
+ "app_category": "FinanceApplication",
+ "page_title": "工具|聚餐分帳計算機|逐項分帳與服務費比例分攤",
+ "old_url": "https://knittinghiyori.com/tools/bill-split-calculator/",
+ "updated": "2026-10-04",
+ "related": [
+  "travel_split",
+  "parking_timer",
+  "esim",
+  "packing_list"
+ ],
+ "blog": [
+  {
+   "url": "https://knittinghiyori.com/cube-tree-points-to-airline-miles-guide/",
+   "zh": "國泰小樹點換哩程划算嗎？比例試算與每點價值",
+   "en": "Are Cathay CUBE points worth converting to airline miles?",
+   "ja": "国泰CUBEポイントはマイルに換えるとお得？"
+  },
+  {
+   "url": "https://knittinghiyori.com/saily-esim-review-japan-discount-code/",
+   "zh": "Saily eSIM 日本實測：設定教學與折扣碼",
+   "en": "Saily eSIM review, tested in Japan",
+   "ja": "Saily eSIMを日本で使ってみた：設定と割引コード"
+  },
+  {
+   "url": "https://knittinghiyori.com/knitting-needles-carry-on-rules/",
+   "zh": "竹針、木針能帶上飛機嗎？織女出國安檢攻略",
+   "en": "Can you bring knitting needles on a plane?",
+   "ja": "竹・木の編み針は機内に持ち込める？"
+  }
+ ],
+ "aff": {
+  "klook": "https://klook.tpk.ro/yPdA5Iyi",
+  "kkday": "https://kkday.tpk.ro/NXjHmyP7"
+ },
+ "base": {
+  "zh": "TWD",
+  "en": "USD",
+  "ja": "JPY"
+ },
+ "i18n_fixes": {},
+ "lang": {
+  "zh": {
+   "name": "聚餐分帳計算機",
+   "title": "聚餐分帳計算機｜拍帳單逐項分餐費，服務費自動按比例分攤（免費）",
+   "desc": "聚餐怎麼分帳最公平？免費聚餐分帳計算機：點選誰點了什麼，共享菜自動平分，服務費與折扣按比例分攤，壽星可設定不用付，一鍵算出每人要轉多少。免註冊、手機好用。",
+   "app_desc": "聚餐時記下每道菜是誰點的，共享的菜自動平分，服務費與折扣依點餐金額按比例分攤，可設定壽星不用付，算出每人應付金額與轉帳對象，產生結算文字與分享連結。",
+   "features": [
+    "逐項分或平分總額",
+    "服務費與折扣按比例分攤",
+    "共享菜自動平分",
+    "壽星不用付",
+    "貼上帳單文字自動拆品項",
+    "標記誰已付款",
+    "分享連結與結算文字",
+    "免註冊"
+   ],
+   "howto": "如何用聚餐分帳計算機分攤餐費"
+  },
+  "en": {
+   "name": "Restaurant Bill Splitter",
+   "title": "Restaurant Bill Splitter – Split by Dish, Share the Service Charge Fairly (Free)",
+   "desc": "Free restaurant bill splitter: tap who ordered each dish, split shared plates automatically, divide the service charge and discounts by what each person ordered, and treat the birthday person. No sign-up, works on your phone.",
+   "app_desc": "Record who ordered each dish at a group meal, split shared dishes, divide the service charge and discounts in proportion to what each person ordered, and get what everyone owes with a summary and share link.",
+   "features": [
+    "Itemized or even split",
+    "Service charge and discounts split by order",
+    "Shared dishes split automatically",
+    "Treat someone (birthday)",
+    "Paste receipt text to add items",
+    "Mark who has paid",
+    "Share link and summary text",
+    "No sign-up"
+   ],
+   "howto": "How to split a restaurant bill with the Restaurant Bill Splitter"
+  },
+  "ja": {
+   "name": "飲み会・食事の割り勘計算機",
+   "title": "飲み会・食事の割り勘計算機｜注文ごとに分けて、サービス料は自動で按分（無料）",
+   "desc": "だれが何を頼んだかをタップするだけ。シェアした料理は均等割り、サービス料と割引は注文額の割合で按分、誕生日の人の分はほかの人で負担。一人いくら送金するかが一目でわかる無料の割り勘ツールです。登録不要、スマホで使えます。",
+   "app_desc": "食事会で品目ごとにだれが頼んだかを記録し、シェアした料理は均等割り、サービス料と割引は注文額の割合で按分。一人あたりの支払い額と送金先、精算テキストと共有リンクを作ります。",
+   "features": [
+    "品目ごと・均等割り",
+    "サービス料と割引を按分",
+    "シェアした料理は自動で均等割り",
+    "誕生日の人は支払いなし",
+    "レシートの文字を貼って自動入力",
+    "支払い済みをチェック",
+    "共有リンクと精算テキスト",
+    "登録不要"
+   ],
+   "howto": "飲み会・食事の割り勘計算機で割り勘する方法"
+  }
+ }
+}

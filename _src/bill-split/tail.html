@@ -1,0 +1,40 @@
+<div class="fab" id="bs-fab">
+  <div class="sum"><span id="bs-fab-l">還沒開始記帳</span><b id="bs-fab-v">NT$0</b></div>
+  <button class="btn ghost sm" type="button" id="bs-fab-res" data-t="bRes">看結果</button>
+  <button class="btn sm" type="button" id="bs-fab-add" data-t="bAddShort">＋ 加品項</button>
+</div>
+
+<dialog class="dlg" id="bs-pdlg" aria-label="帳單照片" data-ta="aPhoto">
+  <div class="sheet big">
+    <h3><span data-t="aPhoto">帳單照片</span><button class="x" type="button" id="bs-pclose" aria-label="關閉" data-ta="aClose">×</button></h3>
+    <img id="bs-bigimg" alt="帳單照片（放大）" data-tl="aPhoto">
+  </div>
+</dialog>
+<dialog class="dlg" id="bs-xdlg" aria-labelledby="bs-x-t">
+  <div class="sheet">
+    <h3><span id="bs-x-t" data-t="xTitle">貼上帳單文字</span><button class="x" type="button" id="bs-xclose" aria-label="關閉" data-ta="aClose">×</button></h3>
+    <details class="howto" data-t="howto"><summary>怎麼從帳單照片複製文字？</summary><div>
+      <p><strong>iPhone：</strong>在「照片」打開帳單，點右下角的「原況文字」圖示（或直接長按文字）→「全選」→「拷貝」。</p>
+      <p><strong>Android：</strong>在 Google 相簿打開帳單，點「Lens」→「文字」→「全選」→「複製文字」。</p>
+      <p>也可以直接用相機對準帳單，出現文字框時點一下再複製。</p>
+    </div></details>
+    <label for="bs-xtext" class="sr" data-t="lXtext">帳單文字</label>
+    <textarea id="bs-xtext" class="in ta" rows="6"></textarea>
+    <div class="row" style="margin-top:8px;justify-content:space-between">
+      <button type="button" class="btn ghost sm" id="bs-xpaste" data-t="bXpaste">從剪貼簿貼上</button>
+      <span class="note" style="margin:0" id="bs-xcount"></span>
+    </div>
+    <div id="bs-xlist" style="margin-top:6px"></div>
+    <div class="xextra" id="bs-xextra"></div>
+    <p class="note" id="bs-xhint" data-t="xHint">辨識結果可以取消勾選；加入後點品項就能修改，並指定是誰點的。</p>
+    <div class="foot"><button type="button" class="btn ghost" id="bs-xcancel" data-t="bCancel">取消</button><button type="button" class="btn block" id="bs-xok">加入品項</button></div>
+  </div>
+</dialog>
+<dialog class="dlg" id="bs-mdlg" aria-labelledby="bs-m-t">
+  <div class="sheet">
+    <h3 id="bs-m-t"></h3>
+    <p id="bs-m-p"></p>
+    <div class="mbtns" id="bs-m-b"></div>
+  </div>
+</dialog>
+<div class="toast" id="bs-toast" role="status"></div>
