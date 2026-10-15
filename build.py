@@ -14,7 +14,7 @@ GA_ID = 'G-ZQZHTYTRMQ'   # GA4 評估 ID
 ADS_CLIENT = 'ca-pub-2022028565680247'   # AdSense 發布商 ID（全站共用）
 ADS_SLOT = '3114811513'                  # AdSense 廣告單元「tools」
 DRIVE = 'https://emrld.ltd/NTc5OTI2.js?t=579926'   # Travelpayouts Drive（tools 專屬）
-SPEC = 'core-v1.2/tools-v2.3'   # spec-version meta（core §0）：規範升版時改這裡，build 會套到所有頁面
+SPEC = 'core-v1.7/tools-v2.4'   # spec-version meta（core §0）：規範升版時改這裡，build 會套到所有頁面
 VER = datetime.date.today().strftime('%Y%m%d')  # 改版時更新快取
 YEAR = datetime.date.today().year
 
@@ -83,7 +83,7 @@ LANGS = {
          ('怎麼把常用的工具放到手機桌面？', 'iPhone 用 Safari 打開工具後按「分享」→「加入主畫面」；Android 用 Chrome 按右上角「⋮」→「加到主畫面」，之後就能像 App 一樣一鍵打開。')],
     share_h='覺得好用，<br>傳給一起出門的朋友。', share_native='分享這一頁', share_copy='複製連結', copied='已複製連結',
     share_text='這裡有一整頁免費小工具：分帳、比價、QR Code、顏文字都有',
-    ad_label='廣告', legal='本站使用 Cookie 進行流量分析（Google Analytics）與顯示廣告（Google AdSense），部分連結為旅遊聯盟連結。',
+    ad_label='廣告', legal='本站使用 Cookie 進行流量分析（Google Analytics）與顯示廣告（Google AdSense），部分連結為聯盟連結。',
     back='回到部落格', games='小遊戲', privacy='隱私權政策',
     omi=dict(title='今日の道具', sub='搖一搖，抽一支今天適合用的工具。', shake='搖籤中…', luck=['大吉', '中吉', '小吉', '吉', '末吉'],
              pick='今天適合用', go='打開這個工具', again='再抽一次', close='關閉'),
@@ -111,7 +111,7 @@ LANGS = {
          ('Can I add a tool to my home screen?', 'On iPhone, open the tool in Safari and tap Share → Add to Home Screen. On Android, open it in Chrome and tap ⋮ → Add to Home screen. It will then open like an app.')],
     share_h='Useful? Send it to<br>the friend you travel with.', share_native='Share this page', share_copy='Copy link', copied='Link copied',
     share_text='A page of free tools: bill splitting, price comparisons, QR codes and kaomoji',
-    ad_label='Advertisement', legal='This site uses cookies for analytics (Google Analytics) and ads (Google AdSense), and some links are travel affiliate links.',
+    ad_label='Advertisement', legal='This site uses cookies for analytics (Google Analytics) and ads (Google AdSense), and some links are affiliate links.',
     back='Back to the blog', games='Games', privacy='Privacy',
     omi=dict(title='Today’s tool', sub='Shake the box and draw a tool for today, omikuji style.', shake='Shaking…', luck=['Great luck', 'Good luck', 'Small luck', 'Luck', 'Late luck'],
              pick='Today, try', go='Open this tool', again='Draw again', close='Close'),
@@ -140,7 +140,7 @@ LANGS = {
          ('よく使うツールをホーム画面に追加できますか？', 'iPhoneはSafariでツールを開き「共有」→「ホーム画面に追加」。AndroidはChromeで「⋮」→「ホーム画面に追加」。アプリのようにワンタップで開けます。')],
     share_h='便利だったら、<br>旅の相棒にシェア。', share_native='このページをシェア', share_copy='リンクをコピー', copied='リンクをコピーしました',
     share_text='割り勘・料金比較・QRコード・顔文字がそろった無料ツール集',
-    ad_label='広告', legal='当サイトはアクセス解析（Google Analytics）と広告配信（Google AdSense）のためにCookieを使用し、一部に旅行系アフィリエイトリンクを含みます。',
+    ad_label='広告', legal='当サイトはアクセス解析（Google Analytics）と広告配信（Google AdSense）のためにCookieを使用し、一部にアフィリエイトリンクを含みます。',
     back='ブログへ戻る', games='ゲーム', privacy='プライバシーポリシー',
     omi=dict(title='今日の道具', sub='箱をふって、今日のおすすめツールをひこう。', shake='ふっています…', luck=['大吉', '中吉', '小吉', '吉', '末吉'],
              pick='今日のおすすめ', go='このツールを開く', again='もう一度ひく', close='閉じる'),
