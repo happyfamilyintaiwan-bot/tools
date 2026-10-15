@@ -21,6 +21,7 @@
 ## 學習與語言
 - [日文學習資源＋30 天闖關](https://knittinghiyori.com/tools/japanese-quest/)：從看懂漫畫到開口說，每天打卡
 - [YouTube 逐字稿產生器](https://knittinghiyori.com/tools/youtube-transcript/)：影片、錄音檔免費轉文字，中日英都支援
+- [練字前後對比圖產生器](https://tools.knittinghiyori.com/handwriting-before-after/)：上傳第 1 天和第 30 天的字，做成帶浮水印的對比分享圖
 
 ## 生活與興趣
 - [拍立得選擇工具](https://knittinghiyori.com/instant-camera-guide/)：回答三個問題，從 18 款機型找到適合你的拍立得

@@ -314,6 +314,30 @@
    ]
   },
   {
+   "id": "handwriting_compare",
+   "cats": [
+    "learn"
+   ],
+   "url": "https://tools.knittinghiyori.com/handwriting-before-after/",
+   "ui": [
+    "zh"
+   ],
+   "page": "handwriting-before-after",
+   "new": true,
+   "zh": [
+    "練字前後對比圖產生器",
+    "上傳第 1 天和第 30 天的字，做成帶浮水印的對比分享圖"
+   ],
+   "en": [
+    "Handwriting Before / After",
+    "Turn your day-1 and day-30 handwriting photos into one comparison image"
+   ],
+   "ja": [
+    "手書き文字ビフォーアフター",
+    "練習1日目と30日目の字を、比較画像1枚にまとめる"
+   ]
+  },
+  {
    "id": "kaomoji",
    "cats": [
     "social"
