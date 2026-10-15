@@ -1,0 +1,139 @@
+<span class="kick" data-t="kick">生活工具・最後更新 2026-10-04</span>
+<h1 data-t="h2"><span class="hl">聚餐分帳</span>計算機：拍下帳單，點選誰點了什麼，每人該付多少一次算好</h1>
+<p class="lead" data-t="lead"><strong>一句話說明：</strong>這是一個免費的聚餐拆帳（AA 制）工具。把每道菜記下來、點選是誰點的，共享的菜自動平分，<strong>服務費和折扣依每個人點的金額按比例分攤</strong>，還能設定壽星不用付。算完產生連結或文字，直接貼到 LINE 群組請大家轉帳給付錢的人。</p>
+<div class="pills" data-t="pills"><span>逐項分或平分總額</span><span>服務費按比例</span><span>壽星不用付</span><span>貼上帳單自動拆品項</span><a href="#bs-install">加到手機桌面 ↓</a></div>
+
+<div class="rob" id="bs-ro" hidden>
+  <p class="rob-t" id="bs-ro-t">朋友分享的分帳結果（只能查看）</p>
+  <p class="rob-p" data-t="roP">只有發起這筆帳的人可以修改；誰已經付款，以發起人最新分享的連結為準。</p>
+  <button type="button" class="btn sm ghost" id="bs-ro-back" data-t="roBack">回到我自己的帳</button>
+</div>
+<p class="lbl" id="bs-tpl-l" style="margin:0 0 6px" data-t="tplL">常見情境，點一下看範例：</p>
+<div class="tpls" id="bs-tpls">
+  <button type="button" data-tpl="dinner" data-t="tpl_dinner"><b>朋友聚餐</b><small>各點各的＋共享菜</small></button>
+  <button type="button" data-tpl="birthday" data-t="tpl_birthday"><b>慶生聚餐</b><small>壽星不用付</small></button>
+  <button type="button" data-tpl="ktv" data-t="tpl_ktv"><b>KTV 包廂</b><small>總額平分</small></button>
+  <button type="button" data-tpl="drinks" data-t="tpl_drinks"><b>飲料團購</b><small>外送費大家分</small></button>
+  <button type="button" data-tpl="rent" data-t="tpl_rent"><b>合租水電</b><small>每月平分</small></button>
+</div>
+
+<div class="grid">
+  <div style="display:grid;gap:14px;min-width:0;grid-template-columns:minmax(0,1fr)">
+    <section class="card" aria-labelledby="bs-h1">
+      <h3 id="bs-h1"><span class="step">1</span><span data-t="c1">誰一起吃？</span></h3>
+      <div class="row">
+        <div class="field" style="flex:2"><label for="bs-title" data-t="lTitle">名稱</label><input id="bs-title" class="in" data-tp="pTitle" placeholder="例如：週五燒肉局" maxlength="40"></div>
+        <div class="field"><label for="bs-cur" data-t="lCur">幣別</label><select id="bs-cur" class="in"></select></div>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <label for="bs-mname" class="sr" data-t="lName">名字</label>
+        <input id="bs-mname" class="in" style="flex:1;width:auto;min-width:0" data-tp="pName" placeholder="輸入名字，可用逗號一次加多位" maxlength="60">
+        <button class="btn" type="button" id="bs-madd" data-t="bAdd">＋ 新增</button>
+      </div>
+      <div class="chips" id="bs-members" aria-live="polite"></div>
+    </section>
+
+    <section class="card" aria-labelledby="bs-h2" id="bs-itemcard">
+      <h3 id="bs-h2"><span class="step">2</span><span data-t="c2">點了什麼？</span></h3>
+      <div class="modes" role="group" aria-label="分帳方式" data-ta="aModes">
+        <button type="button" data-mode="item" aria-pressed="true" data-t="mItem">逐項分（誰點誰付）</button>
+        <button type="button" data-mode="even" aria-pressed="false" data-t="mEven">平分總額</button>
+      </div>
+
+      <div id="bs-itemmode">
+        <div class="photo" id="bs-photobox">
+          <input type="file" id="bs-file" accept="image/*" hidden>
+          <div id="bs-pv" hidden><img id="bs-img" alt="帳單照片" data-tl="aPhoto"></div>
+          <div class="row">
+            <button type="button" class="btn sm" id="bs-xopen" data-t="bXopen">貼上帳單文字，自動拆品項</button>
+            <button type="button" class="btn ghost sm" id="bs-photo">拍帳單／選照片</button>
+            <button type="button" class="lnk" id="bs-prm" hidden data-t="bPrm">移除照片</button>
+          </div>
+          <p class="note" id="bs-pnote">用手機內建的文字辨識複製帳單文字，貼上後品名和價格會自動變成品項；也可以拍照放在這裡對照輸入。照片和文字都只在你的手機上處理，不會上傳。</p>
+        </div>
+
+        <div class="addf" id="bs-addf">
+          <div class="grid2">
+            <div class="field" style="min-width:0"><label for="bs-iname" data-t="lItem">品項</label><input id="bs-iname" class="in" data-tp="pItem" placeholder="例如：肋眼牛排" maxlength="30"></div>
+            <div class="field" style="min-width:0"><label for="bs-iprice" data-t="lPrice">單價</label><input id="bs-iprice" class="in" inputmode="decimal" placeholder="0"></div>
+          </div>
+          <div class="row" style="margin-top:10px;justify-content:space-between">
+            <span class="lbl" data-t="lQty">數量</span>
+            <div class="qty"><button type="button" id="bs-qm" aria-label="減少數量" data-ta="aQm">−</button><output id="bs-qv">1</output><button type="button" id="bs-qp" aria-label="增加數量" data-ta="aQp">＋</button></div>
+          </div>
+          <div class="row" style="margin:10px 0 6px;justify-content:space-between"><span class="lbl" data-t="lWho">誰點的？（多選＝大家平分）</span><button type="button" class="lnk" id="bs-iall">全桌共享</button></div>
+          <div class="pick" id="bs-iwho"></div>
+          <p class="err" id="bs-ierr" role="alert"></p>
+          <div class="row">
+            <button type="button" class="btn ghost" id="bs-idel" hidden style="color:var(--red);border-color:var(--red)" data-t="bDel">刪除</button>
+            <button type="button" class="btn ghost" id="bs-icancel" hidden data-t="bCancel">取消</button>
+            <button type="button" class="btn block" id="bs-iadd">＋ 加入品項</button>
+          </div>
+        </div>
+        <div id="bs-items" style="margin-top:8px"></div>
+      </div>
+
+      <div id="bs-evenmode" hidden>
+        <div class="field"><label for="bs-total" data-t="lTotal">帳單總額（含服務費）</label><input id="bs-total" class="in" inputmode="decimal" data-tp="pTotal" placeholder="例如：3600"></div>
+        <p class="note" data-t="evenNote">總額會由「要付錢的人」平分；有壽星或被請客的人，在下一步設定。</p>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="bs-h3">
+      <h3 id="bs-h3"><span class="step">3</span><span data-t="c3">費用與付款</span></h3>
+      <div class="sec2" id="bs-feebox">
+        <p class="lbl" style="margin:0 0 6px" data-t="lSvc">服務費</p>
+        <div class="fee"><div class="pick" id="bs-svc"></div><input id="bs-svcin" class="in" inputmode="decimal" placeholder="自訂 %" aria-label="自訂服務費百分比" data-tp="pSvcin" data-ta="aSvcin"></div>
+        <div class="row" style="margin-top:10px">
+          <div class="field"><label for="bs-dc" data-t="lDc">折扣或折價券（金額）</label><input id="bs-dc" class="in" inputmode="decimal" placeholder="0"></div>
+          <div class="field"><label for="bs-bill" data-t="lBill">帳單上的總額（選填，用來核對）</label><input id="bs-bill" class="in" inputmode="decimal" data-tp="pBill" placeholder="例如：3280"></div>
+        </div>
+      </div>
+      <div class="sec2">
+        <p class="lbl" style="margin:0 0 6px" data-t="lFree">誰不用付？（壽星、被請客的人）</p>
+        <div class="pick" id="bs-free"></div>
+      </div>
+      <div class="sec2">
+        <p class="lbl" style="margin:0 0 6px" data-t="lPay">誰先結帳？（其他人轉給他）</p>
+        <div class="pick" id="bs-pay"></div>
+      </div>
+      <div class="sec2">
+        <label class="lbl" for="bs-rd" data-t="lRd">金額取整</label>
+        <select id="bs-rd" class="in" style="margin-top:6px">
+          <option value="x" data-t="rdX">算到元（最精準）</option>
+          <option value="r10" data-t="rdR10">四捨五入到 10 元</option>
+          <option value="c10" data-t="rdC10">無條件進位到 10 元（付錢的人不吃虧）</option>
+        </select>
+      </div>
+      <div class="row" style="margin-top:4px;justify-content:space-between">
+        <button class="lnk" id="bs-restore" type="button" hidden data-t="bRestore">還原上一筆帳</button>
+        <button class="lnk" id="bs-reset" type="button" style="color:var(--sub)" data-t="bReset">清空，重新開始</button>
+      </div>
+    </section>
+  </div>
+
+  <aside class="side" id="bs-res-anchor" style="min-width:0">
+    <section class="card" aria-labelledby="bs-h4">
+      <h3 id="bs-h4"><span class="step">4</span><span data-t="c4">每人要付多少</span></h3>
+      <div id="bs-result" aria-live="polite"></div>
+      <div class="share">
+        <button class="btn coral" id="bs-share" type="button" data-t="bShare">分享結果給大家</button>
+        <button class="btn ghost" id="bs-copytext" type="button" data-t="bCopy">複製結算文字</button>
+      </div>
+      <div class="own" id="bs-owner" hidden>
+        <p data-t="ownP"><b>只有你（發起人）可以修改這筆帳</b>，朋友打開連結只能查看。收到錢就在上面按「收到了，打勾」，再按「分享結果給大家」，群組就會看到誰已經付了。</p>
+        <button class="lnk" id="bs-ownlink" type="button" data-t="bOwnLink">換手機也要編輯？複製發起人專用連結</button>
+      </div>
+      <p class="note" data-t="privacy">帳本只存在你的瀏覽器和分享連結裡；帳單照片不會上傳，也不會放進分享連結。</p>
+    </section>
+
+    <section class="card" style="margin-top:14px" aria-labelledby="bs-h5">
+      <h3 id="bs-h5" style="font-size:1em;display:block" data-t="c5">下次聚餐，先看看優惠</h3>
+      <div class="reco">
+        <a class="rc" style="--c:#FF5B00" data-aff="klook" data-cta="rec_card" data-cta-type="klook" href="https://klook.tpk.ro/yPdA5Iyi" target="_blank" rel="sponsored nofollow noopener"><span class="br">Klook</span><b data-t="klook_b">餐廳與吃到飽優惠</b><small data-t="klook_s">自助餐、下午茶、景觀餐廳常有折扣券</small><em data-t="klook_e">看美食優惠 →</em></a>
+        <a class="rc" style="--c:#26BEC9" data-aff="kkday" data-cta="rec_card" data-cta-type="kkday" href="https://kkday.tpk.ro/NXjHmyP7" target="_blank" rel="sponsored nofollow noopener"><span class="br">KKday</span><b data-t="kkday_b">美食體驗與餐券</b><small data-t="kkday_s">主題餐廳、料理課、在地美食行程</small><em data-t="kkday_e">找美食體驗 →</em></a>
+      </div>
+      <p class="disc" data-t="disc">以上為聯盟連結：透過連結購買，我會收到小額回饋，不會影響你的價格。— Zoe</p>
+    </section>
+  </aside>
+</div>
