@@ -1,0 +1,96 @@
+{
+ "tool_id": "phone_wallpaper",
+ "slug": "phone-wallpaper-maker",
+ "cat": "life",
+ "root": "pw",
+ "aff_var": "PW_AFF",
+ "app_category": "DesignApplication",
+ "page_title": "工具|手機桌布產生器|簡約配色與符號桌布",
+ "old_url": "https://tools.knittinghiyori.com/phone-wallpaper-maker/",
+ "updated": "2026-10-19",
+ "related": [
+  "handwriting_compare",
+  "ig_symbols",
+  "kaomoji",
+  "instant_camera"
+ ],
+ "blog": [
+  {
+   "url": "https://knittinghiyori.com/gpt-image-2-hand-drawn-annotation-prompt/",
+   "zh": "ChatGPT 做圖教學：手繪註解風 Prompt，做出手帳感 IG 限動圖",
+   "en": "ChatGPT image prompts for a hand-drawn journal look",
+   "ja": "ChatGPTで手描き注釈風の画像をつくるプロンプト"
+  },
+  {
+   "url": "https://knittinghiyori.com/chatgpt-image-2-line-sticker-guide/",
+   "zh": "LINE 貼圖製作教學：用 ChatGPT 做圖到上架全流程",
+   "en": "Making LINE stickers with ChatGPT, from drawing to listing",
+   "ja": "ChatGPTでLINEスタンプを作って販売するまで"
+  },
+  {
+   "url": "https://knittinghiyori.com/catalog-handwriting-practice-worksheet-pdf-download/",
+   "zh": "繁體練字帖下載：硬筆字帖 PDF 免費＋線上試寫",
+   "en": "Free Traditional Chinese handwriting worksheets (PDF)",
+   "ja": "繁体字の硬筆練習帳PDF（無料ダウンロード）"
+  }
+ ],
+ "aff": {},
+ "base": {},
+ "i18n_fixes": {},
+ "lang": {
+  "zh": {
+   "name": "手機桌布產生器",
+   "title": "手機桌布產生器｜流行配色＋簡約符號，做剛好合你手機尺寸的桌布（免費、無浮水印）",
+   "desc": "免費手機桌布產生器：從 12 組流行配色和 20 個原創簡約符號挑選搭配，可加一句自己的短字，自動配合 iPhone、Android 螢幕尺寸，一鍵存到相簿當鎖定畫面或主畫面背景。無浮水印、免註冊。",
+   "app_desc": "選擇配色、符號與擺法，加上可選的短字，產生符合手機螢幕解析度的簡約桌布圖片，可直接存到手機相簿，並分享同一組設定給朋友。",
+   "features": [
+    "自動偵測手機尺寸",
+    "12 組流行配色與自訂顏色",
+    "20 個原創簡約符號",
+    "4 種擺法與隨機產生",
+    "可加中英日短字",
+    "預覽鎖定畫面時鐘位置",
+    "原尺寸 PNG、無浮水印",
+    "分享設定連結",
+    "免註冊"
+   ],
+   "howto": "如何用手機桌布產生器做一張自己的桌布"
+  },
+  "en": {
+   "name": "Phone Wallpaper Maker",
+   "title": "Phone Wallpaper Maker – Minimal Wallpapers in Trending Colors, Sized for Your Phone (Free)",
+   "desc": "Free phone wallpaper maker: mix 12 trending color palettes with 20 original minimal symbols, add a short line of your own, and save a wallpaper sized for your iPhone or Android lock screen. No watermark, no sign-up.",
+   "app_desc": "Pick a palette, a symbol and a layout, add optional text, and get a minimal wallpaper at your phone's screen resolution. Save it to your photos and share the same settings with friends.",
+   "features": [
+    "Detects your phone's screen size",
+    "12 trending palettes plus custom colors",
+    "20 original minimal symbols",
+    "4 layouts and a shuffle button",
+    "Optional text in any language",
+    "Lock screen clock preview",
+    "Full-size PNG, no watermark",
+    "Share your settings as a link",
+    "No sign-up"
+   ],
+   "howto": "How to make your own phone wallpaper"
+  },
+  "ja": {
+   "name": "スマホ壁紙メーカー",
+   "title": "スマホ壁紙メーカー｜流行色とシンプルな記号で、機種にぴったりの壁紙を作成（無料・透かしなし）",
+   "desc": "無料のスマホ壁紙メーカー。流行色12パターンとオリジナルのシンプルな記号20種を組み合わせ、好きな一言も入れられます。iPhone・Androidの画面サイズに合わせて、ロック画面やホーム画面の壁紙をそのまま保存。透かしなし、登録不要。",
+   "app_desc": "配色・記号・レイアウトを選び、一言を添えて、スマホの画面解像度に合ったシンプルな壁紙画像を作成。写真に保存でき、同じ設定を友だちに共有できます。",
+   "features": [
+    "スマホの画面サイズを自動判定",
+    "流行色12パターンとカスタムカラー",
+    "オリジナル記号20種",
+    "4つのレイアウトとおまかせ作成",
+    "日本語・英語・中国語の一言",
+    "ロック画面の時計位置をプレビュー",
+    "原寸PNG・透かしなし",
+    "設定を共有リンクで送れる",
+    "登録不要"
+   ],
+   "howto": "スマホ壁紙メーカーで壁紙を作る方法"
+  }
+ }
+}

@@ -1,0 +1,87 @@
+<span class="kick" data-t="kick">生活工具・最後更新 2026-10-19</span>
+<h1 data-t="h1"><span class="hl">手機桌布</span>產生器：挑顏色、挑符號，做一張剛好合你手機的簡約桌布</h1>
+<p class="lead" data-t="lead"><strong>一句話說明：</strong>這是免費的手機桌布與鎖定畫面背景產生器。從 12 組流行配色和 20 個簡約符號裡自由搭配，想要的話再加一句自己的短字，<strong>尺寸會自動配合你的手機</strong>，一鍵存到相簿。符號都是編織日和自己畫的，圖上沒有浮水印，可以放心使用。</p>
+<div class="pills" data-t="pills"><span>自動配合手機尺寸</span><span>12 組流行色</span><span>20 個原創符號</span><span>無浮水印</span><a href="#pw-install">加到手機桌面 ↓</a></div>
+
+<div class="grid">
+  <section class="card pvc" id="pw-pvc" aria-labelledby="pw-hp">
+    <h2 class="sr" id="pw-hp" data-t="pvH">桌布預覽</h2>
+    <div class="pv" id="pw-pv">
+      <canvas id="pw-cv" role="img" aria-label="桌布預覽" data-ta="aPv"></canvas>
+      <div class="clk" id="pw-clk" aria-hidden="true"><span class="clk-d" id="pw-clk-d">10月19日 星期一</span><span class="clk-t">9:41</span></div>
+      <div class="clkb" id="pw-clkb" aria-hidden="true"><i></i><i></i></div>
+    </div>
+    <p class="dim" id="pw-dim"></p>
+    <label class="tg"><input type="checkbox" id="pw-clock" checked><span data-t="lClock">預覽鎖定畫面時鐘（不會印在圖上）</span></label>
+    <div class="acts">
+      <button class="btn coral" id="pw-save" type="button" data-t="bSave">存到手機</button>
+      <button class="btn ghost" id="pw-rand" type="button" data-t="bRand">隨機一張</button>
+    </div>
+    <button class="lnk" id="pw-shareset" type="button" data-t="bShareSet">把這組設定分享給朋友</button>
+    <p class="note" data-t="privacy">桌布在你的瀏覽器裡產生，不會上傳；圖上沒有浮水印。</p>
+  </section>
+
+  <div class="ctl">
+    <section class="card" aria-labelledby="pw-h1">
+      <h3 id="pw-h1"><span class="step">1</span><span data-t="c1">你的手機</span></h3>
+      <label for="pw-dev" class="sr" data-t="lDev">手機型號</label>
+      <select id="pw-dev" class="in"></select>
+      <p class="note" data-t="devNote">「這支手機」會用目前螢幕的解析度；在電腦上做的話，請選要放桌布的手機型號。</p>
+    </section>
+
+    <section class="card" aria-labelledby="pw-h2">
+      <h3 id="pw-h2"><span class="step">2</span><span data-t="c2">配色</span></h3>
+      <div class="pals" id="pw-pals" role="group" aria-label="配色" data-ta="aPals"></div>
+      <div class="row sp">
+        <label class="tg"><input type="checkbox" id="pw-grad" checked><span data-t="lGrad">漸層底色</span></label>
+        <span class="pal-n" id="pw-paln" aria-live="polite"></span>
+      </div>
+      <details class="cust" id="pw-cust"><summary data-t="custS">自訂顏色</summary><div class="row">
+        <label class="clr"><input type="color" id="pw-cbg" value="#e9dcd0"><span data-t="lBg">底色</span></label>
+        <label class="clr"><input type="color" id="pw-cfg" value="#6b4a3a"><span data-t="lFg">符號與文字</span></label>
+      </div></details>
+    </section>
+
+    <section class="card" aria-labelledby="pw-h3">
+      <h3 id="pw-h3"><span class="step">3</span><span data-t="c3">符號</span></h3>
+      <div class="syms" id="pw-syms" role="group" aria-label="符號" data-ta="aSyms"></div>
+    </section>
+
+    <section class="card" aria-labelledby="pw-h4">
+      <h3 id="pw-h4"><span class="step">4</span><span data-t="c4">擺法</span></h3>
+      <div class="lays" id="pw-lays" role="group" aria-label="擺法" data-ta="aLays">
+        <button type="button" data-lay="single" aria-pressed="true"><i class="ly ly-single"></i><span data-t="laySingle">單一大符號</span></button>
+        <button type="button" data-lay="pattern" aria-pressed="false"><i class="ly ly-pattern"></i><span data-t="layPattern">整面圖紋</span></button>
+        <button type="button" data-lay="scatter" aria-pressed="false"><i class="ly ly-scatter"></i><span data-t="layScatter">隨機散落</span></button>
+        <button type="button" data-lay="corner" aria-pressed="false"><i class="ly ly-corner"></i><span data-t="layCorner">漸層＋小符號</span></button>
+      </div>
+      <div class="rng">
+        <label for="pw-size" data-t="lSize">符號大小</label>
+        <input type="range" id="pw-size" min="0" max="100" value="50">
+      </div>
+      <div class="rng" id="pw-densw">
+        <label for="pw-dens" data-t="lDens">密度</label>
+        <input type="range" id="pw-dens" min="0" max="100" value="50">
+      </div>
+      <button class="lnk" id="pw-reseed" type="button" hidden data-t="bReseed">換一種散法</button>
+    </section>
+
+    <section class="card" aria-labelledby="pw-h5">
+      <h3 id="pw-h5"><span class="step">5</span><span data-t="c5">加一句短字（可不填）</span></h3>
+      <label for="pw-txt" class="sr" data-t="lTxt">短字</label>
+      <input id="pw-txt" class="in" maxlength="24" data-tp="pTxt" placeholder="例如：今天也辛苦了／Breathe／ゆっくりでいい" autocomplete="off">
+      <div class="row sp" style="margin-top:12px">
+        <div class="seg" id="pw-font" role="group" aria-label="字體" data-ta="aFont">
+          <button type="button" data-v="sans" aria-pressed="true" data-t="fSans">黑體</button>
+          <button type="button" data-v="serif" aria-pressed="false" data-t="fSerif">明體</button>
+        </div>
+        <div class="seg" id="pw-tpos" role="group" aria-label="位置" data-ta="aTpos">
+          <button type="button" data-v="top" aria-pressed="false" data-t="pTop">上</button>
+          <button type="button" data-v="mid" aria-pressed="false" data-t="pMid">中</button>
+          <button type="button" data-v="bot" aria-pressed="true" data-t="pBot">下</button>
+        </div>
+      </div>
+      <p class="note" data-t="txtNote">上方是鎖定畫面時鐘的位置，字會自動排在時鐘下面。</p>
+    </section>
+  </div>
+</div>

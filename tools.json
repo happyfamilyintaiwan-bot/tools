@@ -513,6 +513,35 @@
     "名刺QRコード作成",
     "名刺の画像に計測できるQRコードを追加"
    ]
+  },
+  {
+   "id": "phone_wallpaper",
+   "cats": [
+    "life"
+   ],
+   "url": "https://tools.knittinghiyori.com/phone-wallpaper-maker/",
+   "ui": [
+    "zh",
+    "en",
+    "ja"
+   ],
+   "zh": [
+    "手機桌布產生器",
+    "流行配色＋簡約符號，尺寸自動配合手機"
+   ],
+   "en": [
+    "Phone Wallpaper Maker",
+    "Trending colors and simple symbols, sized for your phone"
+   ],
+   "ja": [
+    "スマホ壁紙メーカー",
+    "流行色とシンプルな記号で、機種にぴったりの壁紙"
+   ],
+   "src": "phone-wallpaper",
+   "alt": {
+    "en": "https://tools.knittinghiyori.com/en/phone-wallpaper-maker/",
+    "ja": "https://tools.knittinghiyori.com/ja/phone-wallpaper-maker/"
+   }
   }
  ]
 }
