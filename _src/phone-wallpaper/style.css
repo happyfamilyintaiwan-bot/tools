@@ -123,41 +123,43 @@ color:var(--ink);background:var(--bg);line-height:1.7;font-size:16px;max-width:1
 .pw .acts .btn{height:52px;width:100%;white-space:normal;line-height:1.2}
 .pw .pvc .note{margin-top:4px}
 
-/* 配色 */
+/* 底色 */
 .pw .pals{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 @media(min-width:600px){.pw .pals{grid-template-columns:repeat(6,minmax(0,1fr))}}
-.pw .pals button{border:0;padding:0;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.72em;color:var(--sub);min-width:0}
-.pw .pals .sw{width:100%;aspect-ratio:1/1.25;border-radius:12px;position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);transition:transform .15s}
-.pw .pals .sw i{position:absolute;left:50%;top:50%;width:34%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%)}
+.pw .pals button{border:0;padding:0;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.74em;color:var(--sub);min-width:0}
+.pw .pals .sw{width:100%;aspect-ratio:1/1.2;border-radius:12px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.07);transition:transform .15s}
 .pw .pals button[aria-pressed="true"] .sw{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--ink)}
 .pw .pals button[aria-pressed="true"]{color:var(--ink);font-weight:700}
 .pw .pals span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
-.pw .pal-n{font-size:.82em;color:var(--sub)}
 .pw .cust{border:1px solid var(--line);border-radius:12px;margin-top:10px}
 .pw .cust .row{padding:0 14px 12px}
 .pw .clr{display:inline-flex;align-items:center;gap:8px;font-size:.88em;cursor:pointer}
 .pw .clr input{width:44px;height:36px;border:1px solid var(--line);border-radius:10px;padding:2px;background:#fff}
 
-/* 符號 */
-.pw .syms{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
-@media(min-width:600px){.pw .syms{grid-template-columns:repeat(7,minmax(0,1fr))}}
-.pw .syms button{aspect-ratio:1;border:1.5px solid var(--line);border-radius:12px;background:#fff;display:grid;place-items:center;padding:0;min-width:0;color:var(--ink)}
-.pw .syms button svg{width:56%;height:56%;overflow:visible}
-.pw .syms button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
-.pw .syms .none{font-size:.72em;color:var(--sub)}
-.pw .syms button[aria-pressed="true"].none{color:#fff}
-
-/* 擺法 */
-.pw .lays{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-@media(min-width:600px){.pw .lays{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.pw .lays button{border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:10px 8px;display:flex;align-items:center;gap:10px;font-size:.88em;text-align:left;min-height:56px}
-.pw .lays button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);font-weight:700}
-.pw .ly{flex:none;width:22px;height:38px;border-radius:5px;border:1.5px solid currentColor;position:relative;background-repeat:no-repeat}
-.pw .ly-single{background-image:radial-gradient(circle,currentColor 5px,transparent 5.5px);background-position:center 62%}
-.pw .ly-pattern{background-image:radial-gradient(circle,currentColor 1.6px,transparent 2px);background-size:6px 6px;background-repeat:repeat;background-position:1px 1px}
-.pw .ly-scatter{background-image:radial-gradient(circle at 30% 25%,currentColor 2.4px,transparent 2.8px),radial-gradient(circle at 70% 52%,currentColor 3.4px,transparent 3.8px),radial-gradient(circle at 35% 78%,currentColor 2px,transparent 2.4px)}
-.pw .ly-corner{background:linear-gradient(#f6c4b8,#c8341e);border-color:var(--ink)}
-.pw .ly-corner::after{content:"";position:absolute;right:3px;bottom:7px;width:5px;height:5px;border-radius:50%;background:#fff}
+/* 花、擺法：小縮圖 */
+.pw .opts{display:grid;gap:8px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.pw .opts.ar{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(min-width:600px){.pw .opts.fl{grid-template-columns:repeat(8,minmax(0,1fr))}.pw .opts.ar{grid-template-columns:repeat(7,minmax(0,1fr))}}
+.pw .opts button{border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:4px 4px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.74em;color:var(--sub);min-width:0;line-height:1.25}
+.pw .opts canvas{width:100%;height:auto;border-radius:8px;display:block}
+.pw .opts span{text-align:center;word-break:keep-all}
+.pw .opts button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);color:var(--ink);font-weight:700}
+.pw .lbl{font-size:.82em;color:var(--sub);margin:14px 0 6px}
+.pw .chips{display:flex;flex-wrap:wrap;gap:6px}
+.pw .chips button{border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:6px 12px;font-size:.84em;display:inline-flex;align-items:center;gap:6px;min-height:36px;color:var(--ink)}
+.pw .chips button i{width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.pw .chips button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.pw .chips.phr button{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:.95em;padding:5px 12px}
+.pw .row.nw{flex-wrap:nowrap}
+.pw .row.nw .in{flex:1;min-width:0}
+.pw .row.nw .btn{height:46px}
+.pw .fonts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+@media(min-width:600px){.pw .fonts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.pw .fonts button{border:1.5px solid var(--line);border-radius:12px;background:#fff;padding:8px 6px;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0}
+.pw .fonts b{font-weight:400;font-size:1.35em;line-height:1.3;white-space:nowrap;color:var(--ink)}
+.pw .fonts small{font-size:.72em;color:var(--sub)}
+.pw .fonts [data-font="apple"] b{font-size:.95em;line-height:1.9}
+.pw .fonts button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
 .pw .rng{display:grid;grid-template-columns:5.5em minmax(0,1fr);align-items:center;gap:10px;margin-top:14px;font-size:.88em;color:var(--sub)}
 .pw .rng input{width:100%;accent-color:var(--ink);height:28px;margin:0}
 .pw .ctl .in{height:46px;border:1.5px solid var(--line);border-radius:12px;padding:0 12px;background:#fff;font-size:16px;width:100%}

@@ -25,7 +25,7 @@
 
 ## 生活與興趣
 - [拍立得選擇工具](https://knittinghiyori.com/instant-camera-guide/)：回答三個問題，從 18 款機型找到適合你的拍立得
-- [手機桌布產生器](https://tools.knittinghiyori.com/phone-wallpaper-maker/)：流行配色＋簡約符號，尺寸自動配合手機（en: https://tools.knittinghiyori.com/en/phone-wallpaper-maker/、ja: https://tools.knittinghiyori.com/ja/phone-wallpaper-maker/）
+- [手機桌布產生器](https://tools.knittinghiyori.com/phone-wallpaper-maker/)：日系小花＋英文手寫字，尺寸自動配合手機（en: https://tools.knittinghiyori.com/en/phone-wallpaper-maker/、ja: https://tools.knittinghiyori.com/ja/phone-wallpaper-maker/）
 
 ## 文字與社群排版
 - [大型顏文字產生器](https://knittinghiyori.com/tools/kaomoji-symbols/)：兔兔顏文字、表情組合器、特殊符號，一鍵複製
