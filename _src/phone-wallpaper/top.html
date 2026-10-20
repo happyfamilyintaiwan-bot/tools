@@ -1,0 +1,86 @@
+<span class="kick" data-t="kick">生活工具・最後更新 2026-10-20</span>
+<h1 data-t="h1"><span class="hl">手機桌布</span>產生器：日系小花＋英文手寫字，做一張剛好合你手機的桌布</h1>
+<p class="lead" data-t="lead"><strong>一句話說明：</strong>這是免費的手機桌布與鎖定畫面背景產生器。選一個粉嫩的莫蘭迪底色，挑小花和花束擺法（紙膠帶、手綁緞帶、包裝花束、小盆栽），再打一句英文，<strong>就會變成好看的手寫字</strong>，尺寸自動配合你的手機。插畫都是編織日和自己畫的，圖上沒有浮水印。</p>
+<div class="pills" data-t="pills"><span>自動配合手機尺寸</span><span>8 種原創小花</span><span>英文手寫字</span><span>無浮水印</span><a href="#pw-install">加到手機桌面 ↓</a></div>
+
+<div class="grid">
+  <section class="card pvc" id="pw-pvc" aria-labelledby="pw-hp">
+    <h2 class="sr" id="pw-hp" data-t="pvH">桌布預覽</h2>
+    <div class="pv" id="pw-pv">
+      <canvas id="pw-cv" role="img" aria-label="桌布預覽" data-ta="aPv"></canvas>
+      <div class="clk" id="pw-clk" aria-hidden="true"><span class="clk-d" id="pw-clk-d">10月20日 星期二</span><span class="clk-t">9:41</span></div>
+      <div class="clkb" id="pw-clkb" aria-hidden="true"><i></i><i></i></div>
+    </div>
+    <p class="dim" id="pw-dim"></p>
+    <label class="tg"><input type="checkbox" id="pw-clock" checked><span data-t="lClock">預覽鎖定畫面時鐘（不會印在圖上）</span></label>
+    <div class="acts">
+      <button class="btn coral" id="pw-save" type="button" data-t="bSave">存到手機</button>
+      <button class="btn ghost" id="pw-rand" type="button" data-t="bRand">隨機一張</button>
+    </div>
+    <button class="lnk" id="pw-shareset" type="button" data-t="bShareSet">把這組設定分享給朋友</button>
+    <p class="note" data-t="privacy">桌布在你的瀏覽器裡產生，不會上傳；圖上沒有浮水印。</p>
+  </section>
+
+  <div class="ctl">
+    <section class="card" aria-labelledby="pw-h1">
+      <h3 id="pw-h1"><span class="step">1</span><span data-t="c1">你的手機</span></h3>
+      <label for="pw-dev" class="sr" data-t="lDev">手機型號</label>
+      <select id="pw-dev" class="in"></select>
+      <p class="note" data-t="devNote">「這支手機」會用目前螢幕的解析度；在電腦上做的話，請選要放桌布的手機型號。</p>
+    </section>
+
+    <section class="card" aria-labelledby="pw-h2">
+      <h3 id="pw-h2"><span class="step">2</span><span data-t="c2">底色</span></h3>
+      <div class="pals" id="pw-pals" role="group" aria-label="底色" data-ta="aPals"></div>
+      <details class="cust" id="pw-cust"><summary data-t="custS">自訂底色</summary><div class="row">
+        <label class="clr"><input type="color" id="pw-cbg" value="#ead0d0"><span data-t="lBg">底色</span></label>
+      </div></details>
+    </section>
+
+    <section class="card" aria-labelledby="pw-h3">
+      <h3 id="pw-h3"><span class="step">3</span><span data-t="c3">花</span></h3>
+      <div class="opts fl" id="pw-flowers" role="group" aria-label="花" data-ta="aFlowers"></div>
+      <p class="lbl" data-t="lTone">花的顏色</p>
+      <div class="chips" id="pw-tones" role="group" aria-label="花的顏色" data-ta="lTone"></div>
+    </section>
+
+    <section class="card" aria-labelledby="pw-h4">
+      <h3 id="pw-h4"><span class="step">4</span><span data-t="c4">擺法</span></h3>
+      <div class="opts ar" id="pw-arrs" role="group" aria-label="擺法" data-ta="aArrs"></div>
+      <div class="rng">
+        <label for="pw-size" data-t="lSize">花的大小</label>
+        <input type="range" id="pw-size" min="0" max="100" value="50">
+      </div>
+      <button class="lnk" id="pw-reseed" type="button" data-t="bReseed">換一種排法</button>
+    </section>
+
+    <section class="card" aria-labelledby="pw-h5">
+      <h3 id="pw-h5"><span class="step">5</span><span data-t="c5">英文手寫字（可不填）</span></h3>
+      <label for="pw-txt" class="sr" data-t="lTxt">手寫字</label>
+      <div class="row nw">
+        <input id="pw-txt" class="in" maxlength="28" data-tp="pTxt" placeholder="打一句英文，例如：stay gold" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <button class="btn ghost sm" id="pw-phr" type="button" data-t="bPhrase">換一句</button>
+      </div>
+      <p class="lbl" data-t="lPhrases">點一句鼓勵語直接用：</p>
+      <div class="chips phr" id="pw-phrases"></div>
+      <p class="lbl" data-t="lFont">字體</p>
+      <div class="fonts" id="pw-fonts" role="group" aria-label="字體" data-ta="lFont"></div>
+      <div class="row sp">
+        <label class="tg"><input type="checkbox" id="pw-flourish"><span data-t="lFlourish">兩側飄帶線</span></label>
+        <label class="tg"><input type="checkbox" id="pw-heart"><span data-t="lHeart">小愛心</span></label>
+      </div>
+      <div class="row sp">
+        <div class="seg" id="pw-tcol" role="group" aria-label="字的顏色" data-ta="aTcol">
+          <button type="button" data-v="auto" aria-pressed="true" data-t="tcAuto">自動</button>
+          <button type="button" data-v="white" aria-pressed="false" data-t="tcWhite">白字</button>
+          <button type="button" data-v="brown" aria-pressed="false" data-t="tcBrown">咖啡字</button>
+        </div>
+        <div class="seg" id="pw-tpos" role="group" aria-label="位置" data-ta="aTpos">
+          <button type="button" data-v="top" aria-pressed="false" data-t="pTop">花上面</button>
+          <button type="button" data-v="bot" aria-pressed="true" data-t="pBot">花下面</button>
+        </div>
+      </div>
+      <p class="note" data-t="txtNote">手寫字體只有英文字母；打中文或日文會改用明體顯示。</p>
+    </section>
+  </div>
+</div>

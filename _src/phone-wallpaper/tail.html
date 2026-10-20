@@ -1,0 +1,15 @@
+<div class="fab" id="pw-fab">
+  <button type="button" class="mini" id="pw-fab-pv" aria-label="回到預覽" data-ta="aBackPv"><canvas id="pw-mini" width="40" height="86"></canvas></button>
+  <div class="sum"><span data-t="fabL">目前的桌布</span><b id="pw-fab-v"></b></div>
+  <button class="btn ghost sm" type="button" id="pw-fab-rand" data-t="bRandShort">隨機</button>
+  <button class="btn coral sm" type="button" id="pw-fab-save" data-t="bSave">存到手機</button>
+</div>
+
+<dialog class="dlg" id="pw-idlg" aria-labelledby="pw-i-t">
+  <div class="sheet">
+    <h3><span id="pw-i-t" data-t="imgT">長按圖片，存到照片</span><button class="x" type="button" id="pw-iclose" aria-label="關閉" data-ta="aClose">×</button></h3>
+    <img id="pw-img" alt="做好的桌布" data-tl="imgAlt">
+    <p class="note" data-t="imgP">iPhone：長按圖片 →「加入照片」。Android：長按圖片 →「下載圖片」。存好後到相簿把它設成桌布。</p>
+  </div>
+</dialog>
+<div class="toast" id="pw-toast" role="status"></div>
