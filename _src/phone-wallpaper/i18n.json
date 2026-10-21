@@ -31,10 +31,10 @@
   "insH": "Add the wallpaper maker to your home screen",
   "insP": "Once added, it opens like an app from your home screen. Nothing to download, no storage used. Open it whenever you want a fresh look.",
   "invite": "<strong>Like it?</strong> Share it with a friend who changes wallpapers as often as you do. Sharing is the best way to support a free tool.",
-  "kick": "Everyday tool · Updated 2026-10-20",
+  "kick": "Everyday tool · Updated 2026-10-22",
   "h1": "<span class=\"hl\">Phone wallpaper</span> maker: little flowers and handwritten words, sized for your phone",
   "lead": "<strong>In one line:</strong> a free wallpaper maker for your lock screen and home screen. Pick a soft, muted background, choose a flower and how it's arranged (taped, ribbon-tied, wrapped or potted), then type a few words in English and <strong>they turn into pretty handwriting</strong>. The size matches your phone automatically. Every illustration is drawn by Knitting Hiyori, and there is no watermark.",
-  "pills": "<span>Sized for your phone</span><span>8 original flowers</span><span>Handwritten words</span><span>No watermark</span><a href=\"#pw-install\">Add to home screen ↓</a>",
+  "pills": "<span>Sized for your phone</span><span>9 original flowers</span><span>Handwritten words</span><span>No watermark</span><a href=\"#pw-install\">Add to home screen ↓</a>",
   "c2": "Background",
   "aPals": "Background colors",
   "custS": "Custom background",
@@ -48,7 +48,7 @@
   "bReseed": "Rearrange",
   "c5": "Handwritten words (optional)",
   "lTxt": "Words",
-  "pTxt": "Type a few words, e.g. stay gold",
+  "pTxt": "Type your own words, e.g. good morning",
   "bPhrase": "Shuffle",
   "lPhrases": "Tap a phrase to use it:",
   "lFont": "Font",
@@ -61,7 +61,9 @@
   "aTpos": "Position",
   "pTop": "Above flowers",
   "pBot": "Below flowers",
-  "txtNote": "The handwriting fonts cover the English alphabet only; Chinese or Japanese text shows in a serif font."
+  "txtNote": "The handwriting fonts cover the English alphabet only; Chinese or Japanese text shows in a serif font.",
+  "fb": "Want more flowers, layouts or features? Email me: <a href=\"mailto:newsletters@knittinghiyori.com?subject=Phone%20Wallpaper%20Maker%20idea\" data-cta=\"feedback_mail\" data-cta-type=\"other\">newsletters@knittinghiyori.com</a>",
+  "txtHint": "✏️ The words are yours to write: a name, a date, any short line in English. Not sure? Tap a phrase below."
  },
  "ja": {
   "insTabs": "端末を選択",
@@ -95,10 +97,10 @@
   "insH": "スマホ壁紙メーカーをホーム画面に追加",
   "insP": "ホーム画面に追加すると、アプリのように開けます。ダウンロード不要で容量もとりません。気分を変えたいときにすぐ新しい壁紙を作れます。",
   "invite": "<strong>気に入ったら</strong>、壁紙をよく変える友だちにシェアしてください。シェアしてもらえることが、無料ツールへのいちばんの応援です。",
-  "kick": "生活ツール・2026-10-20 更新",
+  "kick": "生活ツール・2026-10-22 更新",
   "h1": "<span class=\"hl\">スマホ壁紙</span>メーカー：小さな花と手書きの英語で、機種にぴったりの壁紙に",
   "lead": "<strong>ひとことで言うと：</strong>ロック画面やホーム画面の壁紙を無料で作れるツールです。やさしいくすみカラーの背景を選び、花と飾り方（マステ留め・リボン結び・ラッピング・鉢植え）を決めて、英語をひとこと打つと<strong>きれいな手書き文字</strong>になります。サイズはお使いのスマホに自動で合わせます。イラストはすべて編織日和のオリジナルで、透かしも入りません。",
-  "pills": "<span>機種に合わせたサイズ</span><span>オリジナルの花8種</span><span>英語の手書き文字</span><span>透かしなし</span><a href=\"#pw-install\">ホーム画面に追加 ↓</a>",
+  "pills": "<span>機種に合わせたサイズ</span><span>オリジナルの花9種</span><span>英語の手書き文字</span><span>透かしなし</span><a href=\"#pw-install\">ホーム画面に追加 ↓</a>",
   "c2": "背景の色",
   "aPals": "背景の色",
   "custS": "背景色をカスタマイズ",
@@ -112,7 +114,7 @@
   "bReseed": "並びを変える",
   "c5": "英語の手書き文字（なくてもOK）",
   "lTxt": "文字",
-  "pTxt": "英語をひとこと：stay gold など",
+  "pTxt": "好きな英語を入力：good morning など",
   "bPhrase": "ほかの言葉",
   "lPhrases": "タップしてそのまま使える言葉：",
   "lFont": "フォント",
@@ -125,6 +127,8 @@
   "aTpos": "位置",
   "pTop": "花の上",
   "pBot": "花の下",
-  "txtNote": "手書きフォントは英字のみ対応です。日本語や中国語は明朝体で表示されます。"
+  "txtNote": "手書きフォントは英字のみ対応です。日本語や中国語は明朝体で表示されます。",
+  "fb": "花や飾り方、機能のリクエストはメールでどうぞ：<a href=\"mailto:newsletters@knittinghiyori.com?subject=%E3%82%B9%E3%83%9E%E3%83%9B%E5%A3%81%E7%B4%99%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC%E3%81%B8%E3%81%AE%E6%84%8F%E8%A6%8B\" data-cta=\"feedback_mail\" data-cta-type=\"other\">newsletters@knittinghiyori.com</a>",
+  "txtHint": "✏️ 文字は自由に入力できます。名前や記念日、好きな英語のひとことでもOK。迷ったら下の言葉をタップ。"
  }
 }
