@@ -28,9 +28,9 @@ zh:{
 "urlCopied":"網址已複製","toolCopied":"介紹文字與網址已複製","thanks":"謝謝！下次想換桌布就從桌面打開",
 "imgAlt":"做好的桌布","custom":"自訂","date":"zh-TW",
 "pal":{"milk":"牛奶白","hai":"霧灰","oat":"燕麥","butter":"奶油黃","peach":"蜜桃","sakura":"櫻花粉","azuki":"豆沙","lilac":"香芋紫","fuji":"藤紫","sky":"霧藍","seiji":"青磁","sage":"鼠尾草"},
-"fl":{"wild":"小野花","carnation":"康乃馨","magnolia":"玉蘭","daisy":"雛菊","lavender":"薰衣草","gyp":"滿天星","rose":"玫瑰","mix":"綜合"},
+"fl":{"wild":"小野花","carnation":"康乃馨","magnolia":"玉蘭","daisy":"雛菊","lavender":"薰衣草","gyp":"滿天星","rose":"玫瑰","pingpong":"乒乓菊","sunflower":"向日葵","mix":"綜合"},
 "ar":{"stem":"一枝","taped":"紙膠帶","tied":"手綁緞帶","wrapped":"包裝花束","pot":"小盆栽","branch":"斜枝","none":"只放字"},
-"tone":{"auto":"自動搭配","peach":"蜜桃","pink":"櫻粉","butter":"奶油黃","white":"白色","lilac":"藤紫","coral":"珊瑚","mixed":"混色"},
+"tone":{"auto":"自動搭配","peach":"蜜桃","pink":"櫻粉","butter":"奶油黃","white":"白色","lilac":"藤紫","coral":"珊瑚","lime":"淺綠","mixed":"混色"},
 "font":{"sacramento":"細線","allura":"優雅","apple":"手寫筆跡","caveat":"隨性"}
 },
 en:{
@@ -47,9 +47,9 @@ en:{
 "urlCopied":"Link copied","toolCopied":"Text and link copied","thanks":"Thanks! Open it from your home screen next time",
 "imgAlt":"Your wallpaper","custom":"Custom","date":"en-US",
 "pal":{"milk":"Milk","hai":"Mist","oat":"Oat","butter":"Butter","peach":"Peach","sakura":"Sakura","azuki":"Rose taupe","lilac":"Lilac","fuji":"Wisteria","sky":"Sky","seiji":"Celadon","sage":"Sage"},
-"fl":{"wild":"Wildflower","carnation":"Carnation","magnolia":"Magnolia","daisy":"Daisy","lavender":"Lavender","gyp":"Baby's breath","rose":"Rose","mix":"Mixed"},
+"fl":{"wild":"Wildflower","carnation":"Carnation","magnolia":"Magnolia","daisy":"Daisy","lavender":"Lavender","gyp":"Baby's breath","rose":"Rose","pingpong":"Ping pong mum","sunflower":"Sunflower","mix":"Mixed"},
 "ar":{"stem":"Single stem","taped":"Taped","tied":"Ribbon-tied","wrapped":"Wrapped","pot":"Potted","branch":"Branch","none":"Text only"},
-"tone":{"auto":"Auto","peach":"Peach","pink":"Pink","butter":"Butter","white":"White","lilac":"Lilac","coral":"Coral","mixed":"Mixed"},
+"tone":{"auto":"Auto","peach":"Peach","pink":"Pink","butter":"Butter","white":"White","lilac":"Lilac","coral":"Coral","lime":"Lime","mixed":"Mixed"},
 "font":{"sacramento":"Fine line","allura":"Elegant","apple":"Handwritten","caveat":"Casual"}
 },
 ja:{
@@ -66,9 +66,9 @@ ja:{
 "urlCopied":"URLをコピーしました","toolCopied":"紹介文とURLをコピーしました","thanks":"ありがとう！次はホーム画面から開いてください",
 "imgAlt":"作成した壁紙","custom":"カスタム","date":"ja-JP",
 "pal":{"milk":"ミルク","hai":"霧グレー","oat":"オーツ","butter":"バター","peach":"ピーチ","sakura":"さくら","azuki":"あずき","lilac":"ライラック","fuji":"藤","sky":"空色","seiji":"青磁","sage":"セージ"},
-"fl":{"wild":"野の花","carnation":"カーネーション","magnolia":"木蓮","daisy":"デイジー","lavender":"ラベンダー","gyp":"かすみ草","rose":"バラ","mix":"ミックス"},
+"fl":{"wild":"野の花","carnation":"カーネーション","magnolia":"木蓮","daisy":"デイジー","lavender":"ラベンダー","gyp":"かすみ草","rose":"バラ","pingpong":"ピンポンマム","sunflower":"ひまわり","mix":"ミックス"},
 "ar":{"stem":"一輪","taped":"マステ留め","tied":"リボン結び","wrapped":"ラッピング","pot":"鉢植え","branch":"枝もの","none":"文字だけ"},
-"tone":{"auto":"おまかせ","peach":"ピーチ","pink":"ピンク","butter":"バター","white":"白","lilac":"藤色","coral":"コーラル","mixed":"ミックス"},
+"tone":{"auto":"おまかせ","peach":"ピーチ","pink":"ピンク","butter":"バター","white":"白","lilac":"藤色","coral":"コーラル","lime":"ライム","mixed":"ミックス"},
 "font":{"sacramento":"細い線","allura":"エレガント","apple":"手書き","caveat":"ラフ"}
 }
 };
@@ -173,18 +173,18 @@ var PALS=[
 var TONES={
   peach:['#f2b7a0','#f6cdb9'],pink:['#eeb1b6','#f5cbcf'],butter:['#f1c56a','#f6d995'],
   white:['#fbf8f2','#efe9df'],lilac:['#b8a5d4','#cfc2e3'],coral:['#e48f78','#efb3a1'],
-  mixed:['#f2b7a0','#f1c56a']
+  mixed:['#f2b7a0','#f1c56a'],lime:['#d9e3a6','#e6edc2']
 };
 var AUTO_TONE={milk:'mixed',hai:'mixed',oat:'peach',butter:'coral',peach:'white',sakura:'white',azuki:'white',lilac:'butter',fuji:'white',sky:'butter',seiji:'white',sage:'peach'};
-var FLOWERS=['wild','carnation','magnolia','daisy','lavender','gyp','rose','mix'];
+var FLOWERS=['wild','carnation','magnolia','daisy','lavender','gyp','rose','pingpong','sunflower','mix'];
 var ARRS=['stem','taped','tied','wrapped','pot','branch','none'];
 var FONTS={sacramento:'Sacramento',allura:'Allura',apple:'Homemade Apple',caveat:'Caveat'};
 
 /* 自動花色：先看花本來的顏色（薰衣草＝紫、玫瑰＝粉），白花放在很淺的底上會看不見，就換成有顏色的 */
-var NAT={carnation:'coral',magnolia:'white',daisy:'white',lavender:'lilac',gyp:'white',rose:'pink'};
+var NAT={carnation:'coral',magnolia:'white',daisy:'white',lavender:'lilac',gyp:'white',rose:'pink',pingpong:'white',sunflower:'butter'};
 function autoTone(S,bg){
   var n=NAT[S.flower];if(!n)return AUTO_TONE[S.bg]||'mixed';
-  if(n==='white'&&lum(bg)>.72&&S.flower!=='magnolia')return S.flower==='daisy'?'butter':'pink';
+  if(n==='white'&&lum(bg)>.72&&S.flower!=='magnolia')return S.flower==='daisy'?'butter':(S.flower==='pingpong'?'lime':'pink');
   return n;
 }
 function colorsFor(S){
@@ -268,9 +268,31 @@ var HEAD={
     ctx.beginPath();ctx.moveTo(-r*.3,-r*.75);ctx.quadraticCurveTo(0,-r*1.05,r*.28,-r*.8);ctx.quadraticCurveTo(r*.05,-r*.5,-r*.18,-r*.72);ctx.stroke();
     ctx.restore();
   },
+  /* 乒乓菊：圓球，外圈一層層細小花瓣（用小弧形排成同心圈） */
+  pingpong:function(ctx,x,y,r,ang,col,C,R){
+    var cy=y-r*.55,R0=r*.95,dk=mix(col,C.dark?'#000000':'#6b6040',.16),i,k;
+    ctx.save();ctx.beginPath();ctx.arc(x,cy,R0,0,Math.PI*2);ctx.fillStyle=col;ctx.fill();
+    ctx.clip();ctx.strokeStyle=dk;ctx.lineCap='round';
+    for(k=0;k<4;k++){var rr=R0*(1-k*.24),n=Math.max(5,Math.round(16-k*3.2)),w=r*.05;ctx.lineWidth=w;
+      for(i=0;i<n;i++){var a=i/n*Math.PI*2+k*.4+R()*.2,px=x+Math.cos(a)*rr*.82,py=cy+Math.sin(a)*rr*.82;
+        ctx.beginPath();ctx.arc(px,py,r*.17,a+Math.PI*.6,a+Math.PI*1.4);ctx.stroke()}}
+    ctx.restore();
+    ctx.beginPath();ctx.arc(x-R0*.3,cy-R0*.32,R0*.28,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,.22)';ctx.fill();
+    ell(ctx,x,y-r*.02,r*.24,r*.14,0,C.leaf[0]);
+  },
+  /* 向日葵：兩層尖花瓣＋大大的咖啡色花心（點點紋路） */
+  sunflower:function(ctx,x,y,r,ang,col,C,R){
+    var n=14,i,a,rot=R(),pt=mix(col,'#d9902a',.25);
+    function petal(a,len,w,c){ctx.save();ctx.translate(x,y);ctx.rotate(a);ctx.beginPath();ctx.moveTo(r*.3,0);
+      ctx.quadraticCurveTo(r*.3+len*.5,-w,r*.3+len,0);ctx.quadraticCurveTo(r*.3+len*.5,w,r*.3,0);ctx.fillStyle=c;ctx.fill();ctx.restore()}
+    for(i=0;i<n;i++)petal(rot+(i+.5)*Math.PI*2/n,r*.72,r*.2,pt);
+    for(i=0;i<n;i++)petal(rot+i*Math.PI*2/n,r*.78,r*.22,col);
+    ell(ctx,x,y,r*.42,r*.42,0,'#7a4e2d');
+    for(i=0;i<16;i++){a=i*2.4;var d=Math.sqrt(i/16)*r*.34;ell(ctx,x+Math.cos(a)*d,y+Math.sin(a)*d,r*.04,r*.04,0,'#4a2e1a')}
+  },
   sprig:function(){}
 };
-var HSIZE={wild:3.1,carnation:3.4,magnolia:3.5,daisy:3.3,lavender:2.9,gyp:2.2,rose:3.5,sprig:0};
+var HSIZE={wild:3.1,carnation:3.4,magnolia:3.5,daisy:3.3,lavender:2.9,gyp:2.2,rose:3.5,pingpong:3.1,sunflower:3.6,sprig:0};
 
 /* ---------- 一根花莖 ---------- */
 function stem(ctx,u,a,c,b,type,col,C,R,opt){
@@ -293,7 +315,7 @@ function head(ctx,type,p,ang,u,col,C,R,k){
 function pickCol(C,R,i){return C.toneId==='mixed'?[C.tone[0],C.tone[1],'#eeb1b6','#fbf8f2'][i%4]:(R()<.65?C.tone[0]:C.tone[1])}
 function typeAt(flower,i){
   if(flower!=='mix')return flower;
-  return ['wild','gyp','daisy','sprig','wild','rose','gyp','lavender'][i%8];
+  return ['wild','gyp','daisy','sprig','pingpong','rose','gyp','lavender','wild','sunflower'][i%10];
 }
 
 /* ---------- 擺法 ---------- */
@@ -497,8 +519,11 @@ var DEVS=[
   ['ipse','iPhone SE',750,1334],
   ['gs','Galaxy S24／S25',1080,2340],
   ['gsu','Galaxy S24 Ultra／S25 Ultra',1440,3120],
-  ['px9','Pixel 9',1080,2424],
-  ['px9p','Pixel 9 Pro',1280,2856],
+  ['px10','Google Pixel 10／9／9a',1080,2424],
+  ['px10p','Google Pixel 10 Pro／9 Pro',1280,2856],
+  ['px10xl','Google Pixel 10 Pro XL／9 Pro XL／8 Pro',1344,2992],
+  ['px8','Google Pixel 8／8a／7／7a',1080,2400],
+  ['px7p','Google Pixel 7 Pro',1440,3120],
   ['fhd','Android 1080 × 2400',1080,2400]
 ];
 var TOUCH=!!(window.matchMedia&&matchMedia('(pointer:coarse)').matches);
@@ -516,12 +541,12 @@ function devSize(id){
 }
 function isHex(s){return /^#[0-9a-f]{6}$/i.test(String(s))}
 function palHex(id){for(var i=0;i<PALS.length;i++)if(PALS[i][0]===id)return PALS[i][1];return null}
-var TONE_IDS=['auto','peach','pink','butter','white','lilac','coral','mixed'];
+var TONE_IDS=['auto','peach','pink','butter','white','lilac','coral','lime','mixed'];
 var FONT_IDS=['sacramento','allura','apple','caveat'];
 
 /* ---------- 狀態 ---------- */
-var DEF={dev:'auto',bg:'sakura',cbg:'',flower:'mix',arr:'tied',tone:'auto',size:50,seed:20261020,txt:'stay gold',font:'allura',flourish:0,heart:1,tcol:'auto',tpos:'bot'};
-var S={},KEY='pw-wall-v2';
+var DEF={dev:'auto',bg:'sakura',cbg:'',flower:'mix',arr:'tied',tone:'auto',size:50,seed:20261020,txt:'stay gold',font:'allura',flourish:1,heart:1,tcol:'auto',tpos:'bot'};
+var S={},KEY='pw-wall-v3';
 function setS(o){S={};Object.keys(DEF).forEach(function(k){S[k]=(o&&o[k]!==undefined)?o[k]:DEF[k]})}
 function clean(){
   if(S.dev!=='auto'&&!DEVS.some(function(d){return d[0]===S.dev}))S.dev='auto';

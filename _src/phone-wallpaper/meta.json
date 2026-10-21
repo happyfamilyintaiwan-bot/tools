@@ -7,7 +7,7 @@
  "app_category": "DesignApplication",
  "page_title": "工具|手機桌布產生器|日系小花與英文手寫字桌布",
  "old_url": "https://tools.knittinghiyori.com/phone-wallpaper-maker/",
- "updated": "2026-10-20",
+ "updated": "2026-10-22",
  "related": [
   "handwriting_compare",
   "ig_symbols",
@@ -41,12 +41,12 @@
   "zh": {
    "name": "手機桌布產生器",
    "title": "手機桌布產生器｜日系小花＋英文手寫字，做剛好合你手機尺寸的桌布（免費、無浮水印）",
-   "desc": "免費手機桌布產生器：12 種粉嫩莫蘭迪底色，8 種原創小花插畫，紙膠帶、手綁緞帶、包裝花束、小盆栽隨你搭，再打一句英文變成文青手寫字，附 15 句鼓勵語。自動配合 iPhone、Android 尺寸，無浮水印、免註冊。",
+   "desc": "免費手機桌布產生器：12 種粉嫩莫蘭迪底色，9 種原創小花插畫（含乒乓菊、向日葵），紙膠帶、手綁緞帶、包裝花束、小盆栽隨你搭，字可以自己填，打一句英文就變成文青手寫字，附 15 句鼓勵語。自動配合 iPhone、Android 尺寸，無浮水印、免註冊。",
    "app_desc": "選擇莫蘭迪底色、小花與花束擺法，加上英文手寫字或預設鼓勵語，產生符合手機螢幕解析度的桌布圖片，可直接存到手機相簿，並分享同一組設定給朋友。",
    "features": [
     "自動偵測手機尺寸",
     "12 種莫蘭迪底色",
-    "8 種原創小花插畫",
+    "9 種原創小花插畫（含乒乓菊、向日葵）",
     "7 種擺法：紙膠帶、手綁緞帶、包裝花束、盆栽",
     "4 款英文手寫字體",
     "15 句預設鼓勵語",
@@ -59,12 +59,12 @@
   "en": {
    "name": "Phone Wallpaper Maker",
    "title": "Phone Wallpaper Maker – Little Flowers and Handwritten Words in Soft Colors (Free)",
-   "desc": "Free phone wallpaper maker: 12 soft, muted backgrounds, 8 original flower illustrations, taped, ribbon-tied, wrapped or potted arrangements, and your own words in pretty handwriting, with 15 kind phrases to start. Sized for iPhone and Android, no watermark.",
+   "desc": "Free phone wallpaper maker: 12 soft, muted backgrounds, 9 original flower illustrations including sunflowers and ping pong mums, taped, ribbon-tied, wrapped or potted arrangements, and your own words in pretty handwriting, with 15 kind phrases to start. Sized for iPhone and Android, no watermark.",
    "app_desc": "Pick a muted background, a flower and an arrangement, add handwritten words or a built-in phrase, and get a wallpaper at your phone's screen resolution. Save it to your photos and share the same settings with friends.",
    "features": [
     "Detects your phone's screen size",
     "12 muted background colors",
-    "8 original flower illustrations",
+    "9 original flower illustrations",
     "7 arrangements: taped, ribbon-tied, wrapped, potted",
     "4 handwriting fonts",
     "15 built-in kind phrases",
@@ -77,12 +77,12 @@
   "ja": {
    "name": "スマホ壁紙メーカー",
    "title": "スマホ壁紙メーカー｜くすみカラーに小さな花と英語の手書き文字（無料・透かしなし）",
-   "desc": "無料のスマホ壁紙メーカー。やさしいくすみカラー12色、オリジナルの花のイラスト8種、マステ留め・リボン結び・ラッピング・鉢植えから選んで、英語をひとこと入れると手書き文字に。やさしい言葉15種つき。iPhone・Androidの画面サイズに合わせて保存、透かしなし。",
+   "desc": "無料のスマホ壁紙メーカー。やさしいくすみカラー12色、ひまわりやピンポンマムを含むオリジナルの花9種、マステ留め・リボン結び・ラッピング・鉢植えから選んで、英語をひとこと入れると手書き文字に。やさしい言葉15種つき。iPhone・Androidの画面サイズに合わせて保存、透かしなし。",
    "app_desc": "くすみカラーの背景、花と飾り方を選び、英語の手書き文字や用意された言葉を添えて、スマホの画面解像度に合った壁紙を作成。写真に保存でき、同じ設定を友だちに共有できます。",
    "features": [
     "スマホの画面サイズを自動判定",
     "くすみカラー12色",
-    "オリジナルの花のイラスト8種",
+    "オリジナルの花のイラスト9種",
     "7つの飾り方：マステ留め・リボン結び・ラッピング・鉢植え",
     "英語の手書きフォント4種",
     "やさしい言葉15種",
