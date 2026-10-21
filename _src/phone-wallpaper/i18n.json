@@ -63,7 +63,10 @@
   "pBot": "Below flowers",
   "txtNote": "The handwriting fonts cover the English alphabet only; Chinese or Japanese text shows in a serif font.",
   "fb": "Want more flowers, layouts or features? Email me: <a href=\"mailto:newsletters@knittinghiyori.com?subject=Phone%20Wallpaper%20Maker%20idea\" data-cta=\"feedback_mail\" data-cta-type=\"other\">newsletters@knittinghiyori.com</a>",
-  "txtHint": "✏️ The words are yours to write: a name, a date, any short line in English. Not sure? Tap a phrase below."
+  "txtHint": "✏️ The words are yours to write: a name, a date, any short line in English. Not sure? Tap a phrase below.",
+  "wlT": "🌷 A wallpaper app and a flower shop game are on the way",
+  "wlP": "Interested in this tool as an app, or in our flower shop game? Subscribe to our Newsletters and we'll let you know as soon as there's news.",
+  "wlB": "Subscribe to Newsletters →"
  },
  "ja": {
   "insTabs": "端末を選択",
@@ -129,6 +132,9 @@
   "pBot": "花の下",
   "txtNote": "手書きフォントは英字のみ対応です。日本語や中国語は明朝体で表示されます。",
   "fb": "花や飾り方、機能のリクエストはメールでどうぞ：<a href=\"mailto:newsletters@knittinghiyori.com?subject=%E3%82%B9%E3%83%9E%E3%83%9B%E5%A3%81%E7%B4%99%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC%E3%81%B8%E3%81%AE%E6%84%8F%E8%A6%8B\" data-cta=\"feedback_mail\" data-cta-type=\"other\">newsletters@knittinghiyori.com</a>",
-  "txtHint": "✏️ 文字は自由に入力できます。名前や記念日、好きな英語のひとことでもOK。迷ったら下の言葉をタップ。"
+  "txtHint": "✏️ 文字は自由に入力できます。名前や記念日、好きな英語のひとことでもOK。迷ったら下の言葉をタップ。",
+  "wlT": "🌷 壁紙アプリと花屋経営ゲームを制作中",
+  "wlP": "このツールのアプリ版や、花屋経営ゲームに興味がありますか？ Newsletters に登録すると、最新情報をいち早くお知らせします。",
+  "wlB": "Newsletters に登録 →"
  }
 }
