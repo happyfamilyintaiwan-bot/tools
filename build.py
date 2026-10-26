@@ -14,7 +14,7 @@ GA_ID = 'G-ZQZHTYTRMQ'   # GA4 評估 ID
 ADS_CLIENT = 'ca-pub-2022028565680247'   # AdSense 發布商 ID（全站共用）
 ADS_SLOT = '3114811513'                  # AdSense 廣告單元「tools」
 DRIVE = 'https://emrld.ltd/NTc5OTI2.js?t=579926'   # Travelpayouts Drive（tools 專屬）
-SPEC = 'core-v1.7/tools-v2.4'   # spec-version meta（core §0）：規範升版時改這裡，build 會套到所有頁面
+SPEC = 'core-v1.7/tools-v2.5'   # spec-version meta（core §0）：規範升版時改這裡，build 會套到所有頁面
 VER = datetime.date.today().strftime('%Y%m%d')  # 改版時更新快取
 YEAR = datetime.date.today().year
 
