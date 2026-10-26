@@ -1,12 +1,11 @@
 {
- "_說明": "新增或修改工具只要改這個檔案（圖示在 build.py 的 ICONS），然後執行 python3 build.py。cats 用一個分類：travel／learn／life／social／money／work。url 是工具頁網址；ui 是工具頁內可切換的介面語言；alt 是其他語言的獨立網址；hot=true 會放進「人氣」大卡（最多 3 個）。id 要和《工具｜GA4 統一追蹤規範》的 tool_id 一致。",
+ "_說明": "新增或修改工具只要改這個檔案（圖示在 build.py 的 ICONS），然後執行 python3 build.py。cats 用一個分類：travel／learn／life／social／money／work。url 是工具頁網址；ui 是工具頁內可切換的介面語言；alt 是其他語言的獨立網址；hot=1／2／3 會放進「人氣」大卡，數字是卡片順序（最多 3 個）。id 要和《工具｜GA4 統一追蹤規範》的 tool_id 一致。",
  "tools": [
   {
    "id": "jr_pass",
    "cats": [
     "travel"
    ],
-   "hot": true,
    "url": "https://knittinghiyori.com/tools/jr-pass-calculator/",
    "ui": [
     "zh"
@@ -76,7 +75,7 @@
    "cats": [
     "travel"
    ],
-   "hot": true,
+   "hot": 3,
    "url": "https://tools.knittinghiyori.com/travel-split-calculator/",
    "ui": [
     "zh",
@@ -85,15 +84,15 @@
    ],
    "zh": [
     "旅費分帳計算機",
-    "出國多幣別記帳，自動算出誰該轉給誰"
+    "記下誰先付，自動算出誰該轉給誰"
    ],
    "en": [
     "Trip Expense Splitter",
-    "Log costs in any currency and see exactly who pays whom"
+    "Note who paid first, and it works out who pays whom"
    ],
    "ja": [
     "旅行の割り勘計算機",
-    "多通貨で記録、誰が誰にいくら払うか自動で計算"
+    "誰が先に払ったかを記録すると、誰が誰にいくら払うか自動で計算"
    ],
    "alt": {
     "en": "https://tools.knittinghiyori.com/en/travel-split-calculator/",
@@ -342,7 +341,7 @@
    "cats": [
     "social"
    ],
-   "hot": true,
+   "hot": 2,
    "url": "https://tools.knittinghiyori.com/kaomoji-symbols/",
    "ui": [
     "zh",
@@ -533,6 +532,7 @@
    "cats": [
     "life"
    ],
+   "hot": 1,
    "url": "https://tools.knittinghiyori.com/phone-wallpaper-maker/",
    "ui": [
     "zh",
@@ -541,15 +541,15 @@
    ],
    "zh": [
     "手機桌布產生器",
-    "日系小花＋英文手寫字，尺寸自動配合手機"
+    "日系小花＋英文手寫字，做一張剛好合你手機的桌布"
    ],
    "en": [
     "Phone Wallpaper Maker",
-    "Little flowers and handwritten words, sized for your phone"
+    "Little Japanese-style flowers and handwritten English words, made to fit your phone"
    ],
    "ja": [
     "スマホ壁紙メーカー",
-    "くすみカラーに小さな花と手書きの英語"
+    "和風の小さな花と英語の手書き文字で、あなたのスマホにぴったりの壁紙を"
    ],
    "src": "phone-wallpaper",
    "alt": {
