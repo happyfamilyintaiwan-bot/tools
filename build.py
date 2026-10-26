@@ -72,6 +72,8 @@ LANGS = {
     draw='抽一支今日工具', see_all='看全部工具',
     stats=[('{n}', '個小工具'), ('0', '元，全部免費'), ('0', '次註冊'), ('3', '種語言')],
     hot_l='Popular', hot_h='大家最常打開的三個',
+    app_h='哪個工具會先變成 App？', app_p='我們正在把反應最好的小工具做成手機 App。想第一手知道是哪一個、什麼時候上架，就訂閱電子報。',
+    app_btn='訂閱電子報', app_fine='不寄廣告，隨時可以取消訂閱', app_url='https://knittinghiyori.kit.com/9a62213d22',
     idx_l='Index', idx_h='全部工具', idx_sub='共 <b id="count">{n}</b> 個',
     search='找工具：分帳、QR、日本…', search_label='搜尋工具',
     cats=dict(all='全部', travel='旅行與出國', learn='學習與語言', life='生活與興趣', social='文字與社群排版', money='理財與投資', work='工作與行銷'),
@@ -99,6 +101,8 @@ LANGS = {
     draw='Draw today’s tool', see_all='See every tool',
     stats=[('{n}', 'small tools'), ('0', 'cost, all free'), ('0', 'sign-ups'), ('3', 'languages')],
     hot_l='Popular', hot_h='The three people open most',
+    app_h='Which tool becomes an app first?', app_p='We are turning the most-loved tools into phone apps. Subscribe to our newsletters to hear first which one, and when.',
+    app_btn='Subscribe', app_fine='No ads. Unsubscribe any time.', app_url='https://knittinghiyori.kit.com/7e0d778fa7',
     idx_l='Index', idx_h='Every tool', idx_sub='<b id="count">{n}</b> tools',
     search='Find a tool: split, QR, Japan…', search_label='Search tools',
     cats=dict(all='All', travel='Travel', learn='Learning', life='Lifestyle', social='Text & social', money='Money', work='Work & marketing'),
@@ -128,6 +132,8 @@ LANGS = {
     draw='今日の道具をひく', see_all='すべて見る',
     stats=[('{n}', 'の小さな道具'), ('0', '円・すべて無料'), ('0', '回の登録'), ('3', 'つの言語')],
     hot_l='Popular', hot_h='いちばん使われている3つ',
+    app_h='どのツールが先にアプリになる？', app_p='人気のツールをスマホアプリにしています。どれがいつ出るのか、いち早く知りたい方はメールマガジンに登録してください。',
+    app_btn='メルマガに登録する', app_fine='広告メールは送りません。いつでも解除できます', app_url='https://knittinghiyori.kit.com/86a568569e',
     idx_l='Index', idx_h='すべての道具', idx_sub='全 <b id="count">{n}</b> 種類',
     search='ツールを検索：割り勘、QR、日本…', search_label='ツールを検索',
     cats=dict(all='すべて', travel='旅行・海外', learn='学習・語学', life='暮らし・趣味', social='文字・SNS', money='お金・投資', work='仕事・マーケ'),
@@ -424,7 +430,7 @@ def page(lang):
     n = len(DATA)
     canonical = SITE + L['path']
     rows = '\n'.join(row(i + 1, t, lang, L) for i, t in enumerate(DATA))
-    hots = [(i + 1, t) for i, t in enumerate(DATA) if t.get('hot')][:3]
+    hots = sorted(((i + 1, t) for i, t in enumerate(DATA) if t.get('hot')), key=lambda x: int(x[1]['hot']))[:3]  # hot 的數字＝卡片順序
     feats = '\n'.join(feat(i, t, lang, L, k) for k, (i, t) in enumerate(hots))
     counts = {c: sum(c in t['cats'] for t in DATA) for c in CATS}
     tabs = f'<button type="button" class="tab" data-cat="all" aria-pressed="true">{L["cats"]["all"]}<sup>{n}</sup></button>' + ''.join(
@@ -457,7 +463,7 @@ def page(lang):
                                          'shake': L['omi']['shake'], 'sub': L['omi']['sub']}, 'tools': tools_js}
     extra = '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + '</script>'
     other = 'zh' if lang != 'zh' else 'en'
-    glyphs = (re.sub('<[^>]+>', '', L['h1'] + L['share_h']) + L['hot_h'] + L['idx_h'] + L['promo_t'] + L['faq_h']
+    glyphs = (re.sub('<[^>]+>', '', L['h1'] + L['share_h']) + L['hot_h'] + L['app_h'] + L['idx_h'] + L['promo_t'] + L['faq_h']
               + L['omi']['title'] + ''.join(L['omi']['luck']) + '道具'
               + ''.join(t[lang][0] + t[other][0] for t in DATA))
     return vignette(f'''{head(L, L["title"], L["desc"], canonical, extra, glyphs, og_img=f'/assets/og/hub-{lang}.png')}
@@ -481,6 +487,16 @@ def page(lang):
 <section class="sec hot"><div class="wrap">
 <div class="sh reveal"><p class="lbl">§ 01 — {L["hot_l"]}</p><h2>{L["hot_h"]}</h2></div>
 <ul class="feats">{feats}</ul>
+</div></section>
+
+<section class="sec appnl"><div class="wrap">
+<div class="nlbox reveal">
+<p class="lbl">Newsletters</p>
+<h2>{L["app_h"]}</h2>
+<p>{L["app_p"]}</p>
+<a class="btn main big" href="{L["app_url"]}" target="_blank" rel="noopener" data-cta="app_waitlist_tool" data-cta-type="newsletter">{L["app_btn"]}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<p class="fine">{L["app_fine"]}</p>
+</div>
 </div></section>
 
 <section class="sec idx" id="index"><div class="wrap">
