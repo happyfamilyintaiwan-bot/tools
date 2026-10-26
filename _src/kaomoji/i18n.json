@@ -1,23 +1,23 @@
 {
  "zh": {
-  "ctaH": "想要這些變成一個 App 嗎？",
-  "ctaP": "如果這個網頁對你有用，我正在考慮把它做成手機 App，離線可用、收藏常用的符號、鍵盤直接叫出來。<br>有興趣的話訂閱電子報，做出來第一時間通知你。",
-  "ctaB": "訂閱電子報",
+  "ctaH": "這個工具要做成 App 了",
+  "ctaP": "我們會把這個工具做成手機 App。<br>想第一手收到消息，就訂閱電子報。",
   "ctaF": "knitting hiyori ・ 不寄廣告，隨時可以取消訂閱",
-  "toast": "已複製"
+  "toast": "已複製",
+  "ctaA": "<a class=\"cta-btn\" href=\"https://knittinghiyori.kit.com/9a62213d22\" target=\"_blank\" rel=\"noopener\" data-cta=\"app_waitlist_tool\" data-cta-type=\"newsletter\">訂閱電子報</a>"
  },
  "en": {
-  "ctaH": "Want this as an app?",
-  "ctaP": "If this page is useful to you, I am thinking about turning it into a phone app. Works offline, saves your favourites, opens straight from the keyboard.<br>Leave your email and I will tell you when it exists.",
-  "ctaB": "Subscribe",
+  "ctaH": "This tool is becoming an app",
+  "ctaP": "We are turning this tool into a phone app.<br>Subscribe to our newsletters to hear about it first.",
   "ctaF": "knitting hiyori ・ No ads, unsubscribe any time",
-  "toast": "Copied"
+  "toast": "Copied",
+  "ctaA": "<a class=\"cta-btn\" href=\"https://knittinghiyori.kit.com/7e0d778fa7\" target=\"_blank\" rel=\"noopener\" data-cta=\"app_waitlist_tool\" data-cta-type=\"newsletter\">Subscribe</a>"
  },
  "ja": {
-  "ctaH": "アプリでも使いたい？",
-  "ctaP": "このページを iPhone アプリにしています。オフラインで使えて、よく使う記号をお気に入りにでき、キーボードからすぐ呼び出せます。<br>メールアドレスを登録すると、リリースした時にお知らせします。",
-  "ctaB": "お知らせを受け取る",
+  "ctaH": "このツールがアプリになります",
+  "ctaP": "このツールをスマホアプリにする予定です。<br>いち早く知りたい方は、メールマガジンに登録してください。",
   "ctaF": "knitting hiyori ・ 広告メールは送りません。いつでも解除できます",
-  "toast": "コピーしました"
+  "toast": "コピーしました",
+  "ctaA": "<a class=\"cta-btn\" href=\"https://knittinghiyori.kit.com/86a568569e\" target=\"_blank\" rel=\"noopener\" data-cta=\"app_waitlist_tool\" data-cta-type=\"newsletter\">メルマガに登録する</a>"
  }
 }
