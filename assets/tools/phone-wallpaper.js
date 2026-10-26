@@ -573,18 +573,24 @@ function paint(cv,W,H,o){var x={},k;for(k in S)x[k]=S[k];if(o)for(k in o)x[k]=o[
 
 /* ---------- 字體載入：載好才畫，不然會先用系統字 ---------- */
 var FONT_OK={};
-var TXT_OK={};
-/* 中日文字型很大，Google Fonts 會切成很多小包，只下載畫面上用到的字；所以要用實際的字去載，載好再畫 */
+var TXT_TRY={},TXT_BUSY={};
+/* 中日文字型很大，Google Fonts 會切成很多小包，只下載畫面上用到的字；所以要用實際的字去載，載好再畫。
+   每次畫之前都直接問瀏覽器「這幾個字準備好了沒」（不靠自己記），字型清單被重新整理時也不會退回系統字 */
+function cjkFont(tx){return '40px "'+cjkFamily(tx)+'"'}
+/* 注意：字型的 CSS 還沒下載完時，瀏覽器找不到這個字型，check() 會直接回答 true，所以要先等 CSS */
+var CSS_DONE=false;FONT_CSS.then(function(){CSS_DONE=true});
+function textReady(tx){if(!CSS_DONE)return false;try{return document.fonts.check(cjkFont(tx),tx)}catch(e){return true}}
 function loadText(cb){
   var tx=String(S.txt||'').trim();
   if(!isCjk(tx)){loadFont(S.font,cb);return}
-  var fam=cjkFamily(tx),key=fam+'|'+tx;
-  if(TXT_OK[key]){cb&&cb();return}
-  if(!document.fonts||!document.fonts.load){TXT_OK[key]=1;cb&&cb();return}
-  /* 載不到也記下來，避免一直重試 */
-  FONT_CSS.then(function(){return document.fonts.load('40px "'+fam+'"',tx)}).then(function(){TXT_OK[key]=1;cb&&cb()},function(){TXT_OK[key]=1;cb&&cb()});
+  if(!document.fonts||!document.fonts.load||textReady(tx)){cb&&cb();return}
+  var key=cjkFamily(tx)+'|'+tx;
+  /* 同一句最多試 3 次，載不到就用系統字，避免一直重試 */
+  if(TXT_BUSY[key]||(TXT_TRY[key]||0)>=3){if(!TXT_BUSY[key])cb&&cb();return}
+  TXT_BUSY[key]=1;TXT_TRY[key]=(TXT_TRY[key]||0)+1;
+  FONT_CSS.then(function(){return document.fonts.load(cjkFont(tx),tx)}).then(function(){TXT_BUSY[key]=0;cb&&cb()},function(){TXT_BUSY[key]=0;cb&&cb()});
 }
-function needText(){var tx=String(S.txt||'').trim();return isCjk(tx)&&!TXT_OK[cjkFamily(tx)+'|'+tx]}
+function needText(){var tx=String(S.txt||'').trim();if(!isCjk(tx)||!document.fonts)return false;var key=cjkFamily(tx)+'|'+tx;return !textReady(tx)&&!TXT_BUSY[key]&&(TXT_TRY[key]||0)<3}
 function loadFont(id,cb){
   var fam=FONTS[id];if(FONT_OK[id]||!document.fonts||!document.fonts.load){cb&&cb();return}
   /* 先等字體的 CSS 載好，不然 fonts.load 會找不到這個字體、直接回報完成 */
