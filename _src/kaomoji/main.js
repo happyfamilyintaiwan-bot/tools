@@ -199,7 +199,7 @@ zh:function(){
     clearTimeout(tid); tid=setTimeout(()=>t.classList.remove("on"),1500);
   }
   function copy(txt,label,section){
-    const done=()=>{
+    const done=()=>{window.dispatchEvent(new CustomEvent("km-copy",{detail:{txt:txt,label:label,section:section}}));
       toast(label?"已複製　"+label:"已複製");
       track(label||txt.slice(0,20), section||"其他");
     };
@@ -705,7 +705,7 @@ en:function(){
     clearTimeout(tid); tid=setTimeout(()=>t.classList.remove("on"),1500);
   }
   function copy(txt,label,section){
-    const done=()=>{
+    const done=()=>{window.dispatchEvent(new CustomEvent("km-copy",{detail:{txt:txt,label:label,section:section}}));
       toast(label?"Copied　"+label:"Copied");
       track(label||txt.slice(0,20), section||"Other");
     };
@@ -1211,7 +1211,7 @@ ja:function(){
     clearTimeout(tid); tid=setTimeout(()=>t.classList.remove("on"),1500);
   }
   function copy(txt,label,section){
-    const done=()=>{
+    const done=()=>{window.dispatchEvent(new CustomEvent("km-copy",{detail:{txt:txt,label:label,section:section}}));
       toast(label?"コピーしました　"+label:"コピーしました");
       track(label||txt.slice(0,20), section||"その他");
     };
@@ -1523,4 +1523,35 @@ ja:function(){
 }
 };
 (RUN[window.TS_PAGE_LANG]||RUN.zh)();
+})();
+
+/* ---------- 左邊的手機畫面（2026-10-26）：點的符號會出現在聊天／IG 自介裡 ---------- */
+(function(){
+  var toastEl=document.getElementById("k-toast"), tid;
+  function toast(m){ if(!toastEl) return; toastEl.textContent=m; toastEl.classList.add("on"); clearTimeout(tid); tid=setTimeout(function(){toastEl.classList.remove("on")},1500); }
+  function copyText(t,msg,item){
+    var ok=function(){ toast(msg); try{ if(window.gtag) gtag("event","copy_symbol",{symbol_item:item,symbol_section:"手機預覽"}); }catch(e){} };
+    if(navigator.clipboard&&window.isSecureContext) navigator.clipboard.writeText(t).then(ok).catch(fb); else fb();
+    function fb(){ var a=document.createElement("textarea"); a.value=t; a.style.cssText="position:fixed;opacity:0"; document.body.appendChild(a); a.select(); try{document.execCommand("copy");ok();}catch(e){} a.remove(); }
+  }
+  var visible=function(t){ return /[^\sㅤ⠀​]/.test(t||""); };
+  var chat=document.getElementById("km-chat");
+  if(chat){
+    var last="";
+    var add=function(t){ var b=document.createElement("div"); b.className="bub me"+(t.indexOf("\n")>=0?" ml":""); b.textContent=t; chat.appendChild(b);
+      while(chat.children.length>8) chat.removeChild(chat.firstChild); chat.scrollTop=chat.scrollHeight; };
+    window.addEventListener("km-copy",function(e){ var t=e.detail&&e.detail.txt; if(!visible(t)) return; last=t; add(t); });
+    document.getElementById("km-last").addEventListener("click",function(){ if(last) copyText(last,chat.dataset.copied+"　"+last.replace(/\s+/g," ").trim(),"聊天-最後一個"); });
+    document.getElementById("km-clear").addEventListener("click",function(){ while(chat.children.length>1) chat.removeChild(chat.lastChild); last=""; });
+  }
+  var bio=document.getElementById("km-bio"), pv=document.getElementById("k-pv");
+  if(bio&&pv){
+    var extra=[], cnt=document.getElementById("km-bio-n");
+    var text=function(){ return pv.textContent+(extra.length?" "+extra.join(" "):""); };
+    var draw=function(){ var t=text(), n=Array.from(t).length; bio.textContent=t; cnt.textContent=bio.dataset.n.replace("{n}",n); cnt.classList.toggle("over",n>150); };
+    new MutationObserver(draw).observe(pv,{childList:true,characterData:true,subtree:true}); draw();
+    window.addEventListener("km-copy",function(e){ var t=e.detail&&e.detail.txt; if(!visible(t)||t===pv.textContent||t.indexOf("\n")>=0) return; extra.push(t); if(extra.length>3) extra.shift(); draw(); });
+    document.getElementById("km-copybio").addEventListener("click",function(){ copyText(text(),bio.dataset.copied,"IG自介預覽"); });
+    document.getElementById("km-undo").addEventListener("click",function(){ extra.pop(); draw(); });
+  }
 })();
