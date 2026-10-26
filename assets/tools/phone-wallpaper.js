@@ -7,7 +7,7 @@ var $=function(s){var el=ROOT.querySelector(s);if(!el)if(window.console)console.
 var TOOL_URL=location.origin+location.pathname;
 
 /* ▼ 手寫字體：Google Fonts（OFL 授權，可商用）。只載入這四款 */
-var FONT_CSS=new Promise(function(res){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Sacramento&family=Allura&family=Homemade+Apple&family=Caveat:wght@500&display=swap';l.onload=res;l.onerror=res;document.head.appendChild(l);setTimeout(res,4000)});
+var FONT_CSS=new Promise(function(res){var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Sacramento&family=Allura&family=Homemade+Apple&family=Caveat:wght@500&family=Klee+One&family=LXGW+WenKai+TC&display=swap';l.onload=res;l.onerror=res;document.head.appendChild(l);setTimeout(res,4000)});
 
 /* ▼ 預設鼓勵語（英文，三語介面共用） */
 var PHRASES=['stay gold','you are enough','little by little','bloom where you are','one day at a time','be kind to yourself','good things take time',"you've got this",'today is a good day','breathe','love yourself','keep going','choose joy','slow down','you are doing great'];
@@ -469,11 +469,13 @@ function heartPath(ctx,x,y,s){ctx.beginPath();ctx.moveTo(x,y+s*.35);ctx.bezierCu
 function drawText(ctx,W,H,S,C,ty){
   var tx=String(S.txt||'').trim();if(!tx)return;
   var fam=FONTS[S.font]||'Sacramento',fs=W*({sacramento:.16,allura:.135,apple:.085,caveat:.12}[S.font]||.14);
-  var cjk=/[　-鿿＀-￯]/.test(tx);
-  var stack='"'+fam+'",'+(cjk?'"Hiragino Mincho ProN","Songti TC","Noto Serif TC",serif':'cursive');
-  ctx.font=(cjk?fs*.42:fs)+'px '+stack;
+  var cjk=isCjk(tx);
+  /* 中日文：有假名用 Klee One（日文手寫），其他用霞鶩文楷 TC（繁中手寫）；字身比較飽滿，另外換算成畫面寬度的固定比例 */
+  var stack=cjk?'"'+cjkFamily(tx)+'","Hiragino Mincho ProN","Songti TC",serif':'"'+fam+'",cursive';
+  var cjkK=CJK_SCALE/({sacramento:.16,allura:.135,apple:.085,caveat:.12}[S.font]||.14);
+  ctx.font=(cjk?fs*cjkK:fs)+'px '+stack;
   var w=ctx.measureText(tx).width,maxW=W*(S.flourish?.7:.86);
-  if(w>maxW){fs*=maxW/w;ctx.font=(cjk?fs*.42:fs)+'px '+stack;w=ctx.measureText(tx).width}
+  if(w>maxW){fs*=maxW/w;ctx.font=(cjk?fs*cjkK:fs)+'px '+stack;w=ctx.measureText(tx).width}
   ctx.fillStyle=C.text;ctx.strokeStyle=C.text;ctx.textAlign='center';ctx.textBaseline='alphabetic';
   var by=ty+fs*.18;
   ctx.fillText(tx,W/2,by);
@@ -506,6 +508,10 @@ function draw(cv,W,H,S){
   if(arr!=='none')ARR[arr](ctx,W/2,cy,u,S,C,R);
   if(hasTxt)drawText(ctx,W,H,S,C,ty);
 }
+/* 中日文字大小（畫面寬度的比例）；App 版 BloomsCore 的 cjkScale 要一樣 */
+var CJK_SCALE=.085;
+function isCjk(t){return /[\u3000-\u9fff\uff00-\uffef]/.test(t)}
+function cjkFamily(t){return /[\u3040-\u30ff]/.test(t)?'Klee One':'LXGW WenKai TC'}
 function fontSize(W,S){return W*({sacramento:.16,allura:.135,apple:.085,caveat:.12}[S.font]||.14)}
 
 /* ---------- 手機尺寸（直式像素） ---------- */
@@ -567,6 +573,18 @@ function paint(cv,W,H,o){var x={},k;for(k in S)x[k]=S[k];if(o)for(k in o)x[k]=o[
 
 /* ---------- 字體載入：載好才畫，不然會先用系統字 ---------- */
 var FONT_OK={};
+var TXT_OK={};
+/* 中日文字型很大，Google Fonts 會切成很多小包，只下載畫面上用到的字；所以要用實際的字去載，載好再畫 */
+function loadText(cb){
+  var tx=String(S.txt||'').trim();
+  if(!isCjk(tx)){loadFont(S.font,cb);return}
+  var fam=cjkFamily(tx),key=fam+'|'+tx;
+  if(TXT_OK[key]){cb&&cb();return}
+  if(!document.fonts||!document.fonts.load){TXT_OK[key]=1;cb&&cb();return}
+  /* 載不到也記下來，避免一直重試 */
+  FONT_CSS.then(function(){return document.fonts.load('40px "'+fam+'"',tx)}).then(function(){TXT_OK[key]=1;cb&&cb()},function(){TXT_OK[key]=1;cb&&cb()});
+}
+function needText(){var tx=String(S.txt||'').trim();return isCjk(tx)&&!TXT_OK[cjkFamily(tx)+'|'+tx]}
 function loadFont(id,cb){
   var fam=FONTS[id];if(FONT_OK[id]||!document.fonts||!document.fonts.load){cb&&cb();return}
   /* 先等字體的 CSS 載好，不然 fonts.load 會找不到這個字體、直接回報完成 */
@@ -582,6 +600,7 @@ function render(){
   var cw=Math.round((pv.clientWidth||240)*dpr);if(cw<100)cw=480;
   cv.width=cw;cv.height=Math.round(cw*H/W);paint(cv,cv.width,cv.height);
   mini.width=72;mini.height=Math.round(72*H/W);paint(mini,mini.width,mini.height);
+  if(needText())loadText(render);
   $('#pw-dim').textContent=t('dim',{w:W,h:H});
   pv.style.setProperty('--cc',lum(bgHex())>.6?'#4a403a':'#ffffff');
   $('#pw-fab-v').textContent=palName()+'・'+nm('fl',S.flower);
@@ -695,7 +714,7 @@ function track(how){
 }
 function saveImg(){
   if(busy)return;busy=true;hyTool.start('direct');
-  loadFont(S.font,async function(){
+  loadText(async function(){
     try{
       var blob=await makeBlob();if(!blob)throw new Error('blob');
       var name=fileName(),file=null;
@@ -768,7 +787,7 @@ if(m){
 }
 clean();
 render();thumbs();
-loadFont(S.font,function(){render();thumbs()});
+loadText(function(){render();thumbs()});
 FONT_IDS.forEach(function(f){loadFont(f)});
 window.addEventListener('resize',function(){cancelAnimationFrame(rT);rT=requestAnimationFrame(render)});
 }catch(err){if(window.console)console.error('[phone-wallpaper]',err)}
