@@ -343,9 +343,11 @@
     "social"
    ],
    "hot": true,
-   "url": "https://knittinghiyori.com/tools/kaomoji-symbols/",
+   "url": "https://tools.knittinghiyori.com/kaomoji-symbols/",
    "ui": [
-    "zh"
+    "zh",
+    "en",
+    "ja"
    ],
    "zh": [
     "大型顏文字產生器",
@@ -358,16 +360,23 @@
    "ja": [
     "顔文字ジェネレーター",
     "うさぎ顔文字・顔パーツの組み合わせ・特殊記号をワンタップでコピー"
-   ]
+   ],
+   "src": "kaomoji",
+   "alt": {
+    "en": "https://tools.knittinghiyori.com/en/kaomoji-symbols/",
+    "ja": "https://tools.knittinghiyori.com/ja/kaomoji-symbols/"
+   }
   },
   {
    "id": "ig_symbols",
    "cats": [
     "social"
    ],
-   "url": "https://knittinghiyori.com/tools/ig-symbols/",
+   "url": "https://tools.knittinghiyori.com/ig-symbols/",
    "ui": [
-    "zh"
+    "zh",
+    "en",
+    "ja"
    ],
    "zh": [
     "IG 特殊符號",
@@ -380,7 +389,12 @@
    "ja": [
     "インスタ特殊記号",
     "プロフィールの装飾・区切り線・ストーリー用の記号をコピー"
-   ]
+   ],
+   "src": "ig-symbols",
+   "alt": {
+    "en": "https://tools.knittinghiyori.com/en/ig-symbols/",
+    "ja": "https://tools.knittinghiyori.com/ja/ig-symbols/"
+   }
   },
   {
    "id": "post_formatter",
