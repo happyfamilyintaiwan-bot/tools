@@ -1,0 +1,92 @@
+{
+ "tool_id": "kaomoji",
+ "slug": "kaomoji-symbols",
+ "cat": "social",
+ "root": "km",
+ "aff_var": "KM_AFF",
+ "app_category": "UtilitiesApplication",
+ "page_title": "工具|大型顏文字產生器|兔兔顏文字與表情組合器",
+ "old_url": "https://knittinghiyori.com/tools/kaomoji-symbols/",
+ "updated": "2026-10-25",
+ "related": [
+  "ig_symbols",
+  "post_formatter",
+  "phone_wallpaper",
+  "qr_code"
+ ],
+ "blog": [
+  {
+   "url": "https://knittinghiyori.com/line-hidden-features-tips/",
+   "zh": "LINE 5 大隱藏功能：聊天室分類、無聲訊息、全部已讀",
+   "en": "5 hidden LINE features worth knowing",
+   "ja": "LINEの隠れた便利機能5選"
+  },
+  {
+   "url": "https://knittinghiyori.com/chatgpt-image-2-line-sticker-guide/",
+   "zh": "LINE 貼圖製作教學：用 ChatGPT 做圖到上架",
+   "en": "Making LINE stickers with ChatGPT, start to finish",
+   "ja": "ChatGPTでLINEスタンプを作って販売するまで"
+  },
+  {
+   "url": "https://knittinghiyori.com/how-to-make-stickers-die-cut-round-seal/",
+   "zh": "自己送印貼紙：刀模貼紙、圓形貼紙、封口貼怎麼選",
+   "en": "Printing your own stickers: die-cut, round or seal",
+   "ja": "オリジナルステッカーの作り方：型抜き・丸型・封かんシール"
+  }
+ ],
+ "aff": {},
+ "i18n_fixes": {},
+ "lang": {
+  "zh": {
+   "name": "大型顏文字產生器",
+   "title": "大型顏文字產生器｜兔兔顏文字、表情組合器、特殊符號一鍵複製",
+   "desc": "免費大型顏文字產生器：18 隻兔兔拿東西的大型顏文字、36 組眼睛 × 32 張嘴的表情組合器（1,152 種）、IG 分隔線、限動裝飾、特殊符號和看不見的空白格，點一下就複製，Instagram、Threads、LINE、Dcard 都能用。",
+   "app_desc": "免費線上顏文字產生器：大型兔兔顏文字、表情組合器（36 組眼睛 × 32 張嘴，1,152 種表情）、IG 分隔線、限動裝飾、特殊符號與隱形空白格，點一下就複製。",
+   "features": [
+    "大型兔兔顏文字（18 種姿勢 × 50 樣東西）",
+    "表情組合器 1,152 種",
+    "IG 分隔線與限動裝飾",
+    "特殊符號與圓圈數字",
+    "特殊英文字型",
+    "看不見的空白格",
+    "IG 自介排版與字數計量",
+    "免註冊、點一下就複製"
+   ],
+   "howto": "如何用大型顏文字產生器複製顏文字"
+  },
+  "en": {
+   "name": "Kaomoji Generator",
+   "title": "Kaomoji Generator: Bunny Text Art & 1,152-Face Mixer (Free, Tap to Copy)",
+   "desc": "Free kaomoji generator: bunny text art holding 50 different things, a face mixer with 36 eyes × 32 mouths (1,152 kaomoji), text dividers, story decorations, invisible characters and fancy fonts. Tap once to copy for Instagram, Threads, X and Discord.",
+   "app_desc": "Free online kaomoji generator with bunny text art, a face mixer (36 eyes × 32 mouths, 1,152 faces), text dividers, story decorations, special symbols, invisible characters and fancy fonts. Tap to copy.",
+   "features": [
+    "Bunny text art (18 poses × 50 items)",
+    "Face mixer with 1,152 kaomoji",
+    "Text dividers and story decorations",
+    "Special symbols and circled numbers",
+    "Fancy fonts",
+    "Invisible characters for line breaks",
+    "Bio layout with character counter",
+    "No sign-up, tap to copy"
+   ],
+   "howto": "How to copy kaomoji with the kaomoji generator"
+  },
+  "ja": {
+   "name": "顔文字ジェネレーター",
+   "title": "顔文字ジェネレーター｜うさぎのAA・顔文字メーカー・特殊記号をワンタップでコピー（無料）",
+   "desc": "無料の顔文字ジェネレーター。50種類のものを持つうさぎのAA、目36種類×口32種類で1,152通りの顔文字メーカー、インスタの区切り線、ストーリーの飾り、特殊記号、見えない空白をタップでコピー。インスタ、X、Threads、LINEで使えます。",
+   "app_desc": "うさぎのAA、顔文字メーカー（目36種類×口32種類、1,152通り）、区切り線、ストーリーの飾り、特殊記号、見えない空白、英字の特殊フォントをタップでコピーできる無料オンラインツール。",
+   "features": [
+    "うさぎのAA（18ポーズ×50種類）",
+    "顔文字メーカー 1,152通り",
+    "区切り線とストーリーの飾り",
+    "特殊記号と丸数字",
+    "英字の特殊フォント",
+    "改行用の見えない空白",
+    "プロフィール整形と文字数カウンター",
+    "登録不要・タップでコピー"
+   ],
+   "howto": "顔文字ジェネレーターで顔文字をコピーする方法"
+  }
+ }
+}

@@ -1,0 +1,92 @@
+{
+ "tool_id": "ig_symbols",
+ "slug": "ig-symbols",
+ "cat": "social",
+ "root": "km",
+ "aff_var": "KM_AFF",
+ "app_category": "UtilitiesApplication",
+ "page_title": "工具|IG 特殊符號|自介排版、分隔線、限動裝飾",
+ "old_url": "https://knittinghiyori.com/tools/ig-symbols/",
+ "updated": "2026-10-25",
+ "related": [
+  "kaomoji",
+  "post_formatter",
+  "phone_wallpaper",
+  "utm_builder"
+ ],
+ "blog": [
+  {
+   "url": "https://knittinghiyori.com/line-hidden-features-tips/",
+   "zh": "LINE 5 大隱藏功能：聊天室分類、無聲訊息、全部已讀",
+   "en": "5 hidden LINE features worth knowing",
+   "ja": "LINEの隠れた便利機能5選"
+  },
+  {
+   "url": "https://knittinghiyori.com/chatgpt-image-2-line-sticker-guide/",
+   "zh": "LINE 貼圖製作教學：用 ChatGPT 做圖到上架",
+   "en": "Making LINE stickers with ChatGPT, start to finish",
+   "ja": "ChatGPTでLINEスタンプを作って販売するまで"
+  },
+  {
+   "url": "https://knittinghiyori.com/how-to-make-stickers-die-cut-round-seal/",
+   "zh": "自己送印貼紙：刀模貼紙、圓形貼紙、封口貼怎麼選",
+   "en": "Printing your own stickers: die-cut, round or seal",
+   "ja": "オリジナルステッカーの作り方：型抜き・丸型・封かんシール"
+  }
+ ],
+ "aff": {},
+ "i18n_fixes": {},
+ "lang": {
+  "zh": {
+   "name": "IG 特殊符號",
+   "title": "IG 特殊符號｜自介排版、分隔線、限動裝飾一鍵複製",
+   "desc": "IG 特殊符號一鍵複製：自介排版產生器（即時算 150 字元）、最多人用的 IG 分隔線、IG 顏文字、自介小符號、限動裝飾、名字特殊字型和換行空白格。免註冊，手機點一下就複製。",
+   "app_desc": "Instagram 自介、限動、貼文用的特殊符號工具：自介排版與字數計量、分隔線、顏文字、自介小符號、限動裝飾、名字特殊字型與換行空白格，點一下就複製。",
+   "features": [
+    "IG 自介排版與 150 字元計量",
+    "依複製次數排序的分隔線",
+    "IG 顏文字與兔兔",
+    "自介小符號",
+    "限動裝飾",
+    "名字特殊字型",
+    "換行空白格",
+    "免註冊、點一下就複製"
+   ],
+   "howto": "如何用 IG 特殊符號排自介"
+  },
+  "en": {
+   "name": "Instagram Symbols",
+   "title": "Instagram Symbols: Bio Layouts, Dividers & Story Decorations (Copy & Paste)",
+   "desc": "Copy and paste Instagram symbols: a bio layout tool with a live 150-character counter, the most-copied dividers, kaomoji, tiny bio symbols, story decorations, fancy name fonts and invisible line breaks. Free, no sign-up.",
+   "app_desc": "Symbols for Instagram bios, stories and captions: bio layout with character counter, dividers, kaomoji, tiny bio symbols, story decorations, fancy name fonts and invisible line breaks. Tap to copy.",
+   "features": [
+    "Bio layout with 150-character counter",
+    "Dividers sorted by real copy counts",
+    "Kaomoji and bunnies",
+    "Tiny bio symbols",
+    "Story decorations",
+    "Fancy name fonts",
+    "Invisible line breaks",
+    "No sign-up, tap to copy"
+   ],
+   "howto": "How to lay out an Instagram bio with symbols"
+  },
+  "ja": {
+   "name": "インスタ特殊記号",
+   "title": "インスタ特殊記号｜プロフィール整形・区切り線・ストーリーの飾りをコピー（無料）",
+   "desc": "インスタで使える特殊記号をコピー＆ペースト。150文字をその場で数えるプロフィール整形、人気順の区切り線、顔文字、プロフィール用の小さな記号、ストーリーの飾り、名前の特殊フォント、改行用の見えない空白。登録不要・無料。",
+   "app_desc": "インスタのプロフィール、ストーリー、投稿に使える特殊記号ツール。プロフィール整形と文字数カウンター、区切り線、顔文字、小さな記号、ストーリーの飾り、名前の特殊フォント、見えない空白をタップでコピー。",
+   "features": [
+    "プロフィール整形と150文字カウンター",
+    "コピー数順の区切り線",
+    "顔文字とうさぎ",
+    "プロフィール用の小さな記号",
+    "ストーリーの飾り",
+    "名前の特殊フォント",
+    "改行用の見えない空白",
+    "登録不要・タップでコピー"
+   ],
+   "howto": "特殊記号でインスタのプロフィールを整える方法"
+  }
+ }
+}

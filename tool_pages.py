@@ -4,6 +4,8 @@
 _src/<工具>/ 需要的檔案：
   meta.json   網址、三語標題與描述、相關工具、延伸閱讀
   top.html    工具上半部（標題、說明、操作區），中文
+              （有 top.zh.html／top.en.html／top.ja.html 就直接用各語言那一份，不經 i18n.json 翻譯；
+               適合文字大多寫在 HTML 裡的工具，例：顏文字）
   art.zh.html／art.en.html／art.ja.html   教學與 FAQ（各語言各一份；<!--AD--> 是廣告位置）
   install.html  收藏＆分享區（放在頁面最下面），中文
   tail.html   浮動按鈕、對話框等，中文
@@ -104,7 +106,7 @@ def build_tool(B, tool):
     asset_dir.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(src / 'style.css', asset_dir / f'{tool["src"]}.css')
     shutil.copyfile(src / 'main.js', asset_dir / f'{tool["src"]}.js')
-    parts = {k: (src / f'{k}.html').read_text(encoding='utf-8') for k in ('top', 'install', 'tail')}
+    parts = {k: (src / f'{k}.html').read_text(encoding='utf-8') for k in ('top', 'install', 'tail') if (src / f'{k}.html').exists()}
     ROOTID = M.get('root', 'ts')
     AFF_VAR = M.get('aff_var', ROOTID.upper() + '_AFF')
     FIX = M.get('i18n_fixes', {'#ts-dlg-t': 'dlgNew', '#ts-eall': 'selAll', '#ts-fab-l': 'fabNone'})
@@ -120,7 +122,8 @@ def build_tool(B, tool):
               f'<ins class="adsbygoogle" style="display:block" data-ad-client="{B.ADS_CLIENT}" data-ad-slot="{B.ADS_SLOT}" data-ad-format="auto" data-full-width-responsive="true"></ins>'
               f'<script>(adsbygoogle=window.adsbygoogle||[]).push({{}});</script></div></aside>')
         art = art.replace('<!--AD-->', ad)
-        top = translate(parts['top'], lang, I18N, FIX)
+        top_lang = src / f'top.{lang}.html'
+        top = top_lang.read_text(encoding='utf-8') if top_lang.exists() else translate(parts['top'], lang, I18N, FIX)
         install = translate(parts['install'], lang, I18N, FIX)
         install = install.replace(quote(M['old_url'], safe=''), quote(canonical, safe=''))
         tail = translate(parts['tail'], lang, I18N, FIX)
