@@ -1,0 +1,45 @@
+<span class="kick">社群工具・最後更新 2026-10-31</span>
+<h1><span class="hl">YouTube 訂閱連結</span>產生器：讓人一點開就跳出「訂閱」確認框</h1>
+<p class="lead"><strong>一句話說明：</strong>貼上你的 YouTube 頻道網址，工具會自動在最後加上 <code>?sub_confirmation=1</code>，做成「一鍵訂閱連結」。還沒訂閱的人點開，畫面會直接跳出「要訂閱這個頻道嗎？」，少一步就多一個訂閱。</p>
+<div class="pills"><span>貼上就產生</span><span>自動整理手機版網址</span><span>附 QR code</span><span>免費、免註冊</span><a href="#ys-install">加到手機桌面 ↓</a></div>
+
+<div class="grid">
+  <section class="card" aria-labelledby="ys-h1">
+    <h3 id="ys-h1"><span class="step">1</span><span>貼上你的頻道網址</span></h3>
+    <label for="ys-in" class="sr">YouTube 頻道網址</label>
+    <input id="ys-in" class="in" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://www.youtube.com/@你的帳號">
+    <p class="hint">也可以只打 @帳號。支援 @帳號、/channel/UC…、/c/、/user/ 四種頻道網址，手機版網址、後面多了 /videos 或 ?si= 都會自動整理。</p>
+    <p class="lbl">沒有頻道網址？先用範例試試：</p>
+    <div class="chips" id="ys-ex">
+      <button type="button" data-ex="https://www.youtube.com/@coffeebreak.Japanese">@coffeebreak.Japanese</button>
+      <button type="button" data-ex="https://m.youtube.com/@coffeebreak.Japanese/videos?si=AbC123">手機版＋/videos</button>
+      <button type="button" data-ex="https://youtu.be/xxxxxxxxxxx">貼錯成影片連結</button>
+    </div>
+    <p class="err" id="ys-err" role="alert" hidden></p>
+    <p class="note">網址只在你的瀏覽器裡轉換，不會上傳。</p>
+  </section>
+
+  <section class="card res" id="ys-res" aria-labelledby="ys-h2" aria-live="polite">
+    <h3 id="ys-h2"><span class="step">2</span><span>你的一鍵訂閱連結</span></h3>
+    <p class="out" id="ys-out"><span class="ph">貼上頻道網址後，連結會出現在這裡</span></p>
+    <div class="acts">
+      <button class="btn coral" id="ys-copy" type="button" disabled>複製連結</button>
+      <a class="btn ghost" id="ys-test" href="https://www.youtube.com/" target="_blank" rel="noopener" data-cta="test_open" data-cta-type="other" aria-disabled="true">開啟測試</a>
+    </div>
+    <div class="qr" id="ys-qrbox" hidden>
+      <img id="ys-qr" alt="一鍵訂閱連結的 QR code" width="168" height="168">
+      <div>
+        <p class="lbl">QR code（掃描後一樣會跳出訂閱確認）</p>
+        <p class="note">可以放進名片、講義、海報或影片結尾畫面。手機長按圖片就能存。</p>
+        <button class="btn ghost sm" id="ys-qrsave" type="button">下載 QR code</button>
+      </div>
+    </div>
+    <p class="lbl" id="ys-uses-l" hidden>可以貼在這些地方：</p>
+    <ul class="uses" id="ys-uses" hidden>
+      <li>影片說明欄第一行、置頂留言</li>
+      <li>IG、Threads、TikTok 的個人簡介連結</li>
+      <li>電子報、部落格文章結尾</li>
+      <li>LINE 社群公告、Email 簽名檔</li>
+    </ul>
+  </section>
+</div>

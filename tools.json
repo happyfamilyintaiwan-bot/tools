@@ -556,6 +556,36 @@
     "en": "https://tools.knittinghiyori.com/en/phone-wallpaper-maker/",
     "ja": "https://tools.knittinghiyori.com/ja/phone-wallpaper-maker/"
    }
+  },
+  {
+   "id": "yt_subscribe",
+   "cats": [
+    "social"
+   ],
+   "new": true,
+   "url": "https://tools.knittinghiyori.com/youtube-subscribe-link/",
+   "ui": [
+    "zh",
+    "en",
+    "ja"
+   ],
+   "zh": [
+    "YouTube 訂閱連結產生器",
+    "貼上頻道網址，做出點開就跳出訂閱確認的連結"
+   ],
+   "en": [
+    "YouTube Subscribe Link Generator",
+    "Paste your channel URL and get a link that opens the Subscribe prompt"
+   ],
+   "ja": [
+    "YouTube 登録リンクメーカー",
+    "チャンネル URL から、開くとすぐ登録の確認が出るリンクを作成"
+   ],
+   "src": "youtube-subscribe",
+   "alt": {
+    "en": "https://tools.knittinghiyori.com/en/youtube-subscribe-link/",
+    "ja": "https://tools.knittinghiyori.com/ja/youtube-subscribe-link/"
+   }
   }
  ]
 }

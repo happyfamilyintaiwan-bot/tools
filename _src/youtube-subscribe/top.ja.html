@@ -1,0 +1,45 @@
+<span class="kick">SNS ツール・最終更新 2026-10-31</span>
+<h1><span class="hl">YouTube 登録リンク</span>メーカー：開くとすぐ「チャンネル登録」の確認が出るリンク</h1>
+<p class="lead"><strong>ひとことで：</strong>YouTube チャンネルの URL を貼ると、末尾に <code>?sub_confirmation=1</code> を自動で付けて「ワンタップ登録リンク」にします。まだ登録していない人が開くと、「このチャンネルを登録しますか？」とすぐ表示されます。ひと手間減らすだけで、登録してもらいやすくなります。</p>
+<div class="pills"><span>貼るだけで完成</span><span>スマホ版 URL も自動で整理</span><span>QR コード付き</span><span>無料・登録不要</span><a href="#ys-install">ホーム画面に追加 ↓</a></div>
+
+<div class="grid">
+  <section class="card" aria-labelledby="ys-h1">
+    <h3 id="ys-h1"><span class="step">1</span><span>チャンネルの URL を貼る</span></h3>
+    <label for="ys-in" class="sr">YouTube チャンネルの URL</label>
+    <input id="ys-in" class="in" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://www.youtube.com/@あなたのハンドル">
+    <p class="hint">@ハンドルだけでも大丈夫です。@ハンドル、/channel/UC…、/c/、/user/ の 4 種類に対応。スマホ版の URL や、末尾の /videos・?si= も自動で整理します。</p>
+    <p class="lbl">URL がなければ、例で試せます：</p>
+    <div class="chips" id="ys-ex">
+      <button type="button" data-ex="https://www.youtube.com/@coffeebreak.Japanese">@coffeebreak.Japanese</button>
+      <button type="button" data-ex="https://m.youtube.com/@coffeebreak.Japanese/videos?si=AbC123">スマホ版＋/videos</button>
+      <button type="button" data-ex="https://youtu.be/xxxxxxxxxxx">動画リンクを貼ってしまった</button>
+    </div>
+    <p class="err" id="ys-err" role="alert" hidden></p>
+    <p class="note">URL はブラウザの中で変換するだけで、アップロードされません。</p>
+  </section>
+
+  <section class="card res" id="ys-res" aria-labelledby="ys-h2" aria-live="polite">
+    <h3 id="ys-h2"><span class="step">2</span><span>ワンタップ登録リンク</span></h3>
+    <p class="out" id="ys-out"><span class="ph">チャンネルの URL を貼ると、ここにリンクが表示されます</span></p>
+    <div class="acts">
+      <button class="btn coral" id="ys-copy" type="button" disabled>リンクをコピー</button>
+      <a class="btn ghost" id="ys-test" href="https://www.youtube.com/" target="_blank" rel="noopener" data-cta="test_open" data-cta-type="other" aria-disabled="true">開いて確認</a>
+    </div>
+    <div class="qr" id="ys-qrbox" hidden>
+      <img id="ys-qr" alt="ワンタップ登録リンクの QR コード" width="168" height="168">
+      <div>
+        <p class="lbl">QR コード（読み取っても登録の確認が出ます）</p>
+        <p class="note">名刺、配布資料、ポスター、動画の終了画面に使えます。スマホでは画像を長押しすると保存できます。</p>
+        <button class="btn ghost sm" id="ys-qrsave" type="button">QR コードを保存</button>
+      </div>
+    </div>
+    <p class="lbl" id="ys-uses-l" hidden>こんな場所に貼れます：</p>
+    <ul class="uses" id="ys-uses" hidden>
+      <li>動画の概要欄の 1 行目、固定コメント</li>
+      <li>Instagram・Threads・TikTok のプロフィールリンク</li>
+      <li>メルマガやブログ記事の最後</li>
+      <li>LINE オープンチャットのお知らせ、メールの署名</li>
+    </ul>
+  </section>
+</div>
