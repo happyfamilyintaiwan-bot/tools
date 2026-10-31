@@ -1,0 +1,90 @@
+{
+ "tool_id": "yt_subscribe",
+ "slug": "youtube-subscribe-link",
+ "cat": "social",
+ "root": "ys",
+ "aff_var": "YS_AFF",
+ "app_category": "UtilitiesApplication",
+ "page_title": "工具|YouTube 訂閱連結產生器|一鍵跳出訂閱確認的頻道連結",
+ "old_url": "https://tools.knittinghiyori.com/youtube-subscribe-link/",
+ "updated": "2026-10-31",
+ "related": [
+  "ig_symbols",
+  "kaomoji",
+  "post_formatter",
+  "qr_code"
+ ],
+ "blog": [
+  {
+   "url": "https://knittinghiyori.com/blog-traffic-growth-5-to-1500-clicks-seo/",
+   "zh": "從 5 到 1500 點擊：關於複利、飛輪效應與創作的慢慢累積",
+   "en": "From 5 to 1,500 clicks: slow, compounding growth as a creator",
+   "ja": "5 クリックから 1500 クリックへ：発信を少しずつ積み重ねること"
+  },
+  {
+   "url": "https://knittinghiyori.com/line-sticker-income-report/",
+   "zh": "LINE 貼圖收入公開｜分潤 1,236 日圓，但只有 422 是真的",
+   "en": "My LINE sticker income, honestly reported",
+   "ja": "LINE スタンプの収益を公開します"
+  },
+  {
+   "url": "https://knittinghiyori.com/line-hidden-features-tips/",
+   "zh": "LINE 5 大隱藏功能整理｜聊天室分類、無聲訊息、全部已讀一次搞定",
+   "en": "5 hidden LINE features worth knowing",
+   "ja": "知っておきたい LINE の隠れ機能 5 つ"
+  }
+ ],
+ "aff": {},
+ "base": {},
+ "i18n_fixes": {},
+ "lang": {
+  "zh": {
+   "name": "YouTube 訂閱連結產生器",
+   "title": "YouTube 訂閱連結產生器｜一點開就跳出訂閱確認框（sub_confirmation 免費產生）",
+   "desc": "免費 YouTube 訂閱連結產生器：貼上頻道網址，自動加上 ?sub_confirmation=1，做成一鍵訂閱連結。還沒訂閱的人點開就會跳出「要訂閱這個頻道嗎？」。支援 @帳號、channel ID、手機版網址，附 QR code，免註冊。",
+   "app_desc": "貼上 YouTube 頻道網址，自動整理成標準網址並加上 sub_confirmation 參數，產生點開就跳出訂閱確認框的連結與 QR code，可一鍵複製。",
+   "features": [
+    "貼上網址即時產生",
+    "支援 @帳號、/channel/、/c/、/user/",
+    "自動整理手機版網址與多餘參數",
+    "偵測影片連結並提醒",
+    "一鍵複製連結",
+    "QR code 下載",
+    "不上傳任何資料"
+   ],
+   "howto": "如何做出 YouTube 一鍵訂閱連結"
+  },
+  "en": {
+   "name": "YouTube Subscribe Link Generator",
+   "title": "YouTube Subscribe Link Generator: Show the Subscribe Prompt on Open (Free)",
+   "desc": "Free YouTube subscribe link generator. Paste your channel URL and get a link with ?sub_confirmation=1, so people who haven't subscribed see a Subscribe prompt right away. Works with @handles, channel IDs and mobile links. QR code included, no sign-up.",
+   "app_desc": "Paste a YouTube channel URL to get a clean link with the sub_confirmation parameter that opens a Subscribe prompt, plus a QR code. Copy it in one tap.",
+   "features": [
+    "Instant link as you paste",
+    "Works with @handle, /channel/, /c/ and /user/",
+    "Cleans up mobile links and extra parameters",
+    "Warns you about video links",
+    "One-tap copy",
+    "QR code download",
+    "Nothing is uploaded"
+   ],
+   "howto": "How to make a YouTube subscribe link"
+  },
+  "ja": {
+   "name": "YouTube 登録リンクメーカー",
+   "title": "YouTube 登録リンクメーカー｜開くとすぐチャンネル登録の確認が出る（sub_confirmation・無料）",
+   "desc": "無料の YouTube チャンネル登録リンクメーカー。チャンネル URL を貼ると ?sub_confirmation=1 を付けた「ワンタップ登録リンク」を作成。未登録の人が開くと「このチャンネルを登録しますか？」がすぐ表示されます。@ハンドル、チャンネル ID、スマホ版 URL に対応、QR コード付き。",
+   "app_desc": "YouTube チャンネルの URL を貼ると、sub_confirmation パラメータ付きの整ったリンクと QR コードを作成。開くとチャンネル登録の確認が表示され、ワンタップでコピーできます。",
+   "features": [
+    "貼るとすぐ作成",
+    "@ハンドル・/channel/・/c/・/user/ に対応",
+    "スマホ版 URL や余分なパラメータを自動で整理",
+    "動画の URL を貼るとお知らせ",
+    "ワンタップでコピー",
+    "QR コードを保存",
+    "データはアップロードしない"
+   ],
+   "howto": "YouTube のワンタップ登録リンクの作り方"
+  }
+ }
+}

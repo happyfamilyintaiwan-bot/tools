@@ -1,0 +1,38 @@
+{
+ "en": {
+  "insTabs": "Choose your device",
+  "tabPc": "Computer",
+  "bPwa": "Install to home screen in one tap",
+  "pIos": "<p class='os-t'>iPhone: add to Home Screen (Safari)</p><ol class='steps'><li>Open this page in <strong>Safari</strong></li><li>Tap the <strong>Share</strong> icon next to the address bar (a square with an up arrow; on newer iOS, tap “⋯” first)</li><li>Scroll down and tap <strong>“Add to Home Screen”</strong></li><li>Rename it if you like, then tap <strong>“Add”</strong></li></ol><p class='os-t'>iPhone: add to Favorites</p><ol class='steps'><li>Tap the <strong>Share</strong> icon again</li><li>Tap <strong>“Add to Favorites”</strong> — it will show up on Safari's start page</li></ol>",
+  "pIosC": "<p class='os-t'>iPhone: add to Home Screen (Chrome)</p><ol class='steps'><li>Open this page in <strong>Chrome</strong></li><li>Tap the <strong>Share</strong> icon on the right of the address bar (or tap “⋯” at the bottom right, then “Share”)</li><li>Scroll down and tap <strong>“Add to Home Screen”</strong></li><li>Tap <strong>“Add”</strong> — the icon appears on your home screen</li></ol><p class='os-t'>iPhone: add a Chrome bookmark</p><ol class='steps'><li>Tap <strong>“⋯”</strong> at the bottom right</li><li>Tap <strong>“Add to Bookmarks”</strong> (shown as a ☆ in some versions)</li></ol><p class='note'>“Add to Home Screen” in Chrome needs iOS 16.4 or later. If you don't see it, do it once in Safari.</p>",
+  "pAnd": "<p class='os-t'>Android: add to home screen (Chrome)</p><ol class='steps'><li>Open this page in <strong>Chrome</strong></li><li>Tap the <strong>“⋮”</strong> menu at the top right</li><li>Tap <strong>“Add to home screen”</strong>, then <strong>“Add”</strong> or <strong>“Create shortcut”</strong></li></ol><p class='os-t'>Android: bookmark it</p><ol class='steps'><li>Tap <strong>“⋮”</strong> at the top right</li><li>Tap the <strong>☆ star</strong> in the top row</li></ol><p class='note'>Samsung Internet: tap “≡” at the bottom → “Add page to” → “Home screen”.</p>",
+  "pPc": "<p class='os-t'>Computer: bookmark it</p><ol class='steps'><li>Press <strong>Ctrl+D</strong> (Windows) or <strong>⌘+D</strong> (Mac)</li><li>Save it to your bookmarks bar for one-click access</li></ol>",
+  "insNote": "For security, websites can't add themselves for you — the steps above take about 10 seconds.",
+  "bDone": "Done, I added it",
+  "bTShare": "Share with friends",
+  "bLine": "Send via LINE",
+  "bTCopy": "Copy link",
+  "insH": "Add the subscribe link generator to your home screen",
+  "insP": "Once added, it opens like an app from your home screen. Nothing to download, no storage used. Open it whenever you write a video description or a post.",
+  "invite": "<strong>Like it?</strong> Share it with a friend who runs a YouTube channel. Sharing is the best way to support a free tool.",
+  "bClose": "Close"
+ },
+ "ja": {
+  "insTabs": "端末を選択",
+  "tabPc": "パソコン",
+  "bPwa": "ワンタップでホーム画面に追加",
+  "pIos": "<p class='os-t'>iPhone：ホーム画面に追加（Safari）</p><ol class='steps'><li><strong>Safari</strong> でこのページを開く</li><li>アドレスバー横の<strong>「共有」</strong>アイコンをタップ（四角と上向き矢印。新しい iOS では先に「⋯」をタップ）</li><li>下にスクロールして<strong>「ホーム画面に追加」</strong>をタップ</li><li>名前を変更して<strong>「追加」</strong>をタップ</li></ol><p class='os-t'>iPhone：お気に入りに追加</p><ol class='steps'><li>同じく<strong>「共有」</strong>アイコンをタップ</li><li><strong>「お気に入りに追加」</strong>をタップすると、Safari の新規タブからすぐ開けます</li></ol>",
+  "pIosC": "<p class='os-t'>iPhone：ホーム画面に追加（Chrome）</p><ol class='steps'><li><strong>Chrome</strong> でこのページを開く</li><li>アドレスバー右側の<strong>「共有」</strong>アイコンをタップ（見つからない場合は右下の「⋯」→「共有」）</li><li>下にスクロールして<strong>「ホーム画面に追加」</strong>をタップ</li><li><strong>「追加」</strong>をタップするとホーム画面にアイコンが表示されます</li></ol><p class='os-t'>iPhone：Chrome のブックマークに追加</p><ol class='steps'><li>右下の<strong>「⋯」</strong>をタップ</li><li><strong>「ブックマークに追加」</strong>をタップ（☆アイコンの場合もあります）</li></ol><p class='note'>Chrome の「ホーム画面に追加」は iOS 16.4 以降が必要です。表示されない場合は Safari で一度追加してください。</p>",
+  "pAnd": "<p class='os-t'>Android：ホーム画面に追加（Chrome）</p><ol class='steps'><li><strong>Chrome</strong> でこのページを開く</li><li>右上の<strong>「⋮」</strong>メニューをタップ</li><li><strong>「ホーム画面に追加」</strong>をタップし、<strong>「追加」</strong>または<strong>「ショートカットを作成」</strong>を選択</li></ol><p class='os-t'>Android：ブックマークに追加</p><ol class='steps'><li>右上の<strong>「⋮」</strong>をタップ</li><li>上段の<strong>☆</strong>をタップ</li></ol><p class='note'>Samsung Internet：下部の「≡」→「ページを追加」→「ホーム画面」。</p>",
+  "pPc": "<p class='os-t'>パソコン：ブックマークに追加</p><ol class='steps'><li>Windows は <strong>Ctrl＋D</strong>、Mac は <strong>⌘＋D</strong></li><li>保存先を「ブックマークバー」にすると、ワンクリックで開けます</li></ol>",
+  "insNote": "セキュリティ上、ウェブサイトから自動で追加することはできません。上の手順なら約10秒で完了します。",
+  "bDone": "追加しました",
+  "bTShare": "友だちにシェア",
+  "bLine": "LINE で送る",
+  "bTCopy": "URLをコピー",
+  "insH": "登録リンクメーカーをホーム画面に追加",
+  "insP": "ホーム画面に追加すると、アプリのように開けます。ダウンロード不要で容量もとりません。概要欄や投稿を書くときにすぐ使えます。",
+  "invite": "<strong>気に入ったら</strong>、YouTube チャンネルを運営している友だちにシェアしてください。シェアしてもらえることが、無料ツールへのいちばんの応援です。",
+  "bClose": "閉じる"
+ }
+}

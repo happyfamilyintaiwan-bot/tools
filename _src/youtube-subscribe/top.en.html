@@ -1,0 +1,45 @@
+<span class="kick">Social tools · Updated 2026-10-31</span>
+<h1><span class="hl">YouTube Subscribe Link</span> Generator: open the link, get the Subscribe prompt</h1>
+<p class="lead"><strong>In short:</strong> paste your YouTube channel URL and this tool adds <code>?sub_confirmation=1</code> to the end. When someone who hasn't subscribed opens the link, YouTube asks them right away if they want to subscribe. One less step, more subscribers.</p>
+<div class="pills"><span>Paste and go</span><span>Cleans up mobile links</span><span>QR code included</span><span>Free, no sign-up</span><a href="#ys-install">Add to home screen ↓</a></div>
+
+<div class="grid">
+  <section class="card" aria-labelledby="ys-h1">
+    <h3 id="ys-h1"><span class="step">1</span><span>Paste your channel URL</span></h3>
+    <label for="ys-in" class="sr">YouTube channel URL</label>
+    <input id="ys-in" class="in" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://www.youtube.com/@yourhandle">
+    <p class="hint">You can also type just @yourhandle. Works with @handle, /channel/UC…, /c/ and /user/ URLs. Mobile links and extras like /videos or ?si= are cleaned up for you.</p>
+    <p class="lbl">No URL handy? Try an example:</p>
+    <div class="chips" id="ys-ex">
+      <button type="button" data-ex="https://www.youtube.com/@coffeebreak.Japanese">@coffeebreak.Japanese</button>
+      <button type="button" data-ex="https://m.youtube.com/@coffeebreak.Japanese/videos?si=AbC123">Mobile link + /videos</button>
+      <button type="button" data-ex="https://youtu.be/xxxxxxxxxxx">A video link by mistake</button>
+    </div>
+    <p class="err" id="ys-err" role="alert" hidden></p>
+    <p class="note">The link is converted in your browser. Nothing is uploaded.</p>
+  </section>
+
+  <section class="card res" id="ys-res" aria-labelledby="ys-h2" aria-live="polite">
+    <h3 id="ys-h2"><span class="step">2</span><span>Your subscribe link</span></h3>
+    <p class="out" id="ys-out"><span class="ph">Paste a channel URL and your link shows up here</span></p>
+    <div class="acts">
+      <button class="btn coral" id="ys-copy" type="button" disabled>Copy link</button>
+      <a class="btn ghost" id="ys-test" href="https://www.youtube.com/" target="_blank" rel="noopener" data-cta="test_open" data-cta-type="other" aria-disabled="true">Test it</a>
+    </div>
+    <div class="qr" id="ys-qrbox" hidden>
+      <img id="ys-qr" alt="QR code for your subscribe link" width="168" height="168">
+      <div>
+        <p class="lbl">QR code (scanning it shows the same Subscribe prompt)</p>
+        <p class="note">Put it on business cards, handouts, posters or your video end screen. On a phone, press and hold the image to save it.</p>
+        <button class="btn ghost sm" id="ys-qrsave" type="button">Download QR code</button>
+      </div>
+    </div>
+    <p class="lbl" id="ys-uses-l" hidden>Good places to use it:</p>
+    <ul class="uses" id="ys-uses" hidden>
+      <li>The first line of your video description or a pinned comment</li>
+      <li>Your bio link on Instagram, Threads or TikTok</li>
+      <li>The end of a newsletter or blog post</li>
+      <li>Your email signature</li>
+    </ul>
+  </section>
+</div>
