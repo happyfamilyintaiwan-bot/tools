@@ -15,7 +15,9 @@
   "insH": "Add the subscribe link generator to your home screen",
   "insP": "Once added, it opens like an app from your home screen. Nothing to download, no storage used. Open it whenever you write a video description or a post.",
   "invite": "<strong>Like it?</strong> Share it with a friend who runs a YouTube channel. Sharing is the best way to support a free tool.",
-  "bClose": "Close"
+  "imgT": "Press and hold to save",
+  "imgP": "iPhone: press and hold the image, then tap “Add to Photos”. Android: press and hold, then tap “Download image”.",
+  "aClose": "Close"
  },
  "ja": {
   "insTabs": "端末を選択",
@@ -33,6 +35,8 @@
   "insH": "登録リンクメーカーをホーム画面に追加",
   "insP": "ホーム画面に追加すると、アプリのように開けます。ダウンロード不要で容量もとりません。概要欄や投稿を書くときにすぐ使えます。",
   "invite": "<strong>気に入ったら</strong>、YouTube チャンネルを運営している友だちにシェアしてください。シェアしてもらえることが、無料ツールへのいちばんの応援です。",
-  "bClose": "閉じる"
+  "imgT": "長押しして写真に保存",
+  "imgP": "iPhone：画像を長押し →「写真に追加」。Android：画像を長押し →「画像をダウンロード」。",
+  "aClose": "閉じる"
  }
 }
