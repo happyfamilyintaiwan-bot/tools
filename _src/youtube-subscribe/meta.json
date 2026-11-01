@@ -7,7 +7,7 @@
  "app_category": "UtilitiesApplication",
  "page_title": "工具|YouTube 訂閱連結產生器|一鍵跳出訂閱確認的頻道連結",
  "old_url": "https://tools.knittinghiyori.com/youtube-subscribe-link/",
- "updated": "2026-10-31",
+ "updated": "2026-11-01",
  "related": [
   "ig_symbols",
   "kaomoji",
@@ -16,22 +16,22 @@
  ],
  "blog": [
   {
+   "url": "https://knittinghiyori.com/youtube-subscribe-link-sub-confirmation/",
+   "zh": "YouTube 訂閱連結怎麼做？放哪裡最有效、為什麼沒跳出來",
+   "en": "How to use a YouTube subscribe link, and where it works best (Chinese)",
+   "ja": "YouTube 登録リンクの使い方と効果的な置き場所（中国語）"
+  },
+  {
+   "url": "https://knittinghiyori.com/youtube-monetization-threshold-income-2027/",
+   "zh": "YouTube 盈利門檻收入多少？2027 門檻加倍、剛達標月收入試算",
+   "en": "YouTube monetization: what you earn right after the threshold (Chinese)",
+   "ja": "YouTube 収益化の条件と達成直後の収入（中国語）"
+  },
+  {
    "url": "https://knittinghiyori.com/blog-traffic-growth-5-to-1500-clicks-seo/",
    "zh": "從 5 到 1500 點擊：關於複利、飛輪效應與創作的慢慢累積",
    "en": "From 5 to 1,500 clicks: slow, compounding growth as a creator",
    "ja": "5 クリックから 1500 クリックへ：発信を少しずつ積み重ねること"
-  },
-  {
-   "url": "https://knittinghiyori.com/line-sticker-income-report/",
-   "zh": "LINE 貼圖收入公開｜分潤 1,236 日圓，但只有 422 是真的",
-   "en": "My LINE sticker income, honestly reported",
-   "ja": "LINE スタンプの収益を公開します"
-  },
-  {
-   "url": "https://knittinghiyori.com/line-hidden-features-tips/",
-   "zh": "LINE 5 大隱藏功能整理｜聊天室分類、無聲訊息、全部已讀一次搞定",
-   "en": "5 hidden LINE features worth knowing",
-   "ja": "知っておきたい LINE の隠れ機能 5 つ"
   }
  ],
  "aff": {},
