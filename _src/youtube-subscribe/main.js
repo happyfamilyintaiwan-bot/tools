@@ -15,7 +15,7 @@ zh:{
 "eHost":"這不是 YouTube 網址。請貼 youtube.com 開頭的頻道網址。",
 "eNoCh":"找不到頻道名稱。頻道網址通常長這樣：https://www.youtube.com/@你的帳號",
 "tCopied":"已複製，可以貼到說明欄、簡介或 LINE 了","tCopyFail":"複製失敗，請長按連結自己複製",
-"tQr":"QR code 已下載","tQrHold":"長按 QR code 圖片就能存到相簿",
+"tQr":"QR code 已下載","tQrSaved":"QR code 已存好","qrCta":"掃描訂閱 YouTube 頻道",
 "toolTitle":"編織日和・YouTube 訂閱連結產生器",
 "toolText":"免費的 YouTube 訂閱連結產生器：貼上頻道網址，做出點開就跳出訂閱確認框的連結和 QR code。",
 "urlCopied":"網址已複製","toolCopied":"介紹文字與網址已複製","thanks":"謝謝！下次要貼連結就從桌面打開"
@@ -27,7 +27,7 @@ en:{
 "eHost":"That isn't a YouTube URL. Paste a channel URL that starts with youtube.com.",
 "eNoCh":"We couldn't find a channel in that URL. Channel URLs usually look like https://www.youtube.com/@yourhandle",
 "tCopied":"Copied. Paste it into your description, bio or newsletter","tCopyFail":"Couldn't copy. Press and hold the link to copy it",
-"tQr":"QR code downloaded","tQrHold":"Press and hold the QR code to save it",
+"tQr":"QR code downloaded","tQrSaved":"QR code saved","qrCta":"Scan to subscribe on YouTube",
 "toolTitle":"YouTube Subscribe Link Generator by Knitting Hiyori",
 "toolText":"A free YouTube subscribe link generator: paste your channel URL and get a link and QR code that open a Subscribe prompt.",
 "urlCopied":"Link copied","toolCopied":"Text and link copied","thanks":"Thanks! Open it from your home screen next time"
@@ -39,7 +39,7 @@ ja:{
 "eHost":"YouTube の URL ではありません。youtube.com で始まるチャンネルの URL を貼ってください。",
 "eNoCh":"チャンネルが見つかりません。チャンネルの URL はふつう https://www.youtube.com/@ハンドル の形です。",
 "tCopied":"コピーしました。概要欄やプロフィールに貼れます","tCopyFail":"コピーできませんでした。リンクを長押ししてコピーしてください",
-"tQr":"QR コードを保存しました","tQrHold":"QR コードの画像を長押しすると保存できます",
+"tQr":"QR コードを保存しました","tQrSaved":"QR コードを保存しました","qrCta":"読み取って YouTube チャンネル登録",
 "toolTitle":"編織日和・YouTube 登録リンクメーカー",
 "toolText":"無料の YouTube 登録リンクメーカー。チャンネル URL を貼ると、開くとすぐ登録の確認が出るリンクと QR コードを作れます。",
 "urlCopied":"URLをコピーしました","toolCopied":"紹介文とURLをコピーしました","thanks":"ありがとう！次はホーム画面から開いてください"
@@ -186,14 +186,31 @@ function loadQr(){
   });
   return qrLib;
 }
+/* 存下來的圖：QR code＋頻道名稱＋「掃描訂閱」＋出處網址（core §3-2），印在名片、海報上也看得懂 */
+function chName(r){
+  var n=r.kind==='channel'?'YouTube':r.base.replace(/^(c|user)\//,'');
+  try{n=decodeURIComponent(n)}catch(e){}
+  return n;
+}
+var FONT='-apple-system,BlinkMacSystemFont,"PingFang TC","Hiragino Sans","Noto Sans TC","Noto Sans JP",sans-serif';
+function fit(g,text,weight,size,max){do{g.font=weight+' '+size+'px '+FONT;size-=2}while(g.measureText(text).width>max&&size>20)}
 function drawQr(url){
   loadQr().then(function(){
     if(!current||current.url!==url)return;
-    var box=document.createElement('div');
-    new window.QRCode(box,{text:url,width:480,height:480,colorDark:'#111111',colorLight:'#ffffff',correctLevel:window.QRCode.CorrectLevel.M});
-    var c=box.querySelector('canvas');
-    qrImg.src=c?c.toDataURL('image/png'):(box.querySelector('img')||{}).src||'';
-    qrBox.hidden=!qrImg.src;
+    var r=current,box=document.createElement('div');
+    new window.QRCode(box,{text:url,width:840,height:840,colorDark:'#111111',colorLight:'#ffffff',correctLevel:window.QRCode.CorrectLevel.M});
+    var q=box.querySelector('canvas');
+    if(!q)throw new Error('qr canvas');
+    var W=1080,H=1330,c=document.createElement('canvas');c.width=W;c.height=H;
+    var g=c.getContext('2d');
+    g.fillStyle='#ffffff';g.fillRect(0,0,W,H);
+    g.imageSmoothingEnabled=false;g.drawImage(q,120,110,840,840);
+    g.textAlign='center';g.textBaseline='alphabetic';
+    g.fillStyle='#111111';fit(g,chName(r),'700',64,920);g.fillText(chName(r),W/2,1060);
+    g.fillStyle='#c0412a';fit(g,t('qrCta'),'700',44,920);g.fillText(t('qrCta'),W/2,1140);
+    g.fillStyle='#6f6764';g.font='400 26px '+FONT;g.fillText('tools.knittinghiyori.com/youtube-subscribe-link/',W/2,1270);
+    qrImg.src=c.toDataURL('image/png');
+    qrBox.hidden=false;
   }).catch(function(e){qrBox.hidden=true;if(window.console)console.warn('[youtube-subscribe] QR code 載入失敗',e)});
 }
 
@@ -207,10 +224,31 @@ $('#ys-ex').addEventListener('click',function(e){var b=e.target.closest('[data-e
   ga('tool_demo',{option:String([].indexOf.call(this.querySelectorAll('[data-ex]'),b)+1)})});
 copyBtn.addEventListener('click',function(){if(!current)return;var r=current;
   copy(r.url).then(function(ok){toast(ok?t('tCopied'):t('tCopyFail'));if(ok)ga('export',{method:'copy_text',option:r.kind})})});
-$('#ys-qrsave').addEventListener('click',function(){if(!current||!qrImg.src)return;
-  if(TOUCH){toast(t('tQrHold'));ga('export',{method:'image',option:current.kind,result:'long_press'});return}
-  var a=document.createElement('a');a.href=qrImg.src;a.download='youtube-subscribe-qr.png';document.body.appendChild(a);a.click();a.remove();
-  toast(t('tQr'));ga('export',{method:'image',option:current.kind,result:'download'})});
+function qrFile(){var n=chName(current).replace(/[^\w.-]+/g,'').slice(0,40)||'channel';return 'youtube-subscribe-qr-'+n+'.png'}
+function openDlg(d){if(d.showModal){try{d.showModal();return}catch(e){}}d.setAttribute('open','')}
+function closeDlg(d){if(d.close)d.close();else d.removeAttribute('open')}
+$('#ys-iclose').addEventListener('click',function(){closeDlg($('#ys-idlg'))});
+$('#ys-idlg').addEventListener('click',function(e){if(e.target===this)closeDlg(this)});
+var qrBusy=false;
+$('#ys-qrsave').addEventListener('click',async function(){
+  if(!current||!qrImg.src||qrBusy)return;qrBusy=true;
+  var kind=current.kind,name=qrFile();
+  function track(how){ga('export',{method:'image',option:kind,result:how})}
+  try{
+    if(TOUCH){
+      var blob=await (await fetch(qrImg.src)).blob(),file=null;
+      try{file=new File([blob],name,{type:'image/png'})}catch(e){}
+      if(file&&navigator.canShare&&navigator.canShare({files:[file]})){
+        try{await navigator.share({files:[file]});track('share');toast(t('tQrSaved'));return}
+        catch(e){if(e&&e.name==='AbortError')return}
+      }
+      $('#ys-img').src=qrImg.src;$('#ys-img').alt=qrImg.alt;openDlg($('#ys-idlg'));track('long_press');return;
+    }
+    var a=document.createElement('a');a.href=qrImg.src;a.download=name;document.body.appendChild(a);a.click();a.remove();
+    track('download');toast(t('tQr'));
+  }catch(e){if(window.console)console.warn('[youtube-subscribe] 存 QR code 失敗',e)}
+  finally{qrBusy=false}
+});
 hyTool.ctaExtra=function(a){return a.id==='ys-test'&&current?{option:current.kind}:null};
 
 /* ---------- 收藏＆分享工具 ---------- */
