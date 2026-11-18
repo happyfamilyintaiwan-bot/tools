@@ -310,3 +310,6 @@ color:var(--ink);background:var(--bg);line-height:1.7;font-size:16px;max-width:1
 .km .pick-row button b{font-size:1.8em;line-height:1;font-weight:400}
 .km .pick-row button[aria-pressed=true]{border-color:var(--coral);background:var(--coral-l);color:var(--coral);font-weight:700}
 @media(max-width:899px){.km .pick{order:2}.km #k-body>section:first-child{order:3}.km .pvc{order:4}.km .ctl section{order:5}}
+
+/* 對話框鯨魚：格子裡畫出對話框，看得出鯨魚身體 */
+.km .pose pre.wh{background:#DCE5EE;border-radius:16px 16px 16px 4px;padding:6px 10px 4px}

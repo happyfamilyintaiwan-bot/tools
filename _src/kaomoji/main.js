@@ -365,10 +365,13 @@ zh:function(){
   });
   draw_dog();
 
+  { const lb=document.createElement("span"); lb.className="lbl"; lb.style.marginTop="26px"; lb.textContent="單行狗狗顏文字"; dogSec.appendChild(lb);
+    const g=grid(["U・ᴥ・U","૮ ・ﻌ・ა","໒・ﻌ・७","૮ – ﻌ–ა","૮ ˙ ﻌ˙ ა","▽・ᴥ・▽","૮ฅ・ﻌ・აฅ","｡:ﾟ૮ ˶ˆ ﻌ ˆ˶ ა ﾟ:｡","૮ ⚆ﻌ⚆ა"],false,"狗狗顏文字"); g.style.marginTop="10px"; dogSec.appendChild(g); }
+
   /* whale 拿東西（2026-11-18） */
-  const WHALE=[{n:"噴水",f:e=>`    ⁎ ⁎\n     ⸝⸝\n (•ᴗ•    )≺\n ～～～～ ${e}`},{n:"游泳",f:e=>`≋≋ (•ᴗ•    )≺ ${e}`},{n:"拿東西",f:e=>`(•ᴗ•    )≺\n  /> ${e}`},{n:"兩隻一起",f:e=>`(•ᴗ•  )≺ ${e} ≻(  •ᴗ•)`}];
+  const WHALE=[{n:"經典鯨魚",f:e=>`ㅤ\nㅤ\nㅤ\n•_________________•`},{n:"噴水",f:e=>`ㅤㅤㅤㅤㅤㅤ${e}\nㅤ\nㅤ\n•_________________•`},{n:"含著東西",f:e=>`ㅤ\nㅤ\nㅤ\n•________${e}________•`},{n:"微笑",f:e=>`ㅤ\nㅤ\nㅤ\n•‿‿‿‿‿‿‿‿‿‿‿‿‿•`},{n:"害羞",f:e=>`ㅤ\nㅤ\nㅤ\n˶•_______________•˶`},{n:"小鯨魚",f:e=>`ㅤ\n•_______•`},{n:"追著游",f:e=>`ㅤ\nㅤ\nㅤ\n•_________________•  ≋ ${e}`}];
   let whaleEmo=0;
-  const whaleSec=mk("sec-whale","BIG WHALE","鯨魚顏文字・鯨魚拿東西","先選鯨魚要帶什麼，下面四種鯨魚會一起換好，點一下直接複製。");
+  const whaleSec=mk("sec-whale","BIG WHALE","鯨魚顏文字・對話框鯨魚","傳到聊天室，對話框就會變成鯨魚的大身體！上面的空白是看不見的字元，貼上也不會被吃掉。先選要搭配的東西，點一下直接複製。");
   const whaleWrap=document.createElement("div");
   whaleWrap.innerHTML=`<span class="lbl" style="margin-top:24px">手上的東西</span><div class="emo-grid" id="k-wemo"></div>`;
   whaleSec.appendChild(whaleWrap);
@@ -383,7 +386,7 @@ zh:function(){
   });
   WHALE.forEach((p,i)=>{
     const b=document.createElement("button"); b.className="pose"; b.title="點一下複製";
-    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.innerHTML=`<pre class="wh"></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
     b.onclick=()=>copy(WHALE[i].f(EMOS[whaleEmo]),p.n,"大型顏文字-鯨魚拿東西"); whaleGrid.appendChild(b);
   });
   draw_whale();
@@ -966,10 +969,13 @@ en:function(){
   });
   draw_dog();
 
+  { const lb=document.createElement("span"); lb.className="lbl"; lb.style.marginTop="26px"; lb.textContent="One-line dog kaomoji"; dogSec.appendChild(lb);
+    const g=grid(["U・ᴥ・U","૮ ・ﻌ・ა","໒・ﻌ・७","૮ – ﻌ–ა","૮ ˙ ﻌ˙ ა","▽・ᴥ・▽","૮ฅ・ﻌ・აฅ","｡:ﾟ૮ ˶ˆ ﻌ ˆ˶ ა ﾟ:｡","૮ ⚆ﻌ⚆ა"],false,"Dog kaomoji"); g.style.marginTop="10px"; dogSec.appendChild(g); }
+
   /* whale 拿東西（2026-11-18） */
-  const WHALE=[{n:"Spout",f:e=>`    ⁎ ⁎\n     ⸝⸝\n (•ᴗ•    )≺\n ～～～～ ${e}`},{n:"Swimming",f:e=>`≋≋ (•ᴗ•    )≺ ${e}`},{n:"Holding",f:e=>`(•ᴗ•    )≺\n  /> ${e}`},{n:"Together",f:e=>`(•ᴗ•  )≺ ${e} ≻(  •ᴗ•)`}];
+  const WHALE=[{n:"Classic",f:e=>`ㅤ\nㅤ\nㅤ\n•_________________•`},{n:"Spout",f:e=>`ㅤㅤㅤㅤㅤㅤ${e}\nㅤ\nㅤ\n•_________________•`},{n:"Mouthful",f:e=>`ㅤ\nㅤ\nㅤ\n•________${e}________•`},{n:"Smile",f:e=>`ㅤ\nㅤ\nㅤ\n•‿‿‿‿‿‿‿‿‿‿‿‿‿•`},{n:"Blush",f:e=>`ㅤ\nㅤ\nㅤ\n˶•_______________•˶`},{n:"Baby whale",f:e=>`ㅤ\n•_______•`},{n:"Chasing",f:e=>`ㅤ\nㅤ\nㅤ\n•_________________•  ≋ ${e}`}];
   let whaleEmo=0;
-  const whaleSec=mk("sec-whale","BIG WHALE","Whale kaomoji: whales holding things","Pick what the whale carries and all four whales update. Tap one to copy.");
+  const whaleSec=mk("sec-whale","BIG WHALE","Whale kaomoji: the chat bubble whale","Send it in a chat and the bubble becomes the whale's big body! The blank lines are invisible characters that apps will not strip. Pick something to go with it, then tap to copy.");
   const whaleWrap=document.createElement("div");
   whaleWrap.innerHTML=`<span class="lbl" style="margin-top:24px">What it holds</span><div class="emo-grid" id="k-wemo"></div>`;
   whaleSec.appendChild(whaleWrap);
@@ -984,7 +990,7 @@ en:function(){
   });
   WHALE.forEach((p,i)=>{
     const b=document.createElement("button"); b.className="pose"; b.title="Tap to copy";
-    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.innerHTML=`<pre class="wh"></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
     b.onclick=()=>copy(WHALE[i].f(EMOS[whaleEmo]),p.n,"Whale holding"); whaleGrid.appendChild(b);
   });
   draw_whale();
@@ -1567,10 +1573,13 @@ ja:function(){
   });
   draw_dog();
 
+  { const lb=document.createElement("span"); lb.className="lbl"; lb.style.marginTop="26px"; lb.textContent="1行のいぬ顔文字"; dogSec.appendChild(lb);
+    const g=grid(["U・ᴥ・U","૮ ・ﻌ・ა","໒・ﻌ・७","૮ – ﻌ–ა","૮ ˙ ﻌ˙ ა","▽・ᴥ・▽","૮ฅ・ﻌ・აฅ","｡:ﾟ૮ ˶ˆ ﻌ ˆ˶ ა ﾟ:｡","૮ ⚆ﻌ⚆ა"],false,"いぬの顔文字"); g.style.marginTop="10px"; dogSec.appendChild(g); }
+
   /* whale 拿東西（2026-11-18） */
-  const WHALE=[{n:"しおふき",f:e=>`    ⁎ ⁎\n     ⸝⸝\n (•ᴗ•    )≺\n ～～～～ ${e}`},{n:"すいすい",f:e=>`≋≋ (•ᴗ•    )≺ ${e}`},{n:"もってる",f:e=>`(•ᴗ•    )≺\n  /> ${e}`},{n:"ふたりで",f:e=>`(•ᴗ•  )≺ ${e} ≻(  •ᴗ•)`}];
+  const WHALE=[{n:"定番くじら",f:e=>`ㅤ\nㅤ\nㅤ\n•_________________•`},{n:"しおふき",f:e=>`ㅤㅤㅤㅤㅤㅤ${e}\nㅤ\nㅤ\n•_________________•`},{n:"もぐもぐ",f:e=>`ㅤ\nㅤ\nㅤ\n•________${e}________•`},{n:"にっこり",f:e=>`ㅤ\nㅤ\nㅤ\n•‿‿‿‿‿‿‿‿‿‿‿‿‿•`},{n:"てれくじら",f:e=>`ㅤ\nㅤ\nㅤ\n˶•_______________•˶`},{n:"こくじら",f:e=>`ㅤ\n•_______•`},{n:"おいかけっこ",f:e=>`ㅤ\nㅤ\nㅤ\n•_________________•  ≋ ${e}`}];
   let whaleEmo=0;
-  const whaleSec=mk("sec-whale","BIG WHALE","くじらの顔文字・何か持ってるくじら","持たせるものを選ぶと、下の4匹がまとめて切り替わります。タップでそのままコピー。");
+  const whaleSec=mk("sec-whale","BIG WHALE","くじらの顔文字・吹き出しくじら","トークで送ると、吹き出しがくじらの大きな体に！上の空白は消されない見えない文字です。合わせるものを選んで、タップでコピー。");
   const whaleWrap=document.createElement("div");
   whaleWrap.innerHTML=`<span class="lbl" style="margin-top:24px">持たせるもの</span><div class="emo-grid" id="k-wemo"></div>`;
   whaleSec.appendChild(whaleWrap);
@@ -1585,7 +1594,7 @@ ja:function(){
   });
   WHALE.forEach((p,i)=>{
     const b=document.createElement("button"); b.className="pose"; b.title="タップしてコピー";
-    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.innerHTML=`<pre class="wh"></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
     b.onclick=()=>copy(WHALE[i].f(EMOS[whaleEmo]),p.n,"AA-何か持ってるくじら"); whaleGrid.appendChild(b);
   });
   draw_whale();
