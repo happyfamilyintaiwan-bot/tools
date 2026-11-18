@@ -342,6 +342,52 @@ zh:function(){
   });
   drawCat();
 
+  /* dog 拿東西（2026-11-18） */
+  const DOG=[{n:"經典狗",f:e=>`૮ ˶ᵔ ᵕ ᵔ˶ ა\n  /> ${e} >`},{n:"柴犬",f:e=>`▼・ᴥ・▼\n /> ${e} >`},{n:"垂耳狗",f:e=>`U・ᴥ・U\n /> ${e} <\\`},{n:"搖尾巴",f:e=>`૮ ･ﻌ･ ა\n( ${e} )～♪`},{n:"想睡覺",f:e=>`૮ ˘ ﻌ ˘ ა zZ\n  /> ${e} >`},{n:"兩隻一起",f:e=>`૮ ･ﻌ･ ა ${e} ૮ ･ﻌ･ ა`}];
+  let dogEmo=0;
+  const dogSec=mk("sec-dog","BIG DOG","大型狗狗顏文字・狗狗拿東西","先選狗狗手上要拿什麼，下面六種狗狗會一起換好，點一下直接複製。");
+  const dogWrap=document.createElement("div");
+  dogWrap.innerHTML=`<span class="lbl" style="margin-top:24px">手上的東西</span><div class="emo-grid" id="k-demo"></div>`;
+  dogSec.appendChild(dogWrap);
+  const dogGrid=document.createElement("div"); dogGrid.className="pose-grid"; dogSec.appendChild(dogGrid);
+  const draw_dog=()=>{
+    document.querySelectorAll("#k-demo button").forEach((b,i)=>b.setAttribute("aria-pressed",i===dogEmo));
+    dogGrid.querySelectorAll(".pose").forEach((b,i)=>{ b.querySelector("pre").textContent=DOG[i].f(EMOS[dogEmo]); });
+  };
+  EMOS.forEach((e,i)=>{
+    const b=document.createElement("button"); b.className="emo"; b.textContent=e; b.title="換成 "+e;
+    b.onclick=()=>{dogEmo=i;draw_dog();}; document.getElementById("k-demo").appendChild(b);
+  });
+  DOG.forEach((p,i)=>{
+    const b=document.createElement("button"); b.className="pose"; b.title="點一下複製";
+    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.onclick=()=>copy(DOG[i].f(EMOS[dogEmo]),p.n,"大型顏文字-狗狗拿東西"); dogGrid.appendChild(b);
+  });
+  draw_dog();
+
+  /* whale 拿東西（2026-11-18） */
+  const WHALE=[{n:"噴水",f:e=>`    ⁎ ⁎\n     ⸝⸝\n (•ᴗ•    )≺\n ～～～～ ${e}`},{n:"游泳",f:e=>`≋≋ (•ᴗ•    )≺ ${e}`},{n:"拿東西",f:e=>`(•ᴗ•    )≺\n  /> ${e}`},{n:"兩隻一起",f:e=>`(•ᴗ•  )≺ ${e} ≻(  •ᴗ•)`}];
+  let whaleEmo=0;
+  const whaleSec=mk("sec-whale","BIG WHALE","鯨魚顏文字・鯨魚拿東西","先選鯨魚要帶什麼，下面四種鯨魚會一起換好，點一下直接複製。");
+  const whaleWrap=document.createElement("div");
+  whaleWrap.innerHTML=`<span class="lbl" style="margin-top:24px">手上的東西</span><div class="emo-grid" id="k-wemo"></div>`;
+  whaleSec.appendChild(whaleWrap);
+  const whaleGrid=document.createElement("div"); whaleGrid.className="pose-grid"; whaleSec.appendChild(whaleGrid);
+  const draw_whale=()=>{
+    document.querySelectorAll("#k-wemo button").forEach((b,i)=>b.setAttribute("aria-pressed",i===whaleEmo));
+    whaleGrid.querySelectorAll(".pose").forEach((b,i)=>{ b.querySelector("pre").textContent=WHALE[i].f(EMOS[whaleEmo]); });
+  };
+  EMOS.forEach((e,i)=>{
+    const b=document.createElement("button"); b.className="emo"; b.textContent=e; b.title="換成 "+e;
+    b.onclick=()=>{whaleEmo=i;draw_whale();}; document.getElementById("k-wemo").appendChild(b);
+  });
+  WHALE.forEach((p,i)=>{
+    const b=document.createElement("button"); b.className="pose"; b.title="點一下複製";
+    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.onclick=()=>copy(WHALE[i].f(EMOS[whaleEmo]),p.n,"大型顏文字-鯨魚拿東西"); whaleGrid.appendChild(b);
+  });
+  draw_whale();
+
 
   /* 表情組合器：眼睛 × 嘴巴 */
   const EYES=[
@@ -513,16 +559,41 @@ zh:function(){
      排版產生器只有少數人用，移到表情組合器之後。 */
   const genSec=document.getElementById("sec-gen"), afterSec=document.getElementById("sec-face"), blankSec2=document.getElementById("sec-blank");
   if(genSec&&afterSec){ afterSec.after(genSec); genSec.style.paddingTop=""; if(blankSec2) genSec.after(blankSec2); }
-  const anS=document.getElementById("sec-animal"), catS=document.getElementById("sec-cat"); if(anS&&catS) catS.after(anS);
-  secs.sort((x,y)=>document.getElementById(x.id).compareDocumentPosition(document.getElementById(y.id))&Node.DOCUMENT_POSITION_FOLLOWING?-1:1);
+  
+  /* 先選喜歡的動物（2026-11-18）：選到的動物排最前面，其他依序往後；記在這台裝置，網址 ?a=cat 也可以指定 */
+  const GROUPS={bunny:["sec-mix","sec-bunny"],cat:["sec-cat","sec-animal"],dog:["sec-dog"],whale:["sec-whale"]};
+  const ORDER=["bunny","cat","dog","whale"];
+  const pick=document.createElement("div"); pick.className="pick"; pick.id="km-pick";
+  pick.innerHTML=`<p class="pick-q">你喜歡哪一種動物？</p><p class="pick-s">選一個，牠的顏文字會排在最前面，下次打開也會記得。</p><div class="pick-row" role="group" aria-label="你喜歡哪一種動物？"><button type="button" data-a="bunny"><b>🐰</b><span>兔兔</span></button><button type="button" data-a="cat"><b>🐱</b><span>貓咪</span></button><button type="button" data-a="dog"><b>🐶</b><span>狗狗</span></button><button type="button" data-a="whale"><b>🐳</b><span>鯨魚</span></button></div>`;
+  body.before(pick);
+  function buildNav(){
+    nav.innerHTML="";
+    secs.forEach(s=>{
+      const b=document.createElement("button");
+      b.textContent=s.t;
+      b.onclick=()=>document.getElementById(s.id).scrollIntoView({behavior:"smooth",block:"start"});
+      nav.appendChild(b);
+    });
+  }
+  function sortSecs(){ secs.sort((x,y)=>document.getElementById(x.id).compareDocumentPosition(document.getElementById(y.id))&Node.DOCUMENT_POSITION_FOLLOWING?-1:1); }
+  function setAnimal(a,user){
+    if(!GROUPS[a]) a="bunny";
+    const seq=[a].concat(ORDER.filter(x=>x!==a)).flatMap(x=>GROUPS[x]).map(id=>document.getElementById(id)).filter(Boolean);
+    for(let i=seq.length-1;i>=0;i--) body.prepend(seq[i]);
+    pick.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.a===a));
+    sortSecs(); buildNav();
+    if(user){
+      try{localStorage.setItem("km-animal",a);}catch(e){}
+      try{ if(window.gtag) gtag("event","kao_animal",{option:a}); }catch(e){}
+      document.getElementById(GROUPS[a][0]).scrollIntoView({behavior:"smooth",block:"start"});
+    }
+  }
+  pick.querySelectorAll("button").forEach(b=>b.onclick=()=>setAnimal(b.dataset.a,true));
+  let first="bunny";
+  try{ first=new URLSearchParams(location.search).get("a")||localStorage.getItem("km-animal")||"bunny"; }catch(e){}
+  setAnimal(first,false);
 
-  /* 導覽 */
-  secs.forEach(s=>{
-    const b=document.createElement("button");
-    b.textContent=s.t;
-    b.onclick=()=>document.getElementById(s.id).scrollIntoView({behavior:"smooth",block:"start"});
-    nav.appendChild(b);
-  });
+  /* 導覽：buildNav() 在上面的動物選擇裡 */
   const io=new IntersectionObserver(es=>{
     es.forEach(e=>{
       if(e.isIntersecting){
@@ -872,6 +943,52 @@ en:function(){
   });
   drawCat();
 
+  /* dog 拿東西（2026-11-18） */
+  const DOG=[{n:"Classic",f:e=>`૮ ˶ᵔ ᵕ ᵔ˶ ა\n  /> ${e} >`},{n:"Shiba",f:e=>`▼・ᴥ・▼\n /> ${e} >`},{n:"Floppy ears",f:e=>`U・ᴥ・U\n /> ${e} <\\`},{n:"Wagging",f:e=>`૮ ･ﻌ･ ა\n( ${e} )～♪`},{n:"Sleepy",f:e=>`૮ ˘ ﻌ ˘ ა zZ\n  /> ${e} >`},{n:"Together",f:e=>`૮ ･ﻌ･ ა ${e} ૮ ･ﻌ･ ა`}];
+  let dogEmo=0;
+  const dogSec=mk("sec-dog","BIG DOG","Big dog kaomoji: dogs holding things","Pick what the dog holds and all six dogs update. Tap one to copy.");
+  const dogWrap=document.createElement("div");
+  dogWrap.innerHTML=`<span class="lbl" style="margin-top:24px">What it holds</span><div class="emo-grid" id="k-demo"></div>`;
+  dogSec.appendChild(dogWrap);
+  const dogGrid=document.createElement("div"); dogGrid.className="pose-grid"; dogSec.appendChild(dogGrid);
+  const draw_dog=()=>{
+    document.querySelectorAll("#k-demo button").forEach((b,i)=>b.setAttribute("aria-pressed",i===dogEmo));
+    dogGrid.querySelectorAll(".pose").forEach((b,i)=>{ b.querySelector("pre").textContent=DOG[i].f(EMOS[dogEmo]); });
+  };
+  EMOS.forEach((e,i)=>{
+    const b=document.createElement("button"); b.className="emo"; b.textContent=e; b.title="Hold a "+e;
+    b.onclick=()=>{dogEmo=i;draw_dog();}; document.getElementById("k-demo").appendChild(b);
+  });
+  DOG.forEach((p,i)=>{
+    const b=document.createElement("button"); b.className="pose"; b.title="Tap to copy";
+    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.onclick=()=>copy(DOG[i].f(EMOS[dogEmo]),p.n,"Dog holding"); dogGrid.appendChild(b);
+  });
+  draw_dog();
+
+  /* whale 拿東西（2026-11-18） */
+  const WHALE=[{n:"Spout",f:e=>`    ⁎ ⁎\n     ⸝⸝\n (•ᴗ•    )≺\n ～～～～ ${e}`},{n:"Swimming",f:e=>`≋≋ (•ᴗ•    )≺ ${e}`},{n:"Holding",f:e=>`(•ᴗ•    )≺\n  /> ${e}`},{n:"Together",f:e=>`(•ᴗ•  )≺ ${e} ≻(  •ᴗ•)`}];
+  let whaleEmo=0;
+  const whaleSec=mk("sec-whale","BIG WHALE","Whale kaomoji: whales holding things","Pick what the whale carries and all four whales update. Tap one to copy.");
+  const whaleWrap=document.createElement("div");
+  whaleWrap.innerHTML=`<span class="lbl" style="margin-top:24px">What it holds</span><div class="emo-grid" id="k-wemo"></div>`;
+  whaleSec.appendChild(whaleWrap);
+  const whaleGrid=document.createElement("div"); whaleGrid.className="pose-grid"; whaleSec.appendChild(whaleGrid);
+  const draw_whale=()=>{
+    document.querySelectorAll("#k-wemo button").forEach((b,i)=>b.setAttribute("aria-pressed",i===whaleEmo));
+    whaleGrid.querySelectorAll(".pose").forEach((b,i)=>{ b.querySelector("pre").textContent=WHALE[i].f(EMOS[whaleEmo]); });
+  };
+  EMOS.forEach((e,i)=>{
+    const b=document.createElement("button"); b.className="emo"; b.textContent=e; b.title="Hold a "+e;
+    b.onclick=()=>{whaleEmo=i;draw_whale();}; document.getElementById("k-wemo").appendChild(b);
+  });
+  WHALE.forEach((p,i)=>{
+    const b=document.createElement("button"); b.className="pose"; b.title="Tap to copy";
+    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.onclick=()=>copy(WHALE[i].f(EMOS[whaleEmo]),p.n,"Whale holding"); whaleGrid.appendChild(b);
+  });
+  draw_whale();
+
 
   /* 表情組合器：眼睛 × 嘴巴 */
   const EYES=[
@@ -1043,16 +1160,41 @@ en:function(){
      排版產生器只有少數人用，移到表情組合器之後。 */
   const genSec=document.getElementById("sec-gen"), afterSec=document.getElementById("sec-face");
   if(genSec&&afterSec){ afterSec.after(genSec); genSec.style.paddingTop=""; }
-  const anS=document.getElementById("sec-animal"), catS=document.getElementById("sec-cat"); if(anS&&catS) catS.after(anS);
-  secs.sort((x,y)=>document.getElementById(x.id).compareDocumentPosition(document.getElementById(y.id))&Node.DOCUMENT_POSITION_FOLLOWING?-1:1);
+  
+  /* 先選喜歡的動物（2026-11-18）：選到的動物排最前面，其他依序往後；記在這台裝置，網址 ?a=cat 也可以指定 */
+  const GROUPS={bunny:["sec-mix","sec-bunny"],cat:["sec-cat","sec-animal"],dog:["sec-dog"],whale:["sec-whale"]};
+  const ORDER=["bunny","cat","dog","whale"];
+  const pick=document.createElement("div"); pick.className="pick"; pick.id="km-pick";
+  pick.innerHTML=`<p class="pick-q">Which animal do you like?</p><p class="pick-s">Pick one and its kaomoji move to the top. We will remember next time.</p><div class="pick-row" role="group" aria-label="Which animal do you like?"><button type="button" data-a="bunny"><b>🐰</b><span>Bunny</span></button><button type="button" data-a="cat"><b>🐱</b><span>Cat</span></button><button type="button" data-a="dog"><b>🐶</b><span>Dog</span></button><button type="button" data-a="whale"><b>🐳</b><span>Whale</span></button></div>`;
+  body.before(pick);
+  function buildNav(){
+    nav.innerHTML="";
+    secs.forEach(s=>{
+      const b=document.createElement("button");
+      b.textContent=s.t;
+      b.onclick=()=>document.getElementById(s.id).scrollIntoView({behavior:"smooth",block:"start"});
+      nav.appendChild(b);
+    });
+  }
+  function sortSecs(){ secs.sort((x,y)=>document.getElementById(x.id).compareDocumentPosition(document.getElementById(y.id))&Node.DOCUMENT_POSITION_FOLLOWING?-1:1); }
+  function setAnimal(a,user){
+    if(!GROUPS[a]) a="bunny";
+    const seq=[a].concat(ORDER.filter(x=>x!==a)).flatMap(x=>GROUPS[x]).map(id=>document.getElementById(id)).filter(Boolean);
+    for(let i=seq.length-1;i>=0;i--) body.prepend(seq[i]);
+    pick.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.a===a));
+    sortSecs(); buildNav();
+    if(user){
+      try{localStorage.setItem("km-animal",a);}catch(e){}
+      try{ if(window.gtag) gtag("event","kao_animal",{option:a}); }catch(e){}
+      document.getElementById(GROUPS[a][0]).scrollIntoView({behavior:"smooth",block:"start"});
+    }
+  }
+  pick.querySelectorAll("button").forEach(b=>b.onclick=()=>setAnimal(b.dataset.a,true));
+  let first="bunny";
+  try{ first=new URLSearchParams(location.search).get("a")||localStorage.getItem("km-animal")||"bunny"; }catch(e){}
+  setAnimal(first,false);
 
-  /* 導覽 */
-  secs.forEach(s=>{
-    const b=document.createElement("button");
-    b.textContent=s.t;
-    b.onclick=()=>document.getElementById(s.id).scrollIntoView({behavior:"smooth",block:"start"});
-    nav.appendChild(b);
-  });
+  /* 導覽：buildNav() 在上面的動物選擇裡 */
   const io=new IntersectionObserver(es=>{
     es.forEach(e=>{
       if(e.isIntersecting){
@@ -1402,6 +1544,52 @@ ja:function(){
   });
   drawCat();
 
+  /* dog 拿東西（2026-11-18） */
+  const DOG=[{n:"定番いぬ",f:e=>`૮ ˶ᵔ ᵕ ᵔ˶ ა\n  /> ${e} >`},{n:"しばいぬ",f:e=>`▼・ᴥ・▼\n /> ${e} >`},{n:"たれみみ",f:e=>`U・ᴥ・U\n /> ${e} <\\`},{n:"しっぽふりふり",f:e=>`૮ ･ﻌ･ ა\n( ${e} )～♪`},{n:"ねむいぬ",f:e=>`૮ ˘ ﻌ ˘ ა zZ\n  /> ${e} >`},{n:"ふたりで",f:e=>`૮ ･ﻌ･ ა ${e} ૮ ･ﻌ･ ა`}];
+  let dogEmo=0;
+  const dogSec=mk("sec-dog","BIG DOG","いぬのAA・何か持ってるいぬ","持たせるものを選ぶと、下の6匹がまとめて切り替わります。タップでそのままコピー。");
+  const dogWrap=document.createElement("div");
+  dogWrap.innerHTML=`<span class="lbl" style="margin-top:24px">持たせるもの</span><div class="emo-grid" id="k-demo"></div>`;
+  dogSec.appendChild(dogWrap);
+  const dogGrid=document.createElement("div"); dogGrid.className="pose-grid"; dogSec.appendChild(dogGrid);
+  const draw_dog=()=>{
+    document.querySelectorAll("#k-demo button").forEach((b,i)=>b.setAttribute("aria-pressed",i===dogEmo));
+    dogGrid.querySelectorAll(".pose").forEach((b,i)=>{ b.querySelector("pre").textContent=DOG[i].f(EMOS[dogEmo]); });
+  };
+  EMOS.forEach((e,i)=>{
+    const b=document.createElement("button"); b.className="emo"; b.textContent=e; b.title=e+" に替える";
+    b.onclick=()=>{dogEmo=i;draw_dog();}; document.getElementById("k-demo").appendChild(b);
+  });
+  DOG.forEach((p,i)=>{
+    const b=document.createElement("button"); b.className="pose"; b.title="タップしてコピー";
+    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.onclick=()=>copy(DOG[i].f(EMOS[dogEmo]),p.n,"AA-何か持ってるいぬ"); dogGrid.appendChild(b);
+  });
+  draw_dog();
+
+  /* whale 拿東西（2026-11-18） */
+  const WHALE=[{n:"しおふき",f:e=>`    ⁎ ⁎\n     ⸝⸝\n (•ᴗ•    )≺\n ～～～～ ${e}`},{n:"すいすい",f:e=>`≋≋ (•ᴗ•    )≺ ${e}`},{n:"もってる",f:e=>`(•ᴗ•    )≺\n  /> ${e}`},{n:"ふたりで",f:e=>`(•ᴗ•  )≺ ${e} ≻(  •ᴗ•)`}];
+  let whaleEmo=0;
+  const whaleSec=mk("sec-whale","BIG WHALE","くじらの顔文字・何か持ってるくじら","持たせるものを選ぶと、下の4匹がまとめて切り替わります。タップでそのままコピー。");
+  const whaleWrap=document.createElement("div");
+  whaleWrap.innerHTML=`<span class="lbl" style="margin-top:24px">持たせるもの</span><div class="emo-grid" id="k-wemo"></div>`;
+  whaleSec.appendChild(whaleWrap);
+  const whaleGrid=document.createElement("div"); whaleGrid.className="pose-grid"; whaleSec.appendChild(whaleGrid);
+  const draw_whale=()=>{
+    document.querySelectorAll("#k-wemo button").forEach((b,i)=>b.setAttribute("aria-pressed",i===whaleEmo));
+    whaleGrid.querySelectorAll(".pose").forEach((b,i)=>{ b.querySelector("pre").textContent=WHALE[i].f(EMOS[whaleEmo]); });
+  };
+  EMOS.forEach((e,i)=>{
+    const b=document.createElement("button"); b.className="emo"; b.textContent=e; b.title=e+" に替える";
+    b.onclick=()=>{whaleEmo=i;draw_whale();}; document.getElementById("k-wemo").appendChild(b);
+  });
+  WHALE.forEach((p,i)=>{
+    const b=document.createElement("button"); b.className="pose"; b.title="タップしてコピー";
+    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.onclick=()=>copy(WHALE[i].f(EMOS[whaleEmo]),p.n,"AA-何か持ってるくじら"); whaleGrid.appendChild(b);
+  });
+  draw_whale();
+
 
   /* 表情組合器：眼睛 × 嘴巴 */
   const EYES=[
@@ -1573,16 +1761,41 @@ ja:function(){
      排版產生器只有少數人用，移到表情組合器之後。 */
   const genSec=document.getElementById("sec-gen"), afterSec=document.getElementById("sec-face"), blankSec2=document.getElementById("sec-blank");
   if(genSec&&afterSec){ afterSec.after(genSec); genSec.style.paddingTop=""; if(blankSec2) genSec.after(blankSec2); }
-  const anS=document.getElementById("sec-animal"), catS=document.getElementById("sec-cat"); if(anS&&catS) catS.after(anS);
-  secs.sort((x,y)=>document.getElementById(x.id).compareDocumentPosition(document.getElementById(y.id))&Node.DOCUMENT_POSITION_FOLLOWING?-1:1);
+  
+  /* 先選喜歡的動物（2026-11-18）：選到的動物排最前面，其他依序往後；記在這台裝置，網址 ?a=cat 也可以指定 */
+  const GROUPS={bunny:["sec-mix","sec-bunny"],cat:["sec-cat","sec-animal"],dog:["sec-dog"],whale:["sec-whale"]};
+  const ORDER=["bunny","cat","dog","whale"];
+  const pick=document.createElement("div"); pick.className="pick"; pick.id="km-pick";
+  pick.innerHTML=`<p class="pick-q">どの動物が好き？</p><p class="pick-s">選ぶとその動物の顔文字がいちばん上に。次に開いた時も覚えています。</p><div class="pick-row" role="group" aria-label="どの動物が好き？"><button type="button" data-a="bunny"><b>🐰</b><span>うさぎ</span></button><button type="button" data-a="cat"><b>🐱</b><span>ねこ</span></button><button type="button" data-a="dog"><b>🐶</b><span>いぬ</span></button><button type="button" data-a="whale"><b>🐳</b><span>くじら</span></button></div>`;
+  body.before(pick);
+  function buildNav(){
+    nav.innerHTML="";
+    secs.forEach(s=>{
+      const b=document.createElement("button");
+      b.textContent=s.t;
+      b.onclick=()=>document.getElementById(s.id).scrollIntoView({behavior:"smooth",block:"start"});
+      nav.appendChild(b);
+    });
+  }
+  function sortSecs(){ secs.sort((x,y)=>document.getElementById(x.id).compareDocumentPosition(document.getElementById(y.id))&Node.DOCUMENT_POSITION_FOLLOWING?-1:1); }
+  function setAnimal(a,user){
+    if(!GROUPS[a]) a="bunny";
+    const seq=[a].concat(ORDER.filter(x=>x!==a)).flatMap(x=>GROUPS[x]).map(id=>document.getElementById(id)).filter(Boolean);
+    for(let i=seq.length-1;i>=0;i--) body.prepend(seq[i]);
+    pick.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.a===a));
+    sortSecs(); buildNav();
+    if(user){
+      try{localStorage.setItem("km-animal",a);}catch(e){}
+      try{ if(window.gtag) gtag("event","kao_animal",{option:a}); }catch(e){}
+      document.getElementById(GROUPS[a][0]).scrollIntoView({behavior:"smooth",block:"start"});
+    }
+  }
+  pick.querySelectorAll("button").forEach(b=>b.onclick=()=>setAnimal(b.dataset.a,true));
+  let first="bunny";
+  try{ first=new URLSearchParams(location.search).get("a")||localStorage.getItem("km-animal")||"bunny"; }catch(e){}
+  setAnimal(first,false);
 
-  /* 導覽 */
-  secs.forEach(s=>{
-    const b=document.createElement("button");
-    b.textContent=s.t;
-    b.onclick=()=>document.getElementById(s.id).scrollIntoView({behavior:"smooth",block:"start"});
-    nav.appendChild(b);
-  });
+  /* 導覽：buildNav() 在上面的動物選擇裡 */
   const io=new IntersectionObserver(es=>{
     es.forEach(e=>{
       if(e.isIntersecting){
