@@ -66,7 +66,7 @@ zh:function(){
     {n:"戴皇冠",   f:e=>` (\\ ♚ /)\n (ฅ×ฅ)\n /> ${e} >`},
     {n:"圓臉兔",   f:e=>` ꒰\\_/꒱\n ꒰•ᵕ•꒱\n /> ${e} >`},
     {n:"瞇瞇眼",   f:e=>` ꒰\\⑅/꒱ ✧\n ꒰◔ᵕ◔꒱\n /> ${e} >`},
-    {n:"兩隻一起", f:e=>`*(\\_/)｡ﾟ{\\_/}*⋈\n( •×•)${e}(•×• )`}
+    {n:"兩隻一起", f:e=>` (\\_/) (\\_/)\n( •×•)${e}(•×• )`}
   ];
   const EMOS=[
     "♥️","🎁","💌","✨","🌙","⭐","🔥","☂️","🎀","🫧",
@@ -173,7 +173,7 @@ zh:function(){
     {id:"go", en:"CHEER UP", t:"幫你加油", s:"打氣・衝刺", items:[
       "(๑•̀ㅂ•́)و✧","٩( 'ω' )و","(ง •̀_•́)ง","o(*￣▽￣*)ブ","(ﾉ>ω<)ﾉ","＼(๑❛ᴗ❛๑)⁄","(*•̀ᴗ•́*)و","ᕦ(ò_óˇ)ᕤ"
     ]},
-    {id:"animal", en:"CREATURES", t:"各種動物", s:"貓、狗、熊、鳥、魚、企鵝⋯⋯用括號和符號畫出來的小動物。", wide:1, items:[
+    {id:"animal", en:"CREATURES", t:"貓咪與各種動物", s:"貓、狗、熊、鳥、魚、企鵝⋯⋯用括號和符號畫出來的小動物。", wide:1, items:[
       " /\\_/\\\n( o.o )\n > ^ <"," ╱|、\n(˚ˎ 。7\n |、˜〵\n じしˍ,)ノ"," ∧,,,∧\n( ̳• · • ̳)\n/    づ♡","(=^･ω･^=)","(=^･ｪ･^=)","ฅ(^•ω•^ฅ)","ฅ^•ﻌ•^ฅ","/ᐠ｡ꞈ｡ᐟ\\","≽^•⩊•^≼","(=①ω①=)","(=`ω´=)",
       "ʕ•ᴥ•ʔ","ʕ ᵔᴥᵔ ʔ","ʕ·ᴥ·ʔ","ʕ￫ᴥ￩ʔ","ʕ；•`ᴥ•´ʔ","ʕ•ᴥ•ʔﾉ♡","U^ェ^U","▽･ω･▽",
       "ᐡ ᐧ ﻌ ᐧ ᐡ","૮ ˶ᵔ ᵕ ᵔ˶ ა","(・θ・)","(･ө･)","ᕕ( ᐛ )ᕗ","(๑･ө･๑)","＜(￣︶￣)＞","(・_・)ゞ",
@@ -298,12 +298,12 @@ zh:function(){
 
   /* 兔兔圖鑑：不拿東西、單純可愛的兔子 */
   const BUNNIES=[
-    " ꒰\\_/꒱\n ꒰•ᵕ•꒱"," ꒰\\⑅/꒱ ✧\n ꒰◔ᵕ◔꒱"," ꒰\\_/꒱\n ꒰•᷄ࡇ•᷅꒱"," /꒱/꒱\n｡･×･꒱ ♡",
+    " ꒰\\_/꒱\n ꒰•ᵕ•꒱"," ꒰\\⑅/꒱ ✧\n ꒰◔ᵕ◔꒱"," ꒰\\_/꒱\n ꒰•﹏•꒱"," /꒱/꒱\n｡･×･꒱ ♡",
     " /꒱/꒱\n꒰-`д´-꒱"," /) /)\n(-`д´-)"," /) /) ♡\n*( ･×･)"," /) /)\n(>д<)",
     " /) /)\n(ฅ• . •ฅ)"," (\\_(\\\n(=･ω･)"," (\\＿(\\*゜\n (ÒㅅÓ)"," /) ＿ /)\n(ฅ・×･)ฅ",
     " (\\♚/)\n (ฅ×ฅ)"," (\\ ♚ /)\n(◍ ′⅄‵ ◍)"," (\\_(\\\n(; ›ω‹)"," (\\_(\\\n (•- •)",
     " /)/)\n( . .)"," /)/) (\\(\\\n( . .)(. . )"," (\\(\\\n( -.-)"," (\\_/)\n( •_•)",
-    " {\\__/}\n ( • ᴗ•)"," (\\__ /)\n(⁎˃ᴗ˂⁎)◞♡","*(\\_/)｡ﾟ{\\_/}*⋈\n( •×•)♡(•×• )"," ꒰\\_/꒱\n꒰ ˶• ᴗ •˶ ꒱"
+    " {\\__/}\n ( • ᴗ•)"," (\\__ /)\n(⁎˃ᴗ˂⁎)◞♡"," (\\_/) (\\_/)\n( •×•)♡(•×• )"," ꒰\\_/꒱\n꒰ ˶• ᴗ •˶ ꒱"
   ];
   const bunSec=mk("sec-bunny","BUNNY","大型兔兔顏文字圖鑑",
     "不拿東西、單純可愛的兔子。兩行的大型顏文字，用括號和斜線畫出來，貼在句子後面或當作段落開頭都很好看。點一下直接複製。");
@@ -319,22 +319,45 @@ zh:function(){
     bunGrid.appendChild(btn);
   });
   bunSec.appendChild(bunGrid);
+  /* 貓咪拿東西（2026-11-18）：跟兔兔一樣先選手上的東西 */
+  const CATS=[{n:"經典貓",f:e=>` /\\_/\\\n( o.o )\n > ${e} <`},{n:"窩成一團",f:e=>` ╱|、\n(˚ˎ 。7\n |、˜〵\n じしˍ,)ノ ${e}`},{n:"遞給你",f:e=>` ∧,,,∧\n(  • · •  )\n/    づ${e}`},{n:"抱抱",f:e=>` ∧＿∧\n(=･ω･=)\n(っ${e}c)`},{n:"害羞貓",f:e=>` /\\_/\\\n( ˶•ᴗ•˶)\n/> ${e} <\\`},{n:"想睡覺",f:e=>` /\\_/\\\n( -.- ) zZ\n > ${e} <`},{n:"兩隻一起",f:e=>` /\\_/\\   /\\_/\\\n( o.o )${e}( o.o )`}];
+  let catEmo=0;
+  const catSec=mk("sec-cat","BIG CAT","大型貓咪顏文字・貓咪拿東西","先選貓咪手上要拿什麼，下面七種姿勢的貓咪會一起換好，點一下直接複製。");
+  const catEmoWrap=document.createElement("div");
+  catEmoWrap.innerHTML=`<span class="lbl" style="margin-top:24px">手上的東西</span><div class="emo-grid" id="k-cemo"></div>`;
+  catSec.appendChild(catEmoWrap);
+  const catGrid=document.createElement("div"); catGrid.className="pose-grid"; catSec.appendChild(catGrid);
+  function drawCat(){
+    document.querySelectorAll("#k-cemo button").forEach((b,i)=>b.setAttribute("aria-pressed",i===catEmo));
+    catGrid.querySelectorAll(".pose").forEach((b,i)=>{ b.querySelector("pre").textContent=CATS[i].f(EMOS[catEmo]); });
+  }
+  EMOS.forEach((e,i)=>{
+    const b=document.createElement("button"); b.className="emo"; b.textContent=e; b.title="換成 "+e;
+    b.onclick=()=>{catEmo=i;drawCat();}; document.getElementById("k-cemo").appendChild(b);
+  });
+  CATS.forEach((p,i)=>{
+    const b=document.createElement("button"); b.className="pose"; b.title="點一下複製";
+    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.onclick=()=>copy(CATS[i].f(EMOS[catEmo]),p.n,"大型顏文字-貓咪拿東西"); catGrid.appendChild(b);
+  });
+  drawCat();
+
 
   /* 表情組合器：眼睛 × 嘴巴 */
   const EYES=[
     ["ˊ","ˋ"],["ˇ","ˇ"],["⏑","⏑"],["´","｀"],
-    ["◞","◟"],["◜","◝"],["◝","◜"],["-᷅","-᷄"],
+    ["◞","◟"],["◜","◝"],["◝","◜"],["¬","¬"],
     [".ܸ",".ܸ"],["◡","◡"],["_","_"],[".","."],
     ["•","•"],["•̀","•́"],["•́","•̀"],["߹","߹"],
     ["›","‹"],["^","^"],["⊳","⊲"],["՞","՞"],
-    ["o̴̶̷᷄","o̴̶̷̥᷅"],["ᵒ̴̶̷̥́","ᵒ̴̶̷̣̥̀"],["o̴̶̷̤","o̴̶̷̤"],["ಠ","ಠ"],
+    ["ಥ","ಥ"],["ᵒ̴̶̷̥́","ᵒ̴̶̷̣̥̀"],["⋆","⋆"],["ಠ","ಠ"],
     ["≧","≦"],["ꈍ","ꈍ"],["˃̶̤́","˂̶̤̀"],["ᴗ͈","ᴗ͈"],
     ["≻","≺"],["➤","◄"],["˃","˂"],["˃̵","˂̵"],
     ["=˃","˂="],["ˋ◔","◔ˊ"],["◕","◕"],["ㅇ","ㅇ"]
   ];
   const MOUTHS=["ᵕ","⤙","ᴖ","Ⱉ","△","࿁","ꕀ","‸",
                 "༝","‿","⌓","⩊","⌑","｡","ㅁ","⇀",
-                "̫","֊","᎔","ᗜ","Д","³","ᯅ","ˬ",
+                "ㅅ","֊","᎔","ᗜ","Д","³","ᯅ","ˬ",
                 "▬","∩","ʌ","ᴥ","ω","ᗢ","▭","ᨓ"];
   let eye=12;
   const face=(i,m)=>"("+EYES[i][0]+m+EYES[i][1]+")";
@@ -490,6 +513,7 @@ zh:function(){
      排版產生器只有少數人用，移到表情組合器之後。 */
   const genSec=document.getElementById("sec-gen"), afterSec=document.getElementById("sec-face"), blankSec2=document.getElementById("sec-blank");
   if(genSec&&afterSec){ afterSec.after(genSec); genSec.style.paddingTop=""; if(blankSec2) genSec.after(blankSec2); }
+  const anS=document.getElementById("sec-animal"), catS=document.getElementById("sec-cat"); if(anS&&catS) catS.after(anS);
   secs.sort((x,y)=>document.getElementById(x.id).compareDocumentPosition(document.getElementById(y.id))&Node.DOCUMENT_POSITION_FOLLOWING?-1:1);
 
   /* 導覽 */
@@ -572,7 +596,7 @@ en:function(){
     {n:"Crowned", f:e=>` (\\ ♚ /)\n (ฅ×ฅ)\n /> ${e} >`},
     {n:"Round face", f:e=>` ꒰\\_/꒱\n ꒰•ᵕ•꒱\n /> ${e} >`},
     {n:"Squinting", f:e=>` ꒰\\⑅/꒱ ✧\n ꒰◔ᵕ◔꒱\n /> ${e} >`},
-    {n:"Together", f:e=>`*(\\_/)｡ﾟ{\\_/}*⋈\n( •×•)${e}(•×• )`}
+    {n:"Together", f:e=>` (\\_/) (\\_/)\n( •×•)${e}(•×• )`}
   ];
   const EMOS=[
     "♥️","🎁","💌","✨","🌙","⭐","🔥","☂️","🎀","🫧",
@@ -679,7 +703,7 @@ en:function(){
     {id:"go", en:"CHEER UP", t:"Cheering you on", s:"Go, fight, you can do it", items:[
       "(๑•̀ㅂ•́)و✧","٩( 'ω' )و","(ง •̀_•́)ง","o(*￣▽￣*)ブ","(ﾉ>ω<)ﾉ","＼(๑❛ᴗ❛๑)⁄","(*•̀ᴗ•́*)و","ᕦ(ò_óˇ)ᕤ"
     ]},
-    {id:"animal", en:"CREATURES", t:"Animal kaomoji", s:"Cats, dogs, bears, birds, fish, penguins. Drawn from brackets and punctuation.", wide:1, items:[
+    {id:"animal", en:"CREATURES", t:"Cats & other animals", s:"Cats, dogs, bears, birds, fish, penguins. Drawn from brackets and punctuation.", wide:1, items:[
       " /\\_/\\\n( o.o )\n > ^ <"," ╱|、\n(˚ˎ 。7\n |、˜〵\n じしˍ,)ノ"," ∧,,,∧\n( ̳• · • ̳)\n/    づ♡","(=^･ω･^=)","(=^･ｪ･^=)","ฅ(^•ω•^ฅ)","ฅ^•ﻌ•^ฅ","/ᐠ｡ꞈ｡ᐟ\\","≽^•⩊•^≼","(=①ω①=)","(=`ω´=)",
       "ʕ•ᴥ•ʔ","ʕ ᵔᴥᵔ ʔ","ʕ·ᴥ·ʔ","ʕ￫ᴥ￩ʔ","ʕ；•`ᴥ•´ʔ","ʕ•ᴥ•ʔﾉ♡","U^ェ^U","▽･ω･▽",
       "ᐡ ᐧ ﻌ ᐧ ᐡ","૮ ˶ᵔ ᵕ ᵔ˶ ა","(・θ・)","(･ө･)","ᕕ( ᐛ )ᕗ","(๑･ө･๑)","＜(￣︶￣)＞","(・_・)ゞ",
@@ -804,12 +828,12 @@ en:function(){
 
   /* 兔兔圖鑑：不拿東西、單純可愛的兔子 */
   const BUNNIES=[
-    " ꒰\\_/꒱\n ꒰•ᵕ•꒱"," ꒰\\⑅/꒱ ✧\n ꒰◔ᵕ◔꒱"," ꒰\\_/꒱\n ꒰•᷄ࡇ•᷅꒱"," /꒱/꒱\n｡･×･꒱ ♡",
+    " ꒰\\_/꒱\n ꒰•ᵕ•꒱"," ꒰\\⑅/꒱ ✧\n ꒰◔ᵕ◔꒱"," ꒰\\_/꒱\n ꒰•﹏•꒱"," /꒱/꒱\n｡･×･꒱ ♡",
     " /꒱/꒱\n꒰-`д´-꒱"," /) /)\n(-`д´-)"," /) /) ♡\n*( ･×･)"," /) /)\n(>д<)",
     " /) /)\n(ฅ• . •ฅ)"," (\\_(\\\n(=･ω･)"," (\\＿(\\*゜\n (ÒㅅÓ)"," /) ＿ /)\n(ฅ・×･)ฅ",
     " (\\♚/)\n (ฅ×ฅ)"," (\\ ♚ /)\n(◍ ′⅄‵ ◍)"," (\\_(\\\n(; ›ω‹)"," (\\_(\\\n (•- •)",
     " /)/)\n( . .)"," /)/) (\\(\\\n( . .)(. . )"," (\\(\\\n( -.-)"," (\\_/)\n( •_•)",
-    " {\\__/}\n ( • ᴗ•)"," (\\__ /)\n(⁎˃ᴗ˂⁎)◞♡","*(\\_/)｡ﾟ{\\_/}*⋈\n( •×•)♡(•×• )"," ꒰\\_/꒱\n꒰ ˶• ᴗ •˶ ꒱"
+    " {\\__/}\n ( • ᴗ•)"," (\\__ /)\n(⁎˃ᴗ˂⁎)◞♡"," (\\_/) (\\_/)\n( •×•)♡(•×• )"," ꒰\\_/꒱\n꒰ ˶• ᴗ •˶ ꒱"
   ];
   const bunSec=mk("sec-bunny","BUNNY","Plain bunny kaomoji",
     "Two-line bunnies with empty paws, drawn from brackets and slashes. Good at the end of a sentence or the top of a paragraph. Tap to copy.");
@@ -825,22 +849,45 @@ en:function(){
     bunGrid.appendChild(btn);
   });
   bunSec.appendChild(bunGrid);
+  /* 貓咪拿東西（2026-11-18）：跟兔兔一樣先選手上的東西 */
+  const CATS=[{n:"Classic",f:e=>` /\\_/\\\n( o.o )\n > ${e} <`},{n:"Loaf",f:e=>` ╱|、\n(˚ˎ 。7\n |、˜〵\n じしˍ,)ノ ${e}`},{n:"Here you go",f:e=>` ∧,,,∧\n(  • · •  )\n/    づ${e}`},{n:"Hug",f:e=>` ∧＿∧\n(=･ω･=)\n(っ${e}c)`},{n:"Shy",f:e=>` /\\_/\\\n( ˶•ᴗ•˶)\n/> ${e} <\\`},{n:"Sleepy",f:e=>` /\\_/\\\n( -.- ) zZ\n > ${e} <`},{n:"Together",f:e=>` /\\_/\\   /\\_/\\\n( o.o )${e}( o.o )`}];
+  let catEmo=0;
+  const catSec=mk("sec-cat","BIG CAT","Big cat kaomoji: cats holding things","Pick what the cat holds and all seven cats update. Tap one to copy.");
+  const catEmoWrap=document.createElement("div");
+  catEmoWrap.innerHTML=`<span class="lbl" style="margin-top:24px">What it holds</span><div class="emo-grid" id="k-cemo"></div>`;
+  catSec.appendChild(catEmoWrap);
+  const catGrid=document.createElement("div"); catGrid.className="pose-grid"; catSec.appendChild(catGrid);
+  function drawCat(){
+    document.querySelectorAll("#k-cemo button").forEach((b,i)=>b.setAttribute("aria-pressed",i===catEmo));
+    catGrid.querySelectorAll(".pose").forEach((b,i)=>{ b.querySelector("pre").textContent=CATS[i].f(EMOS[catEmo]); });
+  }
+  EMOS.forEach((e,i)=>{
+    const b=document.createElement("button"); b.className="emo"; b.textContent=e; b.title="Hold a "+e;
+    b.onclick=()=>{catEmo=i;drawCat();}; document.getElementById("k-cemo").appendChild(b);
+  });
+  CATS.forEach((p,i)=>{
+    const b=document.createElement("button"); b.className="pose"; b.title="Tap to copy";
+    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.onclick=()=>copy(CATS[i].f(EMOS[catEmo]),p.n,"Cat holding"); catGrid.appendChild(b);
+  });
+  drawCat();
+
 
   /* 表情組合器：眼睛 × 嘴巴 */
   const EYES=[
     ["ˊ","ˋ"],["ˇ","ˇ"],["⏑","⏑"],["´","｀"],
-    ["◞","◟"],["◜","◝"],["◝","◜"],["-᷅","-᷄"],
+    ["◞","◟"],["◜","◝"],["◝","◜"],["¬","¬"],
     [".ܸ",".ܸ"],["◡","◡"],["_","_"],[".","."],
     ["•","•"],["•̀","•́"],["•́","•̀"],["߹","߹"],
     ["›","‹"],["^","^"],["⊳","⊲"],["՞","՞"],
-    ["o̴̶̷᷄","o̴̶̷̥᷅"],["ᵒ̴̶̷̥́","ᵒ̴̶̷̣̥̀"],["o̴̶̷̤","o̴̶̷̤"],["ಠ","ಠ"],
+    ["ಥ","ಥ"],["ᵒ̴̶̷̥́","ᵒ̴̶̷̣̥̀"],["⋆","⋆"],["ಠ","ಠ"],
     ["≧","≦"],["ꈍ","ꈍ"],["˃̶̤́","˂̶̤̀"],["ᴗ͈","ᴗ͈"],
     ["≻","≺"],["➤","◄"],["˃","˂"],["˃̵","˂̵"],
     ["=˃","˂="],["ˋ◔","◔ˊ"],["◕","◕"],["ㅇ","ㅇ"]
   ];
   const MOUTHS=["ᵕ","⤙","ᴖ","Ⱉ","△","࿁","ꕀ","‸",
                 "༝","‿","⌓","⩊","⌑","｡","ㅁ","⇀",
-                "̫","֊","᎔","ᗜ","Д","³","ᯅ","ˬ",
+                "ㅅ","֊","᎔","ᗜ","Д","³","ᯅ","ˬ",
                 "▬","∩","ʌ","ᴥ","ω","ᗢ","▭","ᨓ"];
   let eye=12;
   const face=(i,m)=>"("+EYES[i][0]+m+EYES[i][1]+")";
@@ -996,6 +1043,7 @@ en:function(){
      排版產生器只有少數人用，移到表情組合器之後。 */
   const genSec=document.getElementById("sec-gen"), afterSec=document.getElementById("sec-face");
   if(genSec&&afterSec){ afterSec.after(genSec); genSec.style.paddingTop=""; }
+  const anS=document.getElementById("sec-animal"), catS=document.getElementById("sec-cat"); if(anS&&catS) catS.after(anS);
   secs.sort((x,y)=>document.getElementById(x.id).compareDocumentPosition(document.getElementById(y.id))&Node.DOCUMENT_POSITION_FOLLOWING?-1:1);
 
   /* 導覽 */
@@ -1078,7 +1126,7 @@ ja:function(){
     {n:"王冠",   f:e=>` (\\ ♚ /)\n (ฅ×ฅ)\n /> ${e} >`},
     {n:"まるがお",   f:e=>` ꒰\\_/꒱\n ꒰•ᵕ•꒱\n /> ${e} >`},
     {n:"にっこり目",   f:e=>` ꒰\\⑅/꒱ ✧\n ꒰◔ᵕ◔꒱\n /> ${e} >`},
-    {n:"ふたりで", f:e=>`*(\\_/)｡ﾟ{\\_/}*⋈\n( •×•)${e}(•×• )`}
+    {n:"ふたりで", f:e=>` (\\_/) (\\_/)\n( •×•)${e}(•×• )`}
   ];
   const EMOS=[
     "♥️","🎁","💌","✨","🌙","⭐","🔥","☂️","🎀","🫧",
@@ -1185,7 +1233,7 @@ ja:function(){
     {id:"go", en:"CHEER UP", t:"応援してる", s:"がんばれ・ファイト", items:[
       "(๑•̀ㅂ•́)و✧","٩( 'ω' )و","(ง •̀_•́)ง","o(*￣▽￣*)ブ","(ﾉ>ω<)ﾉ","＼(๑❛ᴗ❛๑)⁄","(*•̀ᴗ•́*)و","ᕦ(ò_óˇ)ᕤ"
     ]},
-    {id:"animal", en:"CREATURES", t:"いろいろな動物", s:"猫、犬、くま、鳥、魚、ペンギン。かっこと記号で描いた小さな動物たち。", wide:1, items:[
+    {id:"animal", en:"CREATURES", t:"ねこといろいろな動物", s:"猫、犬、くま、鳥、魚、ペンギン。かっこと記号で描いた小さな動物たち。", wide:1, items:[
       " /\\_/\\\n( o.o )\n > ^ <"," ╱|、\n(˚ˎ 。7\n |、˜〵\n じしˍ,)ノ"," ∧,,,∧\n( ̳• · • ̳)\n/    づ♡","(=^･ω･^=)","(=^･ｪ･^=)","ฅ(^•ω•^ฅ)","ฅ^•ﻌ•^ฅ","/ᐠ｡ꞈ｡ᐟ\\","≽^•⩊•^≼","(=①ω①=)","(=`ω´=)",
       "ʕ•ᴥ•ʔ","ʕ ᵔᴥᵔ ʔ","ʕ·ᴥ·ʔ","ʕ￫ᴥ￩ʔ","ʕ；•`ᴥ•´ʔ","ʕ•ᴥ•ʔﾉ♡","U^ェ^U","▽･ω･▽",
       "ᐡ ᐧ ﻌ ᐧ ᐡ","૮ ˶ᵔ ᵕ ᵔ˶ ა","(・θ・)","(･ө･)","ᕕ( ᐛ )ᕗ","(๑･ө･๑)","＜(￣︶￣)＞","(・_・)ゞ",
@@ -1310,12 +1358,12 @@ ja:function(){
 
   /* 兔兔圖鑑：不拿東西、單純可愛的兔子 */
   const BUNNIES=[
-    " ꒰\\_/꒱\n ꒰•ᵕ•꒱"," ꒰\\⑅/꒱ ✧\n ꒰◔ᵕ◔꒱"," ꒰\\_/꒱\n ꒰•᷄ࡇ•᷅꒱"," /꒱/꒱\n｡･×･꒱ ♡",
+    " ꒰\\_/꒱\n ꒰•ᵕ•꒱"," ꒰\\⑅/꒱ ✧\n ꒰◔ᵕ◔꒱"," ꒰\\_/꒱\n ꒰•﹏•꒱"," /꒱/꒱\n｡･×･꒱ ♡",
     " /꒱/꒱\n꒰-`д´-꒱"," /) /)\n(-`д´-)"," /) /) ♡\n*( ･×･)"," /) /)\n(>д<)",
     " /) /)\n(ฅ• . •ฅ)"," (\\_(\\\n(=･ω･)"," (\\＿(\\*゜\n (ÒㅅÓ)"," /) ＿ /)\n(ฅ・×･)ฅ",
     " (\\♚/)\n (ฅ×ฅ)"," (\\ ♚ /)\n(◍ ′⅄‵ ◍)"," (\\_(\\\n(; ›ω‹)"," (\\_(\\\n (•- •)",
     " /)/)\n( . .)"," /)/) (\\(\\\n( . .)(. . )"," (\\(\\\n( -.-)"," (\\_/)\n( •_•)",
-    " {\\__/}\n ( • ᴗ•)"," (\\__ /)\n(⁎˃ᴗ˂⁎)◞♡","*(\\_/)｡ﾟ{\\_/}*⋈\n( •×•)♡(•×• )"," ꒰\\_/꒱\n꒰ ˶• ᴗ •˶ ꒱"
+    " {\\__/}\n ( • ᴗ•)"," (\\__ /)\n(⁎˃ᴗ˂⁎)◞♡"," (\\_/) (\\_/)\n( •×•)♡(•×• )"," ꒰\\_/꒱\n꒰ ˶• ᴗ •˶ ꒱"
   ];
   const bunSec=mk("sec-bunny","BUNNY","うさぎのAA図鑑",
     "何も持っていない、ただかわいいうさぎ。かっことスラッシュで描いた2行のAAで、文の後ろや段落の頭に置くとかわいく決まります。タップでそのままコピー。");
@@ -1331,22 +1379,45 @@ ja:function(){
     bunGrid.appendChild(btn);
   });
   bunSec.appendChild(bunGrid);
+  /* 貓咪拿東西（2026-11-18）：跟兔兔一樣先選手上的東西 */
+  const CATS=[{n:"定番ねこ",f:e=>` /\\_/\\\n( o.o )\n > ${e} <`},{n:"まるまる",f:e=>` ╱|、\n(˚ˎ 。7\n |、˜〵\n じしˍ,)ノ ${e}`},{n:"どうぞ",f:e=>` ∧,,,∧\n(  • · •  )\n/    づ${e}`},{n:"だっこ",f:e=>` ∧＿∧\n(=･ω･=)\n(っ${e}c)`},{n:"てれねこ",f:e=>` /\\_/\\\n( ˶•ᴗ•˶)\n/> ${e} <\\`},{n:"ねむねこ",f:e=>` /\\_/\\\n( -.- ) zZ\n > ${e} <`},{n:"ふたりで",f:e=>` /\\_/\\   /\\_/\\\n( o.o )${e}( o.o )`}];
+  let catEmo=0;
+  const catSec=mk("sec-cat","BIG CAT","ねこのAA・何か持ってるねこ","持たせるものを選ぶと、下の7匹がまとめて切り替わります。タップでそのままコピー。");
+  const catEmoWrap=document.createElement("div");
+  catEmoWrap.innerHTML=`<span class="lbl" style="margin-top:24px">持たせるもの</span><div class="emo-grid" id="k-cemo"></div>`;
+  catSec.appendChild(catEmoWrap);
+  const catGrid=document.createElement("div"); catGrid.className="pose-grid"; catSec.appendChild(catGrid);
+  function drawCat(){
+    document.querySelectorAll("#k-cemo button").forEach((b,i)=>b.setAttribute("aria-pressed",i===catEmo));
+    catGrid.querySelectorAll(".pose").forEach((b,i)=>{ b.querySelector("pre").textContent=CATS[i].f(EMOS[catEmo]); });
+  }
+  EMOS.forEach((e,i)=>{
+    const b=document.createElement("button"); b.className="emo"; b.textContent=e; b.title=e+" に替える";
+    b.onclick=()=>{catEmo=i;drawCat();}; document.getElementById("k-cemo").appendChild(b);
+  });
+  CATS.forEach((p,i)=>{
+    const b=document.createElement("button"); b.className="pose"; b.title="タップしてコピー";
+    b.innerHTML=`<pre></pre><span class="nm"></span>`; b.querySelector(".nm").textContent=p.n;
+    b.onclick=()=>copy(CATS[i].f(EMOS[catEmo]),p.n,"AA-何か持ってるねこ"); catGrid.appendChild(b);
+  });
+  drawCat();
+
 
   /* 表情組合器：眼睛 × 嘴巴 */
   const EYES=[
     ["ˊ","ˋ"],["ˇ","ˇ"],["⏑","⏑"],["´","｀"],
-    ["◞","◟"],["◜","◝"],["◝","◜"],["-᷅","-᷄"],
+    ["◞","◟"],["◜","◝"],["◝","◜"],["¬","¬"],
     [".ܸ",".ܸ"],["◡","◡"],["_","_"],[".","."],
     ["•","•"],["•̀","•́"],["•́","•̀"],["߹","߹"],
     ["›","‹"],["^","^"],["⊳","⊲"],["՞","՞"],
-    ["o̴̶̷᷄","o̴̶̷̥᷅"],["ᵒ̴̶̷̥́","ᵒ̴̶̷̣̥̀"],["o̴̶̷̤","o̴̶̷̤"],["ಠ","ಠ"],
+    ["ಥ","ಥ"],["ᵒ̴̶̷̥́","ᵒ̴̶̷̣̥̀"],["⋆","⋆"],["ಠ","ಠ"],
     ["≧","≦"],["ꈍ","ꈍ"],["˃̶̤́","˂̶̤̀"],["ᴗ͈","ᴗ͈"],
     ["≻","≺"],["➤","◄"],["˃","˂"],["˃̵","˂̵"],
     ["=˃","˂="],["ˋ◔","◔ˊ"],["◕","◕"],["ㅇ","ㅇ"]
   ];
   const MOUTHS=["ᵕ","⤙","ᴖ","Ⱉ","△","࿁","ꕀ","‸",
                 "༝","‿","⌓","⩊","⌑","｡","ㅁ","⇀",
-                "̫","֊","᎔","ᗜ","Д","³","ᯅ","ˬ",
+                "ㅅ","֊","᎔","ᗜ","Д","³","ᯅ","ˬ",
                 "▬","∩","ʌ","ᴥ","ω","ᗢ","▭","ᨓ"];
   let eye=12;
   const face=(i,m)=>"("+EYES[i][0]+m+EYES[i][1]+")";
@@ -1502,6 +1573,7 @@ ja:function(){
      排版產生器只有少數人用，移到表情組合器之後。 */
   const genSec=document.getElementById("sec-gen"), afterSec=document.getElementById("sec-face"), blankSec2=document.getElementById("sec-blank");
   if(genSec&&afterSec){ afterSec.after(genSec); genSec.style.paddingTop=""; if(blankSec2) genSec.after(blankSec2); }
+  const anS=document.getElementById("sec-animal"), catS=document.getElementById("sec-cat"); if(anS&&catS) catS.after(anS);
   secs.sort((x,y)=>document.getElementById(x.id).compareDocumentPosition(document.getElementById(y.id))&Node.DOCUMENT_POSITION_FOLLOWING?-1:1);
 
   /* 導覽 */
