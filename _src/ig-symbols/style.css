@@ -290,3 +290,13 @@ color:var(--ink);background:var(--bg);line-height:1.7;font-size:16px;max-width:1
 .km .phone>*{flex-shrink:0}
 .km .chat .ph-body{flex:1 1 0;min-height:0}
 .km .ig-grid{flex-shrink:1;min-height:0;overflow:hidden}
+
+/* 2026-11-18 手機版：第一個工具放在手機畫面前面（GA4 顯示改版後停留變短，工具被推太下面） */
+@media(max-width:899px){
+.km .lay{counter-reset:sec}
+.km .ctl,.km #k-body{display:contents}
+.km .ctl>.nav{order:1}
+.km .ctl section{order:4;margin-top:0}
+.km #k-body>section:first-child{order:2}
+.km .pvc{order:3}
+}
