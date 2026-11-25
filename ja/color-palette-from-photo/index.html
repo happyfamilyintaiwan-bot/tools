@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<script data-cfasync="false" data-cmp-ab="2">(function(){var s=document.createElement("script");s.async=1;s.setAttribute("data-cmp-ab","2");s.src="https://emrld.ltd/NTc5OTI2.js?t=579926";document.head.appendChild(s)})();</script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>写真からカラーパレット作成｜画像の配色を抽出、HEX コード表示・Procreate 読み込み（無料）</title>
+<meta name="description" content="写真をアップするだけでメインの色を 3〜12 色抽出し、HEX・RGB・HSL・CMYK を表示する無料ツール。写真上の丸をドラッグして微調整、Procreate への読み込み、CSS 変数のコピー、インスタ用パレット画像の保存に対応。写真はアップロードされません。">
+<link rel="canonical" href="https://tools.knittinghiyori.com/ja/color-palette-from-photo/">
+<link rel="alternate" hreflang="zh-Hant" href="https://tools.knittinghiyori.com/color-palette-from-photo/"><link rel="alternate" hreflang="en" href="https://tools.knittinghiyori.com/en/color-palette-from-photo/"><link rel="alternate" hreflang="ja" href="https://tools.knittinghiyori.com/ja/color-palette-from-photo/"><link rel="alternate" hreflang="x-default" href="https://tools.knittinghiyori.com/color-palette-from-photo/">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="knittinghiyori tools">
+<meta property="og:title" content="写真からカラーパレット作成｜画像の配色を抽出、HEX コード表示・Procreate 読み込み（無料）">
+<meta property="og:description" content="写真をアップするだけでメインの色を 3〜12 色抽出し、HEX・RGB・HSL・CMYK を表示する無料ツール。写真上の丸をドラッグして微調整、Procreate への読み込み、CSS 変数のコピー、インスタ用パレット画像の保存に対応。写真はアップロードされません。">
+<meta property="og:url" content="https://tools.knittinghiyori.com/ja/color-palette-from-photo/">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://tools.knittinghiyori.com/assets/og/color_palette-ja.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="編織日和・ツール｜写真からカラーパレット作成">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tools.knittinghiyori.com/assets/og/color_palette-ja.png">
+<meta name="author" content="Zoe">
+<link rel="icon" href="/favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96.png?v=2">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png?v=2">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/tools/color-palette.css?v=20261125">
+<link rel="stylesheet" href="/assets/site.css?v=20261125">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQZHTYTRMQ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("set",{content_group:"tool",tool_id:"color_palette",page_lang:"ja",page_title:"工具|照片配色色票產生器|上傳照片抓配色色碼"});gtag("config","G-ZQZHTYTRMQ");</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "@id": "https://tools.knittinghiyori.com/ja/color-palette-from-photo/#app", "name": "写真からカラーパレット作成", "url": "https://tools.knittinghiyori.com/ja/color-palette-from-photo/", "applicationCategory": "DesignApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "inLanguage": "ja", "description": "写真からメインの色を抽出してカラーパレットを作成。写真上の丸をドラッグして微調整し、Procreate・CSS 変数・パレット画像に書き出せます。", "featureList": ["メインの色を 3〜12 色抽出", "丸をドラッグ＋ルーペで色選び", "HEX・RGB・HSL・CMYK", "Procreate（.swatches）に読み込み", "CSS 変数をコピー", "白文字・黒文字のコントラスト表示", "正方形・4:5・ストーリー画像", "写真はアップロードしない"], "offers": {"@type": "Offer", "price": "0", "priceCurrency": "TWD"}, "isAccessibleForFree": true, "dateModified": "2026-11-25", "author": {"@type": "Person", "name": "Zoe", "url": "https://knittinghiyori.com/"}, "isPartOf": {"@type": "WebSite", "name": "knittinghiyori tools", "url": "https://tools.knittinghiyori.com/"}}, {"@type": "HowTo", "name": "写真からカラーパレットを作る方法", "totalTime": "PT2M", "step": [{"@type": "HowToStep", "position": 1, "name": "配色の好きな写真を選ぶ", "text": "映画やドラマのワンシーン、旅行の写真、イラスト、商品写真など何でも OK。「写真を選ぶ」を押すか、枠にドラッグ、または Ctrl／⌘＋V で貼り付けます。"}, {"@type": "HowToStep", "position": 2, "name": "色の数と並び順を決める", "text": "スライダーで 3〜12 色を選びます。小さな差し色も残したいときは「小さな鮮やかな色も残す」をオンに。並び順は明るい順・多い順・色相順から選べます。"}, {"@type": "HowToStep", "position": 3, "name": "丸をドラッグして微調整", "text": "写真の上の丸がそれぞれの色です。ドラッグすると、その場所の色に変わります。ドラッグ中はルーペが出るので、指で隠れても狙いやすくなっています。「＋ 色を追加」で最大 30 色まで。間違えたら「↶ 元に戻す」。"}, {"@type": "HowToStep", "position": 4, "name": "使いたいツールへ書き出す", "text": "iPad では「Procreate に読み込む」を押して共有メニューから Procreate を選べば完了。クリスタやアイビスペイントで使うときは、カラーコードをコピーして入力します。正方形・4:5・ストーリーサイズのパレット画像も保存できます。"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "写真はアップロードされますか？", "acceptedAnswer": {"@type": "Answer", "text": "されません。色の読み取りはブラウザの中だけで行い、サーバーには送りません。ページを閉じると写真も消えます。"}}, {"@type": "Question", "name": "Procreate にはどうやって読み込みますか？", "acceptedAnswer": {"@type": "Answer", "text": "iPad で「Procreate に読み込む」を押し、共有メニューで Procreate を選ぶと読み込まれます。「カラー → パレット」のいちばん下に追加されます。共有メニューに Procreate がないときは .swatches ファイルがダウンロードされるので、「ファイル」App の「ダウンロード」からタップしてください。1 つのパレットは最大 30 色です。"}}, {"@type": "Question", "name": "クリスタ（CLIP STUDIO PAINT）で使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "いまはファイルでの書き出しには対応していません。カラーコード（HEX）をコピーして、カラーセットに手入力してください。クリスタで読み込める .cls と Photoshop の .aco への書き出しは、App 版で対応する予定です。"}}, {"@type": "Question", "name": "アイビスペイントで使えますか？", "acceptedAnswer": {"@type": "Answer", "text": "アイビスペイントのパレットの読み込みは QR コード形式のため、このツールからは直接読み込めません。カラーコードをコピーして、カラー画面で入力してください。"}}, {"@type": "Question", "name": "Pantone の番号はわかりますか？", "acceptedAnswer": {"@type": "Answer", "text": "わかりません。Pantone の番号は Pantone 社のライセンスデータで、写真の色も光やカメラ、画面によって変わるため、正確な印刷色には対応できません。このツールでは画面上の色（sRGB）のカラーコードを表示します。"}}, {"@type": "Question", "name": "写真と色が少し違って見えるのはなぜ？", "acceptedAnswer": {"@type": "Answer", "text": "平均した色ではなく、そのグループでいちばん代表的な実際のピクセルを選んでいるので、色がにごりません。ほしい色が出ないときは色の数を増やすか、丸をその場所までドラッグしてください。"}}, {"@type": "Question", "name": "「白文字」「黒文字」の数字は何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "その色を背景にしたときの、白い文字・黒い文字とのコントラスト比です。4.5 以上ならウェブのアクセシビリティ基準 WCAG AA を満たし、ふつうの大きさの文字も読みやすくなります。"}}, {"@type": "Question", "name": "iPhone の写真が開けません", "acceptedAnswer": {"@type": "Answer", "text": "iPhone や iPad の Safari で写真ライブラリから選ぶと、自動で JPG に変換されます。パソコンから HEIC ファイルを選んで開けない場合は、JPG に変換するか、スマホでこのページを開いてください。"}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ツール", "item": "https://tools.knittinghiyori.com/ja/"}, {"@type": "ListItem", "position": 2, "name": "暮らし・趣味", "item": "https://tools.knittinghiyori.com/ja/#index"}, {"@type": "ListItem", "position": 3, "name": "写真からカラーパレット作成", "item": "https://tools.knittinghiyori.com/ja/color-palette-from-photo/"}]}]}</script>
+<meta name="spec-version" content="core-v1.7/tools-v2.5">
+</head>
+<body>
+<div class="k-wrap"><!--k-head:start（build.py 產生，請勿手改）-->
+<style>.kh-brand-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.kh-brand{display:inline-flex;align-items:center;gap:10px;min-height:44px;color:#16120f;text-decoration:none;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:14.4px;font-weight:700;letter-spacing:.04em;line-height:1.2;white-space:nowrap}.kh-brand img{width:40px;height:40px;border-radius:8px;flex:none}.kh-brand:hover{text-decoration:underline;text-underline-offset:4px}@media (max-width:400px){.kh-brand-sub{display:none}}</style><header class="k-head kh-brand-row"><a data-google-vignette="false" class="kh-brand" href="/ja/" data-cta="brand_hub" data-cta-type="tool" data-google-vignette="false"><img src="/icons/logo-knitting-120.webp" width="40" height="40" alt=""><span>編織日和<span class="kh-brand-sub">・ツール</span></span></a><span class="k-label">No.25 · 暮らし・趣味</span></header>
+<div class="k-crumbrow" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px"><nav class="k-crumb" aria-label="パンくずリスト"><a data-google-vignette="false" href="/ja/" data-cta="back_hub" data-cta-type="tool" data-google-vignette="false">ツール</a> / 暮らし・趣味 / 写真からカラーパレット作成</nav><nav class="k-langs" aria-label="Language"><a data-google-vignette="false" href="/color-palette-from-photo/" hreflang="zh-Hant" lang="zh-Hant-TW">中</a><a data-google-vignette="false" href="/en/color-palette-from-photo/" hreflang="en" lang="en">EN</a><a data-google-vignette="false" href="/ja/color-palette-from-photo/" hreflang="ja" lang="ja" aria-current="page">日</a></nav></div>
+<!--k-head:end--></div>
+<main class="k-wrap">
+<div id="cp-app" class="cp k-tool" lang="ja">
+<span class="kick">デザインツール・最終更新 2026-11-25</span>
+<h1>写真から<span class="hl">カラーパレット</span>作成：画像の配色をそのまま抽出</h1>
+<p class="lead"><strong>ひとことで：</strong>好きな写真をアップすると、メインの色を自動で抽出してカラーパレットに。HEX・RGB・HSL・CMYK をまとめて表示します。写真の上の丸をドラッグして微調整、Procreate へもそのまま読み込めます。写真はブラウザの中だけで処理し、アップロードしません。</p>
+<div class="pills"><span>丸をドラッグして色を選ぶ</span><span>Procreate に読み込み</span><span>CSS 変数</span><span>インスタ用パレット画像</span><span>無料・登録不要</span></div>
+
+<div class="tool" id="tool">
+  <div class="pal-left">
+    <h2 class="step-h"><span class="no">01</span>写真をアップ</h2>
+    <div class="pal-drop" id="pal-drop">
+      <div class="pal-stage" id="pal-stage">
+        <canvas id="pal-view" width="1200" height="760" role="img" aria-label="写真のプレビュー。丸はそれぞれの色を取った位置です"></canvas>
+        <div class="pal-pins" id="pal-pins"></div>
+        <canvas class="pal-loupe" id="pal-loupe" width="120" height="120" aria-hidden="true" hidden></canvas>
+      </div>
+      <span class="pal-badge" id="pal-badge">サンプル画像です。好きな写真で試してください</span>
+      <div class="pal-busy" id="pal-busy" hidden><span>色を読み取り中…</span></div>
+    </div>
+    <p class="hint">写真の上の丸をドラッグすると、その場所の色に変わります。下のカラーバーをタップするとカラーコードをコピー。</p>
+    <div class="pal-strip" id="pal-strip" role="group" aria-label="カラーバー。タップでカラーコードをコピー"></div>
+    <div class="pal-pick">
+      <label class="btn coral">写真を選ぶ<input type="file" id="pal-file" accept="image/*" aria-label="写真を選ぶ"></label>
+      <button type="button" class="btn ghost" id="pal-add">＋ 色を追加</button>
+      <button type="button" class="btn ghost" id="pal-undo" disabled>↶ 元に戻す</button>
+      <button type="button" class="lnk" id="pal-demo">サンプルを見る</button>
+    </div>
+    <p class="privacy"><span aria-hidden="true">●</span><span>写真はサーバーにアップロードされず、ページを閉じると消えます。パソコンでは写真を枠にドラッグするか、Ctrl／⌘＋V で貼り付けることもできます。</span></p>
+  </div>
+
+  <div class="ctrl">
+    <section>
+      <h2 class="step-h"><span class="no">02</span>調整</h2>
+      <div class="pal-row">
+        <div><label class="lb" for="pal-k">色の数<span class="k-out" id="pal-k-out">7</span></label><input type="range" id="pal-k" min="3" max="12" value="7"></div>
+        <div><label class="lb" for="pal-sort">並び順</label>
+          <select id="pal-sort"><option value="light">明るい順</option><option value="share">多い順</option><option value="hue">色相順</option></select></div>
+      </div>
+      <label class="check"><input type="checkbox" id="pal-vivid" checked><span>小さな鮮やかな色も残す<small>画面のすみの赤い椅子や小さな看板の色が、広い面積の色に埋もれません</small></span></label>
+    </section>
+    <section>
+      <h2 class="step-h"><span class="no">03</span>パレット<span class="mono"><span id="pal-count-n">0</span> colors</span></h2>
+      <div class="seg2" role="group" aria-label="カラーコードの形式">
+        <button type="button" data-fmt="hex" aria-pressed="true">HEX</button>
+        <button type="button" data-fmt="rgb" aria-pressed="false">RGB</button>
+        <button type="button" data-fmt="hsl" aria-pressed="false">HSL</button>
+      </div>
+      <ol class="pal-list" id="pal-list"></ol>
+      <p class="hint" style="margin-top:8px">「白文字」「黒文字」は、この色を背景にしたとき白／黒の文字が読みやすいという目安です（コントラスト比 4.5 以上、WCAG AA）。</p>
+    </section>
+    <section>
+      <h2 class="step-h"><span class="no">04</span>書き出し</h2>
+      <div style="margin-bottom:10px"><label class="lb" for="pal-name">パレット名（Procreate とパレット画像に表示）</label><input type="text" id="pal-name" maxlength="30" placeholder="マイパレット" autocomplete="off"></div>
+      <div class="pal-ex">
+        <button type="button" class="btn coral" id="pal-procreate">Procreate に読み込む（.swatches）</button>
+        <p class="hint">iPad・iPhone：共有メニューで「Procreate」を選びます。表示されないときはダウンロードに切り替わるので、「ファイル」App でファイルをタップすると読み込まれます。</p>
+        <p class="lb" style="margin-top:6px">パレット画像のサイズ</p>
+        <div class="seg2" role="group" aria-label="パレット画像のサイズ">
+          <button type="button" data-ratio="orig" aria-pressed="true">元の比率</button>
+          <button type="button" data-ratio="square" aria-pressed="false">正方形</button>
+          <button type="button" data-ratio="portrait" aria-pressed="false">4:5</button>
+          <button type="button" data-ratio="story" aria-pressed="false">ストーリー 9:16</button>
+        </div>
+        <div class="two">
+          <button type="button" class="btn ghost" id="pal-png">画像を保存</button>
+          <button type="button" class="btn" id="pal-share">画像を共有</button>
+        </div>
+        <div class="two">
+          <button type="button" class="btn ghost" id="pal-copy">すべてのコードをコピー</button>
+          <button type="button" class="btn ghost" id="pal-css">CSS 変数をコピー</button>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:10px">カラーコードは写真の画面上の色（sRGB）です。CMYK は簡易換算なので、印刷前に印刷所に確認してください。</p>
+      <div class="app-feat">
+        <p class="lb" style="margin:14px 0 6px">App 版の機能（制作中）</p>
+        <div class="app-feat-grid">
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="library"><span class="tag">App</span>パレットを保存して整理</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="batch"><span class="tag">App</span>複数の写真をまとめて抽出</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="multi_export"><span class="tag">App</span>Procreate へまとめて書き出し</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="formats"><span class="tag">App</span>クリスタ・Photoshop 形式で書き出し</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="ramp"><span class="tag">App</span>5 段階の濃淡を自動作成</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="harmony"><span class="tag">App</span>配色の提案と色覚シミュレーション</button>
+        </div>
+        <div class="app-wl" id="app-wl">
+          <p><b id="app-wl-t">App 版がほしいですか？</b><span id="app-wl-d">パレットの保存やまとめて書き出しができる App を制作中です。公開したらお知らせします。</span></p>
+          <a data-google-vignette="false" class="btn ghost" href="https://knittinghiyori.kit.com/86a568569e" target="_blank" rel="noopener" data-cta="app_waitlist_tool" data-cta-type="newsletter">公開をお知らせ →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="art">
+<section class="card">
+    <h3>写真からカラーパレットを作る 4 ステップ</h3>
+    <ol>
+      <li><strong>配色の好きな写真を選ぶ：</strong>映画やドラマのワンシーン、旅行の写真、イラスト、商品写真など何でも OK。「写真を選ぶ」を押すか、枠にドラッグ、または Ctrl／⌘＋V で貼り付けます。</li>
+      <li><strong>色の数と並び順を決める：</strong>スライダーで 3〜12 色を選びます。小さな差し色も残したいときは「小さな鮮やかな色も残す」をオンに。並び順は明るい順・多い順・色相順から選べます。</li>
+      <li><strong>丸をドラッグして微調整：</strong>写真の上の丸がそれぞれの色です。ドラッグすると、その場所の色に変わります。ドラッグ中はルーペが出るので、指で隠れても狙いやすくなっています。「＋ 色を追加」で最大 30 色まで。間違えたら「↶ 元に戻す」。</li>
+      <li><strong>使いたいツールへ書き出す：</strong>iPad では「Procreate に読み込む」を押して共有メニューから Procreate を選べば完了。クリスタやアイビスペイントで使うときは、カラーコードをコピーして入力します。正方形・4:5・ストーリーサイズのパレット画像も保存できます。</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h3>きれいなパレットを作るコツ</h3>
+    <ul>
+      <li>映画やドラマのスクリーンショットがおすすめ。美術スタッフが配色を整えているので、抽出したパレットもまとまりがあります。</li>
+      <li>同じ写真で色の数を変えてみましょう。ロゴや資料なら 5 色、イラストなら 8〜10 色が目安です。</li>
+      <li>イラストの塗りに使うなら、明るい色をベース、暗い色を影、鮮やかな色を差し色にすると決めやすくなります。</li>
+      <li>暗い写真や色かぶりした写真は、パレットもくすみます。先に写真アプリで明るさを調整してからアップしてください。</li>
+    </ul>
+  </section>
+<aside class="kh-ad-wrap" aria-label="広告"><div class="kh-ad"><p class="kh-ad-l">広告</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2022028565680247" data-ad-slot="3114811513" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div></aside>
+  <section class="card">
+    <h3>よくある質問</h3>
+    <details open><summary>写真はアップロードされますか？</summary><div><p>されません。色の読み取りはブラウザの中だけで行い、サーバーには送りません。ページを閉じると写真も消えます。</p></div></details>
+    <details><summary>Procreate にはどうやって読み込みますか？</summary><div><p>iPad で「Procreate に読み込む」を押し、共有メニューで Procreate を選ぶと読み込まれます。「カラー → パレット」のいちばん下に追加されます。共有メニューに Procreate がないときは .swatches ファイルがダウンロードされるので、「ファイル」App の「ダウンロード」からタップしてください。1 つのパレットは最大 30 色です。</p></div></details>
+    <details><summary>クリスタ（CLIP STUDIO PAINT）で使えますか？</summary><div><p>いまはファイルでの書き出しには対応していません。カラーコード（HEX）をコピーして、カラーセットに手入力してください。クリスタで読み込める .cls と Photoshop の .aco への書き出しは、App 版で対応する予定です。</p></div></details>
+    <details><summary>アイビスペイントで使えますか？</summary><div><p>アイビスペイントのパレットの読み込みは QR コード形式のため、このツールからは直接読み込めません。カラーコードをコピーして、カラー画面で入力してください。</p></div></details>
+    <details><summary>Pantone の番号はわかりますか？</summary><div><p>わかりません。Pantone の番号は Pantone 社のライセンスデータで、写真の色も光やカメラ、画面によって変わるため、正確な印刷色には対応できません。このツールでは画面上の色（sRGB）のカラーコードを表示します。</p></div></details>
+    <details><summary>写真と色が少し違って見えるのはなぜ？</summary><div><p>平均した色ではなく、そのグループでいちばん代表的な実際のピクセルを選んでいるので、色がにごりません。ほしい色が出ないときは色の数を増やすか、丸をその場所までドラッグしてください。</p></div></details>
+    <details><summary>「白文字」「黒文字」の数字は何ですか？</summary><div><p>その色を背景にしたときの、白い文字・黒い文字とのコントラスト比です。4.5 以上ならウェブのアクセシビリティ基準 WCAG AA を満たし、ふつうの大きさの文字も読みやすくなります。</p></div></details>
+    <details><summary>iPhone の写真が開けません</summary><div><p>iPhone や iPad の Safari で写真ライブラリから選ぶと、自動で JPG に変換されます。パソコンから HEIC ファイルを選んで開けない場合は、JPG に変換するか、スマホでこのページを開いてください。</p></div></details>
+  </section>
+
+</div>
+<div class="art k-more">
+<section class="card"><p class="k-lbl">More tools</p><h2 class="k-h">旅行で役立つほかのツール</h2><div class="k-cards"><a data-google-vignette="false" class="k-card" href="https://tools.knittinghiyori.com/ja/phone-wallpaper-maker/" data-cta="related" data-cta-type="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.6"/><path d="M13.6 7.2a3.2 3.2 0 1 0 1.9 5.6 2.6 2.6 0 0 1-1.9-5.6z"/><path d="M10.4 18.6h3.2"/></svg><span><b>スマホ壁紙メーカー</b><small>和風の小さな花と英語の手書き文字で、あなたのスマホにぴったりの壁紙を</small><em class="ok">日本語対応</em></span></a><a data-google-vignette="false" class="k-card" href="https://tools.knittinghiyori.com/handwriting-before-after/" data-cta="related" data-cta-type="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1-4.2L15.8 5a2.1 2.1 0 0 1 3 3L8.6 18.3z"/><path d="M14 6.8l3 3"/><path d="M13 19.5h6.5"/></svg><span><b>手書き文字ビフォーアフター</b><small>練習1日目と30日目の字を、比較画像1枚にまとめる</small><em>中国語UI</em></span></a><a data-google-vignette="false" class="k-card" href="https://tools.knittinghiyori.com/ja/kaomoji-symbols/" data-cta="related" data-cta-type="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9.6C7.6 6.4 7.7 2.6 9.1 2.6s2.4 3.6 2 6.7"/><path d="M15 9.6c1.4-3.2 1.3-7-.1-7s-2.4 3.6-2 6.7"/><ellipse cx="12" cy="15.2" rx="7.2" ry="6"/><path d="M9.3 14.4h.01M14.7 14.4h.01" stroke-width="2.6"/><path d="M10.8 17.3q1.2.9 2.4 0"/></svg><span><b>顔文字ジェネレーター</b><small>うさぎ顔文字・顔パーツの組み合わせ・特殊記号をワンタップでコピー</small><em class="ok">日本語対応</em></span></a><a data-google-vignette="false" class="k-card" href="https://tools.knittinghiyori.com/ja/ig-symbols/" data-cta="related" data-cta-type="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 2.8c.5 4.6 1.6 6 6.2 6.6-4.6.5-5.7 2-6.2 6.6-.5-4.6-1.6-6.1-6.2-6.6 4.6-.6 5.7-2 6.2-6.6z"/><path d="M18.4 14.6c.2 1.9.7 2.4 2.6 2.6-1.9.2-2.4.7-2.6 2.6-.2-1.9-.7-2.4-2.6-2.6 1.9-.2 2.4-.7 2.6-2.6z"/></svg><span><b>インスタ特殊記号</b><small>プロフィールの装飾・区切り線・ストーリー用の記号をコピー</small><em class="ok">日本語対応</em></span></a></div></section>
+<section class="card"><p class="k-lbl">From the blog</p><h2 class="k-h">ブログ「編織日和」の関連記事</h2><ul class="k-blog"><li><a data-google-vignette="false" href="https://knittinghiyori.com/" data-cta="blog_home" data-cta-type="article">ブログの記事をもっと見る</a></li></ul><p class="k-note">ブログ記事は繁体字中国語で書かれています。</p></section>
+<div class="k-duo">
+<a data-google-vignette="false" class="k-big hub" href="/ja/" data-cta="back_hub" data-cta-type="tool"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><circle cx="17.25" cy="17.25" r="3.75"/></svg><span class="k-lbl">All tools</span><b>無料ツール全25種類を見る</b><small>割り勘・料金比較・QRコード・顔文字などを1ページに。</small><span class="go">開く →</span></a>
+<a data-google-vignette="false" class="k-big games" href="https://games.knittinghiyori.com/" data-cta="games_hub" data-cta-type="game"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="24" cy="13" r="8"/><circle cx="34.5" cy="20.6" r="8"/><circle cx="30.5" cy="33" r="8"/><circle cx="17.5" cy="33" r="8"/><circle cx="13.5" cy="20.6" r="8"/></g><circle cx="24" cy="24" r="4.2" fill="currentColor"/></svg><span class="k-lbl">Games</span><b>ひと休み：ゲームで日本語をまなぶ</b><small>ひより花店：かな選び・花言葉・ローマ字タイピング。</small><span class="go">開く →</span></a>
+</div>
+</div>
+<div class="art k-keep"><p class="k-lbl" style="margin:0">Save & share</p><section class="card" id="cp-install">
+<h3 data-t="invH">役に立ちましたか？絵やデザイン仲間にシェアしてください</h3>
+<p data-t="invP">ツールを友だちに送ったり、ブックマークしておけば、気になる写真を見つけたときにすぐ使えます。シェアがいちばんの応援になります。</p>
+<div class="share3">
+<button class="btn" data-t="bTShare" id="cp-tshare" type="button">シェアする</button>
+<a data-google-vignette="false" class="btn line" data-t="bLine" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Ftools.knittinghiyori.com%2Fja%2Fcolor-palette-from-photo%2F" id="cp-tline" rel="noopener" target="_blank">LINE で送る</a>
+<button class="btn ghost" data-t="bTCopy" id="cp-tcopy" type="button">URL をコピー</button>
+</div>
+</section>
+</div>
+<div aria-live="polite" class="toast" id="toast" role="status"><span id="toast-t"></span><button data-t="bUndoShort" hidden="" id="toast-act" type="button">元に戻す</button></div>
+<div class="pal-bar" hidden="" id="pal-bar">
+<button class="btn coral" data-go="pal-procreate" type="button">Procreate</button>
+<button class="btn ghost" data-go="pal-png" data-t="barPng" type="button">画像を保存</button>
+<button class="btn ghost" data-go="pal-copy" data-t="barCopy" type="button">コードをコピー</button>
+</div>
+
+</div>
+</main>
+<footer class="k-foot"><div class="k-wrap">
+<nav><a data-google-vignette="false" href="/ja/" data-cta="footer_hub" data-cta-type="tool">無料ツール全25種類を見る</a><a data-google-vignette="false" href="https://knittinghiyori.com/" data-cta="footer_blog" data-cta-type="article">ブログへ戻る</a><a data-google-vignette="false" href="https://games.knittinghiyori.com/" data-cta="footer_games" data-cta-type="game">ゲーム</a><a data-google-vignette="false" href="https://knittinghiyori.com/privacy-policy/">プライバシーポリシー</a></nav>
+<p class="kh-legal">当サイトはアクセス解析（Google Analytics）と広告配信（Google AdSense）のためにCookieを使用し、一部にアフィリエイトリンクを含みます。<a data-google-vignette="false" href="https://knittinghiyori.com/privacy-policy/">プライバシーポリシー</a></p>
+<p class="k-copy">© 2026 knittinghiyori · Zoe</p>
+</div><p class="k-word" aria-hidden="true">knitting<i>hiyori</i></p></footer>
+<script>window.TS_PAGE_LANG="ja";window.TS_PATHS={"zh": "/color-palette-from-photo/", "en": "/en/color-palette-from-photo/", "ja": "/ja/color-palette-from-photo/"};window.CP_AFF={};window.TS_BASE="TWD";</script>
+<script src="/assets/tools/color-palette.js?v=20261125" defer></script>
+<script>/* 換語言時保留 # 後面的帳本 */document.querySelectorAll('.k-langs a').forEach(function(a){a.addEventListener('click',function(){if(location.hash)a.href=a.getAttribute('href').split('#')[0]+location.hash;if(window.hyTool)window.hyTool.event('lang_switch',{source:'header',from_lang:'ja'})})});</script>
+</body>
+</html>

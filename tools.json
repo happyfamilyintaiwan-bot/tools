@@ -594,9 +594,10 @@
    ],
    "url": "https://tools.knittinghiyori.com/color-palette-from-photo/",
    "ui": [
-    "zh"
+    "zh",
+    "en",
+    "ja"
    ],
-   "page": "color-palette-from-photo",
    "new": true,
    "zh": [
     "照片配色色票產生器",
@@ -604,12 +605,17 @@
    ],
    "en": [
     "Color Palette from Photo",
-    "Pull a color palette from any photo, with HEX codes and a Procreate swatches export"
+    "Pull the main colors from any photo, with HEX codes and Procreate export"
    ],
    "ja": [
     "写真からカラーパレット作成",
-    "写真から配色を抽出、HEXコード表示とProcreateスウォッチ書き出しに対応"
-   ]
+    "写真の配色を抽出、HEX コード表示と Procreate 読み込みに対応"
+   ],
+   "src": "color-palette",
+   "alt": {
+    "en": "https://tools.knittinghiyori.com/en/color-palette-from-photo/",
+    "ja": "https://tools.knittinghiyori.com/ja/color-palette-from-photo/"
+   }
   }
  ]
 }

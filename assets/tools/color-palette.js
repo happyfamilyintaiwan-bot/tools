@@ -1,3 +1,159 @@
+/* 照片配色色票產生器（tool_id=color_palette，前綴 pal_）三語版
+   原始檔：_src/color-palette/main.js（build.py 複製到 /assets/tools/color-palette.js） */
+var I18N={
+zh:{
+pinLabel:"第 {n} 色 {hex}，用方向鍵移動",stripLabel:"複製 {hex}",copied1:"已複製 {code}",swLabel:"在照片上標出第 {n} 色",
+onWhite:"白字",onInk:"黑字",copy:"複製",rmLabel:"刪除 {hex}",reExtracted:"已重新抓色，手動調整的顏色被換掉了",
+notImage:"請選擇圖片檔（JPG、PNG、WebP）",decodeErr:"這張圖片讀不出來，換一張試試",max:"最多 30 色（Procreate 一份色票的上限）",
+added:"加了一色，拖曳照片上的新圓點來選顏色",copyFail:"複製失敗，請長按色碼手動複製",defaultName:"我的配色",toolName:"照片配色色票產生器",
+copiedN:"已複製 {n} 個色碼",copiedCss:"已複製 CSS 變數",dlProcreate:"已下載 Procreate 色票，在 iPad 上點一下檔案就會匯入",
+imgFail:"產生圖片失敗，請再試一次",dlCard:"已下載色票卡",noShare:"這個瀏覽器不能直接分享圖片，已改成下載",featSoon:"：App 版製作中",
+toolText:"上傳照片自動抓出配色色票，可以匯入 Procreate、複製 CSS 變數。",urlCopied:"已複製網址",
+feats:{library:["色票庫","把每次抓的色票存起來，分類、搜尋，iPad 和 iPhone 用 iCloud 同步。"],
+batch:["多張照片一次抓色","一次選好幾張照片，每張自動做成一組色票，整理參考圖時很省時間。"],
+multi_export:["一次匯出多組","勾選好幾組色票，一次全部匯入 Procreate，不用一組一組來。"],
+formats:["更多匯出格式","匯出 CLIP STUDIO PAINT 的色票（.cls）與 Photoshop 色票（.aco），也能匯出 Figma、Tailwind 用的設計變數。"],
+ramp:["5 階深淺色","每個顏色自動延伸出由淺到深 5 階，做網頁或設計系統可以直接用。"],
+harmony:["配色建議","依照色票推薦對比色、類似色，並模擬色盲看到的樣子。"]}},
+en:{
+pinLabel:"Color {n}, {hex}. Move with arrow keys",stripLabel:"Copy {hex}",copied1:"Copied {code}",swLabel:"Show color {n} on the photo",
+onWhite:"White text",onInk:"Black text",copy:"Copy",rmLabel:"Remove {hex}",reExtracted:"Colors re-read. Your manual picks were replaced",
+notImage:"Choose an image file (JPG, PNG or WebP)",decodeErr:"This image can’t be read. Try another one",max:"Up to 30 colors (the Procreate palette limit)",
+added:"Color added. Drag the new dot on the photo to pick it",copyFail:"Couldn’t copy. Long-press the code to copy it",defaultName:"My palette",toolName:"Color Palette from Photo",
+copiedN:"Copied {n} codes",copiedCss:"Copied CSS variables",dlProcreate:"Procreate palette downloaded. Tap the file on your iPad to import it",
+imgFail:"Couldn’t make the image. Please try again",dlCard:"Card downloaded",noShare:"This browser can’t share images, so it was downloaded instead",featSoon:": coming in the app",
+toolText:"Pull a color palette from any photo and send it to Procreate or copy CSS variables.",urlCopied:"Link copied",
+feats:{library:["Palette library","Save every palette you make, sort them into folders, search them, and sync between iPad and iPhone with iCloud."],
+batch:["Several photos at once","Pick a batch of photos and get one palette per photo. Handy when you’re sorting reference images."],
+multi_export:["Export many palettes","Tick several palettes and send them all to Procreate in one go."],
+formats:["More export formats","Export CLIP STUDIO PAINT color sets (.cls), Photoshop swatches (.aco), and design tokens for Figma and Tailwind."],
+ramp:["5-step tints and shades","Every color grows into a light-to-dark scale of 5 steps, ready for a website or design system."],
+harmony:["Harmony ideas","Get complementary and analogous suggestions, and preview how the palette looks with color blindness."]}},
+ja:{
+pinLabel:"{n} 色目 {hex}。矢印キーで移動",stripLabel:"{hex} をコピー",copied1:"{code} をコピーしました",swLabel:"{n} 色目の位置を写真に表示",
+onWhite:"白文字",onInk:"黒文字",copy:"コピー",rmLabel:"{hex} を削除",reExtracted:"色を読み取り直しました。手で選んだ色は置き換わっています",
+notImage:"画像ファイル（JPG・PNG・WebP）を選んでください",decodeErr:"この画像は読み込めません。別の画像で試してください",max:"最大 30 色です（Procreate のパレットの上限）",
+added:"色を追加しました。写真の新しい丸をドラッグして色を選んでください",copyFail:"コピーできませんでした。コードを長押ししてコピーしてください",defaultName:"マイパレット",toolName:"写真からカラーパレット作成",
+copiedN:"{n} 色のコードをコピーしました",copiedCss:"CSS 変数をコピーしました",dlProcreate:"Procreate のパレットを保存しました。iPad でファイルをタップすると読み込まれます",
+imgFail:"画像を作れませんでした。もう一度お試しください",dlCard:"パレット画像を保存しました",noShare:"このブラウザでは画像を共有できないため、保存に切り替えました",featSoon:"：App 版で制作中",
+toolText:"写真からカラーパレットを作成。Procreate への読み込みや CSS 変数のコピーもできます。",urlCopied:"URL をコピーしました",
+feats:{library:["パレットの保存と整理","作ったパレットを保存して、フォルダ分け・検索。iPad と iPhone は iCloud で同期します。"],
+batch:["複数の写真をまとめて抽出","写真を何枚か選ぶと、1 枚ごとにパレットを作成。資料集めのときに便利です。"],
+multi_export:["まとめて書き出し","複数のパレットを選んで、Procreate に一度に読み込めます。"],
+formats:["クリスタ・Photoshop 形式","クリスタのカラーセット（.cls）や Photoshop のスウォッチ（.aco）、Figma・Tailwind 用のデザイン変数に書き出せます。"],
+ramp:["5 段階の濃淡","1 つの色から、明るい色〜暗い色の 5 段階を自動で作成。ウェブやデザインシステムにそのまま使えます。"],
+harmony:["配色の提案","補色や類似色の提案と、色覚の違いによる見え方のシミュレーション。"]}}
+};
+var LANG=['zh','en','ja'].indexOf(window.TS_PAGE_LANG)>=0?window.TS_PAGE_LANG:'zh';
+var PATHS=window.TS_PATHS||{zh:'/color-palette-from-photo/',en:'/en/color-palette-from-photo/',ja:'/ja/color-palette-from-photo/'};
+var TOOL_URL='https://tools.knittinghiyori.com'+PATHS[LANG];
+window.PAL={url:TOOL_URL,short:TOOL_URL.replace('https://','').replace(/\/$/,''),t:I18N[LANG],feats:I18N[LANG].feats};
+
+/* ===== 編織日和工具｜GA4 統一追蹤 v1.2 =====
+   各工具完全相同，只改最上面三行。規範：tools-ga4-guideline */
+var HY_TOOL_ID = 'color_palette';    /* 工具登記表的 tool_id */
+var HY_TOOL_ROOT = '#cp-app';  /* 工具最外層的選擇器 */
+var HY_TOOL_LANG = function(){ return LANG; };
+
+(function(){
+  var LANG_MAP = { zh:'zh-Hant', 'zh-Hant':'zh-Hant', en:'en', ja:'ja' };
+  var DEBUG = /[?\x26]hy_debug=1/.test(location.search);
+  var sent = {}, startAt = 0;
+  function lang(){ try { return LANG_MAP[HY_TOOL_LANG()] || 'zh-Hant'; } catch(e){ return 'zh-Hant'; } }
+  function send(name, params){
+    try {
+      var p = {}, k, v;
+      params = params || {};
+      for (k in params) {
+        v = params[k];
+        if (v === undefined || v === null || v === '') continue;
+        if (typeof v === 'boolean') v = v ? 'yes' : 'no';
+        if (typeof v === 'string') v = v.slice(0, 100);
+        p[k] = v;
+      }
+      p.tool_id = HY_TOOL_ID;
+      p.page_lang = lang();
+      p.content_group = 'tool';
+      if (DEBUG) { p.debug_mode = true; if (window.console) console.log('[hy-tool]', name, p); }
+      if (typeof window.gtag === 'function') { window.gtag('event', name, p); return; }
+      window.dataLayer = window.dataLayer || [];
+      (function(){ window.dataLayer.push(arguments); })('event', name, p);
+    } catch(e) {}
+  }
+  var api = window.hyTool = {
+    event: send,
+    once: function(name, params){ if (sent[name]) return; sent[name] = 1; send(name, params); },
+    start: function(entry){
+      if (sent.tool_start) return;
+      startAt = Date.now();
+      api.once('tool_start', { entry_point: entry || 'direct' });
+    },
+    result: function(params){
+      if (!sent.tool_start || sent.tool_result) return;
+      params = params || {};
+      params.duration_sec = Math.round((Date.now() - startAt) / 1000);
+      api.once('tool_result', params);
+    },
+    share: function(method, type, extra){
+      var p = {}, k; extra = extra || {};
+      for (k in extra) p[k] = extra[k];
+      p.method = method; p.content_type = type;
+      send('share', p);
+    },
+    ctaExtra: null
+  };
+  function inRoot(t){ if (!t || !t.closest) return null; return t.closest(HY_TOOL_ROOT); }
+  function autoStart(e){
+    if (sent.tool_start) return;
+    var t = e.target;
+    if (!inRoot(t)) return;
+    if (t.closest('[data-cta]')) return;
+    api.start('direct');
+  }
+  document.addEventListener('click', autoStart, true);
+  document.addEventListener('input', autoStart, true);
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if (!t || !t.closest) return;
+    var a = t.closest('[data-cta]');
+    if (!a) return;
+    var p = {}, ex = {}, k;
+    try { if (typeof api.ctaExtra === 'function') ex = api.ctaExtra(a) || {}; } catch(err) {}
+    for (k in ex) p[k] = ex[k];
+    p.cta_id = a.getAttribute('data-cta');
+    p.cta_type = a.getAttribute('data-cta-type') || 'other';
+    p.link_url = a.href || '';
+    send('cta_click', p);
+  }, true);
+})();
+/* ===== /GA4 統一追蹤 ===== */
+
+/* 工具程式送的事件轉給 hyTool（tool_start／tool_result 走 hyTool 的一次性規則） */
+window.palTrack=function(name,p){
+  try{
+    if(name==='tool_start'){hyTool.start((p&&p.entry_point)||'direct');return}
+    if(name==='tool_result'){hyTool.result(p||{});return}
+    hyTool.event(name,p||{});
+  }catch(e){}
+};
+/* FAQ 展開 */
+try{
+  var faqs=document.querySelectorAll('#cp-app details');
+  for(var fi=0;fi<faqs.length;fi++)faqs[fi].addEventListener('toggle',function(){if(this.open){var all=document.querySelectorAll('#cp-app details');hyTool.event('faq_open',{option:'q'+(Array.prototype.indexOf.call(all,this)+1)})}});
+}catch(e){}
+/* 分享工具 */
+try{
+  var cpToast=function(m){var el=document.getElementById('toast');document.getElementById('toast-t').textContent=m;document.getElementById('toast-act').hidden=true;el.classList.add('on');setTimeout(function(){el.classList.remove('on')},2200)};
+  var cpCopy=function(s){try{if(navigator.clipboard)return navigator.clipboard.writeText(s).then(function(){return true},function(){return false})}catch(e){}return Promise.resolve(false)};
+  document.getElementById('cp-tline').addEventListener('click',function(){hyTool.share('line','tool')});
+  document.getElementById('cp-tcopy').addEventListener('click',function(){cpCopy(TOOL_URL).then(function(ok){cpToast(ok?I18N[LANG].urlCopied:I18N[LANG].copyFail)});hyTool.share('copy_link','tool')});
+  document.getElementById('cp-tshare').addEventListener('click',function(){
+    var tx=I18N[LANG].toolText;
+    if(navigator.share){navigator.share({title:I18N[LANG].toolName,text:tx,url:TOOL_URL}).then(function(){hyTool.share('native','tool')}).catch(function(){hyTool.event('share_cancel',{method:'native',content_type:'tool'})});return}
+    hyTool.share('copy_text','tool');cpCopy(tx+' '+TOOL_URL).then(function(ok){cpToast(ok?I18N[LANG].urlCopied:I18N[LANG].copyFail)});
+  });
+}catch(e){}
+
 /* 照片配色色票產生器（tool_id=color_palette，前綴 pal_）
    照片只在瀏覽器裡分析：Lab 色彩空間 k-means，取最接近中心的真實像素當代表色。
    每個顏色在照片上有一個圓點，拖曳圓點就換成那裡的顏色（拖曳時顯示放大鏡）。
@@ -201,7 +357,7 @@
         chips.appendChild(ch);
       });
       meta.appendChild(t); meta.appendChild(sub); if (chips.childNodes.length) meta.appendChild(chips);
-      var cp = document.createElement("button"); cp.type = "button"; cp.className = "btn sm"; cp.textContent = tr("copy", "複製");
+      var cp = document.createElement("button"); cp.type = "button"; cp.className = "btn ghost sm"; cp.textContent = tr("copy", "複製");
       cp.addEventListener("click", function () { copy(code(c), fmtT(tr("copied1", "已複製 {code}"), { code: code(c) })); track("export", { method: "copy_text", option: "one_color", source: "list" }); });
       var rm = document.createElement("button"); rm.type = "button"; rm.className = "x"; rm.textContent = "×";
       rm.setAttribute("aria-label", fmtT(tr("rmLabel", "刪除 {hex}"), { hex: hx }));

@@ -1,0 +1,89 @@
+<span class="kick">Design tool · Updated Nov 25, 2026</span>
+<h1>Color Palette from Photo: <span class="hl">pull the colors</span> out of any picture</h1>
+<p class="lead"><strong>In short:</strong> upload a photo you love and get its main colors as a palette, with HEX, RGB, HSL and CMYK codes. Drag the dots on the photo to fine-tune, then send it to Procreate, Figma or your CSS. The photo never leaves your browser.</p>
+<div class="pills"><span>Drag-to-pick dots</span><span>Procreate import</span><span>CSS variables</span><span>Instagram-size cards</span><span>Free, no sign-up</span></div>
+
+<div class="tool" id="tool">
+  <div class="pal-left">
+    <h2 class="step-h"><span class="no">01</span>Upload a photo</h2>
+    <div class="pal-drop" id="pal-drop">
+      <div class="pal-stage" id="pal-stage">
+        <canvas id="pal-view" width="1200" height="760" role="img" aria-label="Photo preview. Each dot marks where a color comes from"></canvas>
+        <div class="pal-pins" id="pal-pins"></div>
+        <canvas class="pal-loupe" id="pal-loupe" width="120" height="120" aria-hidden="true" hidden></canvas>
+      </div>
+      <span class="pal-badge" id="pal-badge">Sample image. Try your own photo</span>
+      <div class="pal-busy" id="pal-busy" hidden><span>Reading colors…</span></div>
+    </div>
+    <p class="hint">Drag a dot on the photo to pick the color under it. Tap a stripe below to copy its code.</p>
+    <div class="pal-strip" id="pal-strip" role="group" aria-label="Color stripes. Tap one to copy its code"></div>
+    <div class="pal-pick">
+      <label class="btn coral">Choose a photo<input type="file" id="pal-file" accept="image/*" aria-label="Choose a photo"></label>
+      <button type="button" class="btn ghost" id="pal-add">+ Add a color</button>
+      <button type="button" class="btn ghost" id="pal-undo" disabled>↶ Undo</button>
+      <button type="button" class="lnk" id="pal-demo">Show sample</button>
+    </div>
+    <p class="privacy"><span aria-hidden="true">●</span><span>Your photo is never uploaded. It stays on this page and is gone when you close it. On a computer you can also drag a photo into the box or paste it with Ctrl/⌘+V.</span></p>
+  </div>
+
+  <div class="ctrl">
+    <section>
+      <h2 class="step-h"><span class="no">02</span>Adjust</h2>
+      <div class="pal-row">
+        <div><label class="lb" for="pal-k">Number of colors<span class="k-out" id="pal-k-out">7</span></label><input type="range" id="pal-k" min="3" max="12" value="7"></div>
+        <div><label class="lb" for="pal-sort">Order</label>
+          <select id="pal-sort"><option value="light">Light to dark</option><option value="share">Most used first</option><option value="hue">By hue</option></select></div>
+      </div>
+      <label class="check"><input type="checkbox" id="pal-vivid" checked><span>Keep small bright colors<small>A red chair in the corner or a small sign won’t get drowned out by the big areas.</small></span></label>
+    </section>
+    <section>
+      <h2 class="step-h"><span class="no">03</span>Palette<span class="mono"><span id="pal-count-n">0</span> colors</span></h2>
+      <div class="seg2" role="group" aria-label="Color code format">
+        <button type="button" data-fmt="hex" aria-pressed="true">HEX</button>
+        <button type="button" data-fmt="rgb" aria-pressed="false">RGB</button>
+        <button type="button" data-fmt="hsl" aria-pressed="false">HSL</button>
+      </div>
+      <ol class="pal-list" id="pal-list"></ol>
+      <p class="hint" style="margin-top:8px">"White text" and "Black text" mean that text in that color is easy to read on this color (contrast 4.5 or higher, WCAG AA).</p>
+    </section>
+    <section>
+      <h2 class="step-h"><span class="no">04</span>Export</h2>
+      <div style="margin-bottom:10px"><label class="lb" for="pal-name">Palette name (shown in Procreate and on the card)</label><input type="text" id="pal-name" maxlength="30" placeholder="My palette" autocomplete="off"></div>
+      <div class="pal-ex">
+        <button type="button" class="btn coral" id="pal-procreate">Send to Procreate (.swatches)</button>
+        <p class="hint">On iPad or iPhone, pick "Procreate" in the share sheet. If it isn’t there, the file downloads instead; tap it in the Files app to import.</p>
+        <p class="lb" style="margin-top:6px">Card size</p>
+        <div class="seg2" role="group" aria-label="Card size">
+          <button type="button" data-ratio="orig" aria-pressed="true">Original</button>
+          <button type="button" data-ratio="square" aria-pressed="false">Square</button>
+          <button type="button" data-ratio="portrait" aria-pressed="false">4:5</button>
+          <button type="button" data-ratio="story" aria-pressed="false">Story 9:16</button>
+        </div>
+        <div class="two">
+          <button type="button" class="btn ghost" id="pal-png">Download card</button>
+          <button type="button" class="btn" id="pal-share">Share card</button>
+        </div>
+        <div class="two">
+          <button type="button" class="btn ghost" id="pal-copy">Copy all codes</button>
+          <button type="button" class="btn ghost" id="pal-css">Copy CSS variables</button>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:10px">Codes are the on-screen (sRGB) colors from your photo. CMYK is a rough conversion, so check with your printer before printing.</p>
+      <div class="app-feat">
+        <p class="lb" style="margin:14px 0 6px">Coming in the app</p>
+        <div class="app-feat-grid">
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="library"><span class="tag">App</span>Save to a palette library</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="batch"><span class="tag">App</span>Several photos at once</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="multi_export"><span class="tag">App</span>Export many palettes to Procreate</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="formats"><span class="tag">App</span>Export for CLIP STUDIO / Photoshop</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="ramp"><span class="tag">App</span>Auto 5-step tints and shades</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="harmony"><span class="tag">App</span>Harmony ideas and color-blind preview</button>
+        </div>
+        <div class="app-wl" id="app-wl">
+          <p><b id="app-wl-t">Want the app?</b><span id="app-wl-d">A palette library, batch export and more. We’ll let you know when it’s out.</span></p>
+          <a class="btn ghost" href="https://knittinghiyori.kit.com/7e0d778fa7" target="_blank" rel="noopener" data-cta="app_waitlist_tool" data-cta-type="newsletter">Notify me →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
