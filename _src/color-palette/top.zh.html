@@ -1,0 +1,89 @@
+<span class="kick">設計工具・最後更新 2026-11-25</span>
+<h1>照片<span class="hl">配色色票</span>產生器：上傳照片，自動抓出主色</h1>
+<p class="lead"><strong>一句話說明：</strong>上傳一張喜歡的照片，自動抓出主色色票，HEX、RGB、HSL、CMYK 一次看。拖曳照片上的圓點就能微調，一鍵匯入 Procreate。照片只在你的瀏覽器裡分析，不會上傳。</p>
+<div class="pills"><span>拖曳圓點換色</span><span>匯入 Procreate</span><span>CSS 變數</span><span>IG／限動色票卡</span><span>免費、免註冊</span></div>
+
+<div class="tool" id="tool">
+  <div class="pal-left">
+    <h2 class="step-h"><span class="no">01</span>上傳照片</h2>
+    <div class="pal-drop" id="pal-drop">
+      <div class="pal-stage" id="pal-stage">
+        <canvas id="pal-view" width="1200" height="760" role="img" aria-label="照片預覽，圓點是每個顏色在照片上的位置"></canvas>
+        <div class="pal-pins" id="pal-pins"></div>
+        <canvas class="pal-loupe" id="pal-loupe" width="120" height="120" aria-hidden="true" hidden></canvas>
+      </div>
+      <span class="pal-badge" id="pal-badge">範例圖，換成你的照片試試</span>
+      <div class="pal-busy" id="pal-busy" hidden><span>分析顏色中…</span></div>
+    </div>
+    <p class="hint">拖曳照片上的圓點，就能換成那裡的顏色；點下面的色條直接複製色碼</p>
+    <div class="pal-strip" id="pal-strip" role="group" aria-label="色條，點一下複製色碼"></div>
+    <div class="pal-pick">
+      <label class="btn coral">選擇照片<input type="file" id="pal-file" accept="image/*" aria-label="選擇照片"></label>
+      <button type="button" class="btn ghost" id="pal-add">＋ 加一色</button>
+      <button type="button" class="btn ghost" id="pal-undo" disabled>↶ 復原</button>
+      <button type="button" class="lnk" id="pal-demo">看範例</button>
+    </div>
+    <p class="privacy"><span aria-hidden="true">●</span><span>照片不會上傳到任何伺服器，關掉頁面就消失。電腦上也可以把照片拖進框裡，或用 Ctrl／⌘＋V 直接貼上。</span></p>
+  </div>
+
+  <div class="ctrl">
+    <section>
+      <h2 class="step-h"><span class="no">02</span>調整</h2>
+      <div class="pal-row">
+        <div><label class="lb" for="pal-k">顏色數量<span class="k-out" id="pal-k-out">7</span></label><input type="range" id="pal-k" min="3" max="12" value="7"></div>
+        <div><label class="lb" for="pal-sort">排列方式</label>
+          <select id="pal-sort"><option value="light">由淺到深</option><option value="share">依佔比</option><option value="hue">依色相</option></select></div>
+      </div>
+      <label class="check"><input type="checkbox" id="pal-vivid" checked><span>保留小面積的鮮豔色<small>例如畫面角落的紅椅子、一小塊招牌，不會被大面積的顏色蓋掉</small></span></label>
+    </section>
+    <section>
+      <h2 class="step-h"><span class="no">03</span>色票<span class="mono"><span id="pal-count-n">0</span> colors</span></h2>
+      <div class="seg2" role="group" aria-label="色碼格式">
+        <button type="button" data-fmt="hex" aria-pressed="true">HEX</button>
+        <button type="button" data-fmt="rgb" aria-pressed="false">RGB</button>
+        <button type="button" data-fmt="hsl" aria-pressed="false">HSL</button>
+      </div>
+      <ol class="pal-list" id="pal-list"></ol>
+      <p class="hint" style="margin-top:8px">「白字／黑字」表示這個顏色當底色時，放白字或黑字看得清楚（對比 4.5 以上，符合 WCAG AA）。</p>
+    </section>
+    <section>
+      <h2 class="step-h"><span class="no">04</span>匯出</h2>
+      <div style="margin-bottom:10px"><label class="lb" for="pal-name">色票名稱（會顯示在 Procreate 與色票卡上）</label><input type="text" id="pal-name" maxlength="30" placeholder="我的配色" autocomplete="off"></div>
+      <div class="pal-ex">
+        <button type="button" class="btn coral" id="pal-procreate">匯入 Procreate（.swatches）</button>
+        <p class="hint">iPad、iPhone：按下去後在分享選單點「Procreate」；沒有出現時會改成下載，到「檔案」App 點一下檔案就會匯入。</p>
+        <p class="lb" style="margin-top:6px">色票卡尺寸</p>
+        <div class="seg2" role="group" aria-label="色票卡尺寸">
+          <button type="button" data-ratio="orig" aria-pressed="true">原比例</button>
+          <button type="button" data-ratio="square" aria-pressed="false">方形</button>
+          <button type="button" data-ratio="portrait" aria-pressed="false">IG 4:5</button>
+          <button type="button" data-ratio="story" aria-pressed="false">限動 9:16</button>
+        </div>
+        <div class="two">
+          <button type="button" class="btn ghost" id="pal-png">下載色票卡</button>
+          <button type="button" class="btn" id="pal-share">分享色票卡</button>
+        </div>
+        <div class="two">
+          <button type="button" class="btn ghost" id="pal-copy">複製全部色碼</button>
+          <button type="button" class="btn ghost" id="pal-css">複製 CSS 變數</button>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:10px">色碼是照片上的螢幕色（sRGB）；CMYK 是簡易換算，印刷前請跟印刷廠確認。</p>
+      <div class="app-feat">
+        <p class="lb" style="margin:14px 0 6px">App 版功能（製作中）</p>
+        <div class="app-feat-grid">
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="library"><span class="tag">App</span>存進色票庫</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="batch"><span class="tag">App</span>多張照片一次抓色</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="multi_export"><span class="tag">App</span>一次匯出多組到 Procreate</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="formats"><span class="tag">App</span>匯出 CLIP STUDIO／Photoshop</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="ramp"><span class="tag">App</span>自動延伸 5 階深淺色</button>
+          <button type="button" class="feat" data-cta="app_feature" data-cta-type="other" data-option="harmony"><span class="tag">App</span>配色建議與色盲模擬</button>
+        </div>
+        <div class="app-wl" id="app-wl">
+          <p><b id="app-wl-t">想要 App 版嗎？</b><span id="app-wl-d">存色票庫、一次匯出多組，App 上線時通知你。</span></p>
+          <a class="btn ghost" href="https://knittinghiyori.kit.com/9a62213d22" target="_blank" rel="noopener" data-cta="app_waitlist_tool" data-cta-type="newsletter">App 上線通知我 →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

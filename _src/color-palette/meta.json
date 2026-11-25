@@ -1,0 +1,74 @@
+{
+ "tool_id": "color_palette",
+ "slug": "color-palette-from-photo",
+ "cat": "life",
+ "root": "cp",
+ "aff_var": "CP_AFF",
+ "app_category": "DesignApplication",
+ "page_title": "工具|照片配色色票產生器|上傳照片抓配色色碼",
+ "old_url": "https://tools.knittinghiyori.com/color-palette-from-photo/",
+ "updated": "2026-11-25",
+ "related": [
+  "phone_wallpaper",
+  "handwriting_compare",
+  "kaomoji",
+  "ig_symbols"
+ ],
+ "blog": [],
+ "aff": {},
+ "base": {},
+ "i18n_fixes": {},
+ "lang": {
+  "zh": {
+   "name": "照片配色色票產生器",
+   "title": "照片配色色票產生器｜上傳照片抓 HEX 色碼，匯入 Procreate 色票｜編織日和",
+   "desc": "上傳照片，自動抓出 3–12 個主色，顯示 HEX、RGB、HSL、CMYK 色碼；拖曳圓點換色，一鍵匯入 Procreate、複製 CSS 變數、下載 IG 尺寸色票卡。照片只在你的瀏覽器裡分析，不會上傳。",
+   "app_desc": "上傳照片自動抓出主色色票，拖曳照片上的圓點微調，匯出 Procreate 色票、CSS 變數與色票卡圖片。",
+   "features": [
+    "自動抓 3–12 個主色",
+    "拖曳圓點換色＋放大鏡",
+    "HEX／RGB／HSL／CMYK",
+    "匯入 Procreate（.swatches）",
+    "複製 CSS 變數",
+    "白字／黑字對比標示",
+    "方形、4:5、限動色票卡",
+    "照片不上傳"
+   ],
+   "howto": "怎麼從照片做出一組配色色票"
+  },
+  "en": {
+   "name": "Color Palette from Photo",
+   "title": "Color Palette from Photo: Extract HEX Codes and Send to Procreate (Free)",
+   "desc": "Free color palette generator from any photo. Get 3 to 12 main colors with HEX, RGB, HSL and CMYK codes, drag dots to fine-tune, send the palette to Procreate, copy CSS variables or download an Instagram-size card. Your photo never leaves your browser.",
+   "app_desc": "Upload a photo to get its main colors as a palette, fine-tune by dragging dots on the image, and export to Procreate, CSS variables or a shareable card.",
+   "features": [
+    "3 to 12 main colors",
+    "Drag dots with a magnifier",
+    "HEX, RGB, HSL and CMYK",
+    "Procreate .swatches export",
+    "CSS variables",
+    "Text contrast tags (WCAG AA)",
+    "Square, 4:5 and story cards",
+    "Photo never uploaded"
+   ],
+   "howto": "How to make a color palette from a photo"
+  },
+  "ja": {
+   "name": "写真からカラーパレット作成",
+   "title": "写真からカラーパレット作成｜画像の配色を抽出、HEX コード表示・Procreate 読み込み（無料）",
+   "desc": "写真をアップするだけでメインの色を 3〜12 色抽出し、HEX・RGB・HSL・CMYK を表示する無料ツール。写真上の丸をドラッグして微調整、Procreate への読み込み、CSS 変数のコピー、インスタ用パレット画像の保存に対応。写真はアップロードされません。",
+   "app_desc": "写真からメインの色を抽出してカラーパレットを作成。写真上の丸をドラッグして微調整し、Procreate・CSS 変数・パレット画像に書き出せます。",
+   "features": [
+    "メインの色を 3〜12 色抽出",
+    "丸をドラッグ＋ルーペで色選び",
+    "HEX・RGB・HSL・CMYK",
+    "Procreate（.swatches）に読み込み",
+    "CSS 変数をコピー",
+    "白文字・黒文字のコントラスト表示",
+    "正方形・4:5・ストーリー画像",
+    "写真はアップロードしない"
+   ],
+   "howto": "写真からカラーパレットを作る方法"
+  }
+ }
+}

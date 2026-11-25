@@ -1,0 +1,22 @@
+{
+ "en": {
+  "invH": "Like it? Share it with friends who draw or design",
+  "invP": "Send this tool to a friend or bookmark it, so you can come back whenever a picture catches your eye. Sharing is the best way to support a free tool.",
+  "bTShare": "Share",
+  "bLine": "Send on LINE",
+  "bTCopy": "Copy link",
+  "bUndoShort": "Undo",
+  "barPng": "Save card",
+  "barCopy": "Copy codes"
+ },
+ "ja": {
+  "invH": "役に立ちましたか？絵やデザイン仲間にシェアしてください",
+  "invP": "ツールを友だちに送ったり、ブックマークしておけば、気になる写真を見つけたときにすぐ使えます。シェアがいちばんの応援になります。",
+  "bTShare": "シェアする",
+  "bLine": "LINE で送る",
+  "bTCopy": "URL をコピー",
+  "bUndoShort": "元に戻す",
+  "barPng": "画像を保存",
+  "barCopy": "コードをコピー"
+ }
+}
