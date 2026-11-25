@@ -517,6 +517,16 @@
     });
   });
 
+  /* ---------- App 版功能試探按鈕：點了說明功能，引導到 App 上線通知（GA4 由頁面的 data-cta 送出） ---------- */
+  var feats = document.querySelectorAll(".feat[data-option]");
+  for (var fi = 0; fi < feats.length; fi++) feats[fi].addEventListener("click", function () {
+    var info = (CFG.feats || {})[this.getAttribute("data-option")];
+    for (var j = 0; j < feats.length; j++) feats[j].setAttribute("aria-pressed", String(feats[j] === this));
+    if (info) { $("app-wl-t").textContent = info[0] + tr("featSoon", "：App 版製作中"); $("app-wl-d").textContent = info[1]; }
+    var wl = $("app-wl");
+    if (wl.scrollIntoView) wl.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  });
+
   /* ---------- 手機底部匯出列：工具區在畫面內才出現 ---------- */
   var bar = $("pal-bar");
   var gos = bar.querySelectorAll("[data-go]");
