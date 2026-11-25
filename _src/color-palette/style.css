@@ -175,3 +175,34 @@ color:var(--ink);background:var(--bg);line-height:1.7;font-size:16px;max-width:1
 @media(min-width:900px){.cp .pal-bar{display:none!important}}
 body.has-bar .cp .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 @media(prefers-reduced-motion:reduce){.cp *{transition:none!important;animation:none!important}}
+.cp .cmp{margin-top:18px;border-color:var(--ink)}
+.cp .cmp-kick{font:500 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin:0 0 4px}
+.cp .cmp h3{font-size:1.3em}
+.cp .cmp-lead{color:var(--sub);font-size:.95em;max-width:46em}
+.cp .cmp table{min-width:560px;font-size:.9em}
+.cp .cmp td,.cp .cmp th{vertical-align:top}
+.cp .cmp tbody th{font-weight:500;color:var(--ink)}
+.cp .cmp td{text-align:center;color:var(--sub);white-space:nowrap}
+.cp .cmp td.y{color:var(--green);font-weight:700}
+.cp .cmp td.n{color:#b9b0ab}
+.cp .cmp .pro{background:var(--red-bg)}
+.cp .cmp thead th.pro{color:var(--red)}
+.cp .cmp tfoot th,.cp .cmp tfoot td{font-weight:700;color:var(--ink);border-bottom:0;white-space:normal}
+.cp .trial{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
+@media(min-width:700px){.cp .trial{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.cp .trial li{counter-increment:tr;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:0;display:flex;flex-direction:column;gap:2px}
+.cp .trial li::before{content:counter(tr,decimal-leading-zero);font:400 1.6em/1 var(--serif-en);color:var(--red)}
+.cp .trial{counter-reset:tr}
+.cp .trial b{font-size:1em}
+.cp .trial span{font-size:.86em;color:var(--sub)}
+.cp .cmp-cta{margin-top:14px;background:var(--soft);border-radius:14px;padding:14px 16px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cp .cmp-cta p{margin:0;font-size:.92em;flex:1 1 260px}
+.cp .cmp-cta .btn{text-decoration:none!important}
+@media(max-width:640px){
+.cp .cmp table{min-width:0;table-layout:fixed;font-size:.76em}
+.cp .cmp col.f{width:43%}
+.cp .cmp th,.cp .cmp td{padding:8px 4px}
+.cp .cmp thead th{white-space:normal;line-height:1.3;text-align:center}
+.cp .cmp thead th:first-child,.cp .cmp tbody th,.cp .cmp tfoot th{text-align:left;padding-left:8px}
+.cp .cmp td{white-space:normal;line-height:1.35}
+}
