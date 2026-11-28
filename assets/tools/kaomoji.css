@@ -217,6 +217,14 @@ color:var(--ink);background:var(--bg);line-height:1.7;font-size:16px;max-width:1
 .km .wl-t{font-weight:800;margin:0 0 4px;font-size:.95em}
 .km .wl-p{font-size:.84em;color:var(--sub);margin:0 0 10px}
 .km .wl-b{width:100%;height:46px;background:#fff;color:var(--coral)!important;border:1.5px solid var(--coral);text-decoration:none!important}
+.km .wl-s{font-size:.8em;margin:0 0 10px;padding:8px 10px;border-radius:10px;background:#fff;color:var(--ink)}
+.km .wl-more{display:block;margin-top:8px;font-size:.8em;color:var(--sub);text-align:center}
+.km .wl.nudge{animation:kmNudge 1.2s ease 2}
+@keyframes kmNudge{50%{box-shadow:0 0 0 4px var(--coral)}}
+@media (prefers-reduced-motion:reduce){.km .wl.nudge{animation:none;outline:2px solid var(--coral)}}
+.km .bub.app{background:var(--coral-l);color:var(--ink);font-size:.85em;cursor:pointer}
+.km .cmp td,.km .cmp th{vertical-align:top}
+.km .cmp .btn{margin-top:4px}
 
 /* ---------- 2026-10-26 改成手機桌布頁的版型 ---------- */
 .km h1{font-size:1.65em;line-height:1.35;margin:.35em 0 .3em;font-weight:800;color:var(--ink);letter-spacing:0}
