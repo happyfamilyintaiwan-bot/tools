@@ -31,7 +31,7 @@
   "insH": "Add the wallpaper maker to your home screen",
   "insP": "Once added, it opens like an app from your home screen. Nothing to download, no storage used. Open it whenever you want a fresh look.",
   "invite": "<strong>Like it?</strong> Share it with a friend who changes wallpapers as often as you do. Sharing is the best way to support a free tool.",
-  "kick": "Everyday tool · Updated 2026-10-22",
+  "kick": "Everyday tool · Updated 2026-11-26",
   "h1": "<span class=\"hl\">Phone wallpaper</span> maker: little flowers and handwritten words, sized for your phone",
   "lead": "<strong>In one line:</strong> a free wallpaper maker for your lock screen and home screen. Pick a soft, muted background, choose a flower and how it's arranged (taped, ribbon-tied, wrapped or potted), then type a few words in English and <strong>they turn into pretty handwriting</strong>. The size matches your phone automatically. Every illustration is drawn by Knitting Hiyori, and there is no watermark.",
   "pills": "<span>Sized for your phone</span><span>9 original flowers</span><span>Handwritten words</span><span>No watermark</span><a href=\"#pw-install\">Add to home screen ↓</a>",
@@ -64,9 +64,13 @@
   "txtNote": "Chinese and Japanese work too: they switch to handwritten-style Chinese and Japanese fonts automatically.",
   "fb": "Want more flowers, layouts or features? Email me: <a href=\"mailto:newsletters@knittinghiyori.com?subject=Phone%20Wallpaper%20Maker%20idea\" data-cta=\"feedback_mail\" data-cta-type=\"other\">newsletters@knittinghiyori.com</a>",
   "txtHint": "✏️ The words are yours to write: a name, a date, any short line in English. Not sure? Tap a phrase below.",
-  "wlT": "🌷 A wallpaper app and a flower shop game are on the way",
-  "wlP": "Interested in this tool as an app, or in our flower shop game? Subscribe to our Newsletters and we'll let you know as soon as there's news.",
-  "wlB": "Subscribe to Newsletters →"
+  "wlT": "🌷 The Hiyori Blooms app is on the way",
+  "wlP": "This web page stays free. The app adds <b>a new wallpaper every morning, automatically</b>, <b>finger writing</b> and app-only <b>seasonal flowers</b> (🌸 cherry blossoms).",
+  "wlB": "Notify me →",
+  "wlMore": "Web vs app ↓",
+  "cmpBody": "<p class=\"cmp-kick\">Web vs App</p><h3 id=\"pw-cmp-h\">Web, free app, or Plus: what’s the difference?</h3><p class=\"cmp-lead\">Everything on this web page stays free, with no ads. The app is in the works: the free download has everything the web version has, plus a few things a web page can’t do.</p><div class=\"tw\"><table><colgroup><col class=\"f\"><col><col><col></colgroup><thead><tr><th scope=\"col\">Feature</th><th scope=\"col\">Web</th><th scope=\"col\">App (free)</th><th scope=\"col\" class=\"pro\">App Plus</th></tr></thead><tbody><tr><th scope=\"row\">12 backgrounds, 10 flowers, 7 arrangements, English, Chinese and Japanese handwriting</th><td class=\"y\"><span aria-label=\"Yes\">✓</span></td><td class=\"y\"><span aria-label=\"Yes\">✓</span></td><td class=\"y pro\"><span aria-label=\"Yes\">✓</span></td></tr><tr><th scope=\"row\">Save as a phone wallpaper (sized for you)</th><td>Press and hold to save</td><td>One tap to Photos</td><td class=\"y pro\"><span aria-label=\"Yes\">✓</span></td></tr><tr><th scope=\"row\">“Today”: a new flower wallpaper every day</th><td class=\"n\"><span aria-label=\"No\">—</span></td><td class=\"y\"><span aria-label=\"Yes\">✓</span></td><td class=\"y pro\"><span aria-label=\"Yes\">✓</span></td></tr><tr><th scope=\"row\">My Works: keep and re-edit your wallpapers</th><td class=\"n\"><span aria-label=\"No\">—</span></td><td class=\"y\"><span aria-label=\"Yes\">✓</span></td><td class=\"y pro\"><span aria-label=\"Yes\">✓</span></td></tr><tr><th scope=\"row\">Change your wallpaper automatically every morning</th><td class=\"n\"><span aria-label=\"No\">—</span></td><td class=\"n\"><span aria-label=\"No\">—</span></td><td class=\"y pro\"><span aria-label=\"Yes\">✓</span></td></tr><tr><th scope=\"row\">Write with your finger (move and resize)</th><td class=\"n\"><span aria-label=\"No\">—</span></td><td class=\"n\"><span aria-label=\"No\">—</span></td><td class=\"y pro\"><span aria-label=\"Yes\">✓</span></td></tr><tr><th scope=\"row\">App-only seasonal flowers (🌸 cherry blossoms…)</th><td class=\"n\"><span aria-label=\"No\">—</span></td><td>Flower pack add-on</td><td class=\"pro\">Flower pack add-on</td></tr></tbody><tfoot><tr><th scope=\"row\">Price</th><td>Free</td><td>Free download</td><td class=\"pro\">One-time purchase<br>(not a subscription)</td></tr></tfoot></table></div><ol class=\"trial\"><li><b>Download the app</b><span>Free, with everything the web version has.</span></li><li><b>Start with the free version</b><span>Get a new wallpaper in “Today” and keep your own works.</span></li><li><b>Upgrade to Plus if you like it</b><span>Pay once for daily auto-change and finger writing. No monthly charge.</span></li></ol><div class=\"cmp-cta\"><p>The app is in the works. Leave your email and we’ll tell you the day it launches, with an early-bird price.</p><a class=\"btn coral\" href=\"https://knittinghiyori.kit.com/7e0d778fa7\" target=\"_blank\" rel=\"noopener\" data-cta=\"app_compare\" data-cta-type=\"newsletter\">Notify me →</a></div>",
+  "imgApp": "🌷 Want a new one every morning, automatically? The <b>Hiyori Blooms app</b> is on the way, with one-tap saving and finger writing.",
+  "imgAppB": "Notify me →"
  },
  "ja": {
   "insTabs": "端末を選択",
@@ -100,7 +104,7 @@
   "insH": "スマホ壁紙メーカーをホーム画面に追加",
   "insP": "ホーム画面に追加すると、アプリのように開けます。ダウンロード不要で容量もとりません。気分を変えたいときにすぐ新しい壁紙を作れます。",
   "invite": "<strong>気に入ったら</strong>、壁紙をよく変える友だちにシェアしてください。シェアしてもらえることが、無料ツールへのいちばんの応援です。",
-  "kick": "生活ツール・2026-10-22 更新",
+  "kick": "生活ツール・2026-11-26 更新",
   "h1": "<span class=\"hl\">スマホ壁紙</span>メーカー：小さな花と手書きの英語で、機種にぴったりの壁紙に",
   "lead": "<strong>ひとことで言うと：</strong>ロック画面やホーム画面の壁紙を無料で作れるツールです。やさしいくすみカラーの背景を選び、花と飾り方（マステ留め・リボン結び・ラッピング・鉢植え）を決めて、英語をひとこと打つと<strong>きれいな手書き文字</strong>になります。サイズはお使いのスマホに自動で合わせます。イラストはすべて編織日和のオリジナルで、透かしも入りません。",
   "pills": "<span>機種に合わせたサイズ</span><span>オリジナルの花9種</span><span>英語の手書き文字</span><span>透かしなし</span><a href=\"#pw-install\">ホーム画面に追加 ↓</a>",
@@ -133,8 +137,12 @@
   "txtNote": "日本語や中国語も入力できます。自動で日本語・中国語の手書き風フォントに切り替わります。",
   "fb": "花や飾り方、機能のリクエストはメールでどうぞ：<a href=\"mailto:newsletters@knittinghiyori.com?subject=%E3%82%B9%E3%83%9E%E3%83%9B%E5%A3%81%E7%B4%99%E3%83%A1%E3%83%BC%E3%82%AB%E3%83%BC%E3%81%B8%E3%81%AE%E6%84%8F%E8%A6%8B\" data-cta=\"feedback_mail\" data-cta-type=\"other\">newsletters@knittinghiyori.com</a>",
   "txtHint": "✏️ 文字は自由に入力できます。名前や記念日、好きな英語のひとことでもOK。迷ったら下の言葉をタップ。",
-  "wlT": "🌷 壁紙アプリと花屋経営ゲームを制作中",
-  "wlP": "このツールのアプリ版や、花屋経営ゲームに興味がありますか？ Newsletters に登録すると、最新情報をいち早くお知らせします。",
-  "wlB": "Newsletters に登録 →"
+  "wlT": "🌷 アプリ「日和花桌布」制作中",
+  "wlP": "ウェブ版はずっと無料。アプリでは<b>毎朝の壁紙自動変更</b>、<b>指で手書き</b>、アプリ限定の<b>季節の花</b>（🌸 桜）が使えます。",
+  "wlB": "公開をお知らせ →",
+  "wlMore": "ウェブ版とアプリのちがい ↓",
+  "cmpBody": "<p class=\"cmp-kick\">Web vs App</p><h3 id=\"pw-cmp-h\">ウェブ版・アプリ無料版・アプリ Plus のちがい</h3><p class=\"cmp-lead\">ウェブ版の機能はずっと無料、広告もありません。アプリ版は制作中です。無料ダウンロードでウェブ版の機能がすべて使え、さらにウェブではできないことが加わります。</p><div class=\"tw\"><table><colgroup><col class=\"f\"><col><col><col></colgroup><thead><tr><th scope=\"col\">機能</th><th scope=\"col\">ウェブ版</th><th scope=\"col\">アプリ無料版</th><th scope=\"col\" class=\"pro\">アプリ Plus</th></tr></thead><tbody><tr><th scope=\"row\">背景 12 色・花 10 種・飾り方 7 種、英語と中国語・日本語の手書き文字</th><td class=\"y\"><span aria-label=\"あり\">✓</span></td><td class=\"y\"><span aria-label=\"あり\">✓</span></td><td class=\"y pro\"><span aria-label=\"あり\">✓</span></td></tr><tr><th scope=\"row\">スマホ壁紙として保存（サイズ自動）</th><td>長押しで保存</td><td>ワンタップで写真に保存</td><td class=\"y pro\"><span aria-label=\"あり\">✓</span></td></tr><tr><th scope=\"row\">「今日」：毎日新しい花の壁紙</th><td class=\"n\"><span aria-label=\"なし\">—</span></td><td class=\"y\"><span aria-label=\"あり\">✓</span></td><td class=\"y pro\"><span aria-label=\"あり\">✓</span></td></tr><tr><th scope=\"row\">マイ作品：保存して、あとで編集</th><td class=\"n\"><span aria-label=\"なし\">—</span></td><td class=\"y\"><span aria-label=\"あり\">✓</span></td><td class=\"y pro\"><span aria-label=\"あり\">✓</span></td></tr><tr><th scope=\"row\">毎朝、壁紙を自動で変える</th><td class=\"n\"><span aria-label=\"なし\">—</span></td><td class=\"n\"><span aria-label=\"なし\">—</span></td><td class=\"y pro\"><span aria-label=\"あり\">✓</span></td></tr><tr><th scope=\"row\">指で手書き（移動・拡大縮小）</th><td class=\"n\"><span aria-label=\"なし\">—</span></td><td class=\"n\"><span aria-label=\"なし\">—</span></td><td class=\"y pro\"><span aria-label=\"あり\">✓</span></td></tr><tr><th scope=\"row\">アプリ限定の季節の花（🌸 桜・八重桜…）</th><td class=\"n\"><span aria-label=\"なし\">—</span></td><td>花パックを別途購入</td><td class=\"pro\">花パックを別途購入</td></tr></tbody><tfoot><tr><th scope=\"row\">料金</th><td>無料</td><td>無料ダウンロード</td><td class=\"pro\">買い切り<br>（サブスクではありません）</td></tr></tfoot></table></div><ol class=\"trial\"><li><b>アプリをダウンロード</b><span>無料で、ウェブ版の機能はすべて使えます。</span></li><li><b>まずは無料版で</b><span>「今日」の新しい壁紙を見たり、作品を保存したり。</span></li><li><b>気に入ったら Plus に</b><span>買い切りで毎朝の自動変更と指の手書きが使えます。毎月の支払いはありません。</span></li></ol><div class=\"cmp-cta\"><p>アプリは制作中です。メールを登録すると、公開日を早割価格といっしょにお知らせします。</p><a class=\"btn coral\" href=\"https://knittinghiyori.kit.com/7e0d778fa7\" target=\"_blank\" rel=\"noopener\" data-cta=\"app_compare\" data-cta-type=\"newsletter\">公開をお知らせ →</a></div>",
+  "imgApp": "🌷 毎朝自動で壁紙を変えたい？アプリ<b>「日和花桌布」</b>を制作中。ワンタップ保存や指の手書きも。",
+  "imgAppB": "公開をお知らせ →"
  }
 }
