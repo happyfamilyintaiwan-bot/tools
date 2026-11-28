@@ -1834,7 +1834,18 @@ ja:function(){
     var last="";
     var add=function(t){ var b=document.createElement("div"); b.className="bub me"+(t.indexOf("\n")>=0?" ml":""); b.textContent=t; chat.appendChild(b);
       while(chat.children.length>8) chat.removeChild(chat.firstChild); chat.scrollTop=chat.scrollHeight; };
-    window.addEventListener("km-copy",function(e){ var t=e.detail&&e.detail.txt; if(!visible(t)) return; last=t; add(t); });
+    window.addEventListener("km-copy",function(e){ var t=e.detail&&e.detail.txt; if(!visible(t)) return; last=t; add(t); nudge(); });
+    /* 用完引導：同一次造訪複製到第 3 個時，朋友回一句介紹 App，旁邊的 App 卡片閃一下（只出現一次） */
+    var copies=0, nudged=false;
+    var nudge=function(){
+      copies++; if(nudged||copies<3||!chat.dataset.app) return; nudged=true;
+      setTimeout(function(){
+        var b=document.createElement("div"); b.className="bub fr app"; b.textContent=chat.dataset.app; chat.appendChild(b); chat.scrollTop=chat.scrollHeight;
+        var wl=document.getElementById("km-wl"); if(!wl) return;
+        b.addEventListener("click",function(){ wl.scrollIntoView({behavior:"smooth",block:"center"}); });
+        wl.classList.remove("nudge"); void wl.offsetWidth; wl.classList.add("nudge");
+      },700);
+    };
     document.getElementById("km-last").addEventListener("click",function(){ if(last) copyText(last,chat.dataset.copied+"　"+last.replace(/\s+/g," ").trim(),"聊天-最後一個"); });
     document.getElementById("km-clear").addEventListener("click",function(){ while(chat.children.length>1) chat.removeChild(chat.lastChild); last=""; });
   }
